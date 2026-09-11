@@ -1,0 +1,38 @@
+node_modules/
+dist/
+reports/
+.pnpm-store/
+
+# Environment files and local credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+secrets.*
+credentials.*
+
+# Generated scan reports and temporary files
+example-scan.json
+*-scan.json
+report.json
+scan-output/
+tmp/
+temp/
+*.tmp
+*.log
+.npm-lock/
+
+# Local development artifacts
+coverage/
+.cache/
+.codex/
+.agents/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tsbuildinfo

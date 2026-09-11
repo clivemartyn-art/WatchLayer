@@ -1,0 +1,57 @@
+# AGENTS.md
+
+## Project
+This repository contains the prototype for a reusable website-monitoring SaaS platform.
+
+Working product name: WatchLayer.
+
+The platform will eventually power vertical products such as:
+- LawWatch
+- BranchWatch
+- ClerkWatch
+- FuneralWatch
+
+## Core principle
+The engine is industry-neutral.
+
+Industry-specific rules must live in separate rule packs, not in crawler or core-monitoring code.
+
+## Product behaviour
+The system should:
+1. Crawl public websites.
+2. Extract useful structured facts.
+3. Store a snapshot.
+4. Compare later scans.
+5. Run deterministic rules.
+6. Flag meaningful changes.
+7. Avoid false positives.
+
+## Safety / accuracy
+- Never claim a business is legally compliant.
+- Never treat absence of evidence as automatic non-compliance.
+- Use states such as PASS, WARNING, POTENTIAL_ISSUE, UNKNOWN and NOT_APPLICABLE.
+- Serious findings should later be reconfirmed before customer alerts.
+- False positives are considered worse than uncertain results.
+
+## Engineering preferences
+- TypeScript / Node.js.
+- Modular architecture.
+- Prefer deterministic checks over AI.
+- Avoid unnecessary dependencies and infrastructure.
+- Write tests for new detectors and rules.
+- Keep industry logic outside core modules.
+- Do not add databases, billing, authentication, AI or UI unless explicitly requested.
+
+## Verification
+Before completing a task:
+- run tests;
+- run type checking;
+- fix failures;
+- report remaining limitations clearly.
+
+## Documentation
+See:
+- docs/PRODUCT_SPEC.md
+- README.md
+
+Keep this file short. Put detailed architecture and feature specifications in docs/.

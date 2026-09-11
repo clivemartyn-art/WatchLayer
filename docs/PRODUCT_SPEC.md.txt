@@ -1,0 +1,74 @@
+# WatchLayer Product Specification
+
+## Purpose
+
+WatchLayer is a reusable website-monitoring engine for specialist and regulated sectors.
+
+Its core flow is:
+
+Crawl → Extract → Snapshot → Rules → Compare → Score → Alert
+
+## Initial commercial vertical
+
+The first intended vertical is LawWatch for SRA-regulated solicitor firms.
+
+Do not build LawWatch-specific logic into the core engine.
+
+## Long-term components
+
+### Crawler
+Discovers and retrieves pages and documents from public websites.
+
+### Extractor
+Extracts:
+- visible text
+- page titles
+- metadata
+- links
+- documents
+- forms
+- emails
+- telephone numbers
+- structured facts
+
+### Snapshot
+Stores the observed state of a website at a point in time.
+
+### Change Detector
+Compares scans and identifies:
+- new pages
+- removed pages
+- changed pages
+- broken pages
+- changed documents
+- changed important facts
+
+### Rule Engine
+Runs industry-neutral and industry-specific checks.
+
+### Scoring
+Produces website-health scores without claiming legal compliance.
+
+### Alerts
+Later sends customer alerts for confirmed significant changes.
+
+## MVP philosophy
+
+Do not build the finished SaaS first.
+
+The first milestone is simply:
+
+URL in
+→ crawl website
+→ structured result out
+
+The second milestone will add persistent snapshots and change detection.
+
+Only later add:
+- LawWatch rules
+- database
+- accounts
+- dashboard
+- billing
+- email alerts
+- hosted infrastructure
