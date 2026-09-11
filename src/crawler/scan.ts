@@ -53,6 +53,9 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
       sitemapSeen.add(url);
       const policy = await robots(new URL(url).origin); if (policy.isAllowed(url, USER_AGENT) === false) continue;
       const response = await fetch(url); if (response.status === 404) continue;
+      const finalSitemapUrl = normalize(response.finalUrl);
+      if (finalSitemapUrl !== url && sitemapSeen.has(finalSitemapUrl)) continue;
+      sitemapSeen.add(finalSitemapUrl);
       if (response.status < 200 || response.status >= 300) throw new Error(`Sitemap HTTP ${response.status}`);
       const parsed = parseSitemap(response.body); result.discovery.sitemapFound = true;
       for (const rawPage of parsed.pages.slice(0,10000)) { try { const page = normalize(rawPage, response.finalUrl); if (sameDomain(page,start)) { sitemapPages.add(page); enqueue(page); } } catch { /* Ignore bad entries. */ } }
@@ -67,18 +70,30 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
     if (policy.isAllowed(url, USER_AGENT) === false) { error(url, 'robots', 'Skipped by robots.txt'); continue; }
     fetched.add(url); attempted++;
     try {
-      const response = await fetch(url); fetched.add(response.finalUrl);
+      const response = await fetch(url);
+      const alreadyRetrieved = fetched.has(response.finalUrl) && response.finalUrl !== url;
+      fetched.add(response.finalUrl);
       if (url === start) { result.site.canonicalUrl = response.finalUrl; result.site.hostname = new URL(response.finalUrl).hostname; }
+      if (alreadyRetrieved) {
+        const failure = failures.get(response.finalUrl);
+        if (failure) failures.set(url, failure);
+        continue;
+      }
       if (response.status < 200 || response.status >= 300) {
         result.summary.pagesFailed++; error(url,'page',`HTTP ${response.status}`,response.status);
-        if (response.status >= 400) failures.set(url,{status: response.status});
+        // Access controls, throttling and server failures are inconclusive,
+        // not evidence that a destination no longer exists.
+        if (response.status === 404 || response.status === 410) {
+          failures.set(url,{status: response.status});
+          failures.set(response.finalUrl,{status: response.status});
+        }
         continue;
       }
       if (!/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(response.contentType)) continue;
       const page = extractPage(response); result.pages.push(page); result.forms.push(...page.forms);
       for (const link of page.internalLinks) enqueue(link, page.finalUrl, page.finalUrl);
       for (const link of page.documentLinks) addDocument(link, page.finalUrl);
-    } catch (e) { result.summary.pagesFailed++; error(url, 'page', e); failures.set(url,{error: e instanceof Error ? e.message : String(e)}); }
+    } catch (e) { result.summary.pagesFailed++; error(url, 'page', e); }
   }
   for (const [destinationUrl, failure] of failures) for (const sourcePage of sources.get(destinationUrl) ?? []) result.brokenLinks.push({sourcePage,destinationUrl,...failure});
   function contacts(kind: 'emails'|'phones'): Contact[] {
