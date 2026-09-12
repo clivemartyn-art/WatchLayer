@@ -64,6 +64,9 @@ export interface Coverage {
   discoveryErrors: number;
 }
 export interface Snapshot {
+  /** Optional additive transport evidence; older snapshots remain readable. */
+  requests?: {url: string; finalUrl?: string; status?: number; tls?: {authorized: boolean; validTo: string}; errorCode?: string}[];
+  brokenLinks?: ScanResult['brokenLinks'];
   scanId: string;
   siteId: string;
   canonicalDomain: string;

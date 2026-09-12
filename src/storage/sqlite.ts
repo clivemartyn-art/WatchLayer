@@ -4,9 +4,11 @@ import { dirname, resolve } from 'node:path';
 import { migrate } from './migrations.js';
 import type { SnapshotRepository } from './repository.js';
 import type { Site, Snapshot } from '../snapshots/types.js';
+import type { RuleRun } from '../rules/types.js';
+import type { RuleRepository } from '../rules/repository.js';
 
 export const DEFAULT_DATABASE = '.watchlayer/watchlayer.db';
-export class SqliteRepository implements SnapshotRepository {
+export class SqliteRepository implements SnapshotRepository, RuleRepository {
   private readonly db: DatabaseSync;
   constructor(path = DEFAULT_DATABASE) {
     if (path !== ':memory:') mkdirSync(dirname(resolve(path)), {recursive: true});
@@ -49,6 +51,21 @@ export class SqliteRepository implements SnapshotRepository {
   }
   history(canonicalDomain: string): Snapshot[] {
     return this.db.prepare(`SELECT scan_id FROM scans JOIN sites USING(site_id) WHERE canonical_domain=? ORDER BY completed_at DESC, scans.rowid DESC`).all(canonicalDomain).map(row => this.get(String(row.scan_id))!);
+  }
+  saveRuleRun(run: RuleRun): void {
+    const {results,findings,...metadata}=run;
+    this.db.exec('BEGIN IMMEDIATE');
+    try {
+      this.db.prepare('INSERT INTO rule_runs VALUES (?,?,?,?,?,?,?,?,?)').run(run.runId,run.scanId,run.comparisonId,run.packId,run.packVersion,run.startedAt,run.completedAt,run.status,JSON.stringify(metadata));
+      const insert=this.db.prepare('INSERT INTO rule_results VALUES (?,?,?,?,?,?,?,?,?,?,?)');
+      results.forEach((r,i)=>insert.run(run.runId,i,r.ruleId,r.ruleVersion,r.status,r.confidence,r.severity,r.resource,JSON.stringify(r.evidence),r.explanation,JSON.stringify(r)));
+      const finding=this.db.prepare('INSERT INTO findings VALUES (?,?,?)');
+      for(const f of findings)finding.run(f.findingId,run.runId,JSON.stringify(f));
+      this.db.exec('COMMIT');
+    } catch(error){this.db.exec('ROLLBACK');throw error;}
+  }
+  ruleRuns(scanId: string): RuleRun[] {
+    return this.db.prepare('SELECT run_id,data_json FROM rule_runs WHERE scan_id=? ORDER BY completed_at DESC,rowid DESC').all(scanId).map(row=>({...JSON.parse(String(row.data_json)),results:this.db.prepare('SELECT data_json FROM rule_results WHERE run_id=? ORDER BY ordinal').all(row.run_id!).map(r=>JSON.parse(String(r.data_json))),findings:this.db.prepare('SELECT data_json FROM findings WHERE run_id=? ORDER BY rowid').all(row.run_id!).map(r=>JSON.parse(String(r.data_json)))}));
   }
   close(): void { this.db.close(); }
 }

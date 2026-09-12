@@ -27,8 +27,12 @@ export async function scanAndPersist(input: string, repository: SnapshotReposito
   const site = repository.findSite(canonicalDomain);
   const transport = options.fetcher ?? createFetcher(start,options.delayMs,options.timeoutMs);
   const robotsCache = new Map<string,Response>();
+  const requests: NonNullable<Snapshot['requests']> = [];
   const fetcher: Fetcher = async (url, request) => {
-    const response = await transport(url,request);
+    let response: Response;
+    try { response = await transport(url,request); }
+    catch (error) { requests.push({url,errorCode: error && typeof error === 'object' && 'code' in error ? String(error.code) : 'INCONCLUSIVE'}); throw error; }
+    requests.push({url,finalUrl:response.finalUrl,status:response.status,tls:response.tls});
     if (new URL(url).pathname === '/robots.txt') robotsCache.set(url,response);
     return response;
   };
@@ -107,6 +111,7 @@ export async function scanAndPersist(input: string, repository: SnapshotReposito
   const pageList = [...pages.values()];
   const homepageReached = result.pages.some(p=>p.requestedUrl===start);
   const snapshot: Snapshot = {
+    requests, brokenLinks: result.brokenLinks,
     scanId,siteId:site?.siteId??`site_${hash(canonicalDomain).slice(0,24)}`,canonicalDomain,canonicalStartUrl:homepageReached?result.site.canonicalUrl:site?.canonicalStartUrl??result.site.canonicalUrl,inputUrl:input,startedAt,completedAt:now().toISOString(),
     status:!homepageReached?'failed':result.summary.crawlLimitReached||errors.length?'partial':'complete',crawlLimit,applicationVersion:APPLICATION_VERSION,schemaVersion:SNAPSHOT_SCHEMA_VERSION,
     comparisonEligible:false,comparisonWarnings:[],

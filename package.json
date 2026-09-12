@@ -7,6 +7,9 @@
     "node": ">=22.16.0"
   },
   "scripts": {
+    "rules": "tsx src/cli/rules.ts",
+    "findings": "tsx src/cli/findings.ts",
+    "validate:rules": "tsx scripts/validate-milestone3.ts",
     "scan": "tsx src/cli/index.ts",
     "test": "vitest run",
     "typecheck": "tsc --project tsconfig.check.json",

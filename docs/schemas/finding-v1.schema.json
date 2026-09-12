@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:watchlayer:finding:1",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "ruleId",
+    "ruleVersion",
+    "packId",
+    "packVersion",
+    "status",
+    "severity",
+    "confidence",
+    "confidenceReason",
+    "applicability",
+    "title",
+    "explanation",
+    "resource",
+    "evidence",
+    "findingId",
+    "firstDetected",
+    "currentState",
+    "description",
+    "recommendation",
+    "priority"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "ruleId": {
+      "type": "string"
+    },
+    "ruleVersion": {
+      "type": "string"
+    },
+    "packId": {
+      "type": "string"
+    },
+    "packVersion": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "WARNING",
+        "POTENTIAL_ISSUE",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "severity": {
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "INFO"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    },
+    "confidenceReason": {
+      "type": "string"
+    },
+    "applicability": {
+      "enum": [
+        "applicable",
+        "not_applicable",
+        "uncertain"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "resource": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "scanId",
+          "url",
+          "observed",
+          "explanation"
+        ],
+        "properties": {
+          "scanId": {
+            "type": "string"
+          },
+          "previousScanId": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "observed": {},
+          "previous": {},
+          "explanation": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "findingId": {
+      "type": "string"
+    },
+    "firstDetected": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "currentState": {
+      "enum": [
+        "PASS",
+        "WARNING",
+        "POTENTIAL_ISSUE",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "recommendation": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

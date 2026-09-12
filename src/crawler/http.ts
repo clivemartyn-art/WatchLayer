@@ -1,7 +1,8 @@
 import http from 'node:http';
 import https from 'node:https';
+import type { TLSSocket } from 'node:tls';
 import { normalize, resolvePublic, sameDomain } from '../utils/urls.js';
-export interface Response { requestedUrl: string; finalUrl: string; status: number; contentType: string; body: string; responseTimeMs: number; redirects: string[] }
+export interface Response { requestedUrl: string; finalUrl: string; status: number; contentType: string; body: string; responseTimeMs: number; redirects: string[]; tls?: { authorized: boolean; validTo: string } }
 export interface RequestOptions { method?: 'GET' | 'HEAD'; beforeRequest?: (url: string) => Promise<void> }
 export type Fetcher = (url: string, options?: RequestOptions) => Promise<Response>;
 export const USER_AGENT = 'WatchLayer/0.2 (local website scanner)';
@@ -17,7 +18,7 @@ export function createFetcher(target: string, delayMs = 300, timeoutMs = 10000):
       const url = new URL(current);
       let timer: ReturnType<typeof setTimeout> | undefined;
       const addresses = await Promise.race([resolvePublic(url.hostname), new Promise<never>((_, reject) => { timer = setTimeout(() => reject(new Error('DNS timeout')), timeoutMs); })]).finally(() => clearTimeout(timer));
-      const response = await new Promise<{status: number; contentType: string; location?: string; body: string}>((resolve, reject) => {
+      const response = await new Promise<{status: number; contentType: string; location?: string; body: string; tls?: Response['tls']}>((resolve, reject) => {
         // Pin the validated address to this connection, preventing DNS rebinding.
         const address = addresses[0];
         const req = (url.protocol === 'https:' ? https : http).request(url, {
@@ -28,11 +29,14 @@ export function createFetcher(target: string, delayMs = 300, timeoutMs = 10000):
           },
         }, res => {
           const status = res.statusCode ?? 0; const contentType = String(res.headers['content-type'] ?? '');
-          if (options.method === 'HEAD' || status >= 300 && status < 400 || !/text\/|xml|html/i.test(contentType)) { resolve({status, contentType, location: res.headers.location, body: ''}); res.destroy(); return; }
+          const socket = res.socket as TLSSocket;
+          const certificate = url.protocol === 'https:' ? socket?.getPeerCertificate?.() : undefined;
+          const tls = certificate?.valid_to ? {authorized: socket.authorized === true, validTo: certificate.valid_to} : undefined;
+          if (options.method === 'HEAD' || status >= 300 && status < 400 || !/text\/|xml|html/i.test(contentType)) { resolve({status, contentType, location: res.headers.location, body: '', tls}); res.destroy(); return; }
           const chunks: Buffer[] = []; let size = 0;
           res.on('data', (chunk: Buffer) => { size += chunk.length; if (size > 2_000_000) req.destroy(new Error('Response exceeds 2 MB limit')); else chunks.push(chunk); });
           res.on('error', reject);
-          res.on('end', () => resolve({status, contentType, body: Buffer.concat(chunks).toString('utf8')}));
+          res.on('end', () => resolve({status, contentType, body: Buffer.concat(chunks).toString('utf8'), tls}));
         });
         const timeout = setTimeout(() => req.destroy(new Error('Request timeout')), Math.max(1, deadline - Date.now()));
         req.on('close', () => clearTimeout(timeout)); req.on('error', reject); req.end();

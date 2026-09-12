@@ -1,4 +1,8 @@
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
+import { runRules } from '../rules/engine.js';
+import { universalPack, validatePack } from '../rules/pack.js';
+import { findingsReport } from '../reporting/findings.js';
+import type { Snapshot } from '../snapshots/types.js';
 import { scan } from '../crawler/scan.js';
 import { scanAndPersist } from '../snapshots/service.js';
 import { SqliteRepository, DEFAULT_DATABASE } from '../storage/sqlite.js';
@@ -8,20 +12,23 @@ import { compareSnapshots } from '../comparison/diff.js';
 import { terminalReport } from '../reporting/terminal.js';
 import { changeReport } from '../reporting/changes.js';
 
-type Command = 'scan'|'compare'|'history'|'export-scan';
+type Command = 'scan'|'compare'|'history'|'export-scan'|'rules'|'findings';
 export async function runCli(command: Command, arguments_: string[]): Promise<void> {
   let repository: SqliteRepository | undefined;
   try {
     const args=[...arguments_];
     if (!args.length||args.includes('--help')) {
-      console.log(`Usage: npm run ${command} -- <${command==='export-scan'?'scan-id':'URL'}> [--db path] [--json] [--output file]${command==='scan'?' [--compare] [--no-persist] [--max-pages 100] [--recheck-budget 20]':''}`); return;
+      console.log(`Usage: npm run ${command} -- <${command==='export-scan'?'scan-id':command==='rules'?'scan-id or URL':'URL'}> [--db path] [--json] [--output file]${command==='scan'?' [--compare] [--rules] [--pack file.json] [--no-persist] [--max-pages 100] [--recheck-budget 20]':command==='rules'?' [--pack file.json]':''}`); return;
     }
     const input=args.shift()!;
     let db=DEFAULT_DATABASE; let json=false; let output: string|undefined; let compare=false; let persist=true; let maxPages=100; let recheckBudget=20;
+    let rules=false; const packFiles:string[]=[];
     while(args.length) {
       const flag=args.shift()!;
       const value=()=>{const next=args.shift();if(!next||next.startsWith('--'))throw new Error(`${flag} requires a value`);return next;};
       if(flag==='--json')json=true;
+      else if(command==='scan'&&flag==='--rules')rules=true;
+      else if((command==='rules'||command==='scan')&&flag==='--pack')packFiles.push(value());
       else if(flag==='--db')db=value();
       else if(flag==='--output')output=value();
       else if(command==='scan'&&flag==='--compare')compare=true;
@@ -31,7 +38,16 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
       else throw new Error(`Unknown option: ${flag}`);
     }
     if(compare&&!persist)throw new Error('--compare requires persistence');
-    if(command!=='export-scan')normalize(input);
+    if(rules&&!persist)throw new Error('--rules requires persistence');
+    if(packFiles.length&&command==='scan'&&!rules)throw new Error('--pack requires --rules');
+    if(command!=='export-scan'&&command!=='rules')normalize(input);
+    const packs=packFiles.length?await Promise.all(packFiles.map(async file=>validatePack(JSON.parse(await readFile(file,'utf8'))))):[universalPack];
+    const execute=(snapshot:Snapshot)=>{
+      const history=repository!.history(snapshot.canonicalDomain);
+      const previous=selectBaseline(history.slice(history.findIndex(s=>s.scanId===snapshot.scanId)+1),snapshot.crawlLimit);
+      const runs=runRules({current:snapshot,previous},packs);
+      runs.forEach(r=>repository!.saveRuleRun(r));return runs;
+    };
     let data: unknown; let text: string;
     if(command==='scan'&&!persist) {
       const result=await scan(input,{maxPages});data=result;text=terminalReport(result);
@@ -43,7 +59,14 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
         data={...run.scan,snapshot:{scanId:run.snapshot.scanId,siteId:run.snapshot.siteId,status:run.snapshot.status,comparisonEligible:run.snapshot.comparisonEligible,comparisonWarnings:run.snapshot.comparisonWarnings,coverage:run.snapshot.coverage},...(compare?{comparison:run.comparison}:{})};
         text=terminalReport(run.scan)+`\n\nSaved scan: ${run.snapshot.scanId}\nDatabase: ${db}`;
         if(compare)text+='\n\n'+(run.comparison?changeReport(run.comparison):'No suitable previous scan. This scan has been saved; no changes inferred.');
+        if(rules){const runs=execute(run.snapshot);data={...(data as object),ruleReport:{schemaVersion:1,runs}};text+='\n\n'+findingsReport(runs);}
         if(!run.snapshot.coverage.pagesScanned)process.exitCode=1;
+      } else if(command==='rules'||command==='findings') {
+        const snapshot=command==='rules'?repository.get(input)??(!input.startsWith('scan_')?repository.history(domain(normalize(input)))[0]:undefined):repository.history(domain(normalize(input)))[0];
+        if(!snapshot)throw new Error(`Scan not found: ${input}`);
+        const seen=new Set<string>();
+        const runs=command==='rules'?execute(snapshot):repository.ruleRuns(snapshot.scanId).filter(r=>{if(seen.has(r.packId))return false;seen.add(r.packId);return true;});
+        data={schemaVersion:1,runs};text=findingsReport(runs);
       } else if(command==='export-scan') {
         data=repository.get(input);if(!data)throw new Error(`Scan not found: ${input}`);text=JSON.stringify(data,null,2);json=true;
       } else {

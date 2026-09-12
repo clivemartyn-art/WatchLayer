@@ -45,6 +45,29 @@ const migrations = [
       BEGIN SELECT RAISE(ABORT, 'Historical scans are immutable'); END;
     `)).join('\n'),
   },
+  {
+    version: 3,
+    sql: `CREATE TABLE rule_runs (
+      run_id TEXT PRIMARY KEY, scan_id TEXT NOT NULL REFERENCES scans(scan_id),
+      comparison_id TEXT, pack_id TEXT NOT NULL, pack_version TEXT NOT NULL,
+      started_at TEXT NOT NULL, completed_at TEXT NOT NULL, status TEXT NOT NULL, data_json TEXT NOT NULL
+    );
+    CREATE INDEX rule_runs_scan ON rule_runs(scan_id,completed_at DESC);
+    CREATE TABLE rule_results (
+      run_id TEXT NOT NULL REFERENCES rule_runs(run_id), ordinal INTEGER NOT NULL,
+      rule_id TEXT NOT NULL, rule_version TEXT NOT NULL, state TEXT NOT NULL,
+      confidence TEXT NOT NULL, severity TEXT NOT NULL, resource TEXT NOT NULL,
+      evidence_json TEXT NOT NULL, explanation TEXT NOT NULL, data_json TEXT NOT NULL,
+      PRIMARY KEY(run_id,ordinal)
+    );
+    CREATE TABLE findings (
+      finding_id TEXT PRIMARY KEY, run_id TEXT NOT NULL REFERENCES rule_runs(run_id),
+      data_json TEXT NOT NULL
+    );` + ['rule_runs','rule_results','findings'].flatMap(table=>['UPDATE','DELETE'].map(op=>`
+      CREATE TRIGGER immutable_${table}_${op.toLowerCase()} BEFORE ${op} ON ${table}
+      BEGIN SELECT RAISE(ABORT, 'Historical rule results are immutable'); END;
+    `)).join('\n'),
+  },
 ];
 export const DATABASE_SCHEMA_VERSION = migrations.at(-1)!.version;
 export function migrate(db: DatabaseSync): void {
