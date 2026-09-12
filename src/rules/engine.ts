@@ -9,7 +9,7 @@ export function evaluate(context:Context, input:RulePack):Result[] {
   const pack=validatePack(input);
   const {current,previous}=context;
   const supported=current.schemaVersion===SNAPSHOT_SCHEMA_VERSION&&current.applicationVersion===APPLICATION_VERSION;
-  if(previous&&(previous.scanId===current.scanId||previous.canonicalDomain!==current.canonicalDomain||previous.schemaVersion!==current.schemaVersion||previous.applicationVersion!==current.applicationVersion||previous.crawlLimit!==current.crawlLimit||previous.completedAt>current.completedAt))context={current};
+  if(previous&&(previous.scanId===current.scanId||previous.canonicalDomain!==current.canonicalDomain||previous.schemaVersion!==current.schemaVersion||previous.applicationVersion!==current.applicationVersion||previous.crawlLimit!==current.crawlLimit||previous.completedAt>current.completedAt))context={current,factResults:context.factResults};
   return pack.rules.flatMap(rule=>{
     const applies=supported?applicability(rule,context):'uncertain';
     const detections=applies==='applicable'?detect(rule,context):[{url:context.current.canonicalStartUrl,state:applies==='uncertain'?'UNKNOWN' as const:'NOT_APPLICABLE' as const,confidence:applies==='uncertain'?'LOW' as const:'HIGH' as const,reason:!rule.enabled?'Rule disabled.':applies==='uncertain'?'Applicability requires a compatible previous observation.':'No previously tracked resources.',observed:null}];

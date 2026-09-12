@@ -67,5 +67,19 @@ export class SqliteRepository implements SnapshotRepository, RuleRepository {
   ruleRuns(scanId: string): RuleRun[] {
     return this.db.prepare('SELECT run_id,data_json FROM rule_runs WHERE scan_id=? ORDER BY completed_at DESC,rowid DESC').all(scanId).map(row=>({...JSON.parse(String(row.data_json)),results:this.db.prepare('SELECT data_json FROM rule_results WHERE run_id=? ORDER BY ordinal').all(row.run_id!).map(r=>JSON.parse(String(r.data_json))),findings:this.db.prepare('SELECT data_json FROM findings WHERE run_id=? ORDER BY rowid').all(row.run_id!).map(r=>JSON.parse(String(r.data_json)))}));
   }
+  saveFacts(scanId:string,namespace:string,version:string,data:unknown):void {
+    this.db.prepare('INSERT INTO scan_fact_sets VALUES (?,?,?,?)').run(scanId,namespace,version,JSON.stringify(data));
+  }
+  facts<T>(scanId:string,namespace:string):T|undefined {
+    const row=this.db.prepare('SELECT data_json FROM scan_fact_sets WHERE scan_id=? AND namespace=?').get(scanId,namespace);
+    return row?JSON.parse(String(row.data_json)) as T:undefined;
+  }
+  savePackReport(runId:string,scanId:string,namespace:string,data:unknown):void {
+    this.db.prepare('INSERT INTO pack_reports VALUES (?,?,?,?)').run(runId,scanId,namespace,JSON.stringify(data));
+  }
+  packReport<T>(scanId:string,namespace:string):T|undefined {
+    const row=this.db.prepare('SELECT data_json FROM pack_reports WHERE scan_id=? AND namespace=? ORDER BY rowid DESC LIMIT 1').get(scanId,namespace);
+    return row?JSON.parse(String(row.data_json)) as T:undefined;
+  }
   close(): void { this.db.close(); }
 }

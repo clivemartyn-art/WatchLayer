@@ -17,7 +17,10 @@
     "compare": "tsx src/cli/compare.ts",
     "history": "tsx src/cli/history.ts",
     "export-scan": "tsx src/cli/export.ts",
-    "validate:scenario": "tsx scripts/validate-milestone2.ts"
+    "validate:scenario": "tsx scripts/validate-milestone2.ts",
+    "lawwatch": "tsx src/cli/lawwatch.ts",
+    "evaluate-lawwatch": "tsx scripts/evaluate-lawwatch.ts",
+    "validate:lawwatch": "tsx scripts/validate-milestone4.ts"
   },
   "dependencies": {
     "cheerio": "^1.1.2",

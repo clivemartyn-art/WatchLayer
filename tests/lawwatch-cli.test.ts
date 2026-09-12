@@ -1,0 +1,16 @@
+import { beforeEach,afterEach,expect,it,vi } from 'vitest';
+import { mkdtempSync,rmSync,readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+import { DatabaseSync } from 'node:sqlite';
+import { runCli } from '../src/cli/run.js';
+import { runLawCli } from '../src/cli/lawwatch.js';
+vi.mock('../src/crawler/http.js',async original=>({...await original<typeof import('../src/crawler/http.js')>(),createFetcher:()=>async(...args:Parameters<import('../src/crawler/http.js').Fetcher>)=>{const {lawWebsite}=await import('./fixtures/lawwatch.js');return lawWebsite()(...args);}}));
+let dir:string,db:string,output:ReturnType<typeof vi.spyOn>;
+beforeEach(()=>{dir=mkdtempSync(join(tmpdir(),'lawwatch-cli-'));db=join(dir,'watchlayer.db');output=vi.spyOn(console,'log').mockImplementation(()=>{});vi.spyOn(console,'error').mockImplementation(()=>{});process.exitCode=0;});
+afterEach(()=>{vi.restoreAllMocks();process.exitCode=0;rmSync(dir,{recursive:true,force:true});});
+const text=()=>output.mock.calls.map((c:unknown[])=>String(c[0])).join('\n');
+it('captures scan facts then executes offline by scan ID with JSON export',async()=>{await runCli('scan',['example.com','--lawwatch','--db',db,'--json']);const first=JSON.parse(text());expect(first.lawwatch.packId).toBe('lawwatch-england-wales');output.mockClear();const path=join(dir,'report.json');await runLawCli([first.snapshot.scanId,'--db',db,'--output',path]);expect(text()).toContain('LAW WATCH REPORT');expect(JSON.parse(readFileSync(path,'utf8')).results.length).toBeGreaterThan(30);expect(process.exitCode).toBe(0);});
+it('keeps fact sets and pack reports immutable at SQL level',async()=>{await runCli('scan',['example.com','--lawwatch','--db',db]);const raw=new DatabaseSync(db);try{for(const table of ['scan_fact_sets','pack_reports']){expect(()=>raw.exec(`DELETE FROM ${table}`)).toThrow(/immutable/);expect(()=>raw.exec(`UPDATE ${table} SET data_json='{}'`)).toThrow(/immutable/);}}finally{raw.close();}});
+it('rejects nonpersistent LawWatch scans',async()=>{await runCli('scan',['example.com','--lawwatch','--no-persist']);expect(process.exitCode).toBe(1);});
+it('reports missing stored scans cleanly',async()=>{await runLawCli(['scan_missing','--db',db]);expect(process.exitCode).toBe(1);expect(console.error).toHaveBeenCalledWith('WatchLayer: Scan not found: scan_missing');});

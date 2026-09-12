@@ -69,6 +69,11 @@ const migrations = [
     `)).join('\n'),
   },
 ];
+migrations.push({version:4,sql:`
+  CREATE TABLE scan_fact_sets (scan_id TEXT NOT NULL REFERENCES scans(scan_id), namespace TEXT NOT NULL, version TEXT NOT NULL, data_json TEXT NOT NULL, PRIMARY KEY(scan_id,namespace));
+  CREATE TABLE pack_reports (run_id TEXT PRIMARY KEY REFERENCES rule_runs(run_id), scan_id TEXT NOT NULL REFERENCES scans(scan_id), namespace TEXT NOT NULL, data_json TEXT NOT NULL);
+  CREATE INDEX pack_reports_scan ON pack_reports(scan_id,namespace);
+`+['scan_fact_sets','pack_reports'].flatMap(table=>['UPDATE','DELETE'].map(op=>`CREATE TRIGGER immutable_${table}_${op.toLowerCase()} BEFORE ${op} ON ${table} BEGIN SELECT RAISE(ABORT, 'Historical pack evidence is immutable'); END;`)).join('\n')});
 export const DATABASE_SCHEMA_VERSION = migrations.at(-1)!.version;
 export function migrate(db: DatabaseSync): void {
   db.exec('BEGIN IMMEDIATE');

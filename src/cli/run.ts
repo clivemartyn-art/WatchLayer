@@ -1,3 +1,5 @@
+import { scanLawWatch } from '../lawwatch/service.js';
+import { lawWatchReport } from '../lawwatch/report.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { runRules } from '../rules/engine.js';
 import { universalPack, validatePack } from '../rules/pack.js';
@@ -18,15 +20,16 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
   try {
     const args=[...arguments_];
     if (!args.length||args.includes('--help')) {
-      console.log(`Usage: npm run ${command} -- <${command==='export-scan'?'scan-id':command==='rules'?'scan-id or URL':'URL'}> [--db path] [--json] [--output file]${command==='scan'?' [--compare] [--rules] [--pack file.json] [--no-persist] [--max-pages 100] [--recheck-budget 20]':command==='rules'?' [--pack file.json]':''}`); return;
+      console.log(`Usage: npm run ${command} -- <${command==='export-scan'?'scan-id':command==='rules'?'scan-id or URL':'URL'}> [--db path] [--json] [--output file]${command==='scan'?' [--compare] [--rules] [--lawwatch] [--pack file.json] [--no-persist] [--max-pages 100] [--recheck-budget 20]':command==='rules'?' [--pack file.json]':''}`); return;
     }
     const input=args.shift()!;
     let db=DEFAULT_DATABASE; let json=false; let output: string|undefined; let compare=false; let persist=true; let maxPages=100; let recheckBudget=20;
-    let rules=false; const packFiles:string[]=[];
+    let law=false; let rules=false; const packFiles:string[]=[];
     while(args.length) {
       const flag=args.shift()!;
       const value=()=>{const next=args.shift();if(!next||next.startsWith('--'))throw new Error(`${flag} requires a value`);return next;};
       if(flag==='--json')json=true;
+      else if(command==='scan'&&flag==='--lawwatch')law=true;
       else if(command==='scan'&&flag==='--rules')rules=true;
       else if((command==='rules'||command==='scan')&&flag==='--pack')packFiles.push(value());
       else if(flag==='--db')db=value();
@@ -38,6 +41,7 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
       else throw new Error(`Unknown option: ${flag}`);
     }
     if(compare&&!persist)throw new Error('--compare requires persistence');
+    if(law&&!persist)throw new Error('--lawwatch requires persistence');
     if(rules&&!persist)throw new Error('--rules requires persistence');
     if(packFiles.length&&command==='scan'&&!rules)throw new Error('--pack requires --rules');
     if(command!=='export-scan'&&command!=='rules')normalize(input);
@@ -55,11 +59,12 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
     } else {
       repository=new SqliteRepository(db);
       if(command==='scan') {
-        const run=await scanAndPersist(input,repository,{maxPages,recheckBudget});
+        const run=law?await scanLawWatch(input,repository,{maxPages,recheckBudget}):await scanAndPersist(input,repository,{maxPages,recheckBudget});
         data={...run.scan,snapshot:{scanId:run.snapshot.scanId,siteId:run.snapshot.siteId,status:run.snapshot.status,comparisonEligible:run.snapshot.comparisonEligible,comparisonWarnings:run.snapshot.comparisonWarnings,coverage:run.snapshot.coverage},...(compare?{comparison:run.comparison}:{})};
         text=terminalReport(run.scan)+`\n\nSaved scan: ${run.snapshot.scanId}\nDatabase: ${db}`;
         if(compare)text+='\n\n'+(run.comparison?changeReport(run.comparison):'No suitable previous scan. This scan has been saved; no changes inferred.');
         if(rules){const runs=execute(run.snapshot);data={...(data as object),ruleReport:{schemaVersion:1,runs}};text+='\n\n'+findingsReport(runs);}
+        if('lawwatch' in run){data={...(data as object),lawwatch:run.lawwatch};text+='\n\n'+lawWatchReport(run.lawwatch as import('../lawwatch/types.js').LawReport);}
         if(!run.snapshot.coverage.pagesScanned)process.exitCode=1;
       } else if(command==='rules'||command==='findings') {
         const snapshot=command==='rules'?repository.get(input)??(!input.startsWith('scan_')?repository.history(domain(normalize(input)))[0]:undefined):repository.history(domain(normalize(input)))[0];

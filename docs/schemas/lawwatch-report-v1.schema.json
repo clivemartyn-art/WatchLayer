@@ -1,0 +1,983 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:watchlayer:lawwatch-report:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "site",
+    "scanId",
+    "packId",
+    "packVersion",
+    "universalResults",
+    "classifications",
+    "inventory",
+    "results",
+    "changes",
+    "drift",
+    "summary",
+    "runs",
+    "statement"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "site": {
+      "type": "string"
+    },
+    "scanId": {
+      "type": "string"
+    },
+    "packId": {
+      "const": "lawwatch-england-wales"
+    },
+    "packVersion": {
+      "const": "1.0"
+    },
+    "universalResults": {
+      "type": "array",
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "urn:watchlayer:rule-result:1",
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "ruleId",
+          "ruleVersion",
+          "packId",
+          "packVersion",
+          "status",
+          "severity",
+          "confidence",
+          "confidenceReason",
+          "applicability",
+          "title",
+          "explanation",
+          "resource",
+          "evidence"
+        ],
+        "properties": {
+          "schemaVersion": {
+            "const": 1
+          },
+          "ruleId": {
+            "type": "string"
+          },
+          "ruleVersion": {
+            "type": "string"
+          },
+          "packId": {
+            "type": "string"
+          },
+          "packVersion": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "WARNING",
+              "POTENTIAL_ISSUE",
+              "UNKNOWN",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "CRITICAL",
+              "HIGH",
+              "MEDIUM",
+              "LOW",
+              "INFO"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ]
+          },
+          "confidenceReason": {
+            "type": "string"
+          },
+          "applicability": {
+            "enum": [
+              "applicable",
+              "not_applicable",
+              "uncertain"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "resource": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "scanId",
+                "url",
+                "observed",
+                "explanation"
+              ],
+              "properties": {
+                "scanId": {
+                  "type": "string"
+                },
+                "previousScanId": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "observed": {},
+                "previous": {},
+                "explanation": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "classifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "service",
+          "state",
+          "evidence",
+          "sourceUrls",
+          "origin",
+          "explanation"
+        ],
+        "properties": {
+          "service": {
+            "enum": [
+              "residential_conveyancing",
+              "remortgage",
+              "probate",
+              "immigration",
+              "immigration_appeals",
+              "motoring",
+              "employment_employee",
+              "employment_employer",
+              "debt_recovery",
+              "business_licensing"
+            ]
+          },
+          "state": {
+            "enum": [
+              "DETECTED_HIGH_CONFIDENCE",
+              "DETECTED_LOW_CONFIDENCE",
+              "NOT_DETECTED",
+              "UNKNOWN"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "method",
+                "snippet",
+                "confidence"
+              ],
+              "properties": {
+                "method": {
+                  "type": "string"
+                },
+                "snippet": {
+                  "type": "string",
+                  "maxLength": 240
+                },
+                "value": {
+                  "type": "string"
+                },
+                "confidence": {
+                  "enum": [
+                    "HIGH",
+                    "MEDIUM",
+                    "LOW"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "sourceUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "excluded": {
+            "type": "boolean"
+          },
+          "origin": {
+            "enum": [
+              "detector",
+              "override"
+            ]
+          },
+          "explanation": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "signal",
+          "url",
+          "type",
+          "confidence",
+          "firstObserved",
+          "latestObserved",
+          "observationState",
+          "sourceEvidence"
+        ],
+        "properties": {
+          "signal": {
+            "type": "string"
+          },
+          "service": {
+            "enum": [
+              "residential_conveyancing",
+              "remortgage",
+              "probate",
+              "immigration",
+              "immigration_appeals",
+              "motoring",
+              "employment_employee",
+              "employment_employer",
+              "debt_recovery",
+              "business_licensing"
+            ]
+          },
+          "url": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "page",
+              "document"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ]
+          },
+          "firstObserved": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "latestObserved": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "observationState": {
+            "enum": [
+              "observed",
+              "not_observed",
+              "confirmed_missing"
+            ]
+          },
+          "sourceEvidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "url",
+                "facts"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "facts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "method",
+                      "snippet",
+                      "confidence"
+                    ],
+                    "properties": {
+                      "method": {
+                        "type": "string"
+                      },
+                      "snippet": {
+                        "type": "string",
+                        "maxLength": 240
+                      },
+                      "value": {
+                        "type": "string"
+                      },
+                      "confidence": {
+                        "enum": [
+                          "HIGH",
+                          "MEDIUM",
+                          "LOW"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "clickDepth": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "link": {
+                  "type": "object",
+                  "required": [
+                    "url",
+                    "label",
+                    "region",
+                    "document"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "region": {
+                      "enum": [
+                        "navigation",
+                        "footer",
+                        "body"
+                      ]
+                    },
+                    "document": {
+                      "type": "boolean"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "ruleId",
+          "ruleVersion",
+          "packId",
+          "packVersion",
+          "status",
+          "severity",
+          "confidence",
+          "confidenceReason",
+          "applicability",
+          "title",
+          "explanation",
+          "resource",
+          "evidence"
+        ],
+        "properties": {
+          "schemaVersion": {
+            "const": 1
+          },
+          "ruleId": {
+            "type": "string"
+          },
+          "ruleVersion": {
+            "type": "string"
+          },
+          "packId": {
+            "type": "string"
+          },
+          "packVersion": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "WARNING",
+              "POTENTIAL_ISSUE",
+              "UNKNOWN",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "CRITICAL",
+              "HIGH",
+              "MEDIUM",
+              "LOW",
+              "INFO"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ]
+          },
+          "confidenceReason": {
+            "type": "string"
+          },
+          "applicability": {
+            "enum": [
+              "applicable",
+              "not_applicable",
+              "uncertain"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "resource": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "scanId",
+                "url",
+                "observed",
+                "explanation"
+              ],
+              "properties": {
+                "scanId": {
+                  "type": "string"
+                },
+                "previousScanId": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "observed": {},
+                "previous": {},
+                "explanation": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "serviceType": {
+            "enum": [
+              "residential_conveyancing",
+              "remortgage",
+              "probate",
+              "immigration",
+              "immigration_appeals",
+              "motoring",
+              "employment_employee",
+              "employment_employer",
+              "debt_recovery",
+              "business_licensing"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "ruleId",
+          "ruleVersion",
+          "packId",
+          "packVersion",
+          "status",
+          "severity",
+          "confidence",
+          "confidenceReason",
+          "applicability",
+          "title",
+          "explanation",
+          "resource",
+          "evidence"
+        ],
+        "properties": {
+          "schemaVersion": {
+            "const": 1
+          },
+          "ruleId": {
+            "type": "string"
+          },
+          "ruleVersion": {
+            "type": "string"
+          },
+          "packId": {
+            "type": "string"
+          },
+          "packVersion": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "WARNING",
+              "POTENTIAL_ISSUE",
+              "UNKNOWN",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "CRITICAL",
+              "HIGH",
+              "MEDIUM",
+              "LOW",
+              "INFO"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ]
+          },
+          "confidenceReason": {
+            "type": "string"
+          },
+          "applicability": {
+            "enum": [
+              "applicable",
+              "not_applicable",
+              "uncertain"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "resource": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "scanId",
+                "url",
+                "observed",
+                "explanation"
+              ],
+              "properties": {
+                "scanId": {
+                  "type": "string"
+                },
+                "previousScanId": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "observed": {},
+                "previous": {},
+                "explanation": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "serviceType": {
+            "enum": [
+              "residential_conveyancing",
+              "remortgage",
+              "probate",
+              "immigration",
+              "immigration_appeals",
+              "motoring",
+              "employment_employee",
+              "employment_employer",
+              "debt_recovery",
+              "business_licensing"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "drift": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "ruleId",
+          "ruleVersion",
+          "packId",
+          "packVersion",
+          "status",
+          "severity",
+          "confidence",
+          "confidenceReason",
+          "applicability",
+          "title",
+          "explanation",
+          "resource",
+          "evidence"
+        ],
+        "properties": {
+          "schemaVersion": {
+            "const": 1
+          },
+          "ruleId": {
+            "type": "string"
+          },
+          "ruleVersion": {
+            "type": "string"
+          },
+          "packId": {
+            "type": "string"
+          },
+          "packVersion": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "WARNING",
+              "POTENTIAL_ISSUE",
+              "UNKNOWN",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "CRITICAL",
+              "HIGH",
+              "MEDIUM",
+              "LOW",
+              "INFO"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ]
+          },
+          "confidenceReason": {
+            "type": "string"
+          },
+          "applicability": {
+            "enum": [
+              "applicable",
+              "not_applicable",
+              "uncertain"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "resource": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "scanId",
+                "url",
+                "observed",
+                "explanation"
+              ],
+              "properties": {
+                "scanId": {
+                  "type": "string"
+                },
+                "previousScanId": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "observed": {},
+                "previous": {},
+                "explanation": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "serviceType": {
+            "enum": [
+              "residential_conveyancing",
+              "remortgage",
+              "probate",
+              "immigration",
+              "immigration_appeals",
+              "motoring",
+              "employment_employee",
+              "employment_employer",
+              "debt_recovery",
+              "business_licensing"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "PASS",
+        "WARNING",
+        "POTENTIAL_ISSUE",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ],
+      "properties": {
+        "PASS": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "WARNING": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "POTENTIAL_ISSUE": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "UNKNOWN": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "NOT_APPLICABLE": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "runs": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "runId",
+          "scanId",
+          "packId",
+          "packVersion",
+          "definition",
+          "results",
+          "findings"
+        ],
+        "properties": {
+          "schemaVersion": {
+            "const": 1
+          },
+          "runId": {
+            "type": "string"
+          },
+          "scanId": {
+            "type": "string"
+          },
+          "packId": {
+            "type": "string"
+          },
+          "packVersion": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "object"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "schemaVersion",
+                "ruleId",
+                "ruleVersion",
+                "packId",
+                "packVersion",
+                "status",
+                "severity",
+                "confidence",
+                "confidenceReason",
+                "applicability",
+                "title",
+                "explanation",
+                "resource",
+                "evidence"
+              ],
+              "properties": {
+                "schemaVersion": {
+                  "const": 1
+                },
+                "ruleId": {
+                  "type": "string"
+                },
+                "ruleVersion": {
+                  "type": "string"
+                },
+                "packId": {
+                  "type": "string"
+                },
+                "packVersion": {
+                  "type": "string"
+                },
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "WARNING",
+                    "POTENTIAL_ISSUE",
+                    "UNKNOWN",
+                    "NOT_APPLICABLE"
+                  ]
+                },
+                "severity": {
+                  "enum": [
+                    "CRITICAL",
+                    "HIGH",
+                    "MEDIUM",
+                    "LOW",
+                    "INFO"
+                  ]
+                },
+                "confidence": {
+                  "enum": [
+                    "HIGH",
+                    "MEDIUM",
+                    "LOW"
+                  ]
+                },
+                "confidenceReason": {
+                  "type": "string"
+                },
+                "applicability": {
+                  "enum": [
+                    "applicable",
+                    "not_applicable",
+                    "uncertain"
+                  ]
+                },
+                "title": {
+                  "type": "string"
+                },
+                "explanation": {
+                  "type": "string"
+                },
+                "resource": {
+                  "type": "string"
+                },
+                "evidence": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "scanId",
+                      "url",
+                      "observed",
+                      "explanation"
+                    ],
+                    "properties": {
+                      "scanId": {
+                        "type": "string"
+                      },
+                      "previousScanId": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "observed": {},
+                      "previous": {},
+                      "explanation": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "serviceType": {
+                  "enum": [
+                    "residential_conveyancing",
+                    "remortgage",
+                    "probate",
+                    "immigration",
+                    "immigration_appeals",
+                    "motoring",
+                    "employment_employee",
+                    "employment_employer",
+                    "debt_recovery",
+                    "business_licensing"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "statement": {
+      "type": "string"
+    }
+  }
+}

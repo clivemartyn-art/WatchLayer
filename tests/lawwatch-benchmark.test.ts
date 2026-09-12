@@ -1,0 +1,15 @@
+import { expect,it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { readBenchmark,evaluateBenchmark,type BenchmarkFirm } from '../scripts/lawwatch-benchmark.js';
+import type { LawReport,LawResult } from '../src/lawwatch/types.js';
+const sample=(status:LawResult['status'])=>({results:[{ruleId:'LAW-U001',status,severity:'HIGH'}]} as LawReport);
+const firm=(human:string):BenchmarkFirm=>({firm:'Fixture',url:'https://example.com',service:'Probate',rules:{'LAW-U001':human},pricingSource:'',complaintsSource:'',notes:''});
+it('reads all 50 firms and 17 static checks without changing the benchmark',()=>{const path='docs/Validation/LawWatch_Validation_Cohort_v2.xlsx';const before=createHash('sha256').update(readFileSync(path)).digest('hex');const b=readBenchmark();expect(b.firms).toHaveLength(50);expect(b.firms.every(f=>Object.keys(f.rules).length===17)).toBe(true);expect(b.firms.find(f=>f.firm==='Redkite Solicitors')!.url).toBe('https://www.redkitesolicitors.co.uk/');expect(b.sha256).toBe(before);expect(createHash('sha256').update(readFileSync(path)).digest('hex')).toBe(before);});
+it('scores exact PASS agreement and precision',()=>{const {metrics}=evaluateBenchmark(firm('Pass'),sample('PASS'));expect(metrics.exactAgreementRate).toBe(1);expect(metrics.passPrecision).toBe(1);expect(metrics.falsePositiveCount).toBe(0);});
+it('does not equate human Review with machine WARNING',()=>{const {metrics}=evaluateBenchmark(firm('Review'),sample('WARNING'));expect(metrics.exactAgreementRate).toBeNull();expect(metrics.reviewCompatibleCount).toBe(1);});
+it('counts unconfirmed PASS separately without inventing negative ground truth',()=>{const {metrics}=evaluateBenchmark(firm('Review'),sample('PASS'));expect(metrics.passPrecision).toBe(0);expect(metrics.unsupportedPassCount).toBe(1);expect(metrics.confirmedFalsePositiveCount).toBe(0);});
+it('penalizes unsupported high-severity potential issues conservatively',()=>{const {metrics}=evaluateBenchmark(firm('Review'),sample('POTENTIAL_ISSUE'));expect(metrics.falsePositiveCount).toBe(1);expect(metrics.highSeverityFalsePositiveCount).toBe(1);expect(metrics.potentialIssuePrecision).toBe(0);});
+it('records a confirmed false issue against human PASS',()=>{expect(evaluateBenchmark(firm('Pass'),sample('POTENTIAL_ISSUE')).metrics.confirmedFalsePositiveCount).toBe(1);});
+it('returns unavailable precision when no potential issues were predicted',()=>expect(evaluateBenchmark(firm('Unknown'),sample('UNKNOWN')).metrics.potentialIssuePrecision).toBeNull());
+it('excludes human N/A from exact agreement',()=>expect(evaluateBenchmark(firm('N/A'),sample('NOT_APPLICABLE')).metrics.exactAgreementDenominator).toBe(0));

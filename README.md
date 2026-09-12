@@ -1,4 +1,4 @@
-# WatchLayer — Milestone 3
+# WatchLayer — Milestone 4
 
 A local, industry-neutral TypeScript website-monitoring engine. It crawls public pages, extracts structured facts, stores immutable SQLite snapshots, compares repeat scans and runs versioned deterministic rules to produce findings. It makes no legal-compliance assessments.
 
@@ -22,6 +22,9 @@ npm run scan -- https://example.com --rules
 npm run rules -- <scan-id>
 npm run findings -- https://example.com
 npm run validate:rules
+npm run scan -- https://example.com --lawwatch
+npm run lawwatch -- <scan-id>
+npm run validate:lawwatch
 npm run compare -- https://example.com
 npm run history -- https://example.com
 npm run export-scan -- <scan-id> --output exported-scan.json
@@ -56,6 +59,7 @@ src/
   snapshots/    Snapshot lifecycle, fingerprints and bounded rechecks
   comparison/   Eligibility, deterministic differences and materiality
   rules/        Versioned packs, reusable detectors, evidence and findings
+  lawwatch/     England & Wales pack, scoped facts, services and regulatory surfaces
   storage/      Repository interface, SQLite adapter and migrations
   utils/        URL normalization, domain policy, DNS safety
 tests/          Deterministic extraction, crawl and transport fixtures
@@ -88,3 +92,5 @@ SQLite uses Node's built-in library, avoiding a native add-on or external servic
 See [the Milestone 1 public-site validation report](docs/MILESTONE_1_VALIDATION.md) for the tested sites, observed limitations and hardening results.
 
 The [Milestone 3 rule engine](docs/MILESTONE_3.md) supplies the 15-rule **WatchLayer Universal v1.0** pack. `--rules` evaluates and saves findings after a scan; `rules` evaluates stored observations offline. `findings` displays the latest evaluations for the newest scan. These commands support `--db`, `--json` and `--output`. Repeat `--pack custom.json` to evaluate configured packs; thresholds are pack data. Findings retain exact rule/pack versions and evidence. UNKNOWN means insufficient evidence, and an unobserved resource is never automatically a confirmed failure. Machine-readable schemas are in `docs/schemas/`.
+
+[Milestone 4](docs/MILESTONE_4.md) adds **LawWatch England & Wales v1.0**, with 34 definitions covering regulatory indicators, pricing per service, informational age signals and monitored changes. `scan --lawwatch` captures bounded facts and runs both packs. `lawwatch <scan-id>` evaluates stored evidence offline; old scans without those facts remain UNKNOWN. No PDF parsing or browser execution is performed. The human benchmark workbook remains read-only. `npm run evaluate-lawwatch -- --firm "Russell-Cooke"` runs a deliberately limited manual evaluation; all 50 firms require an explicit `--all` option. WatchLayer's names and database paths are unchanged.

@@ -1,6 +1,6 @@
 import { SEVERITIES, STATES, type Rule, type RulePack, type Detector } from './types.js';
 export const DEFAULT_THRESHOLDS = {certificateDays: 30, contentReductionPercent: 30, siteReductionPercent: 30};
-const detectors: Detector[] = ['availability','https','certificate','discovery','broken_links','form_presence','form_structure','title','indexability','canonical','content_reduction','site_reduction'];
+const detectors: Detector[] = ['availability','https','certificate','discovery','broken_links','form_presence','form_structure','title','indexability','canonical','content_reduction','site_reduction','structured_fact'];
 export function validatePack(input: unknown): RulePack {
   const p = input as RulePack;
   const string = (v: unknown) => typeof v === 'string' && v.trim().length > 0;
@@ -9,10 +9,11 @@ export function validatePack(input: unknown): RulePack {
   for (const r of p.rules) {
     if (!r || r.schemaVersion!==1 || r.engineVersion!=='1' || r.packId!==p.id || ![r.id,r.name,r.version,r.description,r.category,r.documentation].every(string) || ids.has(r.id) || !SEVERITIES.includes(r.severity) || typeof r.enabled!=='boolean' || !detectors.includes(r.detector) || !['always','previous_pages','previous_documents','previous_forms','comparison'].includes(r.applicability) || !Array.isArray(r.evidenceRequirements) || !r.evidenceRequirements.length || !r.evidenceRequirements.every(string) || !r.resultMapping || !STATES.includes(r.resultMapping.healthy) || !STATES.includes(r.resultMapping.changed) || !r.configuration || typeof r.configuration!=='object') throw new Error('Invalid rule definition');
     const c=r.configuration;
-    if (Object.keys(c).some(k=>!['target','urls','threshold'].includes(k)) || c.target!==undefined&&!['homepage','pages','documents','robots','sitemap'].includes(c.target) || c.threshold!==undefined&&(!Number.isFinite(c.threshold)||c.threshold<0||r.detector!=='certificate'&&c.threshold>100) || c.urls!==undefined&&(!Array.isArray(c.urls)||!c.urls.every(u=>{try{return ['http:','https:'].includes(new URL(u).protocol);}catch{return false;}}))) throw new Error('Invalid rule configuration');
+    if (Object.keys(c).some(k=>!['target','urls','threshold','signal'].includes(k)) || c.target!==undefined&&!['homepage','pages','documents','robots','sitemap'].includes(c.target) || c.threshold!==undefined&&(!Number.isFinite(c.threshold)||c.threshold<0||r.detector!=='certificate'&&c.threshold>100) || c.urls!==undefined&&(!Array.isArray(c.urls)||!c.urls.every(u=>{try{return ['http:','https:'].includes(new URL(u).protocol);}catch{return false;}}))) throw new Error('Invalid rule configuration');
     if (r.detector==='availability'&&!['homepage','pages','documents'].includes(c.target??'') || r.detector==='discovery'&&!['robots','sitemap'].includes(c.target??'') || ['certificate','content_reduction','site_reduction'].includes(r.detector)&&c.threshold===undefined) throw new Error('Missing detector configuration');
     // Configurable mappings cannot promote a bounded warning into a confirmed issue.
     if(r.resultMapping.healthy!=='PASS'||!['WARNING','POTENTIAL_ISSUE'].includes(r.resultMapping.changed)||r.resultMapping.changed==='POTENTIAL_ISSUE'&&!['availability','https','certificate','form_presence'].includes(r.detector)) throw new Error('Unsafe result mapping');
+    if(r.detector==='structured_fact'&&!string(c.signal))throw new Error('Structured fact detector needs a signal');
     ids.add(r.id);
   }
   return structuredClone(p);

@@ -14,7 +14,7 @@ import { emptyPage } from './observations.js';
 import { MAX_RECHECK_BUDGET, recheckKnown } from './recheck.js';
 import { APPLICATION_VERSION, SNAPSHOT_SCHEMA_VERSION, type Snapshot, type ContactObservation, type DocumentObservation, type PageObservation } from './types.js';
 
-export interface PersistentScanOptions extends Omit<ScanOptions,'onPageResult'> { recheckBudget?: number; now?: () => Date }
+export interface PersistentScanOptions extends Omit<ScanOptions,'onPageResult'> { recheckBudget?: number; now?: () => Date; onResponse?: (response:Response)=>void }
 export async function scanAndPersist(input: string, repository: SnapshotRepository, options: PersistentScanOptions = {}) {
   const start = normalize(input); const canonicalDomain = domain(start);
   const crawlLimit = options.maxPages ?? 100; const recheckBudget = options.recheckBudget ?? MAX_RECHECK_BUDGET;
@@ -32,6 +32,7 @@ export async function scanAndPersist(input: string, repository: SnapshotReposito
     let response: Response;
     try { response = await transport(url,request); }
     catch (error) { requests.push({url,errorCode: error && typeof error === 'object' && 'code' in error ? String(error.code) : 'INCONCLUSIVE'}); throw error; }
+    options.onResponse?.(response);
     requests.push({url,finalUrl:response.finalUrl,status:response.status,tls:response.tls});
     if (new URL(url).pathname === '/robots.txt') robotsCache.set(url,response);
     return response;

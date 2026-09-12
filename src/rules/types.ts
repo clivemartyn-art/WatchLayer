@@ -4,12 +4,12 @@ export const SEVERITIES = ['CRITICAL','HIGH','MEDIUM','LOW','INFO'] as const;
 export type State = typeof STATES[number];
 export type Severity = typeof SEVERITIES[number];
 export type Confidence = 'HIGH'|'MEDIUM'|'LOW';
-export type Detector = 'availability'|'https'|'certificate'|'discovery'|'broken_links'|'form_presence'|'form_structure'|'title'|'indexability'|'canonical'|'content_reduction'|'site_reduction';
+export type Detector = 'availability'|'https'|'certificate'|'discovery'|'broken_links'|'form_presence'|'form_structure'|'title'|'indexability'|'canonical'|'content_reduction'|'site_reduction'|'structured_fact';
 export interface Rule {
   schemaVersion: 1; id: string; name: string; description: string; category: string;
   severity: Severity; version: string; engineVersion: '1'; enabled: boolean;
   applicability: 'always'|'previous_pages'|'previous_documents'|'previous_forms'|'comparison';
-  detector: Detector; configuration: {target?: 'homepage'|'pages'|'documents'|'robots'|'sitemap'; urls?: string[]; threshold?: number};
+  detector: Detector; configuration: {target?: 'homepage'|'pages'|'documents'|'robots'|'sitemap'; urls?: string[]; threshold?: number; signal?:string};
   evidenceRequirements: string[]; resultMapping: {healthy: State; changed: State};
   documentation: string; packId: string;
 }
@@ -23,4 +23,5 @@ export interface Result {
 }
 export interface Finding extends Result {findingId: string; firstDetected: string; currentState: State; description: string; recommendation: string; priority: number}
 export interface RuleRun {schemaVersion: 1; runId: string; scanId: string; comparisonId: string|null; previousScanId: string|null; packId: string; packVersion: string; engineVersion: '1'; startedAt: string; completedAt: string; status: 'completed'; definition: RulePack; results: Result[]; findings: Finding[]}
-export interface Context {current: Snapshot; previous?: Snapshot}
+export interface FactResult {url:string;state:State;confidence:Confidence;reason:string;observed:unknown;previous?:unknown}
+export interface Context {current: Snapshot; previous?: Snapshot; factResults?:Record<string,FactResult[]>}

@@ -38,7 +38,7 @@ it('upgrades a populated version-one database without discarding history',async(
   await runCli('scan',['example.com','--db',db]);const before=new SqliteRepository(db);const history=before.history('example.com');before.close();
   const raw=new DatabaseSync(db);
   for(const row of raw.prepare("SELECT name FROM sqlite_master WHERE type='trigger'").all())raw.exec(`DROP TRIGGER ${row.name}`);
-  raw.exec('DROP TABLE findings; DROP TABLE rule_results; DROP TABLE rule_runs; PRAGMA user_version=1');raw.close();
+  raw.exec('DROP TABLE pack_reports; DROP TABLE scan_fact_sets; DROP TABLE findings; DROP TABLE rule_results; DROP TABLE rule_runs; PRAGMA user_version=1');raw.close();
   const upgraded=new SqliteRepository(db);expect(upgraded.history('example.com')).toEqual(history);upgraded.close();
   const check=new DatabaseSync(db);expect(check.prepare('PRAGMA user_version').get()?.user_version).toBe(DATABASE_SCHEMA_VERSION);expect(()=>check.prepare('DELETE FROM scans').run()).toThrow(/immutable/);check.close();
 });

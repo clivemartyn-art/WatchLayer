@@ -6,7 +6,7 @@ export const reliable = (p?: PageObservation) => !!p && p.observationStatus==='o
 const healthy = (p?: ResourceObservation) => !!p && p.observationStatus==='observed' && ['html','http'].includes(p.evidence) && p.status!==null && p.status>=200&&p.status<300;
 const pageAt = (s: Snapshot|undefined, url: string) => s?.pages.find(p=>p.url===url||p.finalUrl===url||p.aliases.includes(url));
 const tlsErrors = new Set(['CERT_HAS_EXPIRED','CERT_NOT_YET_VALID','DEPTH_ZERO_SELF_SIGNED_CERT','SELF_SIGNED_CERT_IN_CHAIN','UNABLE_TO_VERIFY_LEAF_SIGNATURE','UNABLE_TO_GET_ISSUER_CERT_LOCALLY','ERR_TLS_CERT_ALTNAME_INVALID','CERT_REVOKED']);
-export function detect(rule: Rule, {current:c,previous:p}: Context): Detection[] {
+export function detect(rule: Rule, {current:c,previous:p,factResults}: Context): Detection[] {
   const out: Detection[]=[];
   const add=(url:string,state:State,reason:string,observed:unknown,previous?:unknown,confidence:Confidence=state==='UNKNOWN'?'LOW':state==='PASS'?'HIGH':'MEDIUM')=>out.push({url,state,reason,observed,previous,confidence});
   const home=normalize(c.inputUrl);
@@ -14,6 +14,7 @@ export function detect(rule: Rule, {current:c,previous:p}: Context): Detection[]
   const targets=rule.configuration.urls??[c.canonicalStartUrl];
   const comparable=!!p&&c.comparisonEligible&&p.comparisonEligible;
   switch(rule.detector) {
+    case 'structured_fact': return factResults?.[rule.configuration.signal!]??[{url:c.canonicalStartUrl,state:'UNKNOWN',confidence:'LOW',reason:'Structured evidence unavailable.',observed:null}];
     case 'availability': {
       const kind=rule.configuration.target;
       const old=kind==='documents'?p?.documents:p?.pages;
