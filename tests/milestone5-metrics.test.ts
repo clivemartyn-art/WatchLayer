@@ -1,0 +1,10 @@
+import { expect,it } from 'vitest';
+import { metrics,aggregate,type Check } from '../scripts/milestone5-metrics.js';
+const check=(human:string,machine:Check['machine'],ruleId='LAW-U001'):Check=>({human,machine,ruleId,severity:'HIGH'});
+it('separates strict from acceptable Review agreement',()=>{const m=metrics([check('Review','WARNING'),check('Review','UNKNOWN'),check('Pass','PASS')]);expect(m.exactAgreement).toEqual({count:1,denominator:1,rate:1});expect(m.acceptableAgreement.rate).toBe(1);expect(m.warningPrecision).toBeNull();expect(m.warningReviewCompatibility).toBe(1);});
+it('does not count abstention on human Pass as agreement',()=>{const m=metrics([check('Pass','UNKNOWN')]);expect(m.acceptableAgreement.rate).toBe(0);expect(m.unknownRate).toBe(1);expect(m.passRecall).toBe(0);});
+it('does not present zero predictions as perfect precision',()=>{const m=metrics([check('Pass','PASS')]);expect(m.potentialIssuePrecision).toBeNull();expect(m.highSeverityPotentialIssuePrecision).toBeNull();expect(m.releaseGate).toBe('UNPROVEN');});
+it('does not assert a release gate without negative truth',()=>{const m=metrics([check('Review','POTENTIAL_ISSUE')]);expect(m.releaseGate).toBe('UNPROVEN');expect(m.highSeverityFalsePositiveCount).toBe(1);});
+it('counts unsupported issues and confirmed false issues separately',()=>{const m=metrics([check('Pass','POTENTIAL_ISSUE'),check('Review','POTENTIAL_ISSUE'),check('Fail','POTENTIAL_ISSUE')]);expect(m.falsePositiveCount).toBe(2);expect(m.confirmedFalsePositiveCount).toBe(1);expect(m.potentialIssuePrecision).toBeCloseTo(1/3);expect(m.releaseGate).toBe('NOT_MET');});
+it('excludes N/A consistently from metric denominators',()=>{const m=metrics([check('N/A','UNKNOWN')]);expect(m.eligibleChecks).toBe(0);expect(m.unknownRate).toBeNull();expect(m.exactAgreement.rate).toBeNull();});
+it('aggregates checks rather than averaging firm percentages',()=>{const m=aggregate([check('Pass','PASS'),check('Pass','UNKNOWN'),check('Unknown','UNKNOWN','PRICE-001')]);expect(m.overall.exactAgreement.rate).toBeCloseTo(2/3);expect(m.perRule['LAW-U001'].exactAgreement.rate).toBe(0.5);});

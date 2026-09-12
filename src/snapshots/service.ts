@@ -23,7 +23,7 @@ export async function scanAndPersist(input: string, repository: SnapshotReposito
   const now = options.now ?? (() => new Date()); const startedAt = now().toISOString();
   const scanId = `scan_${randomUUID()}`;
   const history = repository.history(canonicalDomain);
-  const previous = selectBaseline(history,crawlLimit);
+  const previous = selectBaseline(history,crawlLimit,options.crawlPolicy?.profile);
   const site = repository.findSite(canonicalDomain);
   const transport = options.fetcher ?? createFetcher(start,options.delayMs,options.timeoutMs);
   const robotsCache = new Map<string,Response>();
@@ -119,6 +119,8 @@ export async function scanAndPersist(input: string, repository: SnapshotReposito
     coverage:{homepageReached,crawlLimitReached:result.summary.crawlLimitReached,pagesDiscovered:result.summary.pagesDiscovered,pagesScanned:result.summary.pagesScanned,pagesFailed:result.summary.pagesFailed,naturalAttempts:[...evidence.values()].filter(e=>e.state==='retrieved'||e.state==='unreachable').length,recheckBudget,rechecksAttempted:rechecks.attempted,rechecksSkipped:rechecks.skipped,rechecksFailed:rechecks.results.filter(r=>!r.excluded&&(r.error||r.response&&r.response.status>=400&&![404,410].includes(r.response.status))).length,discovery:result.discovery,discoveryErrors:result.errors.filter(e=>e.stage==='sitemap'||e.stage==='robots').length},
     pages:pageList,documents:[...documents.values()],forms:htmlPages.flatMap(p=>p.forms.map(f=>({...formObservation(f),lastObservedScanId:scanId}))),contacts:{emails:[],phones:[]},errors,
   };
+  if(options.crawlPolicy)snapshot.scanProfile=options.crawlPolicy.profile;
+  if(result.crawlStages)snapshot.coverage.crawlStages=result.crawlStages;
   const eligibility = assessEligibility(snapshot,previous); snapshot.comparisonEligible=eligibility.eligible; snapshot.comparisonWarnings=eligibility.warnings;
   if (!previous && history.length) snapshot.comparisonWarnings.push('No eligible previous scan with a matching crawl limit and scanner/schema version.');
   const reliablePages = new Set(pageList.filter(p=>p.observationStatus==='observed'&&p.evidence==='html'&&!p.browserRenderRecommended&&snapshot.comparisonEligible).flatMap(p=>[p.url,...p.aliases]));

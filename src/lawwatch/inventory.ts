@@ -13,7 +13,7 @@ export function classifyServices(facts:FactSet|undefined,overrides:Partial<Recor
   });
 }
 export function surfaceInventory(current:Snapshot,facts:FactSet|undefined,previous:Surface[]=[]):Surface[] {
-  const pages=facts?.pages??[];const depths=new Map<string,number>([[current.canonicalStartUrl,0]]);
+  const pages=facts?.pages??[];const classifications=classifyServices(facts);const depths=new Map<string,number>([[current.canonicalStartUrl,0]]);
   for(let i=0;i<pages.length;i++)for(const p of pages){const d=depths.get(p.url);if(d===undefined)continue;for(const l of p.links)if(!depths.has(l.url)||depths.get(l.url)!>d+1)depths.set(l.url,d+1);}
   const surfaces:Surface[]=[];
   const add=(signal:string,url:string,type:Surface['type'],confidence:Surface['confidence'],sourceEvidence:Surface['sourceEvidence'],service?:Service)=>{
@@ -26,11 +26,17 @@ export function surfaceInventory(current:Snapshot,facts:FactSet|undefined,previo
   const signalNames:Record<string,string>={'LAW-U001':'sra_number','LAW-U002':'digital_badge','LAW-U004':'complaints','LAW-U005':'legal_ombudsman','LAW-U008':'sra_escalation'};
   for(const p of pages){
     for(const [id,signal] of Object.entries(signalNames))if(p.signals[id]?.length)add(signal,p.url,'page',p.signals[id].some(f=>f.confidence==='HIGH')?'HIGH':'MEDIUM',[{url:p.url,facts:p.signals[id],clickDepth:depths.get(p.url)??null}]);
-    if(p.pricing)for(const s of p.services.filter(s=>s.state.startsWith('DETECTED')))add('pricing',p.url,'page',s.state==='DETECTED_HIGH_CONFIDENCE'?'HIGH':'MEDIUM',[{url:p.url,facts:s.evidence,clickDepth:depths.get(p.url)??null}],s.service);
+    if(p.pricing)for(const s of p.services.filter(s=>s.state.startsWith('DETECTED'))){
+      const dedicated=p.services.filter(s=>s.state.startsWith('DETECTED')).length===1&&classifications.some(c=>c.service===s.service&&c.state==='DETECTED_HIGH_CONFIDENCE');
+      add('pricing',p.url,'page',s.state==='DETECTED_HIGH_CONFIDENCE'||dedicated?'HIGH':'MEDIUM',[{url:p.url,facts:dedicated?[...s.evidence,fact('dedicated-pricing-service',p.title)]:s.evidence,clickDepth:depths.get(p.url)??null}],s.service);
+    }
     if(p.quote_generator_detected)add('quote_generator_detected',p.url,'page','HIGH',[{url:p.url,facts:[fact('quote-interface','Quote-related interface wording detected')]}]);
     for(const l of p.links){
-      if(l.document&&/complaint/i.test(l.label+' '+l.url))add('complaints',l.url,'document','HIGH',[{url:p.url,link:l,facts:[fact('document-link',l.label)],clickDepth:depths.get(p.url)!+1}]);
-      if(l.document&&/pric|fees?|costs?|charges/i.test(l.label+' '+l.url))for(const s of serviceMatches(l.label+' '+l.url,true).filter(s=>s.state.startsWith('DETECTED')))add('pricing',l.url,'document','HIGH',[{url:p.url,link:l,facts:[fact('document-link',l.label)]}],s.service);
+      if(l.document&&(l.purpose==='complaints'||/complaint/i.test(l.label+' '+l.url)))add('complaints',l.url,'document','HIGH',[{url:p.url,link:l,facts:[fact('document-link',l.label)],clickDepth:depths.has(p.url)?depths.get(p.url)!+1:null}]);
+      if(l.document&&(l.purpose==='pricing'||/pric|fees?|costs?|charges/i.test(l.label+' '+l.url))){
+        const services=l.services?.length?l.services:serviceMatches(l.label+' '+l.url,true).filter(s=>s.state.startsWith('DETECTED')).map(s=>s.service);
+        for(const service of services)add('pricing',l.url,'document','HIGH',[{url:p.url,link:l,facts:[fact('contextual-document-link',l.nearbyContext??l.label)]}],service);
+      }
     }
   }
   for(const old of previous)if(!surfaces.some(s=>s.signal===old.signal&&s.url===old.url&&s.service===old.service)){

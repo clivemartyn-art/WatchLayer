@@ -20,7 +20,9 @@
     "validate:scenario": "tsx scripts/validate-milestone2.ts",
     "lawwatch": "tsx src/cli/lawwatch.ts",
     "evaluate-lawwatch": "tsx scripts/evaluate-lawwatch.ts",
-    "validate:lawwatch": "tsx scripts/validate-milestone4.ts"
+    "validate:lawwatch": "tsx scripts/validate-milestone4.ts",
+    "evaluate:milestone5": "tsx scripts/evaluate-milestone5.ts",
+    "summarize:milestone5": "tsx scripts/summarize-milestone5.ts"
   },
   "dependencies": {
     "cheerio": "^1.1.2",

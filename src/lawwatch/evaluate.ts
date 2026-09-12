@@ -6,13 +6,16 @@ import { universalPack } from '../rules/pack.js';
 import { lawPack,DRIFT_AGE_YEARS } from './pack.js';
 import { classifyServices,surfaceInventory } from './inventory.js';
 import { REPORT_STATEMENT,wording } from './wording.js';
+import { unknownReasons,UNKNOWN_EXPLANATIONS } from './uncertainty.js';
+import { staffLink } from './discovery.js';
 import type { Fact,LawContext,LawReport,LawResult,Service } from './types.js';
 export function evaluateLawWatch(input:LawContext):LawReport {
   const {current:c}=input;
   let {previous:p,facts,previousFacts,previousInventory}=input;
-  if(facts?.scanId!==c.scanId||facts?.detectorVersion!=='1.0')facts=undefined;
+  if(facts?.scanId!==c.scanId||!['1.0','1.1'].includes(facts?.detectorVersion??''))facts=undefined;
   if(p&&(p.scanId===c.scanId||p.completedAt>c.completedAt||p.canonicalDomain!==c.canonicalDomain||p.schemaVersion!==c.schemaVersion||p.applicationVersion!==c.applicationVersion||p.crawlLimit!==c.crawlLimit)){p=undefined;previousFacts=undefined;previousInventory=undefined;}
-  if(previousFacts?.scanId!==p?.scanId||previousFacts?.detectorVersion!=='1.0')previousFacts=undefined;
+  if(previousFacts?.scanId!==p?.scanId||previousFacts?.detectorVersion!==facts?.detectorVersion)previousFacts=undefined;
+  if(p?.scanProfile!==c.scanProfile){p=undefined;previousFacts=undefined;previousInventory=undefined;}
   if(!p){previousFacts=undefined;previousInventory=undefined;}
   const pages=facts?.pages??[];const classifications=classifyServices(facts,input.overrides);const inventory=surfaceInventory(c,facts,previousInventory);
   const signals:Record<string,FactResult[]>={};
@@ -31,8 +34,15 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     const serviceType=classification.service;const surfaces=inventory.filter(s=>s.signal==='pricing'&&s.service===serviceType&&s.observationState==='observed');
     const candidatePages=pages.filter(p=>p.pricing&&p.services.some(s=>s.service===serviceType&&s.state.startsWith('DETECTED')));
     // A multi-service page cannot lend one service's VAT/fees to another service.
-    const html=candidatePages.filter(p=>p.reliable&&p.services.filter(s=>s.state==='DETECTED_HIGH_CONFIDENCE').length===1&&p.services.some(s=>s.service===serviceType&&s.state==='DETECTED_HIGH_CONFIDENCE'));
-    const matches=html.flatMap(p=>(p.signals[rule.id]??[]).map(f=>({url:p.url,fact:f})));
+    const html=candidatePages.filter(p=>p.reliable&&(p.services.filter(s=>s.state==='DETECTED_HIGH_CONFIDENCE').length===1&&p.services.some(s=>s.service===serviceType&&s.state==='DETECTED_HIGH_CONFIDENCE')||classification.state==='DETECTED_HIGH_CONFIDENCE'&&p.services.filter(s=>s.state.startsWith('DETECTED')).length===1));
+    const matches=candidatePages.filter(p=>p.reliable).flatMap(p=>(p.serviceSignals?.[serviceType]?.[rule.id]??(html.includes(p)?p.signals[rule.id]:[])??[]).map(f=>({url:p.url,fact:f})));
+    const staffLinks=html.flatMap(p=>p.links.filter(staffLink).map(link=>({source:p.url,link})));
+    if(['PRICE-004','PRICE-005'].includes(rule.id))for(const relation of staffLinks){
+      const profile=pages.find(p=>p.url===relation.link.url||c.pages.some(o=>o.finalUrl===p.url&&o.aliases.includes(relation.link.url)));
+      if(!profile?.reliable)continue;
+      if(rule.id==='PRICE-005'&&!/supervis/i.test(relation.link.label+' '+relation.link.nearbyContext))continue;
+      for(const qualification of profile.signals['PRICE-004']??[])if(qualification.confidence==='HIGH')matches.push({url:profile.url,fact:{...qualification,method:rule.id==='PRICE-005'?'linked-supervisor-qualification':'linked-staff-qualification',value:JSON.stringify({source:relation.source,link:relation.link.url,relation:relation.link.nearbyContext})}});
+    }
     const url=surfaces[0]?.url??classification.sourceUrls[0]??c.canonicalStartUrl;
     const observed={serviceType,matches,surfaces:surfaces.map(s=>({url:s.url,type:s.type})),quote_generator_detected:candidatePages.some(p=>p.quote_generator_detected)};
     if(classification.excluded){add(rule.id,'NOT_APPLICABLE','An explicit service exclusion or override makes this check inapplicable.',observed,url);continue;}
@@ -44,6 +54,7 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     if(rule.id==='PRICE-017'){add(rule.id,surfaces.some(s=>s.confidence==='HIGH')?'PASS':'UNKNOWN','Pricing surface and service wording association.',observed,url);continue;}
     if(rule.id==='PRICE-015'&&!matches.length){add(rule.id,'UNKNOWN','Conditional-fee applicability or customer-payment detail could not be established.',observed,url);continue;}
     const high=matches.some(m=>m.fact.confidence==='HIGH');
+    if(!high&&['PRICE-004','PRICE-005'].includes(rule.id)&&staffLinks.length){add(rule.id,'UNKNOWN','Linked staff qualification evidence could not be established.',observed,url);continue;}
     const inaccessible=observed.quote_generator_detected||surfaces.some(s=>s.type==='document');
     add(rule.id,high?'PASS':inaccessible?'UNKNOWN':matches.length?'WARNING':'UNKNOWN',high?wording.located:observed.quote_generator_detected?wording.calculator:surfaces.some(s=>s.type==='document')?wording.document:matches.length?wording.partial:wording.unknown,observed,matches[0]?.url??url);
   }
@@ -79,7 +90,9 @@ export function evaluateLawWatch(input:LawContext):LawReport {
   }
   const runs=runRules({current:c,previous:p,factResults:signals},[universalPack,lawPack]);
   const law=runs[1];const results:LawResult[]=law.results.map(r=>{
-    const observed=r.evidence[0].observed as {serviceType?:Service}|null;return {...r,...(observed?.serviceType?{serviceType:observed.serviceType}:{})};
+    const observed=r.evidence[0].observed as {serviceType?:Service}|null;const result:LawResult={...r,...(observed?.serviceType?{serviceType:observed.serviceType}:{})};
+    if(result.status==='UNKNOWN'){result.unknownReasonCodes=unknownReasons(result,input,pages,inventory,classifications);result.explanation+=' '+result.unknownReasonCodes.map(code=>UNKNOWN_EXPLANATIONS[code]).join(' ');}
+    return result;
   });law.results=results;law.findings=projectFindings(results,law.runId,c.completedAt);
-  return {schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.0',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
+  return {schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.1',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
 }

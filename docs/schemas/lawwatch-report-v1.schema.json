@@ -33,7 +33,10 @@
       "const": "lawwatch-england-wales"
     },
     "packVersion": {
-      "const": "1.0"
+      "enum": [
+        "1.0",
+        "1.1"
+      ]
     },
     "universalResults": {
       "type": "array",
@@ -376,6 +379,43 @@
                     },
                     "document": {
                       "type": "boolean"
+                    },
+                    "sourceUrl": {
+                      "type": "string"
+                    },
+                    "nearbyContext": {
+                      "type": "string",
+                      "maxLength": 240
+                    },
+                    "services": {
+                      "type": "array",
+                      "items": {
+                        "enum": [
+                          "residential_conveyancing",
+                          "remortgage",
+                          "probate",
+                          "immigration",
+                          "immigration_appeals",
+                          "motoring",
+                          "employment_employee",
+                          "employment_employer",
+                          "debt_recovery",
+                          "business_licensing"
+                        ]
+                      }
+                    },
+                    "purpose": {
+                      "enum": [
+                        "pricing",
+                        "complaints"
+                      ]
+                    },
+                    "associationConfidence": {
+                      "enum": [
+                        "HIGH",
+                        "MEDIUM",
+                        "LOW"
+                      ]
                     }
                   },
                   "additionalProperties": false
@@ -511,6 +551,23 @@
               "debt_recovery",
               "business_licensing"
             ]
+          },
+          "unknownReasonCodes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "PAGE_NOT_DISCOVERED",
+                "DOCUMENT_CONTENT_UNAVAILABLE",
+                "BROWSER_REQUIRED",
+                "DETECTOR_INSUFFICIENT",
+                "SERVICE_APPLICABILITY_UNCERTAIN",
+                "STAFF_INFORMATION_NOT_DISCOVERED",
+                "CRAWL_BUDGET_EXHAUSTED",
+                "NETWORK_FAILURE",
+                "AMBIGUOUS_EVIDENCE"
+              ]
+            },
+            "minItems": 1
           }
         },
         "additionalProperties": false
@@ -639,6 +696,23 @@
               "debt_recovery",
               "business_licensing"
             ]
+          },
+          "unknownReasonCodes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "PAGE_NOT_DISCOVERED",
+                "DOCUMENT_CONTENT_UNAVAILABLE",
+                "BROWSER_REQUIRED",
+                "DETECTOR_INSUFFICIENT",
+                "SERVICE_APPLICABILITY_UNCERTAIN",
+                "STAFF_INFORMATION_NOT_DISCOVERED",
+                "CRAWL_BUDGET_EXHAUSTED",
+                "NETWORK_FAILURE",
+                "AMBIGUOUS_EVIDENCE"
+              ]
+            },
+            "minItems": 1
           }
         },
         "additionalProperties": false
@@ -767,6 +841,23 @@
               "debt_recovery",
               "business_licensing"
             ]
+          },
+          "unknownReasonCodes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "PAGE_NOT_DISCOVERED",
+                "DOCUMENT_CONTENT_UNAVAILABLE",
+                "BROWSER_REQUIRED",
+                "DETECTOR_INSUFFICIENT",
+                "SERVICE_APPLICABILITY_UNCERTAIN",
+                "STAFF_INFORMATION_NOT_DISCOVERED",
+                "CRAWL_BUDGET_EXHAUSTED",
+                "NETWORK_FAILURE",
+                "AMBIGUOUS_EVIDENCE"
+              ]
+            },
+            "minItems": 1
           }
         },
         "additionalProperties": false
@@ -962,6 +1053,23 @@
                     "debt_recovery",
                     "business_licensing"
                   ]
+                },
+                "unknownReasonCodes": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "PAGE_NOT_DISCOVERED",
+                      "DOCUMENT_CONTENT_UNAVAILABLE",
+                      "BROWSER_REQUIRED",
+                      "DETECTOR_INSUFFICIENT",
+                      "SERVICE_APPLICABILITY_UNCERTAIN",
+                      "STAFF_INFORMATION_NOT_DISCOVERED",
+                      "CRAWL_BUDGET_EXHAUSTED",
+                      "NETWORK_FAILURE",
+                      "AMBIGUOUS_EVIDENCE"
+                    ]
+                  },
+                  "minItems": 1
                 }
               },
               "additionalProperties": false

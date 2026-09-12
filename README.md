@@ -94,3 +94,14 @@ See [the Milestone 1 public-site validation report](docs/MILESTONE_1_VALIDATION.
 The [Milestone 3 rule engine](docs/MILESTONE_3.md) supplies the 15-rule **WatchLayer Universal v1.0** pack. `--rules` evaluates and saves findings after a scan; `rules` evaluates stored observations offline. `findings` displays the latest evaluations for the newest scan. These commands support `--db`, `--json` and `--output`. Repeat `--pack custom.json` to evaluate configured packs; thresholds are pack data. Findings retain exact rule/pack versions and evidence. UNKNOWN means insufficient evidence, and an unobserved resource is never automatically a confirmed failure. Machine-readable schemas are in `docs/schemas/`.
 
 [Milestone 4](docs/MILESTONE_4.md) adds **LawWatch England & Wales v1.0**, with 34 definitions covering regulatory indicators, pricing per service, informational age signals and monitored changes. `scan --lawwatch` captures bounded facts and runs both packs. `lawwatch <scan-id>` evaluates stored evidence offline; old scans without those facts remain UNKNOWN. No PDF parsing or browser execution is performed. The human benchmark workbook remains read-only. `npm run evaluate-lawwatch -- --firm "Russell-Cooke"` runs a deliberately limited manual evaluation; all 50 firms require an explicit `--all` option. WatchLayer's names and database paths are unchanged.
+
+[Milestone 5](docs/MILESTONE_5_BENCHMARK.md) hardens discovery and extraction in **LawWatch England & Wales v1.1**. LawWatch prioritises regulatory/pricing links and adds separate budgets of up to 40 regulatory pages and five directly linked staff pages after the normal crawl. Its default request spacing is one second. Configure these independently:
+
+```text
+npm run scan -- https://example.com --lawwatch --max-pages 20 --lawwatch-evidence-budget 40 --lawwatch-staff-budget 5
+npm run lawwatch -- <scan-id> --reason-codes
+npm run evaluate:milestone5 -- --phase final --all
+npm run summarize:milestone5 -- reports/milestone5/final
+```
+
+Evidence budgets accept 0–50; staff budgets accept 0–10. Zero disables the corresponding extra stage. All stages share deduplication, robots, redirect and public-network safeguards. Different discovery profiles are not suitable baselines for removal conclusions. LawWatch reports retain structured UNKNOWN reasons and bounded link context; PDFs and calculator outputs remain unevaluated. The benchmark study distinguishes strict agreement, conservative uncertainty compatibility and unproven issue precision; it does not establish production readiness.

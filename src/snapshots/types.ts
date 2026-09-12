@@ -50,6 +50,7 @@ export interface FormObservation {
 }
 export interface ContactObservation { value: string; sourcePages: string[]; unobservedSourcePages?: string[]; observationStatus: 'observed' | 'not_observed'; lastObservedScanId?: string }
 export interface Coverage {
+  crawlStages?:ScanResult['crawlStages'];
   homepageReached: boolean;
   crawlLimitReached: boolean;
   pagesDiscovered: number;
@@ -64,6 +65,7 @@ export interface Coverage {
   discoveryErrors: number;
 }
 export interface Snapshot {
+  scanProfile?:string;
   /** Optional additive transport evidence; older snapshots remain readable. */
   requests?: {url: string; finalUrl?: string; status?: number; tls?: {authorized: boolean; validTo: string}; errorCode?: string}[];
   brokenLinks?: ScanResult['brokenLinks'];

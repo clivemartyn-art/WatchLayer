@@ -16,7 +16,8 @@ export function compareSnapshots(previous: Snapshot, current: Snapshot): Compari
   if (!compatible) warnings.push('Scanner or snapshot versions are incompatible; comparison suppressed.');
   if (previous.crawlLimit!==current.crawlLimit) warnings.push('Crawl limits differ; removal conclusions are suppressed.');
   if (!previous.comparisonEligible) warnings.push('Previous scan is unsuitable for comparison.');
-  const eligible = compatible && previous.comparisonEligible && current.comparisonEligible && previous.crawlLimit===current.crawlLimit;
+  if(previous.scanProfile!==current.scanProfile)warnings.push('Discovery profiles differ; removal conclusions are suppressed.');
+  const eligible = compatible && previous.comparisonEligible && current.comparisonEligible && previous.crawlLimit===current.crawlLimit&&previous.scanProfile===current.scanProfile;
   const result: Comparison = {schemaVersion:1,site:current.canonicalDomain,previousScanId:previous.scanId,currentScanId:current.scanId,previousScanAt:previous.completedAt,currentScanAt:current.completedAt,comparisonEligible:eligible,comparisonWarnings:warnings,confidence:eligible&&!warnings.length?'high':'reduced',summary:{added:0,confirmedRemoved:0,changed:0,notObserved:0,unchanged:0},changes:[]};
   if (!compatible) return result;
   const categories = {added:new Set<string>(),confirmedRemoved:new Set<string>(),changed:new Set<string>(),notObserved:new Set<string>()};

@@ -1,8 +1,8 @@
 import { APPLICATION_VERSION, SNAPSHOT_SCHEMA_VERSION, type Snapshot } from '../snapshots/types.js';
 
 export const ELIGIBILITY = { maxFailureRatio: 0.25, minCoverageRatio: 0.5 } as const;
-export function selectBaseline(history: Snapshot[], crawlLimit: number): Snapshot | undefined {
-  return history.find(s => s.comparisonEligible && s.schemaVersion === SNAPSHOT_SCHEMA_VERSION && s.applicationVersion === APPLICATION_VERSION && s.crawlLimit === crawlLimit);
+export function selectBaseline(history: Snapshot[], crawlLimit: number,scanProfile?:string): Snapshot | undefined {
+  return history.find(s => s.comparisonEligible && s.schemaVersion === SNAPSHOT_SCHEMA_VERSION && s.applicationVersion === APPLICATION_VERSION && s.crawlLimit === crawlLimit&&s.scanProfile===scanProfile);
 }
 export function assessEligibility(current: Snapshot, previous?: Snapshot): {eligible: boolean; warnings: string[]} {
   const warnings: string[] = [];
@@ -22,6 +22,7 @@ export function assessEligibility(current: Snapshot, previous?: Snapshot): {elig
   if (current.pages.some(p => p.observationStatus === 'excluded_from_scan')) warnings.push('Some pages were excluded by scope or robots policy.');
   if (current.pages.some(p => p.browserRenderRecommended)) warnings.push('Some page content may require browser rendering.');
   if (previous && previous.crawlLimit !== current.crawlLimit) reject('Different crawl limits make this comparison unsuitable.');
+  if (previous && previous.scanProfile !== current.scanProfile) reject('Different discovery profiles make this comparison unsuitable.');
   if (current.schemaVersion !== SNAPSHOT_SCHEMA_VERSION || current.applicationVersion !== APPLICATION_VERSION) reject('Unsupported scanner or snapshot version.');
   return {eligible,warnings};
 }

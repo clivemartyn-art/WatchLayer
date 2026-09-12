@@ -20,16 +20,18 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
   try {
     const args=[...arguments_];
     if (!args.length||args.includes('--help')) {
-      console.log(`Usage: npm run ${command} -- <${command==='export-scan'?'scan-id':command==='rules'?'scan-id or URL':'URL'}> [--db path] [--json] [--output file]${command==='scan'?' [--compare] [--rules] [--lawwatch] [--pack file.json] [--no-persist] [--max-pages 100] [--recheck-budget 20]':command==='rules'?' [--pack file.json]':''}`); return;
+      console.log(`Usage: npm run ${command} -- <${command==='export-scan'?'scan-id':command==='rules'?'scan-id or URL':'URL'}> [--db path] [--json] [--output file]${command==='scan'?' [--compare] [--rules] [--lawwatch] [--lawwatch-evidence-budget 40] [--lawwatch-staff-budget 5] [--pack file.json] [--no-persist] [--max-pages 100] [--recheck-budget 20]':command==='rules'?' [--pack file.json]':''}`); return;
     }
     const input=args.shift()!;
     let db=DEFAULT_DATABASE; let json=false; let output: string|undefined; let compare=false; let persist=true; let maxPages=100; let recheckBudget=20;
-    let law=false; let rules=false; const packFiles:string[]=[];
+    let law=false; let rules=false; const packFiles:string[]=[];let lawwatchEvidenceBudget:number|undefined,lawwatchStaffBudget:number|undefined;
     while(args.length) {
       const flag=args.shift()!;
       const value=()=>{const next=args.shift();if(!next||next.startsWith('--'))throw new Error(`${flag} requires a value`);return next;};
       if(flag==='--json')json=true;
       else if(command==='scan'&&flag==='--lawwatch')law=true;
+      else if(command==='scan'&&flag==='--lawwatch-evidence-budget')lawwatchEvidenceBudget=Number(value());
+      else if(command==='scan'&&flag==='--lawwatch-staff-budget')lawwatchStaffBudget=Number(value());
       else if(command==='scan'&&flag==='--rules')rules=true;
       else if((command==='rules'||command==='scan')&&flag==='--pack')packFiles.push(value());
       else if(flag==='--db')db=value();
@@ -42,13 +44,14 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
     }
     if(compare&&!persist)throw new Error('--compare requires persistence');
     if(law&&!persist)throw new Error('--lawwatch requires persistence');
+    if(!law&&(lawwatchEvidenceBudget!==undefined||lawwatchStaffBudget!==undefined))throw new Error('LawWatch budgets require --lawwatch');
     if(rules&&!persist)throw new Error('--rules requires persistence');
     if(packFiles.length&&command==='scan'&&!rules)throw new Error('--pack requires --rules');
     if(command!=='export-scan'&&command!=='rules')normalize(input);
     const packs=packFiles.length?await Promise.all(packFiles.map(async file=>validatePack(JSON.parse(await readFile(file,'utf8'))))):[universalPack];
     const execute=(snapshot:Snapshot)=>{
       const history=repository!.history(snapshot.canonicalDomain);
-      const previous=selectBaseline(history.slice(history.findIndex(s=>s.scanId===snapshot.scanId)+1),snapshot.crawlLimit);
+      const previous=selectBaseline(history.slice(history.findIndex(s=>s.scanId===snapshot.scanId)+1),snapshot.crawlLimit,snapshot.scanProfile);
       const runs=runRules({current:snapshot,previous},packs);
       runs.forEach(r=>repository!.saveRuleRun(r));return runs;
     };
@@ -59,7 +62,7 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
     } else {
       repository=new SqliteRepository(db);
       if(command==='scan') {
-        const run=law?await scanLawWatch(input,repository,{maxPages,recheckBudget}):await scanAndPersist(input,repository,{maxPages,recheckBudget});
+        const run=law?await scanLawWatch(input,repository,{maxPages,recheckBudget,lawwatchEvidenceBudget,lawwatchStaffBudget}):await scanAndPersist(input,repository,{maxPages,recheckBudget});
         data={...run.scan,snapshot:{scanId:run.snapshot.scanId,siteId:run.snapshot.siteId,status:run.snapshot.status,comparisonEligible:run.snapshot.comparisonEligible,comparisonWarnings:run.snapshot.comparisonWarnings,coverage:run.snapshot.coverage},...(compare?{comparison:run.comparison}:{})};
         text=terminalReport(run.scan)+`\n\nSaved scan: ${run.snapshot.scanId}\nDatabase: ${db}`;
         if(compare)text+='\n\n'+(run.comparison?changeReport(run.comparison):'No suitable previous scan. This scan has been saved; no changes inferred.');
@@ -80,7 +83,7 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
           data=history.map(s=>({scanId:s.scanId,completedAt:s.completedAt,status:s.status,pagesScanned:s.coverage.pagesScanned,crawlLimit:s.crawlLimit,comparisonEligible:s.comparisonEligible}));
           text=`SCAN HISTORY\n\nSite: ${domain(normalize(input))}\n\nID | Completed | Status | Pages | Eligible\n`+(history.length?history.map(s=>`${s.scanId} | ${s.completedAt} | ${s.status} | ${s.coverage.pagesScanned} | ${s.comparisonEligible?'yes':'no'}`).join('\n'):'No scans stored.');
         } else {
-          const current=history[0]; const previous=current?selectBaseline(history.slice(1),current.crawlLimit):undefined;
+          const current=history[0]; const previous=current?selectBaseline(history.slice(1),current.crawlLimit,current.scanProfile):undefined;
           if(!current||!previous){data={comparison:null,message:'No suitable previous scan to compare.'};text='No suitable previous scan to compare.';}
           else {const comparison=compareSnapshots(previous,current);data=comparison;text=changeReport(comparison);}
         }

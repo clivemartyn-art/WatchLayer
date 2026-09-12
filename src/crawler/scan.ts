@@ -8,7 +8,8 @@ import { documentType } from '../links/classify.js';
 import type { ScanResult, Contact, Document } from '../schemas/scan.js';
 import type { CrawlObservation } from './observations.js';
 
-export interface ScanOptions { maxPages?: number; delayMs?: number; timeoutMs?: number; onPageResult?: (observation: CrawlObservation) => void; /** Trusted test seam; never exposed through CLI. */ fetcher?: Fetcher }
+export interface CrawlPolicy {profile:string;priority:(url:string)=>number|null;stages:{name:string;budget:number;priority:(url:string)=>number|null}[]}
+export interface ScanOptions { maxPages?: number; delayMs?: number; timeoutMs?: number; crawlPolicy?:CrawlPolicy; onPageResult?: (observation: CrawlObservation) => void; /** Trusted test seam; never exposed through CLI. */ fetcher?: Fetcher }
 export async function scan(inputUrl: string, options: ScanOptions = {}): Promise<ScanResult> {
   const start = normalize(inputUrl); const maxPages = options.maxPages ?? 100;
   if (!Number.isInteger(maxPages) || maxPages < 1) throw new Error('Page limit must be a positive integer');
@@ -28,7 +29,17 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
       const url = normalize(raw, base); if (!sameDomain(url, start)) return;
       if (documentType(url)) { addDocument(url, source ?? base); return; }
       if (source) { const refs = sources.get(url) ?? new Set<string>(); refs.add(source); sources.set(url, refs); }
-      if (!discovered.has(url) && discovered.size < 10000) { discovered.add(url); queue.push(url); }
+      if (!discovered.has(url)) {
+        if(discovered.size>=10000&&options.crawlPolicy){
+          // At capacity, allow a relevant newly linked URL to replace a lower-ranked
+          // queued candidate. The bounded set never grows beyond the original cap.
+          const importance=(candidate:string)=>Math.max(...[options.crawlPolicy!.priority,...options.crawlPolicy!.stages.map(s=>s.priority)].map(score=>score(candidate)??-Infinity));
+          const incoming=importance(url);let worst=-1,lowest=incoming;
+          if(incoming>0)for(let i=0;i<queue.length;i++)if(!fetched.has(queue[i])){const score=importance(queue[i]);if(score<lowest){lowest=score;worst=i;break;}}
+          if(worst>=0){const removed=queue.splice(worst,1)[0];discovered.delete(removed);}
+        }
+        if(discovered.size<10000){discovered.add(url);queue.push(url);}
+      }
     } catch { /* Unsupported discovered URLs are not fetched. */ }
   }
   const policies = new Map<string, ReturnType<typeof robotsParser>>();
@@ -64,14 +75,24 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
     } catch (e) { error(url, 'sitemap', e); }
   }
   result.discovery.sitemapUrlsFound = sitemapPages.size;
-  let attempted = 0;
-  while (queue.length && attempted < maxPages) {
-    const url = queue.shift()!; if (fetched.has(url)) continue;
+  let attempted = 0;let limitReached=false;
+  const stages=[{name:'natural',budget:maxPages,priority:options.crawlPolicy?.priority??(()=>0)},...(options.crawlPolicy?.stages??[])];
+  if(stages.some(s=>!Number.isInteger(s.budget)||s.budget<0))throw new Error('Invalid crawl stage budget');
+  if(options.crawlPolicy)result.crawlStages=[];
+  async function allowed(url:string){if(!sameDomain(url,start))throw new Error('Outside target domain');const policy=await robots(new URL(url).origin);if(policy.isAllowed(url,USER_AGENT)===false)throw new Error('Excluded by robots.txt');}
+  for(const stage of stages){
+  let stageAttempts=0,selections=0,skipped=0;const before=result.pages.length;
+  const rank=(url:string)=>url===start?Infinity:stage.priority(url);
+  while (queue.length && stageAttempts < stage.budget && (stage.name==='natural'||selections<stage.budget)) {
+    let selected=-1,best=-Infinity;
+    for(let i=0;i<queue.length;i++){if(fetched.has(queue[i]))continue;const score=rank(queue[i]);if(score!==null&&(selected<0||score>best)){selected=i;best=score;}}
+    if(selected<0)break;
+    const url=queue.splice(selected,1)[0];selections++;
     const policy = await robots(new URL(url).origin);
-    if (policy.isAllowed(url, USER_AGENT) === false) { error(url, 'robots', 'Skipped by robots.txt'); options.onPageResult?.({url,state:'excluded_from_scan',reason:'Skipped by robots.txt'}); continue; }
-    fetched.add(url); attempted++;
+    if (policy.isAllowed(url, USER_AGENT) === false) { fetched.add(url);skipped++;error(url, 'robots', 'Skipped by robots.txt'); options.onPageResult?.({url,state:'excluded_from_scan',reason:'Skipped by robots.txt'}); continue; }
+    fetched.add(url); attempted++;stageAttempts++;
     try {
-      const response = await fetch(url);
+      const response = await fetch(url,{beforeRequest:allowed});
       options.onPageResult?.({url,finalUrl:response.finalUrl,status:response.status,contentType:response.contentType,responseTimeMs:response.responseTimeMs,redirects:response.redirects,state:'retrieved'});
       const alreadyRetrieved = fetched.has(response.finalUrl) && response.finalUrl !== url;
       fetched.add(response.finalUrl);
@@ -97,6 +118,10 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
       for (const link of page.documentLinks) addDocument(link, page.finalUrl);
     } catch (e) { result.summary.pagesFailed++; error(url, 'page', e); options.onPageResult?.({url,state:'unreachable',reason:e instanceof Error ? e.message : String(e)}); }
   }
+  const budgetExhausted=(stageAttempts>=stage.budget||stage.name!=='natural'&&selections>=stage.budget)&&queue.some(url=>!fetched.has(url)&&rank(url)!==null);
+  limitReached ||= budgetExhausted;
+  result.crawlStages?.push({name:stage.name,budget:stage.budget,attempted:stageAttempts,pagesScanned:result.pages.length-before,skipped,budgetExhausted});
+  }
   for (const url of queue) if (!fetched.has(url)) options.onPageResult?.({url,state:'not_observed',reason:'Outside the crawl budget'});
   for (const [destinationUrl, failure] of failures) for (const sourcePage of sources.get(destinationUrl) ?? []) result.brokenLinks.push({sourcePage,destinationUrl,...failure});
   function contacts(kind: 'emails'|'phones'): Contact[] {
@@ -105,6 +130,6 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
     return [...map].map(([value, refs]) => ({value, sourcePages: [...refs]}));
   }
   result.documents = [...docs.values()]; result.contacts = {emails: contacts('emails'), phones: contacts('phones')};
-  Object.assign(result.summary, {pagesDiscovered: discovered.size, pagesScanned: result.pages.length, brokenInternalLinks: result.brokenLinks.length, documentsFound: result.documents.length, formsFound: result.forms.length, emailsFound: result.contacts.emails.length, phoneNumbersFound: result.contacts.phones.length, browserRenderRecommended: result.pages.filter(p => p.browser_render_recommended).length, crawlLimitReached: queue.some(url => !fetched.has(url)) && attempted >= maxPages});
+  Object.assign(result.summary, {pagesDiscovered: discovered.size, pagesScanned: result.pages.length, brokenInternalLinks: result.brokenLinks.length, documentsFound: result.documents.length, formsFound: result.forms.length, emailsFound: result.contacts.emails.length, phoneNumbersFound: result.contacts.phones.length, browserRenderRecommended: result.pages.filter(p => p.browser_render_recommended).length, crawlLimitReached: limitReached});
   return result;
 }
