@@ -1,1 +1,32 @@
-{"name":"watchlayer","version":"0.1.0","private":true,"type":"module","engines":{"node":">=22"},"scripts":{"scan":"tsx src/cli/index.ts","test":"vitest run","typecheck":"tsc --noEmit","build":"tsc"},"dependencies":{"cheerio":"^1.1.2","fast-xml-parser":"^5.2.5","ipaddr.js":"^2.2.0","robots-parser":"^3.0.1","tldts":"^7.0.14"},"devDependencies":{"@types/node":"^24.0.0","tsx":"^4.20.0","typescript":"^5.9.0","vitest":"^4.1.11"}}
+{
+  "name": "watchlayer",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "scripts": {
+    "scan": "tsx src/cli/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --project tsconfig.check.json",
+    "build": "tsc",
+    "compare": "tsx src/cli/compare.ts",
+    "history": "tsx src/cli/history.ts",
+    "export-scan": "tsx src/cli/export.ts",
+    "validate:scenario": "tsx scripts/validate-milestone2.ts"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "fast-xml-parser": "^5.2.5",
+    "ipaddr.js": "^2.2.0",
+    "robots-parser": "^3.0.1",
+    "tldts": "^7.0.14"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.11"
+  }
+}

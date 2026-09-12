@@ -6,8 +6,9 @@ import { parseSitemap } from '../discovery/sitemap.js';
 import { extractPage } from '../extractors/page.js';
 import { documentType } from '../links/classify.js';
 import type { ScanResult, Contact, Document } from '../schemas/scan.js';
+import type { CrawlObservation } from './observations.js';
 
-export interface ScanOptions { maxPages?: number; delayMs?: number; timeoutMs?: number; /** Trusted test seam; never exposed through CLI. */ fetcher?: Fetcher }
+export interface ScanOptions { maxPages?: number; delayMs?: number; timeoutMs?: number; onPageResult?: (observation: CrawlObservation) => void; /** Trusted test seam; never exposed through CLI. */ fetcher?: Fetcher }
 export async function scan(inputUrl: string, options: ScanOptions = {}): Promise<ScanResult> {
   const start = normalize(inputUrl); const maxPages = options.maxPages ?? 100;
   if (!Number.isInteger(maxPages) || maxPages < 1) throw new Error('Page limit must be a positive integer');
@@ -67,10 +68,11 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
   while (queue.length && attempted < maxPages) {
     const url = queue.shift()!; if (fetched.has(url)) continue;
     const policy = await robots(new URL(url).origin);
-    if (policy.isAllowed(url, USER_AGENT) === false) { error(url, 'robots', 'Skipped by robots.txt'); continue; }
+    if (policy.isAllowed(url, USER_AGENT) === false) { error(url, 'robots', 'Skipped by robots.txt'); options.onPageResult?.({url,state:'excluded_from_scan',reason:'Skipped by robots.txt'}); continue; }
     fetched.add(url); attempted++;
     try {
       const response = await fetch(url);
+      options.onPageResult?.({url,finalUrl:response.finalUrl,status:response.status,contentType:response.contentType,responseTimeMs:response.responseTimeMs,redirects:response.redirects,state:'retrieved'});
       const alreadyRetrieved = fetched.has(response.finalUrl) && response.finalUrl !== url;
       fetched.add(response.finalUrl);
       if (url === start) { result.site.canonicalUrl = response.finalUrl; result.site.hostname = new URL(response.finalUrl).hostname; }
@@ -93,8 +95,9 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
       const page = extractPage(response); result.pages.push(page); result.forms.push(...page.forms);
       for (const link of page.internalLinks) enqueue(link, page.finalUrl, page.finalUrl);
       for (const link of page.documentLinks) addDocument(link, page.finalUrl);
-    } catch (e) { result.summary.pagesFailed++; error(url, 'page', e); }
+    } catch (e) { result.summary.pagesFailed++; error(url, 'page', e); options.onPageResult?.({url,state:'unreachable',reason:e instanceof Error ? e.message : String(e)}); }
   }
+  for (const url of queue) if (!fetched.has(url)) options.onPageResult?.({url,state:'not_observed',reason:'Outside the crawl budget'});
   for (const [destinationUrl, failure] of failures) for (const sourcePage of sources.get(destinationUrl) ?? []) result.brokenLinks.push({sourcePage,destinationUrl,...failure});
   function contacts(kind: 'emails'|'phones'): Contact[] {
     const map = new Map<string, Set<string>>();

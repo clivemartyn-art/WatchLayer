@@ -1,10 +1,10 @@
-# WatchLayer — Milestone 1
+# WatchLayer — Milestone 2
 
-A local, industry-neutral TypeScript website crawler. It discovers public pages, extracts structured facts, and produces a terminal report and optional JSON. It makes no legal-compliance assessments.
+A local, industry-neutral TypeScript website-monitoring engine. It crawls public pages, extracts structured facts, stores immutable SQLite snapshots and compares repeat scans deterministically. It makes no legal-compliance assessments.
 
 ## Requirements and installation
 
-Install Node.js 22 or newer, including npm, then run from this folder:
+Install Node.js 22.16 or newer, including npm (Node.js 24 LTS recommended), then run from this folder:
 
 ```sh
 npm install
@@ -17,14 +17,24 @@ npm run scan -- https://example.com
 npm run scan -- example.com
 npm run scan -- https://example.com --output report.json
 npm run scan -- https://example.com --max-pages 10
+npm run scan -- https://example.com --compare
+npm run compare -- https://example.com
+npm run history -- https://example.com
+npm run export-scan -- <scan-id> --output exported-scan.json
+npm run scan -- https://example.com --no-persist
 npm run --silent scan -- https://example.com --json > report.json
 npm test
 npm run typecheck
 npm run build
+npm run validate:scenario
 node dist/cli/index.js https://example.com --output report.json
 ```
 
-`--json` emits JSON instead of the terminal report. `--output` writes JSON while retaining the normal terminal report. Existing output files are overwritten. Exit code 1 means invalid arguments, an unrecoverable error, or no HTML pages retrieved. Partial scans retain their errors in the result.
+Scans persist automatically to `.watchlayer/watchlayer.db`, which is excluded from Git. Use `--db <path>` on any command to choose another database. `--no-persist` retains the Milestone 1 scan-only workflow. `--compare` scans and compares; the separate `compare` command compares stored scans without making network requests.
+
+`--json` emits JSON instead of the terminal report. `--output` writes JSON while retaining the normal terminal report (export always emits JSON). Existing output files are overwritten. Scan JSON retains the Milestone 1 fields and adds snapshot identity/coverage; snapshot export contains structured observations and hashes, without full text or HTML. Exit code 1 means invalid arguments, an unrecoverable error, or no HTML pages retrieved. Partial scans retain their errors.
+
+Repeat scans select the latest eligible snapshot with matching crawl limit and scanner/schema versions. Up to 20 known resources are rechecked after crawling; use `--recheck-budget 0` to disable additional requests, or an integer up to 20 to lower the budget. Missing HTML observations become **NOT OBSERVED**, not removed. A direct 404/410 is required for confirmed page/document removal; inconclusive failures reduce confidence. Form and contact removals require their source pages to have been reliably observed.
 
 ## Architecture
 
@@ -39,6 +49,9 @@ src/
   contacts/     Public email and phone extraction
   reporting/    Human-readable terminal summary
   schemas/      Versioned TypeScript result interfaces
+  snapshots/    Snapshot lifecycle, fingerprints and bounded rechecks
+  comparison/   Eligibility, deterministic differences and materiality
+  storage/      Repository interface, SQLite adapter and migrations
   utils/        URL normalization, domain policy, DNS safety
 tests/          Deterministic extraction, crawl and transport fixtures
 ```
@@ -59,12 +72,12 @@ Fragments and common tracking parameters are removed and query parameters sorted
 - Visible text, contacts and form classifications are best-effort heuristics. External CSS visibility, obfuscated contacts, international phone validation and perfect content isolation are not implemented.
 - Recognizable consent-banner controls are excluded from text; legitimate cookie-policy content and footer contact details are retained. Form totals count occurrences per page, including repeated site-wide forms. National and international telephone representations may remain separate values.
 - Standard XML sitemap indexes and URL sets are supported; compressed sitemaps are not. Broken sitemaps do not prevent internal-link crawling.
-- Document links are catalogued by filename extension without fetching or parsing their contents. Extensionless downloads may not be identified. Non-HTML response bodies are discarded.
+- Document links are catalogued by filename extension without parsing their contents. Repeat scans may recheck known documents with HEAD only; there is no GET fallback for unsupported HEAD. Extensionless downloads may not be identified. Non-HTML response bodies are discarded.
 - Only discovered destinations within the crawl budget are checked for broken links. Robots exclusions and unvisited links are not declared healthy. No external-link checking or form submission occurs.
 - Responses are decoded as UTF-8. No retries, browser cookies, authentication, custom ports, or cross-domain redirects. Robots crawl-delay directives are not interpreted; requests use the fixed modest delay.
 - Reports may contain public contact details and page text. Store exported files appropriately.
-- No AI, persistent snapshots, repeat-scan scheduling, change detection, compliance rules, scoring, alerts, database, accounts or hosted infrastructure.
+- No AI, browser rendering, scheduled scans, compliance rules, scoring, alerts, accounts or hosted infrastructure. SQLite persistence and deterministic change detection are implemented; snapshots remain local.
 
-Milestone 2 should add persistent snapshots, repeat scans and deterministic change detection, preserving crawl completeness and errors so missing observations are not mistaken for removed content.
+SQLite uses Node's built-in library, avoiding a native add-on or external service. See [Milestone 2 design and limitations](docs/MILESTONE_2.md) for migrations, eligibility thresholds, data retention and comparison semantics. The deterministic `validate:scenario` command uses mocked HTTP responses, creates a fresh database and exports its report under the ignored `reports/milestone2/` folder.
 
 See [the Milestone 1 public-site validation report](docs/MILESTONE_1_VALIDATION.md) for the tested sites, observed limitations and hardening results.
