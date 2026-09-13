@@ -8,11 +8,14 @@ export function regulatorySignals($:CheerioAPI,text:string,segments:string[],rel
   for(const m of text.matchAll(/\bSRA\s+numbers?\s*:\s*((?:\d{5,8}(?:\s*(?:,|and|&)\s*)?){1,10})/gi))for(const n of m[1].matchAll(/\d{5,8}/g))if(!numbers.some(f=>f.value===n[0]))numbers.push(fact('labelled-sra-number-list',m[0],'HIGH',n[0]));
   for(const m of text.matchAll(/\bSRA\s*\(\s*(\d{4,8})\s*\)/gi))if(!numbers.some(f=>f.value===m[1]))numbers.push(fact('possible-sra-number',m[0],'MEDIUM',m[1]));
   const badges:Fact[]=[];
-  $('iframe[src],script[src],a[href],img').each((_,el)=>{
-    const node=$(el);const raw=node.attr('src')??node.attr('href')??'';let host='';try{host=new URL(raw,'https://invalid.example').hostname;}catch{}
+  $('iframe[src],iframe[data-src],script[src],a[href],img').each((_,el)=>{
+    const node=$(el);const raw=node.attr('src')??node.attr('data-src')??node.attr('href')??'';let host='';try{host=new URL(raw,'https://invalid.example').hostname;}catch{}
     const recognized=(host==='yoshki.com'||host.endsWith('.yoshki.com'))&&/sra|57845/i.test(raw+' '+node.attr('title'));
     const label=[node.attr('alt'),node.attr('title'),node.attr('id'),raw].join(' ');
     if(recognized||/sra.{0,20}(?:badge|logo)|(?:badge|logo).{0,20}sra/i.test(label))badges.push(fact('static-badge-integration',label,recognized?'HIGH':'MEDIUM',raw));
+  });
+  $('[data-sra-badge],[id*="sra-badge"],[class*="sra-badge"]').slice(0,3).each((_,el)=>{
+    badges.push(fact('badge-container-hint',String($(el).attr('id')??$(el).attr('class')??'data-sra-badge'),'MEDIUM'));
   });
   $('script:not([src])').each((_,el)=>{
     for(const m of $(el).text().matchAll(/https?:\/\/[^\s"'<>\\]+/g)){

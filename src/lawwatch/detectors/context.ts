@@ -1,4 +1,4 @@
-import type { CheerioAPI } from 'cheerio';
+import { load,type CheerioAPI } from 'cheerio';
 import { normalize } from '../../utils/urls.js';
 import { documentType } from '../../links/classify.js';
 import { serviceMatches } from './services.js';
@@ -10,11 +10,12 @@ export function evidenceSegments($:CheerioAPI,text:string):string[] {
   $('p,li,tr,dd').each((_,el)=>{const value=clean($(el).text());if(value&&value.length<=1000)segments.push(value);});
   $('h2,h3,h4').each((_,el)=>{
     const heading=clean($(el).text());const following=$(el).next();
-    if(following.is('ul,ol,table')){const value=clean(heading+' '+following.text());if(value.length<=1000)segments.push(value);}
+    if(following.is('ul,ol,table,p')){const value=clean(heading+' '+following.text());if(value.length<=1000)segments.push(value);}
   });
   return [...new Set(segments)].slice(0,2000);
 }
 export function sourceLinks($:CheerioAPI,sourceUrl:string,pricingPage:boolean):SourceLink[] {
+  $=load($.html());$('script,style,noscript').remove();
   let base=sourceUrl;try{base=normalize($('base[href]').first().attr('href')??base,base);}catch{}
   const links:SourceLink[]=[];
   $('a[href]').slice(0,500).each((_,el)=>{try{

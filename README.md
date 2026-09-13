@@ -105,3 +105,13 @@ npm run summarize:milestone5 -- reports/milestone5/final
 ```
 
 Evidence budgets accept 0–50; staff budgets accept 0–10. Zero disables the corresponding extra stage. All stages share deduplication, robots, redirect and public-network safeguards. Different discovery profiles are not suitable baselines for removal conclusions. LawWatch reports retain structured UNKNOWN reasons and bounded link context; PDFs and calculator outputs remain unevaluated. The benchmark study distinguishes strict agreement, conservative uncertainty compatibility and unproven issue precision; it does not establish production readiness.
+
+[Milestone 6](docs/MILESTONE_6_BENCHMARK.md) introduces **LawWatch England & Wales v1.2** precision checks, separate PASS adjudication records and a controlled negative benchmark. It tightens client-complaints context, staff/pricing scope, qualifications, stages and VAT evidence. A valid replacement regulatory surface prevents a removed URL from becoming a LawWatch serious finding. Reports add customer-friendly status labels while retaining internal enums. New evaluation requires fresh v1.2 facts; saved historical reports remain unchanged.
+
+```text
+npm run evaluate:negative
+npm run adjudicate:lawwatch -- reports/milestone5/final docs/Validation/milestone6/m5-evidence-review.json
+npm run evaluate:milestone6 -- --phase final --all
+```
+
+The full live evaluation is explicit, sequential and resumable, with unchanged M5 budgets. Human Review is not a machine warning or proven false PASS. Selected-evidence review and controlled fixture precision are reported separately from live human benchmark agreement. No PDF extraction, browser execution, AI or hosted infrastructure is added.

@@ -22,7 +22,10 @@
     "evaluate-lawwatch": "tsx scripts/evaluate-lawwatch.ts",
     "validate:lawwatch": "tsx scripts/validate-milestone4.ts",
     "evaluate:milestone5": "tsx scripts/evaluate-milestone5.ts",
-    "summarize:milestone5": "tsx scripts/summarize-milestone5.ts"
+    "summarize:milestone5": "tsx scripts/summarize-milestone5.ts",
+    "evaluate:milestone6": "tsx scripts/evaluate-milestone6.ts",
+    "evaluate:negative": "tsx scripts/evaluate-lawwatch-negative.ts",
+    "adjudicate:lawwatch": "tsx scripts/adjudicate-lawwatch.ts"
   },
   "dependencies": {
     "cheerio": "^1.1.2",

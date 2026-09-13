@@ -29,6 +29,7 @@ export function associatePricingPages(pages:PageFacts[],snapshot:Snapshot):void 
     const target=byUrl.get(link.url)??byUrl.get(snapshot.pages.find(p=>p.aliases.includes(link.url))?.finalUrl??'');
     if(!target||target.excludedContent)continue;
     const service=link.services[0];const match=target.services.find(s=>s.service===service);
+    if(target.pricingServices&&!target.pricingServices.includes(service))continue;
     if(!match||match.excluded||target.services.some(s=>s.service!==service&&s.state==='DETECTED_HIGH_CONFIDENCE'))continue;
     target.pricing=true;
     if(match.state!=='DETECTED_HIGH_CONFIDENCE'){

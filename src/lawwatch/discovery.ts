@@ -18,7 +18,7 @@ export function urlPriority(url:string):number {
 export function staffLink(link:SourceLink):boolean {
   if(link.region!=='body'||link.document)return false;
   const context=link.label+' '+(link.nearbyContext??'');
-  return /\b(?:people|team|staff|profiles?)\b/i.test(new URL(link.url).pathname.replace(/[-_/]/g,' '))||/\b(?:our|meet|your|supervis\w*|carried out by|handled by).{0,65}(?:team|solicitor|lawyer|partner|fee earner)|\b(?:supervising|supervisor|supervised)\b/i.test(context);
+  return /\b(?:people|team|staff|profiles?)\b/i.test(new URL(link.url).pathname.replace(/[-_/]/g,' '))||/\b(?:supervisor|solicitor|lawyer|partner|profile|head of)\b/i.test(link.label)&&/\b(?:our|meet|your|supervis\w*|carried out by|handled by)\b/i.test(context)||/\b(?:supervised by|supervisor is)\b/i.test(context);
 }
 /** Sector vocabulary stays here; the crawler only sees a neutral ranking policy. */
 export function lawDiscovery(evidenceBudget:number,staffBudget:number):{policy:CrawlPolicy;observe:(page:PageFacts)=>void} {
@@ -26,7 +26,7 @@ export function lawDiscovery(evidenceBudget:number,staffBudget:number):{policy:C
   const base=(url:string)=>{if(!baseScores.has(url))baseScores.set(url,urlPriority(url));return baseScores.get(url)!;};
   const score=(url:string)=>Math.max(base(url),weights.get(url)??-Infinity);
   return {
-    policy:{profile:`lawwatch-1.1:evidence=${evidenceBudget}:staff=${staffBudget}`,
+    policy:{profile:`lawwatch-1.2:evidence=${evidenceBudget}:staff=${staffBudget}`,
       priority:url=>staff.has(url)||base(url)===-80&&/\/(?:people|team|staff|profiles?)\/[^/]+/i.test(new URL(url).pathname)?null:score(url),
       stages:[
         {name:'regulatory-evidence',budget:evidenceBudget,priority:url=>staff.has(url)||base(url)<0?null:score(url)>0?score(url):null},

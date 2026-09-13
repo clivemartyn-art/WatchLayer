@@ -25,8 +25,8 @@ export async function scanLawWatch(input:string,repository:SqliteRepository,opti
   const discovery=lawDiscovery(evidenceBudget,staffBudget);
   const collected=new Map<string,PageFacts>();
   const run=await scanAndPersist(input,repository,{delayMs:1000,...options,crawlPolicy:discovery.policy,onResponse:r=>{options.onResponse?.(r);const facts=extractLawFacts(r);if(facts){collected.set(facts.url,facts);discovery.observe(facts);}}});
-  const facts:FactSet={schemaVersion:1,detectorVersion:'1.1',scanId:run.snapshot.scanId,pages:[...collected.values()].filter(f=>run.snapshot.pages.some(p=>p.finalUrl===f.url&&p.observationStatus==='observed'&&p.evidence==='html'))};
+  const facts:FactSet={schemaVersion:1,detectorVersion:'1.2',scanId:run.snapshot.scanId,pages:[...collected.values()].filter(f=>run.snapshot.pages.some(p=>p.finalUrl===f.url&&p.observationStatus==='observed'&&p.evidence==='html'))};
   associatePricingPages(facts.pages,run.snapshot);
-  repository.saveFacts(run.snapshot.scanId,LAW_PACK_ID,'1.1',facts);
+  repository.saveFacts(run.snapshot.scanId,LAW_PACK_ID,'1.2',facts);
   return {...run,lawwatch:evaluateStoredLawWatch(run.snapshot,repository)};
 }

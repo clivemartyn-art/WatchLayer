@@ -1,0 +1,12 @@
+{
+  "Higgs LLP|PRICE-004": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Current high matches still describe a property-litigation biography linked from a property-disputes source, assigned to residential conveyancing. Scope is unsupported."
+  },
+  "Stephensons Solicitors|PRICE-010": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "M6 now retains residential search-fee amounts explicitly plus VAT. This differs from the ambiguous M5 fee-plus-disbursement matches."
+  }
+}

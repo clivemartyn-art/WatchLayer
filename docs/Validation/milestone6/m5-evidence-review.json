@@ -1,0 +1,557 @@
+{
+  "Nash & Co Solicitors|LAW-U002": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable recognised static embed (not operation). Human Review is not a contrary factual finding."
+  },
+  "Nash & Co Solicitors|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Nash & Co Solicitors|PRICE-004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Nash & Co Solicitors|PRICE-013": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "The retained matches describe writing a first Will and a reassuring process, not probate stages."
+  },
+  "Thompson & Jackson|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Thompson & Jackson|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Barcan+Kirby|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Tozers|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Tozers|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Tozers|PRICE-013": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "First-time buyer and stressful process wording does not describe key stages."
+  },
+  "Hethertons|LAW-U004": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "An explicitly labelled client complaints document is linked; only procedure location, not unparsed content, is supported."
+  },
+  "Ware & Kay|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Ware & Kay|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Harrowells|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Dean Wilson LLP|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Dean Wilson LLP|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Dean Wilson LLP|LAW-U008": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Fieldings Porter|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Winston Solicitors|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Winston Solicitors|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Winston Solicitors|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Tilly Bailey & Irvine|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Tilly Bailey & Irvine|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Tilly Bailey & Irvine|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Kitson Boyce|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Rothera Bray|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Rothera Bray|LAW-U002": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable recognised static embed (not operation). Human Review is not a contrary factual finding."
+  },
+  "Stephens Scown|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Stephens Scown|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Battrick Clark|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Battrick Clark|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Burt Brill & Cardens|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Burt Brill & Cardens|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Burt Brill & Cardens|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Burt Brill & Cardens|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Trethowans|LAW-U004": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "An explicitly labelled client complaints document is linked; only procedure location, not unparsed content, is supported."
+  },
+  "Moore Barlow|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Moore Barlow|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Biscoes Solicitors|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Biscoes Solicitors|LAW-U005": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Guest Walker|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Blacks Solicitors|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Blacks Solicitors|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Blacks Solicitors|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Blacks Solicitors|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Sintons|LAW-U002": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable recognised static embed (not operation). Human Review is not a contrary factual finding."
+  },
+  "Sintons|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Sintons|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Sintons|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Rachel Sebastian & Co|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Minahan Hirst & Co|LAW-U004": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "An explicitly labelled client complaints document is linked; only procedure location, not unparsed content, is supported."
+  },
+  "Minahan Hirst & Co|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Minahan Hirst & Co|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Private Client Solicitors|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Private Client Solicitors|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Slater Heelis|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Slater Heelis|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Stephensons Solicitors|LAW-U004": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "An explicitly labelled client complaints document is linked; only procedure location, not unparsed content, is supported."
+  },
+  "Stephensons Solicitors|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Stephensons Solicitors|PRICE-002": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Stephensons Solicitors|PRICE-004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Stephensons Solicitors|PRICE-005": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Stephensons Solicitors|PRICE-008": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Stephensons Solicitors|PRICE-010": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "All retained high snippets state a fee plus VAT and disbursements without establishing VAT treatment of the disbursements."
+  },
+  "Stephensons Solicitors|PRICE-012": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Guy Williams Layton|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Guy Williams Layton|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Guy Williams Layton|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Morecrofts|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Morecrofts|PRICE-012": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Morecrofts|PRICE-013": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Paying disbursements for a smoother process does not describe stages."
+  },
+  "MSB Solicitors|LAW-U002": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable recognised static embed (not operation). Human Review is not a contrary factual finding."
+  },
+  "Sydney Mitchell|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Sydney Mitchell|LAW-U002": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable recognised static embed (not operation). Human Review is not a contrary factual finding."
+  },
+  "Sydney Mitchell|PRICE-008": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Sydney Mitchell|PRICE-013": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "FBC Manby Bowdler|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "FBC Manby Bowdler|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "FBC Manby Bowdler|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "FBC Manby Bowdler|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Higgs LLP|LAW-U002": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable recognised static embed (not operation). Human Review is not a contrary factual finding."
+  },
+  "Higgs LLP|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Higgs LLP|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Higgs LLP|PRICE-004": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Property-litigation biography was used as residential-conveyancing staff evidence."
+  },
+  "Higgs LLP|PRICE-014": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Commercial-property transaction duration was used for residential conveyancing."
+  },
+  "Shakespeare Martineau|LAW-U001": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Shakespeare Martineau|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Nelsons|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Nelsons|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Nelsons|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Sills & Betteridge|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Sills & Betteridge|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Sills & Betteridge|PRICE-004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Sills & Betteridge|PRICE-005": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Sills & Betteridge|PRICE-010": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Ashtons Legal|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Tees Law|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Birketts|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Leadenhall Law Group|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Leadenhall Law Group|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "JCP Solicitors|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Redkite Solicitors|LAW-U004": {
+    "verdict": "NEEDS_REVIEW",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Retained snippets do not settle the full rule/service association; independent human adjudication remains required."
+  },
+  "Redkite Solicitors|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Redkite Solicitors|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Watkins & Gunn|LAW-U008": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable public SRA concerns route. Human Review is not a contrary factual finding."
+  },
+  "Bishopsgate Law|PRICE-002": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Explicit fixed-fee conveyancing wording establishes charging basis without establishing an actual quote amount."
+  },
+  "Bishopsgate Law|PRICE-004": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Only high evidence is a commercial-property solicitor reached through generic team context, used for residential conveyancing."
+  },
+  "Bishopsgate Law|PRICE-013": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "First-time-buyer questions were matched as process stages."
+  },
+  "Streathers Solicitors|LAW-U001": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable labelled number presence (not registry validation). Human Review is not a contrary factual finding."
+  },
+  "Streathers Solicitors|LAW-U005": {
+    "verdict": "SUPPORTED",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "Inspected retained source URL and snippet support the limited observable Legal Ombudsman reference. Human Review is not a contrary factual finding."
+  },
+  "Russell-Cooke|PRICE-004": {
+    "verdict": "FALSE_PASS",
+    "reviewer": "Codex selected-evidence inspection; not independent human ground truth",
+    "reason": "International estate-planning colleagues were used as residential-conveyancing staff evidence."
+  }
+}

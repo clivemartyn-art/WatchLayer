@@ -12,7 +12,7 @@ import type { Fact,LawContext,LawReport,LawResult,Service } from './types.js';
 export function evaluateLawWatch(input:LawContext):LawReport {
   const {current:c}=input;
   let {previous:p,facts,previousFacts,previousInventory}=input;
-  if(facts?.scanId!==c.scanId||!['1.0','1.1'].includes(facts?.detectorVersion??''))facts=undefined;
+  if(facts?.scanId!==c.scanId||facts?.detectorVersion!=='1.2')facts=undefined;
   if(p&&(p.scanId===c.scanId||p.completedAt>c.completedAt||p.canonicalDomain!==c.canonicalDomain||p.schemaVersion!==c.schemaVersion||p.applicationVersion!==c.applicationVersion||p.crawlLimit!==c.crawlLimit)){p=undefined;previousFacts=undefined;previousInventory=undefined;}
   if(previousFacts?.scanId!==p?.scanId||previousFacts?.detectorVersion!==facts?.detectorVersion)previousFacts=undefined;
   if(p?.scanProfile!==c.scanProfile){p=undefined;previousFacts=undefined;previousInventory=undefined;}
@@ -32,7 +32,7 @@ export function evaluateLawWatch(input:LawContext):LawReport {
   }
   for(const classification of classifications)for(const rule of lawPack.rules.filter(r=>r.category==='pricing')){
     const serviceType=classification.service;const surfaces=inventory.filter(s=>s.signal==='pricing'&&s.service===serviceType&&s.observationState==='observed');
-    const candidatePages=pages.filter(p=>p.pricing&&p.services.some(s=>s.service===serviceType&&s.state.startsWith('DETECTED')));
+    const candidatePages=pages.filter(p=>p.pricing&&(!p.pricingServices||p.pricingServices.includes(serviceType))&&p.services.some(s=>s.service===serviceType&&s.state.startsWith('DETECTED')));
     // A multi-service page cannot lend one service's VAT/fees to another service.
     const html=candidatePages.filter(p=>p.reliable&&(p.services.filter(s=>s.state==='DETECTED_HIGH_CONFIDENCE').length===1&&p.services.some(s=>s.service===serviceType&&s.state==='DETECTED_HIGH_CONFIDENCE')||classification.state==='DETECTED_HIGH_CONFIDENCE'&&p.services.filter(s=>s.state.startsWith('DETECTED')).length===1));
     const matches=candidatePages.filter(p=>p.reliable).flatMap(p=>(p.serviceSignals?.[serviceType]?.[rule.id]??(html.includes(p)?p.signals[rule.id]:[])??[]).map(f=>({url:p.url,fact:f})));
@@ -68,7 +68,14 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     const old=(previousInventory??[]).filter(s=>s.signal===signal&&s.type==='page'&&s.observationState==='observed');
     if(!p||!previousFacts){add(id,'UNKNOWN','Previous monitored surfaces unavailable.',null);continue;}
     if(!old.length){add(id,'NOT_APPLICABLE','No previously monitored matching surface.',null);continue;}
-    for(const surface of old){const page=c.pages.find(x=>x.url===surface.url||x.aliases.includes(surface.url));const removed=comparison?.changes.some(x=>x.url===surface.url&&x.type==='PAGE_CONFIRMED_REMOVED');add(id,removed?'POTENTIAL_ISSUE':page?.observationStatus==='observed'?'PASS':'UNKNOWN',removed?wording.absent:page?.observationStatus==='observed'?'Monitored page was observed.':wording.notObserved,{page:page??null},surface.url,surface,removed?'HIGH':undefined);}
+    for(const surface of old){
+      const page=c.pages.find(x=>x.url===surface.url||x.aliases.includes(surface.url));
+      const removed=comparison?.changes.some(x=>x.url===surface.url&&x.type==='PAGE_CONFIRMED_REMOVED');
+      const alternatives=inventory.filter(s=>s.signal===signal&&s.url!==surface.url&&s.observationState==='observed'&&s.confidence==='HIGH'&&(signal!=='pricing'||s.service===surface.service));
+      const applicable=signal!=='pricing'||!classifications.some(s=>s.service===surface.service&&s.excluded)&&[...classifications,...classifyServices(previousFacts)].some(s=>s.service===surface.service&&s.state==='DETECTED_HIGH_CONFIDENCE'&&!s.excluded);
+      const issue=removed&&applicable&&!alternatives.length;
+      add(id,issue?'POTENTIAL_ISSUE':removed&&alternatives.length?'WARNING':page?.observationStatus==='observed'?'PASS':'UNKNOWN',issue?wording.absent:removed&&alternatives.length?'The monitored URL is unavailable, but an alternative matching surface was located. Review the replacement.':page?.observationStatus==='observed'?'Monitored page was observed.':wording.notObserved,{page:page??null,alternatives,applicable},surface.url,surface,issue?'HIGH':undefined);
+    }
   }
   for(const [id,signal] of [['LAW-C003','LAW-U001'],['LAW-C004','LAW-U002']]){
     const old=previousFacts?.pages.filter(p=>p.signals[signal]?.some(f=>f.confidence==='HIGH'))??[];
@@ -94,5 +101,5 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     if(result.status==='UNKNOWN'){result.unknownReasonCodes=unknownReasons(result,input,pages,inventory,classifications);result.explanation+=' '+result.unknownReasonCodes.map(code=>UNKNOWN_EXPLANATIONS[code]).join(' ');}
     return result;
   });law.results=results;law.findings=projectFindings(results,law.runId,c.completedAt);
-  return {schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.1',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
+  return {schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.2',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
 }
