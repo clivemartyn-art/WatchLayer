@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "mode": "offline-preserved-M6-HTML-M7-PDF",
+  "sourceSha256": "e504905513499465b8cc4cb35643410480bd28c5146457d6ebe9ff55feb387ed",
+  "corpusSourceSha256": "0229a36f5cb0f492374f7f17ea352adac39688cc367e720d8e135465ced35523",
+  "benchmarkSha256": "beafdde971fa122e4200a55863f7ff60ccd891640f81457dc1978eea27d7c4aa",
+  "m6": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 229,
+      "WARNING": 54,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 567,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 448,
+      "denominator": 850,
+      "rate": 0.5270588235294118
+    },
+    "unknownCount": 567,
+    "unknownRate": 0.6670588235294118,
+    "passPredictions": 229,
+    "passPrecision": 0.5764192139737991,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 54,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.6666666666666666,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 97,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "m7": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "m8": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "adjudication": {
+    "items": 1994,
+    "counts": {
+      "SUPPORTED": 229,
+      "PARTIALLY_SUPPORTED": 315,
+      "AMBIGUOUS": 1241,
+      "NOT_RELEVANT": 155,
+      "INSUFFICIENT_CONTEXT": 54
+    },
+    "rejectedAmbiguousOrNotRelevant": 1396,
+    "independentHumanReviews": 0
+  },
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "deltas": [
+    {
+      "firm": "Kitson Boyce",
+      "ruleId": "PRICE-008",
+      "serviceType": "remortgage",
+      "before": "PASS",
+      "after": "UNKNOWN",
+      "resource": "https://www.kitsonboyce.co.uk/pricing/"
+    },
+    {
+      "firm": "Kitson Boyce",
+      "ruleId": "PRICE-009",
+      "serviceType": "remortgage",
+      "before": "PASS",
+      "after": "UNKNOWN",
+      "resource": "https://www.kitsonboyce.co.uk/pricing/"
+    },
+    {
+      "firm": "Wolferstans",
+      "ruleId": "LAW-U006",
+      "before": "WARNING",
+      "after": "UNKNOWN",
+      "resource": "https://wolferstans.com/"
+    },
+    {
+      "firm": "Wolferstans",
+      "ruleId": "LAW-U007",
+      "before": "WARNING",
+      "after": "UNKNOWN",
+      "resource": "https://wolferstans.com/"
+    },
+    {
+      "firm": "Trethowans",
+      "ruleId": "LAW-U006",
+      "before": "WARNING",
+      "after": "UNKNOWN",
+      "resource": "https://www.trethowans.com/"
+    },
+    {
+      "firm": "Trethowans",
+      "ruleId": "LAW-U007",
+      "before": "WARNING",
+      "after": "UNKNOWN",
+      "resource": "https://www.trethowans.com/"
+    },
+    {
+      "firm": "Shakespeare Martineau",
+      "ruleId": "PRICE-013",
+      "serviceType": "immigration",
+      "before": "PASS",
+      "after": "UNKNOWN",
+      "resource": "https://www.shma.co.uk/wp-content/uploads/sites/7/2021/02/Immigration-Applications.pdf"
+    }
+  ],
+  "limitations": [
+    "Automated assessment is not independent human adjudication.",
+    "No fresh M8 live crawl.",
+    "Narrow controlled precision is not live launch precision."
+  ]
+}

@@ -9,6 +9,7 @@ import { REPORT_STATEMENT,wording } from './wording.js';
 import { unknownReasons,UNKNOWN_EXPLANATIONS } from './uncertainty.js';
 import { staffLink } from './discovery.js';
 import type { Fact,LawContext,LawReport,LawResult,Service } from './types.js';
+import { adjudicatePdfEvidence } from './adjudication/index.js';
 export function evaluateLawWatch(input:LawContext):LawReport {
   const {current:c}=input;
   let {previous:p,facts,previousFacts,previousInventory}=input;
@@ -17,6 +18,8 @@ export function evaluateLawWatch(input:LawContext):LawReport {
   if(previousFacts?.scanId!==p?.scanId||previousFacts?.detectorVersion!==facts?.detectorVersion)previousFacts=undefined;
   if(p?.scanProfile!==c.scanProfile){p=undefined;previousFacts=undefined;previousInventory=undefined;}
   if(!p){previousFacts=undefined;previousInventory=undefined;}
+  const extractionInventory=surfaceInventory(c,facts,previousInventory);
+  const adjudication=adjudicatePdfEvidence(facts,c.pdf?.documents??[]);facts=adjudication.facts;
   const pages=facts?.pages??[];const classifications=classifyServices(facts,input.overrides);const inventory=surfaceInventory(c,facts,previousInventory);
   const htmlClassifications=classifyServices(facts?{...facts,pages:pages.filter(p=>p.sourceType!=='PDF')}:undefined,input.overrides);
   const signals:Record<string,FactResult[]>={};
@@ -73,7 +76,9 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     for(const surface of old){
       const page=c.pages.find(x=>x.url===surface.url||x.aliases.includes(surface.url));
       const removed=comparison?.changes.some(x=>x.url===surface.url&&x.type==='PAGE_CONFIRMED_REMOVED');
-      const alternatives=inventory.filter(s=>s.signal===signal&&s.url!==surface.url&&s.observationState==='observed'&&s.confidence==='HIGH'&&(signal!=='pricing'||s.service===surface.service));
+      // Withholding positive support must never manufacture a new serious issue:
+      // an extracted replacement still blocks a removal conclusion pending review.
+      const alternatives=[...inventory,...extractionInventory].filter(s=>s.signal===signal&&s.url!==surface.url&&s.observationState==='observed'&&s.confidence==='HIGH'&&(signal!=='pricing'||s.service===surface.service));
       const applicable=signal!=='pricing'||!classifications.some(s=>s.service===surface.service&&s.excluded)&&[...classifications,...classifyServices(previousFacts)].some(s=>s.service===surface.service&&s.state==='DETECTED_HIGH_CONFIDENCE'&&!s.excluded);
       const issue=removed&&applicable&&!alternatives.length;
       add(id,issue?'POTENTIAL_ISSUE':removed&&alternatives.length?'WARNING':page?.observationStatus==='observed'?'PASS':'UNKNOWN',issue?wording.absent:removed&&alternatives.length?'The monitored URL is unavailable, but an alternative matching surface was located. Review the replacement.':page?.observationStatus==='observed'?'Monitored page was observed.':wording.notObserved,{page:page??null,alternatives,applicable},surface.url,surface,issue?'HIGH':undefined);
@@ -100,8 +105,12 @@ export function evaluateLawWatch(input:LawContext):LawReport {
   const runs=runRules({current:c,previous:p,factResults:signals},[universalPack,lawPack]);
   const law=runs[1];const results:LawResult[]=law.results.map(r=>{
     const observed=r.evidence[0].observed as {serviceType?:Service}|null;const result:LawResult={...r,...(observed?.serviceType?{serviceType:observed.serviceType}:{})};
-    if(result.status==='UNKNOWN'){result.unknownReasonCodes=unknownReasons(result,input,pages,inventory,classifications);result.explanation+=' '+result.unknownReasonCodes.map(code=>UNKNOWN_EXPLANATIONS[code]).join(' ');}
+    if(result.status==='UNKNOWN'){
+      const withheld=adjudication.report.items.some(i=>i.ruleId===result.ruleId&&(!result.serviceType||i.serviceType===result.serviceType)&&i.state!=='SUPPORTED');
+      if(withheld){result.unknownReasonCodes=['AMBIGUOUS_EVIDENCE'];result.explanation='PDF evidence was extracted, but its context did not establish support for this check. The retained evidence requires review.';}
+      else{result.unknownReasonCodes=unknownReasons(result,input,pages,inventory,classifications);result.explanation+=' '+result.unknownReasonCodes.map(code=>UNKNOWN_EXPLANATIONS[code]).join(' ');}
+    }
     return result;
   });law.results=results;law.findings=projectFindings(results,law.runId,c.completedAt);
-  return {...(c.pdf?{pdf:c.pdf}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.3',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
+  return {...(c.pdf?{pdf:c.pdf,adjudication:adjudication.report}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.4',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
 }

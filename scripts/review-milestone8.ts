@@ -1,0 +1,11 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {validateHumanDecisions} from './milestone8-review.js';
+const [queuePath,decisionsPath,outputPath]=process.argv.slice(2);
+if(!queuePath||!decisionsPath||!outputPath)throw new Error('Usage: review:milestone8 -- queue.json human-decisions.json new-review.json');
+if([queuePath,decisionsPath].some(p=>resolve(p)===resolve(outputPath)))throw new Error('Review output must be separate from inputs');
+const queue=JSON.parse(await readFile(queuePath,'utf8')),decisions=JSON.parse(await readFile(decisionsPath,'utf8'));
+if(!Array.isArray(decisions))throw new Error('Decisions must be an array');
+const result=validateHumanDecisions(queue.items,decisions);
+await writeFile(outputPath,JSON.stringify({schemaVersion:1,sourceManifest:queue.manifest,statement:'Reviewer-attributed decisions supplied separately; identity and independence are not verified by this tool.',...result},null,2)+'\n',{flag:'wx'});
+console.log(`Recorded ${result.reviewed} human decisions; ${result.unreviewed} items remain unreviewed.`);

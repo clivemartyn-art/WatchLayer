@@ -1,4 +1,4 @@
-# WatchLayer — Milestone 7
+# WatchLayer — Milestone 8
 
 A local, industry-neutral TypeScript website-monitoring engine. It crawls public pages, extracts structured facts, stores immutable SQLite snapshots, compares repeat scans and runs versioned deterministic rules to produce findings. It makes no legal-compliance assessments.
 
@@ -133,3 +133,14 @@ npm run evaluate:milestone7 -- --all --reuse-pdf reports/milestone7/paired --out
 ```
 
 The paired evaluator enriches frozen M6 HTML observations using only PDFs already discovered in those scans; `--reuse-pdf` performs an offline replay. It requires retained M6 evaluation files and does not overwrite the benchmark workbook. Fresh end-to-end subset scans use `evaluate-lawwatch`. The completed 50-firm paired evaluation and three fresh scans are documented in M7. Serious-finding precision remains demonstrated only on the narrow controlled removal suite; live launch precision remains unproven.
+
+## Milestone 8 evidence adjudication
+
+[Milestone 8](docs/MILESTONE_8_EVIDENCE_ADJUDICATION.md) adds **LawWatch England & Wales v1.4** with a separate deterministic PDF support assessment. M7 extraction facts stay at version 1.3. Raw candidates remain intact; only contextually supported PDF facts can contribute to rule results. Optional report data records SUPPORTED, PARTIALLY_SUPPORTED, AMBIGUOUS, NOT_RELEVANT and INSUFFICIENT_CONTEXT, including page provenance and up to 1,200 characters of surrounding text. Mixed-service, irrelevant, unscoped boilerplate and uncertain source relationships remain conservative.
+
+```text
+npm run evaluate:milestone8 -- --all --output reports/milestone8/new-experiment
+npm run review:milestone8 -- reports/milestone8/release/review-queue.json human-decisions.json reports/milestone8/human-review.json
+```
+
+The evaluator uses the preserved M6/M7 corpus offline and creates a new output directory. The separate review tool accepts reviewer-attributed human decisions without changing raw evidence, machine reports or the benchmark workbook. Automated support assessments are explicitly **not independent human adjudication**. The completed replay assessed 1,994 PDF candidates; all 850 selected M7 benchmark outcomes are unchanged. No fresh M8 live validation or independent human review is claimed. No parser, network, database or SaaS redesign was added.
