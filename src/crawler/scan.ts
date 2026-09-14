@@ -7,9 +7,12 @@ import { extractPage } from '../extractors/page.js';
 import { documentType } from '../links/classify.js';
 import type { ScanResult, Contact, Document } from '../schemas/scan.js';
 import type { CrawlObservation } from './observations.js';
+import { load } from 'cheerio';
+import { processPdfs } from '../documents/process.js';
+import type { DocumentReferrer } from '../documents/types.js';
 
 export interface CrawlPolicy {profile:string;priority:(url:string)=>number|null;stages:{name:string;budget:number;priority:(url:string)=>number|null}[]}
-export interface ScanOptions { maxPages?: number; delayMs?: number; timeoutMs?: number; crawlPolicy?:CrawlPolicy; onPageResult?: (observation: CrawlObservation) => void; /** Trusted test seam; never exposed through CLI. */ fetcher?: Fetcher }
+export interface ScanOptions { pdfExtraction?:boolean; maxPages?: number; delayMs?: number; timeoutMs?: number; crawlPolicy?:CrawlPolicy; onPageResult?: (observation: CrawlObservation) => void; /** Trusted test seam; never exposed through CLI. */ fetcher?: Fetcher }
 export async function scan(inputUrl: string, options: ScanOptions = {}): Promise<ScanResult> {
   const start = normalize(inputUrl); const maxPages = options.maxPages ?? 100;
   if (!Number.isInteger(maxPages) || maxPages < 1) throw new Error('Page limit must be a positive integer');
@@ -19,8 +22,9 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
   const queue: string[] = []; const discovered = new Set<string>(); const fetched = new Set<string>();
   const sources = new Map<string, Set<string>>(); const failures = new Map<string, {status?: number; error?: string}>();
   const docs = new Map<string, Document>();
-  function addDocument(url: string, source: string) {
-    const type = documentType(url); if (!type) return;
+  const docReferrers=new Map<string,DocumentReferrer[]>();
+  function addDocument(url: string, source: string,detectedType?:string) {
+    const type = detectedType??documentType(url); if (!type) return;
     const doc = docs.get(url) ?? {url, type, filename: new URL(url).pathname.split('/').pop() ?? '', sourcePages: []};
     if (source && !doc.sourcePages.includes(source)) doc.sourcePages.push(source); docs.set(url, doc);
   }
@@ -112,8 +116,11 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
         }
         continue;
       }
+      if (/application\/(?:pdf|octet-stream)/i.test(response.contentType)||response.body.startsWith('%PDF-')) {for(const ref of sources.get(url)??[start])addDocument(url,ref,'pdf');continue;}
       if (!/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(response.contentType)) continue;
       const page = extractPage(response); result.pages.push(page); result.forms.push(...page.forms);
+      const $=load(response.body);let linkBase=response.finalUrl;try{linkBase=normalize($('base[href]').first().attr('href')??linkBase,linkBase);}catch{}
+      $('a[href]').each((_,el)=>{try{const target=normalize($(el).attr('href')!,linkBase);const refs=docReferrers.get(target)??[];if(refs.length<100)refs.push({url:page.finalUrl,anchor:$(el).text().replace(/\s+/g,' ').trim().slice(0,240)});if(docReferrers.size<10000||docReferrers.has(target))docReferrers.set(target,refs);}catch{}});
       for (const link of page.internalLinks) enqueue(link, page.finalUrl, page.finalUrl);
       for (const link of page.documentLinks) addDocument(link, page.finalUrl);
     } catch (e) { result.summary.pagesFailed++; error(url, 'page', e); options.onPageResult?.({url,state:'unreachable',reason:e instanceof Error ? e.message : String(e)}); }
@@ -130,6 +137,8 @@ export async function scan(inputUrl: string, options: ScanOptions = {}): Promise
     return [...map].map(([value, refs]) => ({value, sourcePages: [...refs]}));
   }
   result.documents = [...docs.values()]; result.contacts = {emails: contacts('emails'), phones: contacts('phones')};
+  const candidates=result.documents.filter(d=>d.type==='pdf').map(d=>({url:d.url,referrers:docReferrers.get(d.url)??d.sourcePages.map(url=>({url,anchor:''}))}));
+  if(candidates.length)result.pdf=await processPdfs(candidates,start,fetch,allowed,options.pdfExtraction!==false);
   Object.assign(result.summary, {pagesDiscovered: discovered.size, pagesScanned: result.pages.length, brokenInternalLinks: result.brokenLinks.length, documentsFound: result.documents.length, formsFound: result.forms.length, emailsFound: result.contacts.emails.length, phoneNumbersFound: result.contacts.phones.length, browserRenderRecommended: result.pages.filter(p => p.browser_render_recommended).length, crawlLimitReached: limitReached});
   return result;
 }

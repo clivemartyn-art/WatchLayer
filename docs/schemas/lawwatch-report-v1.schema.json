@@ -20,6 +20,187 @@
     "statement"
   ],
   "properties": {
+    "pdf": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "documents",
+        "summary"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "documentId",
+              "requestedUrl",
+              "filename",
+              "status",
+              "pages",
+              "referrers",
+              "parserVersion",
+              "normalizationVersion"
+            ],
+            "properties": {
+              "documentId": {
+                "type": "string"
+              },
+              "requestedUrl": {
+                "type": "string"
+              },
+              "finalUrl": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "mimeType": {
+                "type": "string"
+              },
+              "byteSize": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "sha256": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "EXTRACTED",
+                  "NO_TEXT",
+                  "TOO_LARGE",
+                  "DOWNLOAD_FAILED",
+                  "INVALID_PDF",
+                  "PARSE_FAILED",
+                  "ENCRYPTED",
+                  "UNSUPPORTED",
+                  "BLOCKED_BY_POLICY",
+                  "NOT_ATTEMPTED"
+                ]
+              },
+              "errorCode": {
+                "type": "string"
+              },
+              "httpStatus": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "pageCount": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "characterCount": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "pages": {
+                "type": "array",
+                "maxItems": 200,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "pageNumber",
+                    "text"
+                  ],
+                  "properties": {
+                    "pageNumber": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "text": {
+                      "type": "string",
+                      "maxLength": 500000
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "referrers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "url",
+                    "anchor"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "anchor": {
+                      "type": "string",
+                      "maxLength": 240
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "parserVersion": {
+                "type": "string"
+              },
+              "normalizationVersion": {
+                "const": 1
+              },
+              "duplicateOf": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "summary": {
+          "type": "object",
+          "required": [
+            "discovered",
+            "attempted",
+            "extracted",
+            "skipped",
+            "bytesDownloaded",
+            "failures",
+            "noText"
+          ],
+          "properties": {
+            "discovered": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "attempted": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "extracted": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "skipped": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "bytesDownloaded": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "failures": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "noText": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
     "schemaVersion": {
       "const": 1
     },
@@ -36,7 +217,8 @@
       "enum": [
         "1.0",
         "1.1",
-        "1.2"
+        "1.2",
+        "1.3"
       ]
     },
     "universalResults": {
@@ -200,6 +382,61 @@
                 "confidence"
               ],
               "properties": {
+                "source": {
+                  "type": "object",
+                  "required": [
+                    "sourceType",
+                    "url",
+                    "title",
+                    "pageNumber",
+                    "documentId",
+                    "sha256",
+                    "referrers"
+                  ],
+                  "properties": {
+                    "sourceType": {
+                      "const": "PDF"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "documentId": {
+                      "type": "string"
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "referrers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "url",
+                          "anchor"
+                        ],
+                        "properties": {
+                          "url": {
+                            "type": "string"
+                          },
+                          "anchor": {
+                            "type": "string",
+                            "maxLength": 240
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                },
                 "method": {
                   "type": "string"
                 },
@@ -258,6 +495,64 @@
           "sourceEvidence"
         ],
         "properties": {
+          "document": {
+            "type": "object",
+            "required": [
+              "documentId",
+              "status",
+              "referrers"
+            ],
+            "properties": {
+              "documentId": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "EXTRACTED",
+                  "NO_TEXT",
+                  "TOO_LARGE",
+                  "DOWNLOAD_FAILED",
+                  "INVALID_PDF",
+                  "PARSE_FAILED",
+                  "ENCRYPTED",
+                  "UNSUPPORTED",
+                  "BLOCKED_BY_POLICY",
+                  "NOT_ATTEMPTED"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "pageCount": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "referrers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "url",
+                    "anchor"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "anchor": {
+                      "type": "string",
+                      "maxLength": 240
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "sha256": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
           "signal": {
             "type": "string"
           },
@@ -328,6 +623,61 @@
                       "confidence"
                     ],
                     "properties": {
+                      "source": {
+                        "type": "object",
+                        "required": [
+                          "sourceType",
+                          "url",
+                          "title",
+                          "pageNumber",
+                          "documentId",
+                          "sha256",
+                          "referrers"
+                        ],
+                        "properties": {
+                          "sourceType": {
+                            "const": "PDF"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          },
+                          "pageNumber": {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          "documentId": {
+                            "type": "string"
+                          },
+                          "sha256": {
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{64}$"
+                          },
+                          "referrers": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "required": [
+                                "url",
+                                "anchor"
+                              ],
+                              "properties": {
+                                "url": {
+                                  "type": "string"
+                                },
+                                "anchor": {
+                                  "type": "string",
+                                  "maxLength": 240
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      },
                       "method": {
                         "type": "string"
                       },

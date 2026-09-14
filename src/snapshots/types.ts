@@ -65,6 +65,7 @@ export interface Coverage {
   discoveryErrors: number;
 }
 export interface Snapshot {
+  pdf?:import('../documents/types.js').PdfReport;
   scanProfile?:string;
   /** Optional additive transport evidence; older snapshots remain readable. */
   requests?: {url: string; finalUrl?: string; status?: number; tls?: {authorized: boolean; validTo: string}; errorCode?: string}[];

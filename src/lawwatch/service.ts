@@ -7,6 +7,7 @@ import { evaluateLawWatch } from './evaluate.js';
 import { LAW_PACK_ID } from './pack.js';
 import { lawDiscovery } from './discovery.js';
 import { associatePricingPages } from './association.js';
+import { pdfLawFacts } from './pdf.js';
 import type { FactSet,LawReport,PageFacts,Service } from './types.js';
 export function evaluateStoredLawWatch(snapshot:Snapshot,repository:SqliteRepository,overrides?:Partial<Record<Service,boolean>>):LawReport {
   const history=repository.history(snapshot.canonicalDomain);const index=history.findIndex(s=>s.scanId===snapshot.scanId);
@@ -25,8 +26,9 @@ export async function scanLawWatch(input:string,repository:SqliteRepository,opti
   const discovery=lawDiscovery(evidenceBudget,staffBudget);
   const collected=new Map<string,PageFacts>();
   const run=await scanAndPersist(input,repository,{delayMs:1000,...options,crawlPolicy:discovery.policy,onResponse:r=>{options.onResponse?.(r);const facts=extractLawFacts(r);if(facts){collected.set(facts.url,facts);discovery.observe(facts);}}});
-  const facts:FactSet={schemaVersion:1,detectorVersion:'1.2',scanId:run.snapshot.scanId,pages:[...collected.values()].filter(f=>run.snapshot.pages.some(p=>p.finalUrl===f.url&&p.observationStatus==='observed'&&p.evidence==='html'))};
+  const facts:FactSet={schemaVersion:1,detectorVersion:'1.3',scanId:run.snapshot.scanId,pages:[...collected.values()].filter(f=>run.snapshot.pages.some(p=>p.finalUrl===f.url&&p.observationStatus==='observed'&&p.evidence==='html'))};
   associatePricingPages(facts.pages,run.snapshot);
-  repository.saveFacts(run.snapshot.scanId,LAW_PACK_ID,'1.2',facts);
+  facts.pages.push(...pdfLawFacts(run.snapshot.pdf?.documents??[],facts.pages));
+  repository.saveFacts(run.snapshot.scanId,LAW_PACK_ID,'1.3',facts);
   return {...run,lawwatch:evaluateStoredLawWatch(run.snapshot,repository)};
 }

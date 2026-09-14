@@ -3,7 +3,7 @@ export const wording={
   located:'Supporting public website evidence was located.',
   partial:'Related wording was detected, but the requested detail could not be confirmed.',
   unknown:'LawWatch could not reliably establish this indicator from the stored static observations.',
-  document:'A relevant document link was located. Document contents have not been parsed.',
+  document:'A relevant document was located, but readable, service-scoped evidence for this detail could not be established.',
   calculator:'A likely quote generator was detected. Its output has not been evaluated.',
   lowService:'Service applicability is uncertain. No pricing conclusion was inferred.',
   absent:'The previously monitored URL returned a direct 404/410 in an eligible comparison.',

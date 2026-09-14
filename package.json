@@ -25,12 +25,15 @@
     "summarize:milestone5": "tsx scripts/summarize-milestone5.ts",
     "evaluate:milestone6": "tsx scripts/evaluate-milestone6.ts",
     "evaluate:negative": "tsx scripts/evaluate-lawwatch-negative.ts",
-    "adjudicate:lawwatch": "tsx scripts/adjudicate-lawwatch.ts"
+    "adjudicate:lawwatch": "tsx scripts/adjudicate-lawwatch.ts",
+    "evaluate:milestone7": "tsx scripts/evaluate-milestone7.ts",
+    "validate:pdf": "tsx scripts/validate-milestone7.ts"
   },
   "dependencies": {
     "cheerio": "^1.1.2",
     "fast-xml-parser": "^5.2.5",
     "ipaddr.js": "^2.2.0",
+    "pdfjs-dist": "6.3.289",
     "robots-parser": "^3.0.1",
     "tldts": "^7.0.14"
   },

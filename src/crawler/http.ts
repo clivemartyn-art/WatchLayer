@@ -2,13 +2,14 @@ import http from 'node:http';
 import https from 'node:https';
 import type { TLSSocket } from 'node:tls';
 import { normalize, resolvePublic, sameDomain } from '../utils/urls.js';
-export interface Response { requestedUrl: string; finalUrl: string; status: number; contentType: string; body: string; responseTimeMs: number; redirects: string[]; tls?: { authorized: boolean; validTo: string } }
-export interface RequestOptions { method?: 'GET' | 'HEAD'; beforeRequest?: (url: string) => Promise<void> }
+export interface Response { requestedUrl: string; finalUrl: string; status: number; contentType: string; body: string; bytes?: Uint8Array; responseTimeMs: number; redirects: string[]; tls?: { authorized: boolean; validTo: string } }
+export interface RequestOptions { method?: 'GET' | 'HEAD'; beforeRequest?: (url: string) => Promise<void>; binary?: boolean; maxBytes?: number; onBytes?: (count:number)=>void }
 export type Fetcher = (url: string, options?: RequestOptions) => Promise<Response>;
 export const USER_AGENT = 'WatchLayer/0.2 (local website scanner)';
 export function createFetcher(target: string, delayMs = 300, timeoutMs = 10000): Fetcher {
   let last = 0;
   return async (requestedUrl, options = {}) => {
+    if(options.binary&&options.maxBytes!==undefined&&(!Number.isSafeInteger(options.maxBytes)||options.maxBytes<1))throw new Error('Invalid binary byte limit');
     const started = Date.now(); const redirects: string[] = []; let current = normalize(requestedUrl);
     for (let hop = 0; hop <= 5; hop++) {
       if (!sameDomain(current, target)) throw new Error('Redirect or request leaves the target domain');
@@ -18,7 +19,7 @@ export function createFetcher(target: string, delayMs = 300, timeoutMs = 10000):
       const url = new URL(current);
       let timer: ReturnType<typeof setTimeout> | undefined;
       const addresses = await Promise.race([resolvePublic(url.hostname), new Promise<never>((_, reject) => { timer = setTimeout(() => reject(new Error('DNS timeout')), timeoutMs); })]).finally(() => clearTimeout(timer));
-      const response = await new Promise<{status: number; contentType: string; location?: string; body: string; tls?: Response['tls']}>((resolve, reject) => {
+      const response = await new Promise<{status: number; contentType: string; location?: string; body: string; bytes?:Uint8Array; tls?: Response['tls']}>((resolve, reject) => {
         // Pin the validated address to this connection, preventing DNS rebinding.
         const address = addresses[0];
         const req = (url.protocol === 'https:' ? https : http).request(url, {
@@ -32,17 +33,20 @@ export function createFetcher(target: string, delayMs = 300, timeoutMs = 10000):
           const socket = res.socket as TLSSocket;
           const certificate = url.protocol === 'https:' ? socket?.getPeerCertificate?.() : undefined;
           const tls = certificate?.valid_to ? {authorized: socket.authorized === true, validTo: certificate.valid_to} : undefined;
-          if (options.method === 'HEAD' || status >= 300 && status < 400 || !/text\/|xml|html/i.test(contentType)) { resolve({status, contentType, location: res.headers.location, body: '', tls}); res.destroy(); return; }
+          if (options.method === 'HEAD' || status >= 300 && status < 400 || !options.binary && !/text\/|xml|html/i.test(contentType)) { resolve({status, contentType, location: res.headers.location, body: '', tls}); res.destroy(); return; }
+          const limit=options.binary?Math.min(options.maxBytes??10_000_000,10_000_000):2_000_000;
+          if(Number(res.headers['content-length'])>limit){req.destroy(Object.assign(new Error('Response exceeds byte limit'),{code:'TOO_LARGE'}));res.destroy();return;}
           const chunks: Buffer[] = []; let size = 0;
-          res.on('data', (chunk: Buffer) => { size += chunk.length; if (size > 2_000_000) req.destroy(new Error('Response exceeds 2 MB limit')); else chunks.push(chunk); });
+          res.on('data', (chunk: Buffer) => { size += chunk.length; options.onBytes?.(chunk.length); if (size > limit) req.destroy(Object.assign(new Error(options.binary?'Response exceeds byte limit':'Response exceeds 2 MB limit'),{code:'TOO_LARGE'})); else chunks.push(chunk); });
           res.on('error', reject);
-          res.on('end', () => resolve({status, contentType, body: Buffer.concat(chunks).toString('utf8'), tls}));
+          res.on('end', () => {const data=Buffer.concat(chunks);resolve({status, contentType, body:options.binary?'':data.toString('utf8'),...(options.binary?{bytes:data}:{}), tls});});
         });
         const timeout = setTimeout(() => req.destroy(new Error('Request timeout')), Math.max(1, deadline - Date.now()));
         req.on('close', () => clearTimeout(timeout)); req.on('error', reject); req.end();
       });
       if ([301,302,303,307,308].includes(response.status) && response.location) {
         const next = normalize(response.location, current);
+        if(options.binary&&new URL(next).protocol!==new URL(current).protocol)throw new Error('PDF redirect changes protocol');
         if (redirects.includes(next) || next === current) throw new Error('Redirect loop');
         redirects.push(current); current = next; continue;
       }

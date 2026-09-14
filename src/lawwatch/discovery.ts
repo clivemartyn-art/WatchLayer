@@ -26,7 +26,7 @@ export function lawDiscovery(evidenceBudget:number,staffBudget:number):{policy:C
   const base=(url:string)=>{if(!baseScores.has(url))baseScores.set(url,urlPriority(url));return baseScores.get(url)!;};
   const score=(url:string)=>Math.max(base(url),weights.get(url)??-Infinity);
   return {
-    policy:{profile:`lawwatch-1.2:evidence=${evidenceBudget}:staff=${staffBudget}`,
+    policy:{profile:`lawwatch-1.3:evidence=${evidenceBudget}:staff=${staffBudget}`,
       priority:url=>staff.has(url)||base(url)===-80&&/\/(?:people|team|staff|profiles?)\/[^/]+/i.test(new URL(url).pathname)?null:score(url),
       stages:[
         {name:'regulatory-evidence',budget:evidenceBudget,priority:url=>staff.has(url)||base(url)<0?null:score(url)>0?score(url):null},

@@ -1,0 +1,622 @@
+{
+  "schemaVersion": 1,
+  "benchmarkSha256": "beafdde971fa122e4200a55863f7ff60ccd891640f81457dc1978eea27d7c4aa",
+  "sourceSha256": "0229a36f5cb0f492374f7f17ea352adac39688cc367e720d8e135465ced35523",
+  "scope": "Four changed benchmark checks. Original human Review labels remain unchanged. Source snippets support limited website observations, not legal conclusions or independent adjudication.",
+  "reviews": [
+    {
+      "firm": "Kitson Boyce",
+      "ruleId": "LAW-U001",
+      "human": "Review",
+      "machine": "PASS",
+      "severity": "HIGH",
+      "before": "UNKNOWN",
+      "reviewer": "Codex deterministic source inspection",
+      "reviewKind": "Engineering evidence review; not independent human adjudication",
+      "verdict": "SUPPORTED_LIMITED_OBSERVATION",
+      "resource": "https://www.kitsonboyce.co.uk/wp-content/uploads/2026/03/Kitson_Boyce_Buying_a_Property_03_2026.pdf",
+      "evidence": [
+        {
+          "scanId": "scan_4dcf3bf8-b55f-4d5c-aadd-3ce06afb74a7",
+          "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2026/03/Kitson_Boyce_Buying_a_Property_03_2026.pdf",
+          "observed": {
+            "matches": [
+              {
+                "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2026/03/Kitson_Boyce_Buying_a_Property_03_2026.pdf",
+                "title": "Kitson_Boyce_Buying_a_Property_03_2026.pdf",
+                "fact": {
+                  "method": "labelled-sra-number",
+                  "snippet": "and regulated by the Solicitors Regulation Authority (SRA number 517529) and is bound by the solicitors code of conduct. Full",
+                  "confidence": "HIGH",
+                  "value": "517529",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2026/03/Kitson_Boyce_Buying_a_Property_03_2026.pdf",
+                    "title": "Kitson_Boyce_Buying_a_Property_03_2026.pdf",
+                    "pageNumber": 1,
+                    "documentId": "document_b28468688637f36cf928d9fb",
+                    "sha256": "6e00f7a05638830299b6d599c8aa329916ea1da85e50e470c32634e4c2288592",
+                    "referrers": [
+                      {
+                        "url": "https://www.kitsonboyce.co.uk/service/residential-property/",
+                        "anchor": "Helpful infographic"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2026/03/Kitson_Boyce_Selling_Property_03_2026.pdf",
+                "title": "Kitson_Boyce_Selling_Property_03_2026.pdf",
+                "fact": {
+                  "method": "labelled-sra-number",
+                  "snippet": "and regulated by the Solicitors Regulation Authority (SRA number 517529) and is bound by the solicitors code of conduct. Full",
+                  "confidence": "HIGH",
+                  "value": "517529",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2026/03/Kitson_Boyce_Selling_Property_03_2026.pdf",
+                    "title": "Kitson_Boyce_Selling_Property_03_2026.pdf",
+                    "pageNumber": 1,
+                    "documentId": "document_6c4840522d858f688822e197",
+                    "sha256": "996c45876f606114e40315b87b9ddc199d3323e5077e8b8290e513b5e8d6bf8e",
+                    "referrers": [
+                      {
+                        "url": "https://www.kitsonboyce.co.uk/service/residential-property/",
+                        "anchor": "Helpful infographic"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "explanation": "Supporting public website evidence was located."
+        }
+      ]
+    },
+    {
+      "firm": "Wolferstans",
+      "ruleId": "LAW-U005",
+      "human": "Review",
+      "machine": "PASS",
+      "severity": "HIGH",
+      "before": "UNKNOWN",
+      "reviewer": "Codex deterministic source inspection",
+      "reviewKind": "Engineering evidence review; not independent human adjudication",
+      "verdict": "SUPPORTED_LIMITED_OBSERVATION",
+      "resource": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+      "evidence": [
+        {
+          "scanId": "scan_84f014b1-2ce4-48d9-af70-c0eb72e082fc",
+          "url": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+          "observed": {
+            "matches": [
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+                "title": "Complaints-Procedure-Updated-July.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "you can contact the Legal Ombudsman (LeO) about your complaint.",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+                    "title": "Complaints-Procedure-Updated-July.pdf",
+                    "pageNumber": 1,
+                    "documentId": "document_156d3952944a8527d4279e7a",
+                    "sha256": "b7fa9109d39c7d55df798bb5ea780f70b0cf0d430400209093adc6452bb316e5",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/complaints/",
+                        "anchor": "complaints procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+                "title": "Complaints-Procedure-Updated-July.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "you can contact the Legal Ombudsman (LeO) about your complaint. The LeO has time limits for",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+                    "title": "Complaints-Procedure-Updated-July.pdf",
+                    "pageNumber": 1,
+                    "documentId": "document_156d3952944a8527d4279e7a",
+                    "sha256": "b7fa9109d39c7d55df798bb5ea780f70b0cf0d430400209093adc6452bb316e5",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/complaints/",
+                        "anchor": "complaints procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+                "title": "Complaints-Procedure-Updated-July.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "The Legal Ombudsman may not consider a complaint about a bill if you",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+                    "title": "Complaints-Procedure-Updated-July.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_156d3952944a8527d4279e7a",
+                    "sha256": "b7fa9109d39c7d55df798bb5ea780f70b0cf0d430400209093adc6452bb316e5",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/complaints/",
+                        "anchor": "complaints procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+                "title": "Complaints-Procedure-Updated-July.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "itors Act 1974. The Legal Ombudsman may not consider a complaint about a bill if you",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/2026/07/Complaints-Procedure-Updated-July.pdf",
+                    "title": "Complaints-Procedure-Updated-July.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_156d3952944a8527d4279e7a",
+                    "sha256": "b7fa9109d39c7d55df798bb5ea780f70b0cf0d430400209093adc6452bb316e5",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/complaints/",
+                        "anchor": "complaints procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/2026/01/Complaints-Procedure.pdf",
+                "title": "Complaints-Procedure.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "you can contact the Legal Ombudsman (LeO) about your complaint.",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/2026/01/Complaints-Procedure.pdf",
+                    "title": "Complaints-Procedure.pdf",
+                    "pageNumber": 1,
+                    "documentId": "document_f9c403c15ed2c5cdfa78b378",
+                    "sha256": "71303b9f588eb17bdb03123785d83654234b3170c6d13fe4b284d9193e9357ea",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/client-terms-of-business/",
+                        "anchor": "Wolferstans Complaints Procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/2026/01/Complaints-Procedure.pdf",
+                "title": "Complaints-Procedure.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "you can contact the Legal Ombudsman (LeO) about your complaint. The LeO has time limits for",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/2026/01/Complaints-Procedure.pdf",
+                    "title": "Complaints-Procedure.pdf",
+                    "pageNumber": 1,
+                    "documentId": "document_f9c403c15ed2c5cdfa78b378",
+                    "sha256": "71303b9f588eb17bdb03123785d83654234b3170c6d13fe4b284d9193e9357ea",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/client-terms-of-business/",
+                        "anchor": "Wolferstans Complaints Procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/2026/01/Complaints-Procedure.pdf",
+                "title": "Complaints-Procedure.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "The Legal Ombudsman may not consider a complaint about a bill if you",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/2026/01/Complaints-Procedure.pdf",
+                    "title": "Complaints-Procedure.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_f9c403c15ed2c5cdfa78b378",
+                    "sha256": "71303b9f588eb17bdb03123785d83654234b3170c6d13fe4b284d9193e9357ea",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/client-terms-of-business/",
+                        "anchor": "Wolferstans Complaints Procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/2026/01/Complaints-Procedure.pdf",
+                "title": "Complaints-Procedure.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "itors Act 1974. The Legal Ombudsman may not consider a complaint about a bill if you",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/2026/01/Complaints-Procedure.pdf",
+                    "title": "Complaints-Procedure.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_f9c403c15ed2c5cdfa78b378",
+                    "sha256": "71303b9f588eb17bdb03123785d83654234b3170c6d13fe4b284d9193e9357ea",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/client-terms-of-business/",
+                        "anchor": "Wolferstans Complaints Procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/Complaints-Procedure-1.pdf",
+                "title": "Complaints-Procedure-1.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "The Legal Ombudsman has time limits for dealing with complaints.",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/Complaints-Procedure-1.pdf",
+                    "title": "Complaints-Procedure-1.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_640d44d7cd62fd5351664efe",
+                    "sha256": "267aad55410e731eb76c1808879f8c977f5e438b95d2594675cd97e4a8877b62",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/terms-conditions/",
+                        "anchor": "complaints procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/Complaints-Procedure-1.pdf",
+                "title": "Complaints-Procedure-1.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "Legal Ombudsman.",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/Complaints-Procedure-1.pdf",
+                    "title": "Complaints-Procedure-1.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_640d44d7cd62fd5351664efe",
+                    "sha256": "267aad55410e731eb76c1808879f8c977f5e438b95d2594675cd97e4a8877b62",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/terms-conditions/",
+                        "anchor": "complaints procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://wolferstans.com/wp-content/uploads/Complaints-Procedure-1.pdf",
+                "title": "Complaints-Procedure-1.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "The Legal Ombudsman may not consider a complaint about a bill if you",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://wolferstans.com/wp-content/uploads/Complaints-Procedure-1.pdf",
+                    "title": "Complaints-Procedure-1.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_640d44d7cd62fd5351664efe",
+                    "sha256": "267aad55410e731eb76c1808879f8c977f5e438b95d2594675cd97e4a8877b62",
+                    "referrers": [
+                      {
+                        "url": "https://wolferstans.com/terms-conditions/",
+                        "anchor": "complaints procedure"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "explanation": "Supporting public website evidence was located."
+        }
+      ]
+    },
+    {
+      "firm": "GA Solicitors",
+      "ruleId": "LAW-U008",
+      "human": "Review",
+      "machine": "PASS",
+      "severity": "HIGH",
+      "before": "WARNING",
+      "reviewer": "Codex deterministic source inspection",
+      "reviewKind": "Engineering evidence review; not independent human adjudication",
+      "verdict": "SUPPORTED_LIMITED_OBSERVATION",
+      "resource": "https://gasolicitors.com/wp-content/uploads/GA-SOLICITORS-COMPLAINTS-2026.pdf",
+      "evidence": [
+        {
+          "scanId": "scan_fefa49d7-69fa-49f3-8347-b4a223c09f7f",
+          "url": "https://gasolicitors.com/wp-content/uploads/GA-SOLICITORS-COMPLAINTS-2026.pdf",
+          "observed": {
+            "matches": [
+              {
+                "url": "https://gasolicitors.com/contact-us/feedback/",
+                "title": "Feedback - GA Solicitors",
+                "fact": {
+                  "method": "sra-conduct-route",
+                  "snippet": "Regulated by the Solicitors Regulation Authority number 511139.",
+                  "confidence": "MEDIUM"
+                }
+              },
+              {
+                "url": "https://gasolicitors.com/terms-and-conditions/",
+                "title": "Terms and Conditions - GA Solicitors",
+                "fact": {
+                  "method": "sra-conduct-route",
+                  "snippet": "Regulated by the Solicitors Regulation Authority number 511139.",
+                  "confidence": "MEDIUM"
+                }
+              },
+              {
+                "url": "https://gasolicitors.com/wp-content/uploads/GA-SOLICITORS-COMPLAINTS-2026.pdf",
+                "title": "GA-SOLICITORS-COMPLAINTS-2026.pdf",
+                "fact": {
+                  "method": "sra-conduct-route",
+                  "snippet": "raise your concerns with the SRA.",
+                  "confidence": "HIGH",
+                  "value": "SRA | raise | concern",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://gasolicitors.com/wp-content/uploads/GA-SOLICITORS-COMPLAINTS-2026.pdf",
+                    "title": "GA-SOLICITORS-COMPLAINTS-2026.pdf",
+                    "pageNumber": 3,
+                    "documentId": "document_6242048f3676322ea149ac79",
+                    "sha256": "5af362fff5c342c0e0ae255deec5e0d97c260b926c59a6803f4d57c539d086a6",
+                    "referrers": [
+                      {
+                        "url": "https://gasolicitors.com/contact-us/feedback/",
+                        "anchor": "Complaints Policy"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "explanation": "Supporting public website evidence was located."
+        }
+      ]
+    },
+    {
+      "firm": "Trethowans",
+      "ruleId": "LAW-U005",
+      "human": "Review",
+      "machine": "PASS",
+      "severity": "HIGH",
+      "before": "UNKNOWN",
+      "reviewer": "Codex deterministic source inspection",
+      "reviewKind": "Engineering evidence review; not independent human adjudication",
+      "verdict": "SUPPORTED_LIMITED_OBSERVATION",
+      "resource": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+      "evidence": [
+        {
+          "scanId": "scan_a3c1e4bc-f74d-415e-ac1a-7de8947d6e5a",
+          "url": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+          "observed": {
+            "matches": [
+              {
+                "url": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+                "title": "Client-complaint-procedure-.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "to complain to the Legal Ombudsman, an independent",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+                    "title": "Client-complaint-procedure-.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_800f73e10953356a0617046a",
+                    "sha256": "1f939fb9fb85807cf7456f74e4a6fb5cb7816522622748ca8e77059c6cf7f41f",
+                    "referrers": [
+                      {
+                        "url": "https://www.trethowans.com/about/complaints/",
+                        "anchor": "Client Complaints Procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+                "title": "Client-complaint-procedure-.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "be referred to the Legal Ombudsman within six (6) months of the date of",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+                    "title": "Client-complaint-procedure-.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_800f73e10953356a0617046a",
+                    "sha256": "1f939fb9fb85807cf7456f74e4a6fb5cb7816522622748ca8e77059c6cf7f41f",
+                    "referrers": [
+                      {
+                        "url": "https://www.trethowans.com/about/complaints/",
+                        "anchor": "Client Complaints Procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+                "title": "Client-complaint-procedure-.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": ".org.uk or write to Legal Ombudsman at PO Box 6167, Slough, SL1 0EH.",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+                    "title": "Client-complaint-procedure-.pdf",
+                    "pageNumber": 2,
+                    "documentId": "document_800f73e10953356a0617046a",
+                    "sha256": "1f939fb9fb85807cf7456f74e4a6fb5cb7816522622748ca8e77059c6cf7f41f",
+                    "referrers": [
+                      {
+                        "url": "https://www.trethowans.com/about/complaints/",
+                        "anchor": "Client Complaints Procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+                "title": "Client-complaint-procedure-.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "availability of the Legal Ombudsman scheme are sufficient.",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://www.trethowans.com/wp-content/uploads/2026/06/Client-complaint-procedure-.pdf",
+                    "title": "Client-complaint-procedure-.pdf",
+                    "pageNumber": 3,
+                    "documentId": "document_800f73e10953356a0617046a",
+                    "sha256": "1f939fb9fb85807cf7456f74e4a6fb5cb7816522622748ca8e77059c6cf7f41f",
+                    "referrers": [
+                      {
+                        "url": "https://www.trethowans.com/about/complaints/",
+                        "anchor": "Client Complaints Procedure"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://www.trethowans.com/wp-content/uploads/2026/04/Terms-MASTER-VERSION-17.4.2026.pdf",
+                "title": "Terms-MASTER-VERSION-17.4.2026.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "the Legal Ombudsman.",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://www.trethowans.com/wp-content/uploads/2026/04/Terms-MASTER-VERSION-17.4.2026.pdf",
+                    "title": "Terms-MASTER-VERSION-17.4.2026.pdf",
+                    "pageNumber": 14,
+                    "documentId": "document_4e277c93e20fcdcc767c4907",
+                    "sha256": "6e948cd1f7c0be8f7a0be409ac5b9008bd175d0764a15e4bdb84892d41ad9382",
+                    "referrers": [
+                      {
+                        "url": "https://www.trethowans.com/about/terms-of-business/",
+                        "anchor": "General Terms of Engagement"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://www.trethowans.com/wp-content/uploads/2026/04/Terms-MASTER-VERSION-17.4.2026.pdf",
+                "title": "Terms-MASTER-VERSION-17.4.2026.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "ny complaint to the Legal Ombudsman must usually be made within:",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://www.trethowans.com/wp-content/uploads/2026/04/Terms-MASTER-VERSION-17.4.2026.pdf",
+                    "title": "Terms-MASTER-VERSION-17.4.2026.pdf",
+                    "pageNumber": 14,
+                    "documentId": "document_4e277c93e20fcdcc767c4907",
+                    "sha256": "6e948cd1f7c0be8f7a0be409ac5b9008bd175d0764a15e4bdb84892d41ad9382",
+                    "referrers": [
+                      {
+                        "url": "https://www.trethowans.com/about/terms-of-business/",
+                        "anchor": "General Terms of Engagement"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "url": "https://www.trethowans.com/wp-content/uploads/2026/04/Terms-MASTER-VERSION-17.4.2026.pdf",
+                "title": "Terms-MASTER-VERSION-17.4.2026.pdf",
+                "fact": {
+                  "method": "complaints-reference",
+                  "snippet": "The Legal Ombudsman will also consider complaints about financial services that are provided as",
+                  "confidence": "HIGH",
+                  "value": "Legal Ombudsman",
+                  "source": {
+                    "sourceType": "PDF",
+                    "url": "https://www.trethowans.com/wp-content/uploads/2026/04/Terms-MASTER-VERSION-17.4.2026.pdf",
+                    "title": "Terms-MASTER-VERSION-17.4.2026.pdf",
+                    "pageNumber": 14,
+                    "documentId": "document_4e277c93e20fcdcc767c4907",
+                    "sha256": "6e948cd1f7c0be8f7a0be409ac5b9008bd175d0764a15e4bdb84892d41ad9382",
+                    "referrers": [
+                      {
+                        "url": "https://www.trethowans.com/about/terms-of-business/",
+                        "anchor": "General Terms of Engagement"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "explanation": "Supporting public website evidence was located."
+        }
+      ]
+    }
+  ]
+}

@@ -112,6 +112,7 @@ export async function scanAndPersist(input: string, repository: SnapshotReposito
   const pageList = [...pages.values()];
   const homepageReached = result.pages.some(p=>p.requestedUrl===start);
   const snapshot: Snapshot = {
+    ...(result.pdf?{pdf:result.pdf}:{}),
     requests, brokenLinks: result.brokenLinks,
     scanId,siteId:site?.siteId??`site_${hash(canonicalDomain).slice(0,24)}`,canonicalDomain,canonicalStartUrl:homepageReached?result.site.canonicalUrl:site?.canonicalStartUrl??result.site.canonicalUrl,inputUrl:input,startedAt,completedAt:now().toISOString(),
     status:!homepageReached?'failed':result.summary.crawlLimitReached||errors.length?'partial':'complete',crawlLimit,applicationVersion:APPLICATION_VERSION,schemaVersion:SNAPSHOT_SCHEMA_VERSION,

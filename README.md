@@ -1,4 +1,4 @@
-# WatchLayer — Milestone 4
+# WatchLayer — Milestone 7
 
 A local, industry-neutral TypeScript website-monitoring engine. It crawls public pages, extracts structured facts, stores immutable SQLite snapshots, compares repeat scans and runs versioned deterministic rules to produce findings. It makes no legal-compliance assessments.
 
@@ -23,6 +23,7 @@ npm run rules -- <scan-id>
 npm run findings -- https://example.com
 npm run validate:rules
 npm run scan -- https://example.com --lawwatch
+npm run scan -- https://example.com --lawwatch --no-pdf-extraction
 npm run lawwatch -- <scan-id>
 npm run validate:lawwatch
 npm run compare -- https://example.com
@@ -39,7 +40,7 @@ node dist/cli/index.js https://example.com --output report.json
 
 Scans persist automatically to `.watchlayer/watchlayer.db`, which is excluded from Git. Use `--db <path>` on any command to choose another database. `--no-persist` retains the Milestone 1 scan-only workflow. `--compare` scans and compares; the separate `compare` command compares stored scans without making network requests.
 
-`--json` emits JSON instead of the terminal report. `--output` writes JSON while retaining the normal terminal report (export always emits JSON). Existing output files are overwritten. Scan JSON retains the Milestone 1 fields and adds snapshot identity/coverage; snapshot export contains structured observations and hashes, without full text or HTML. Exit code 1 means invalid arguments, an unrecoverable error, or no HTML pages retrieved. Partial scans retain their errors.
+`--json` emits JSON instead of the terminal report. `--output` writes JSON while retaining the normal terminal report (export always emits JSON). Existing output files are overwritten. Scan JSON retains the Milestone 1 fields and adds snapshot identity/coverage. Snapshot export contains structured observations and hashes, without full HTML; M7 also retains bounded, normalized PDF page text and extraction metadata. Exit code 1 means invalid arguments, an unrecoverable error, or no HTML pages retrieved. Partial scans retain their errors.
 
 Repeat scans select the latest eligible snapshot with matching crawl limit and scanner/schema versions. Up to 20 known resources are rechecked after crawling; use `--recheck-budget 0` to disable additional requests, or an integer up to 20 to lower the budget. Missing HTML observations become **NOT OBSERVED**, not removed. A direct 404/410 is required for confirmed page/document removal; inconclusive failures reduce confidence. Form and contact removals require their source pages to have been reliably observed.
 
@@ -51,6 +52,7 @@ src/
   crawler/      Bounded crawl and public-network HTTP transport
   discovery/    XML sitemap parsing
   extractors/   HTML facts and reusable visible-text extraction
+  documents/    Safe bounded PDF extraction, page text and provenance
   links/        URL classification and document detection
   forms/        Form fields and heuristic classification
   contacts/     Public email and phone extraction
@@ -77,15 +79,15 @@ Fragments and common tracking parameters are removed and query parameters sorted
 
 ## Current limitations
 
-- Static HTML only. JavaScript-dependent pages receive `browser_render_recommended`; browser rendering is not implemented.
+- Static HTML and machine-readable PDF text. JavaScript-dependent pages receive `browser_render_recommended`; browser rendering is not implemented.
 - Visible text, contacts and form classifications are best-effort heuristics. External CSS visibility, obfuscated contacts, international phone validation and perfect content isolation are not implemented.
 - Recognizable consent-banner controls are excluded from text; legitimate cookie-policy content and footer contact details are retained. Form totals count occurrences per page, including repeated site-wide forms. National and international telephone representations may remain separate values.
 - Standard XML sitemap indexes and URL sets are supported; compressed sitemaps are not. Broken sitemaps do not prevent internal-link crawling.
-- Document links are catalogued by filename extension without parsing their contents. Repeat scans may recheck known documents with HEAD only; there is no GET fallback for unsupported HEAD. Extensionless downloads may not be identified. Non-HTML response bodies are discarded.
+- Linked PDFs and visited extensionless PDF responses can enter bounded text extraction. Image-only, encrypted, unreadable and policy-blocked PDFs remain unresolved; other document formats are catalogued without parsing. Historical document rechecks still use HEAD and do not establish content absence.
 - Only discovered destinations within the crawl budget are checked for broken links. Robots exclusions and unvisited links are not declared healthy. No external-link checking or form submission occurs.
 - Responses are decoded as UTF-8. No retries, browser cookies, authentication, custom ports, or cross-domain redirects. Robots crawl-delay directives are not interpreted; requests use the fixed modest delay.
 - Reports may contain public contact details and page text. Store exported files appropriately.
-- No AI, browser rendering, scheduled scans, compliance rules, scoring, alerts, accounts or hosted infrastructure. SQLite persistence and deterministic change detection are implemented; snapshots remain local.
+- No AI, browser rendering, OCR, scheduled scans, scoring, alerts, accounts or hosted infrastructure. SQLite persistence, deterministic rules and change detection are implemented; snapshots remain local.
 
 SQLite uses Node's built-in library, avoiding a native add-on or external service. See [Milestone 2 design and limitations](docs/MILESTONE_2.md) for migrations, eligibility thresholds, data retention and comparison semantics. The deterministic `validate:scenario` command uses mocked HTTP responses, creates a fresh database and exports its report under the ignored `reports/milestone2/` folder.
 
@@ -93,7 +95,7 @@ See [the Milestone 1 public-site validation report](docs/MILESTONE_1_VALIDATION.
 
 The [Milestone 3 rule engine](docs/MILESTONE_3.md) supplies the 15-rule **WatchLayer Universal v1.0** pack. `--rules` evaluates and saves findings after a scan; `rules` evaluates stored observations offline. `findings` displays the latest evaluations for the newest scan. These commands support `--db`, `--json` and `--output`. Repeat `--pack custom.json` to evaluate configured packs; thresholds are pack data. Findings retain exact rule/pack versions and evidence. UNKNOWN means insufficient evidence, and an unobserved resource is never automatically a confirmed failure. Machine-readable schemas are in `docs/schemas/`.
 
-[Milestone 4](docs/MILESTONE_4.md) adds **LawWatch England & Wales v1.0**, with 34 definitions covering regulatory indicators, pricing per service, informational age signals and monitored changes. `scan --lawwatch` captures bounded facts and runs both packs. `lawwatch <scan-id>` evaluates stored evidence offline; old scans without those facts remain UNKNOWN. No PDF parsing or browser execution is performed. The human benchmark workbook remains read-only. `npm run evaluate-lawwatch -- --firm "Russell-Cooke"` runs a deliberately limited manual evaluation; all 50 firms require an explicit `--all` option. WatchLayer's names and database paths are unchanged.
+[Milestone 4](docs/MILESTONE_4.md) introduced **LawWatch England & Wales v1.0**, with 34 definitions covering regulatory indicators, pricing per service, informational age signals and monitored changes. `scan --lawwatch` captures bounded facts and runs both packs. `lawwatch <scan-id>` evaluates stored evidence offline; old scans without those facts remain UNKNOWN. M4 did not parse PDFs; M7 adds the bounded support described below. The human benchmark workbook remains read-only. `npm run evaluate-lawwatch -- --firm "Russell-Cooke"` runs a deliberately limited manual evaluation; all 50 firms require an explicit `--all` option. WatchLayer's names and database paths are unchanged.
 
 [Milestone 5](docs/MILESTONE_5_BENCHMARK.md) hardens discovery and extraction in **LawWatch England & Wales v1.1**. LawWatch prioritises regulatory/pricing links and adds separate budgets of up to 40 regulatory pages and five directly linked staff pages after the normal crawl. Its default request spacing is one second. Configure these independently:
 
@@ -104,7 +106,7 @@ npm run evaluate:milestone5 -- --phase final --all
 npm run summarize:milestone5 -- reports/milestone5/final
 ```
 
-Evidence budgets accept 0–50; staff budgets accept 0–10. Zero disables the corresponding extra stage. All stages share deduplication, robots, redirect and public-network safeguards. Different discovery profiles are not suitable baselines for removal conclusions. LawWatch reports retain structured UNKNOWN reasons and bounded link context; PDFs and calculator outputs remain unevaluated. The benchmark study distinguishes strict agreement, conservative uncertainty compatibility and unproven issue precision; it does not establish production readiness.
+Evidence budgets accept 0–50; staff budgets accept 0–10. Zero disables the corresponding extra stage. All stages share deduplication, robots, redirect and public-network safeguards. Different discovery profiles are not suitable baselines for removal conclusions. LawWatch reports retain structured UNKNOWN reasons and bounded link context. Calculator outputs remain unevaluated; PDF support arrived in M7. The benchmark study distinguishes strict agreement, conservative uncertainty compatibility and unproven issue precision; it does not establish production readiness.
 
 [Milestone 6](docs/MILESTONE_6_BENCHMARK.md) introduces **LawWatch England & Wales v1.2** precision checks, separate PASS adjudication records and a controlled negative benchmark. It tightens client-complaints context, staff/pricing scope, qualifications, stages and VAT evidence. A valid replacement regulatory surface prevents a removed URL from becoming a LawWatch serious finding. Reports add customer-friendly status labels while retaining internal enums. New evaluation requires fresh v1.2 facts; saved historical reports remain unchanged.
 
@@ -115,3 +117,19 @@ npm run evaluate:milestone6 -- --phase final --all
 ```
 
 The full live evaluation is explicit, sequential and resumable, with unchanged M5 budgets. Human Review is not a machine warning or proven false PASS. Selected-evidence review and controlled fixture precision are reported separately from live human benchmark agreement. No PDF extraction, browser execution, AI or hosted infrastructure is added.
+
+## Milestone 7 PDF extraction
+
+[Milestone 7](docs/MILESTONE_7_PDF_EXTRACTION.md) adds **LawWatch England & Wales v1.3** and reusable PDF extraction for normal scans. It uses pinned `pdfjs-dist@6.3.289` for machine-readable page text, with no external executable or required native canvas runtime. Each finding cites the PDF URL, title, page number, content hash and referring pages. SQLite migration 5 preserves extraction results without rewriting historical scans. Existing report schemas gain optional PDF sections; older reports remain readable.
+
+PDFs use the existing public-network, robots and registrable-domain restrictions. Off-site regulatory/CDN documents are inventoried but not downloaded. Protocol-changing redirects are blocked. Processing is sequential: at most 25 documents, 10 MB per document, 50 MB total per scan, 200 pages and 500,000 characters per document, with a 15-second parser deadline. The regular HTML budgets are unchanged. `--no-pdf-extraction` disables PDF downloads and retains discovery metadata.
+
+Statuses are `EXTRACTED`, `NO_TEXT`, `TOO_LARGE`, `DOWNLOAD_FAILED`, `INVALID_PDF`, `PARSE_FAILED`, `ENCRYPTED`, `UNSUPPORTED`, `BLOCKED_BY_POLICY` and `NOT_ATTEMPTED`. Failed or image-only extraction does not establish missing regulatory information. PDF text can support scoped pricing, complaints and regulatory facts; it cannot establish badge operation or HTML navigation. Mixed-service documents are deliberately conservative. No OCR is performed.
+
+```text
+npm run validate:pdf
+npm run evaluate:milestone7 -- --firm "Kitson Boyce" --output reports/milestone7/experiment
+npm run evaluate:milestone7 -- --all --reuse-pdf reports/milestone7/paired --output reports/milestone7/replay
+```
+
+The paired evaluator enriches frozen M6 HTML observations using only PDFs already discovered in those scans; `--reuse-pdf` performs an offline replay. It requires retained M6 evaluation files and does not overwrite the benchmark workbook. Fresh end-to-end subset scans use `evaluate-lawwatch`. The completed 50-firm paired evaluation and three fresh scans are documented in M7. Serious-finding precision remains demonstrated only on the narrow controlled removal suite; live launch precision remains unproven.

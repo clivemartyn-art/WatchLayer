@@ -1,0 +1,13 @@
+import { afterEach,beforeEach,expect,it,vi } from 'vitest';
+import { mkdtempSync,rmSync } from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+import { runCli } from '../src/cli/run.js';
+vi.mock('../src/crawler/http.js',async original=>({...await original<typeof import('../src/crawler/http.js')>(),createFetcher:()=>async(...args:Parameters<import('../src/crawler/http.js').Fetcher>)=>(await import('./fixtures/milestone7.js')).pdfWebsite()(...args)}));
+let directory:string;let log:ReturnType<typeof vi.spyOn>;
+beforeEach(()=>{directory=mkdtempSync(join(tmpdir(),'watchlayer-pdf-cli-'));log=vi.spyOn(console,'log').mockImplementation(()=>{});vi.spyOn(console,'error').mockImplementation(()=>{});process.exitCode=0;});
+afterEach(()=>{vi.restoreAllMocks();process.exitCode=0;rmSync(directory,{recursive:true,force:true});});
+const output=()=>JSON.parse(String(log.mock.calls.at(-1)![0]));
+it('automatically extracts PDFs in a normal persistent scan and exports page text',async()=>{const db=join(directory,'history.db');await runCli('scan',['https://example.com/','--db',db,'--json']);const result=output();expect(result.pdf.documents[0].status).toBe('EXTRACTED');log.mockClear();await runCli('export-scan',[result.snapshot.scanId,'--db',db,'--json']);expect(output().pdf.documents[0].pages[0].text).toContain('£900');expect(process.exitCode).toBe(0);});
+it('allows explicitly disabling extraction without losing discovered document links',async()=>{await runCli('scan',['https://example.com/','--no-persist','--no-pdf-extraction','--json']);const result=output();expect(result.documents).toHaveLength(1);expect(result.pdf.summary.attempted).toBe(0);expect(result.pdf.documents[0].status).toBe('NOT_ATTEMPTED');expect(process.exitCode).toBe(0);});
+it('includes PDF citations and LawWatch results in JSON output',async()=>{await runCli('scan',['https://example.com/','--db',join(directory,'history.db'),'--lawwatch','--json']);const result=output();expect(result.lawwatch.packVersion).toBe('1.3');expect(JSON.stringify(result.lawwatch.results)).toContain('"sourceType":"PDF"');expect(process.exitCode).toBe(0);});
