@@ -1,0 +1,626 @@
+[
+  {
+    "itemId": "d7ec170da3ee0bca3ccf31a5dea388e0ce4abfc512072ad4db42a7511f2c7e6d",
+    "label": "INSUFFICIENT_CONTEXT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "8fdab092bb3ce543e3f61471c0eca251d80eb6dd55d7e9282e0e32bacfd06460",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "badfb9279638ca8bb14acea0992bcc1f571f3737f8babfd4fc57c92305163579",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "9057cc4a2342ccc7b534013f93eaacb885c1249813ee07a61e88a35723a19cb0",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "1509746ff4474ef0fbe03bfc576d19749c4b9f8fd2294eb881e0bff5854b9eb5",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "2a3a99c68953507d4deaa7a42b78a0792545b4180dd903c54bde52c72eaa1d75",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "0be6f6cbc1349d22cdd52ea4f42c72aa86d1b45bebe1b3a6675f5833c13c015e",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "15c80c2aac9955dd91e9e21832f6838743b2b35bbad97c43b26c6c0ef59e9d4c",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "8fdb83d2d0dcc96d8afb423d1fa1e7eb05c3f3aebae2083db5e82965d1b6487f",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "32fe33bb7c158c1dca90ff97e2daf31117577a118311d7232fdfcc1d40e1bcc5",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "f5afe9c770c6750b724df10d5f485aa85336952ef71d9c5fb788b6c3a0908f22",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "6b68152bb9a8103b7a52a74d449b28a43b3b296fa2162b29237acac84e90cb6c",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "bc5769035c8b4a4b2ae817a22a1d7590aa56c312776dacf347dc80ec31baa0be",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "965ad9baca4d5a0ee7139b964d229d23bdb841ca70b61ba4eda23d841fd29526",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "d3014ea2ea32d898b101c6bd9670b0fbf6c7df2fc4433c82f818655e03ad01bc",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "3f0c2294fc85d7241d187face9794b0dfb49608b6c751eb41af1678336840f34",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "70e78998f34a3e3220e622f5c8a742e4fd14a61818305517ca72242e13046c3a",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "83720e016db40a58a2c5d6a26cc7ae1a25cc56eeb3c80a9d4481c0b075982b50",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "ebe24dae03d142c8343f93ba4d747c3668ddd4489d5057587011af7813bd27b2",
+    "label": "INSUFFICIENT_CONTEXT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "4ba0b8c49b6b13ae2f0b09705e9fe7ada8e946dd90ba6fd80d40f63970705d80",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "e184fbbdf23a0cb2b3dbd62f383c0e31572138cb4fedd6f7aea48ed61e9d2b06",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "91e8b206e179c68969dcf12124069e7e9f98e6ff3aad6bb0f4aaa6c229057677",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "43e0209be112220ad829d7c6d81b96c97ee1e28f710c95c341803aecd2907758",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "19ced92495d6cb41b418d01caf07012671785f3db39f73c48fd315d93d4a3f8a",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "d12e57dd8c755100ad430a6f183c5767987f49c734b37e08e1099c37d33d76df",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "353471f4b372e52ac32375f040f4ff85c84fd2d722b67d2653ccb651cccaee92",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "0a206bbf8845252b1392cb36c4d4432e3e94e4befa39a23181267810f3ca5acd",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "2b0d1c6ab8ff38a6869f7882872e5c7076f401f5be71f2139923f2c6b2f98d2d",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "011dcf1242604539daa75528050dac1836d1211832202b392b4b3f84f2235e2f",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "68134b23b3e52b57960dcc2c25e559d2d610b9f5fb5edc347a9c7f7ce24c9595",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "15d6fa42d087a2fd00d6b16b2c18be5e1caa82ab2cee9025145aad789bf261d6",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "0066c49432c34ef4b4f76a948efda12d37f63aa17608deab17403f86a05dbb38",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "8c4cb353dc27699293f001534e36904c38cb73d5a28f007a76f34b92d9857e3f",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "0672b573d1c55e1262d742d9dcb98069b42532c145f8e79503ed55b471451c9a",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "eda2556d727287b100abac6a4b56f9b568e52cb5b089f89f98061e6c0d7ec0de",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "fc7c0138e6566209b1df9b1c6893ff3538a5e589641c7749d0159e75db2496c2",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "32eabdedfa51aa305f876302c564e95ff7ad60847a92b647c4163e17deca78e9",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "82816a834dbc6ed7a4aa6dc519bd0a58d812df887cdf280cc00dfb558c7ee548",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "781b550b4079e1b2164d429a9e0ef7888ac33788982ac07e943fed2b84839822",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "2aea89c1d1aae470195fa311af3dd58d146b1c63c0c6e1e3d872c74f2b2a77e0",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "bd110710fa597db28dcdbf67e0e08994b1735a2d59d69bc8b94057f03afc5fa1",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "0ebfb9ffe3ac1dff745cc79edfbadf7e0b8a3dc78e1da1edc5354c1c914d309e",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "6f2701be8311bff0a16bfc01a958ec8d052a7492806afe71273df102ee147d16",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "c93ace1b1f7275564154bfa4a96afcb783eca1ffaa62ebe1a4ba8b54d7bdfd39",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "d3266efa0d4e48149672144a4e8c75255720c4b7b0de00a03a2b171e8e19f08b",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "104546dc8873b20f22a340ba94bf06a9075347e964e031d236562874ca01eec1",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "c139a733d6aef464b7f35f18b667df17264d2ed7632437883c90cf375afeabe0",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "d323dca4d32b5f79fded3f3448942572087586a2a54b006245a94b14f5bafea3",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "f8d441eec2269841658821c112874a58f128d4321579a692497f8848979e7713",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "104b365a0acbe919336963dafb1fb607d529c2868a8b1c2e8dfec1c4264004fa",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "e9686a569a088fc0790759de557c90492d01bd51ad68eff68790ede2e2138a47",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "35efbf97882a5497f27b7030a029f26b75fd05e69d2e93f20226466ff7502e9d",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "42f4c6a83069bb4d727fc03766ebb862f60cb5a637684a72dff6c5e9a4b52d5f",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "d3ede8c71a69299608e73bedeb2c357a18577e002a46bea56936ffd6a63b3d7b",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "0a4587cc71264d08dedb6b8e60cbb1b6fa09af88bb932291c0fa0533b959724d",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "caf264b53007cd395e766cef6c924158b7b2f7cafa582436a1219bf201cf506f",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "d0704961437cd4d906d7038eddc9de5c4e7d09d3feae9dee0e7c0cc3d587bcf5",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "95498f87d0796bd7e06a2905c6efc834cc5f726f62d24773b11054e8de1ad4a0",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "3e362c18ec55c0635fd49912eb761a1809d2caa9d1ade4b9a9328a87c0095694",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "bf9ea477ef69637a413e4b61604dc825e451cdffc421b54ddb88804fb4d6870d",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "f18f20da035438d9b6fe7c397806ef255b147423ff9aca98b27d78c6a822677f",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "1c1ae759bb5324ee9ded0daee27efbd7ec537b1d3420e6e85ffe56b53294716a",
+    "label": "INSUFFICIENT_CONTEXT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "c0b061ae1d8f98f6841e941bed863f2213ecb26592bc6d93a52c82ca1675a1cc",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "d4337331aa6c87b41b883ed65650c697a8ea84a34488773640f93c98ac92c49a",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "c083be69b191b4c001edac3bf2fc21702eddcabc78a57690e6c1293e849065bc",
+    "label": "INSUFFICIENT_CONTEXT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "70360233f15dfd30e1c45c47ef87e165ce805632fe8008c62437f791e9e544bd",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "7a901bf9ce3f714d50abc886c1ebafa0baac55794e6c87697334f87e877d8b52",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "01f3623a1231e07cb77f36f88b0b7cb281ae4475587fbc60e1519d9902f133b7",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "a021359e65ca1be97891bae19b0fdcef3a32c626ff45fca3061189aaebac3f53",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "89f15b8f02d48e1c860857132c5378e7795671c68f68478a448ba1844fd5a5eb",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "88d65f4937558a4edbc51b49523f809c82251c72b507ef04451161b7c1db11d8",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "ad18504dd4b6ad3b7a359ebd9dcc1bb30e76aa8f5bc9158d5a4ea9509d69a100",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "e319b60a5398da1ef803eebae72cde3ca89d38a0f9d16beb22b815244d7c0554",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "a82e830423d2c36672b2d4c2cb4126a6664851922f0b414376c8a30391fb5b41",
+    "label": "SUPPORTS_RULE",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "027bf316a549701723f32b0080fa329de1aa4005ba8e4c99a7fc109f8159af08",
+    "label": "NOT_RELEVANT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "2920b99b03073a06748a5bae54136fe6e527238e1b0054962b534032c709a79c",
+    "label": "PARTIALLY_SUPPORTS",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "18f0b5e05595ac698cae4058f03864f10b800c9a0d1b1ee59fa3a4db31c387a9",
+    "label": "INSUFFICIENT_CONTEXT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  },
+  {
+    "itemId": "6eea94014f7c70340ad0d1d374bb9c6f59c2573c368227d152a04877ffbb0677",
+    "label": "INSUFFICIENT_CONTEXT",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-14",
+    "note": "",
+    "pattern": ""
+  }
+]

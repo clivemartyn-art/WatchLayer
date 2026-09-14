@@ -6,7 +6,7 @@ import { assessSupport } from './policy.js';
 import { ADJUDICATION_STATES,type AdjudicationReport } from './types.js';
 /** Raw extraction is immutable. Only this separate view is eligible for rule support. */
 export function adjudicatePdfEvidence(raw:FactSet|undefined,documents:PdfExtraction[]):{facts:FactSet|undefined;report:AdjudicationReport}{
-  const report:AdjudicationReport={schemaVersion:1,policyVersion:'1.0',mode:'deterministic',items:[],counts:Object.fromEntries(ADJUDICATION_STATES.map(s=>[s,0])) as AdjudicationReport['counts'],statement:'Deterministic evidence assessment, not independent human adjudication or regulatory certification.'};
+  const report:AdjudicationReport={schemaVersion:1,policyVersion:'1.1',mode:'deterministic',items:[],counts:Object.fromEntries(ADJUDICATION_STATES.map(s=>[s,0])) as AdjudicationReport['counts'],statement:'Deterministic evidence assessment, not independent human adjudication or regulatory certification.'};
   if(!raw)return {facts:undefined,report};
   const facts=structuredClone(raw);const seen=new Set<string>();
   const prepared=new Map(documents.filter(d=>d.status==='EXTRACTED').map(d=>[d.documentId,prepareDocumentContext(d)]));

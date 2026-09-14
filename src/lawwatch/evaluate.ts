@@ -112,5 +112,5 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     }
     return result;
   });law.results=results;law.findings=projectFindings(results,law.runId,c.completedAt);
-  return {...(c.pdf?{pdf:c.pdf,adjudication:adjudication.report}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.4',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
+  return {...(c.pdf?{pdf:c.pdf,adjudication:adjudication.report}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.5',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
 }

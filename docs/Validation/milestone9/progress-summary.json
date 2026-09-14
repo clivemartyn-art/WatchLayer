@@ -1,0 +1,576 @@
+{
+  "schemaVersion": 1,
+  "status": "AWAITING_INDEPENDENT_HUMAN_REVIEW",
+  "productionCorrections": 0,
+  "humanReviewedDisagreementsFixed": 0,
+  "benchmarkSha256": "beafdde971fa122e4200a55863f7ff60ccd891640f81457dc1978eea27d7c4aa",
+  "m8": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "preserved": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "ruleResultsChanged": 0,
+  "supportedToUnknown": 0,
+  "unknownToSupported": 0,
+  "changes": [],
+  "pdfAssessments": {
+    "items": 1994,
+    "counts": {
+      "SUPPORTED": 229,
+      "PARTIALLY_SUPPORTED": 315,
+      "AMBIGUOUS": 1241,
+      "NOT_RELEVANT": 155,
+      "INSUFFICIENT_CONTEXT": 54
+    },
+    "rejectedAmbiguousOrNotRelevant": 1396,
+    "independentHumanReviews": 0
+  },
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "review": {
+    "sampleSize": 78,
+    "firms": 43,
+    "coverage": {
+      "pricing": {
+        "available": 3249,
+        "selected": 44
+      },
+      "complaints": {
+        "available": 1161,
+        "selected": 28
+      },
+      "regulatory_identifier": {
+        "available": 2072,
+        "selected": 6
+      },
+      "service_description": {
+        "available": 937,
+        "selected": 25
+      },
+      "people_staff": {
+        "available": 586,
+        "selected": 15
+      },
+      "regulatory_document": {
+        "available": 1265,
+        "selected": 22
+      },
+      "mixed_service_pdf": {
+        "available": 1095,
+        "selected": 25
+      },
+      "corporate_wording": {
+        "available": 121,
+        "selected": 6
+      },
+      "repeated_boilerplate": {
+        "available": 203,
+        "selected": 3
+      },
+      "heading_proximity_unavailable": {
+        "available": 7154,
+        "selected": 78
+      },
+      "service_context_risk": {
+        "available": 1169,
+        "selected": 17
+      },
+      "contents_or_appendix": {
+        "available": 19,
+        "selected": 3
+      },
+      "context_limit": {
+        "available": 5871,
+        "selected": 59
+      }
+    },
+    "humanReviewed": 0,
+    "exactAgreement": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "falseSupportRate": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "falseRejectionRate": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    }
+  },
+  "fresh": {
+    "completed": 8,
+    "metrics": {
+      "eligibleChecks": 136,
+      "excludedNotApplicable": 0,
+      "humanCounts": {
+        "Pass": 76,
+        "Review": 60,
+        "Unknown": 0,
+        "Fail": 0
+      },
+      "machineCounts": {
+        "PASS": 42,
+        "WARNING": 8,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 86,
+        "NOT_APPLICABLE": 0
+      },
+      "exactAgreement": {
+        "count": 29,
+        "denominator": 76,
+        "rate": 0.3815789473684211
+      },
+      "acceptableAgreement": {
+        "count": 76,
+        "denominator": 136,
+        "rate": 0.5588235294117647
+      },
+      "unknownCount": 86,
+      "unknownRate": 0.6323529411764706,
+      "passPredictions": 42,
+      "passPrecision": 0.6904761904761905,
+      "passRecall": 0.3815789473684211,
+      "warningPredictions": 8,
+      "warningPrecision": null,
+      "warningReviewCompatibility": 0.75,
+      "potentialIssuePredictions": 0,
+      "potentialIssuePrecision": null,
+      "highSeverityPotentialIssuePrecision": null,
+      "falsePositiveCount": 0,
+      "highSeverityFalsePositiveCount": 0,
+      "falsePositiveRate": 0,
+      "highSeverityFalsePositiveRate": 0,
+      "confirmedFalsePositiveCount": 0,
+      "confirmedFalsePositiveRate": 0,
+      "confirmedHighSeverityFalsePositiveRate": 0,
+      "unsupportedPassCount": 13,
+      "releaseGate": "UNPROVEN",
+      "limitations": [
+        "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+        "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+        "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+      ]
+    },
+    "preservedSameFirms": {
+      "eligibleChecks": 136,
+      "excludedNotApplicable": 0,
+      "humanCounts": {
+        "Pass": 76,
+        "Review": 60,
+        "Unknown": 0,
+        "Fail": 0
+      },
+      "machineCounts": {
+        "PASS": 44,
+        "WARNING": 10,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 82,
+        "NOT_APPLICABLE": 0
+      },
+      "exactAgreement": {
+        "count": 29,
+        "denominator": 76,
+        "rate": 0.3815789473684211
+      },
+      "acceptableAgreement": {
+        "count": 74,
+        "denominator": 136,
+        "rate": 0.5441176470588235
+      },
+      "unknownCount": 82,
+      "unknownRate": 0.6029411764705882,
+      "passPredictions": 44,
+      "passPrecision": 0.6590909090909091,
+      "passRecall": 0.3815789473684211,
+      "warningPredictions": 10,
+      "warningPrecision": null,
+      "warningReviewCompatibility": 0.7,
+      "potentialIssuePredictions": 0,
+      "potentialIssuePrecision": null,
+      "highSeverityPotentialIssuePrecision": null,
+      "falsePositiveCount": 0,
+      "highSeverityFalsePositiveCount": 0,
+      "falsePositiveRate": 0,
+      "highSeverityFalsePositiveRate": 0,
+      "confirmedFalsePositiveCount": 0,
+      "confirmedFalsePositiveRate": 0,
+      "confirmedHighSeverityFalsePositiveRate": 0,
+      "unsupportedPassCount": 15,
+      "releaseGate": "UNPROVEN",
+      "limitations": [
+        "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+        "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+        "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+      ]
+    },
+    "sites": [
+      {
+        "firm": "Nash & Co Solicitors",
+        "completedAt": "2026-09-14T07:46:14.333Z",
+        "durationMs": 79037,
+        "pagesScanned": 38,
+        "pagesFailed": 10,
+        "pdf": {
+          "discovered": 6,
+          "attempted": 6,
+          "extracted": 0,
+          "skipped": 6,
+          "bytesDownloaded": 0,
+          "failures": 0,
+          "noText": 0
+        },
+        "metrics": {
+          "exactAgreementRate": 0.8,
+          "exactAgreementDenominator": 10,
+          "passPrecision": 0.8,
+          "passPredictions": 10,
+          "potentialIssuePrecision": null,
+          "potentialIssuePredictions": 0,
+          "unknownRate": 0.35294117647058826,
+          "falsePositiveCount": 0,
+          "highSeverityFalsePositiveCount": 0,
+          "confirmedFalsePositiveCount": 0,
+          "unsupportedPassCount": 2,
+          "reviewCount": 7,
+          "reviewCompatibleCount": 5,
+          "excludedNotApplicableCount": 0
+        }
+      },
+      {
+        "firm": "Hethertons",
+        "completedAt": "2026-09-14T07:47:37.260Z",
+        "durationMs": 83400,
+        "pagesScanned": 61,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 5,
+          "attempted": 4,
+          "extracted": 3,
+          "skipped": 1,
+          "bytesDownloaded": 2786745,
+          "failures": 0,
+          "noText": 1
+        },
+        "metrics": {
+          "exactAgreementRate": 0.16666666666666666,
+          "exactAgreementDenominator": 12,
+          "passPrecision": 0.6666666666666666,
+          "passPredictions": 3,
+          "potentialIssuePrecision": null,
+          "potentialIssuePredictions": 0,
+          "unknownRate": 0.7647058823529411,
+          "falsePositiveCount": 0,
+          "highSeverityFalsePositiveCount": 0,
+          "confirmedFalsePositiveCount": 0,
+          "unsupportedPassCount": 1,
+          "reviewCount": 5,
+          "reviewCompatibleCount": 4,
+          "excludedNotApplicableCount": 0
+        }
+      },
+      {
+        "firm": "Kitson Boyce",
+        "completedAt": "2026-09-14T07:48:53.902Z",
+        "durationMs": 76283,
+        "pagesScanned": 39,
+        "pagesFailed": 1,
+        "pdf": {
+          "discovered": 11,
+          "attempted": 11,
+          "extracted": 9,
+          "skipped": 0,
+          "bytesDownloaded": 3859535,
+          "failures": 0,
+          "noText": 2
+        },
+        "metrics": {
+          "exactAgreementRate": 0.125,
+          "exactAgreementDenominator": 8,
+          "passPrecision": 0.3333333333333333,
+          "passPredictions": 3,
+          "potentialIssuePrecision": null,
+          "potentialIssuePredictions": 0,
+          "unknownRate": 0.8235294117647058,
+          "falsePositiveCount": 0,
+          "highSeverityFalsePositiveCount": 0,
+          "confirmedFalsePositiveCount": 0,
+          "unsupportedPassCount": 2,
+          "reviewCount": 9,
+          "reviewCompatibleCount": 7,
+          "excludedNotApplicableCount": 0
+        }
+      },
+      {
+        "firm": "Wolferstans",
+        "completedAt": "2026-09-14T07:49:58.887Z",
+        "durationMs": 64742,
+        "pagesScanned": 50,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 5,
+          "attempted": 5,
+          "extracted": 5,
+          "skipped": 0,
+          "bytesDownloaded": 496468,
+          "failures": 0,
+          "noText": 0
+        },
+        "metrics": {
+          "exactAgreementRate": 0.7857142857142857,
+          "exactAgreementDenominator": 14,
+          "passPrecision": 0.9166666666666666,
+          "passPredictions": 12,
+          "potentialIssuePrecision": null,
+          "potentialIssuePredictions": 0,
+          "unknownRate": 0.058823529411764705,
+          "falsePositiveCount": 0,
+          "highSeverityFalsePositiveCount": 0,
+          "confirmedFalsePositiveCount": 0,
+          "unsupportedPassCount": 1,
+          "reviewCount": 3,
+          "reviewCompatibleCount": 2,
+          "excludedNotApplicableCount": 0
+        }
+      },
+      {
+        "firm": "GA Solicitors",
+        "completedAt": "2026-09-14T07:51:29.109Z",
+        "durationMs": 91692,
+        "pagesScanned": 63,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 2,
+          "attempted": 2,
+          "extracted": 2,
+          "skipped": 0,
+          "bytesDownloaded": 1653031,
+          "failures": 0,
+          "noText": 0
+        },
+        "metrics": {
+          "exactAgreementRate": 0.375,
+          "exactAgreementDenominator": 8,
+          "passPrecision": 0.75,
+          "passPredictions": 4,
+          "potentialIssuePrecision": null,
+          "potentialIssuePredictions": 0,
+          "unknownRate": 0.7647058823529411,
+          "falsePositiveCount": 0,
+          "highSeverityFalsePositiveCount": 0,
+          "confirmedFalsePositiveCount": 0,
+          "unsupportedPassCount": 1,
+          "reviewCount": 9,
+          "reviewCompatibleCount": 8,
+          "excludedNotApplicableCount": 0
+        }
+      },
+      {
+        "firm": "Trethowans",
+        "completedAt": "2026-09-14T07:53:34.315Z",
+        "durationMs": 124674,
+        "pagesScanned": 60,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 5,
+          "attempted": 5,
+          "extracted": 5,
+          "skipped": 0,
+          "bytesDownloaded": 602011,
+          "failures": 0,
+          "noText": 0
+        },
+        "metrics": {
+          "exactAgreementRate": 0.07692307692307693,
+          "exactAgreementDenominator": 13,
+          "passPrecision": 0.3333333333333333,
+          "passPredictions": 3,
+          "potentialIssuePrecision": null,
+          "potentialIssuePredictions": 0,
+          "unknownRate": 0.7058823529411765,
+          "falsePositiveCount": 0,
+          "highSeverityFalsePositiveCount": 0,
+          "confirmedFalsePositiveCount": 0,
+          "unsupportedPassCount": 2,
+          "reviewCount": 4,
+          "reviewCompatibleCount": 2,
+          "excludedNotApplicableCount": 0
+        }
+      },
+      {
+        "firm": "Stephens Scown",
+        "completedAt": "2026-09-14T07:55:23.493Z",
+        "durationMs": 108631,
+        "pagesScanned": 59,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 11,
+          "attempted": 8,
+          "extracted": 8,
+          "skipped": 3,
+          "bytesDownloaded": 12624589,
+          "failures": 0,
+          "noText": 0
+        },
+        "metrics": {
+          "exactAgreementRate": 0.1111111111111111,
+          "exactAgreementDenominator": 9,
+          "passPrecision": 0.3333333333333333,
+          "passPredictions": 3,
+          "potentialIssuePrecision": null,
+          "potentialIssuePredictions": 0,
+          "unknownRate": 0.8235294117647058,
+          "falsePositiveCount": 0,
+          "highSeverityFalsePositiveCount": 0,
+          "confirmedFalsePositiveCount": 0,
+          "unsupportedPassCount": 2,
+          "reviewCount": 8,
+          "reviewCompatibleCount": 6,
+          "excludedNotApplicableCount": 0
+        }
+      },
+      {
+        "firm": "Shakespeare Martineau",
+        "completedAt": "2026-09-14T07:57:12.872Z",
+        "durationMs": 108841,
+        "pagesScanned": 49,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 9,
+          "attempted": 6,
+          "extracted": 6,
+          "skipped": 3,
+          "bytesDownloaded": 1512166,
+          "failures": 0,
+          "noText": 0
+        },
+        "metrics": {
+          "exactAgreementRate": 1,
+          "exactAgreementDenominator": 2,
+          "passPrecision": 0.5,
+          "passPredictions": 4,
+          "potentialIssuePrecision": null,
+          "potentialIssuePredictions": 0,
+          "unknownRate": 0.7647058823529411,
+          "falsePositiveCount": 0,
+          "highSeverityFalsePositiveCount": 0,
+          "confirmedFalsePositiveCount": 0,
+          "unsupportedPassCount": 2,
+          "reviewCount": 15,
+          "reviewCompatibleCount": 13,
+          "excludedNotApplicableCount": 0
+        }
+      }
+    ]
+  }
+}

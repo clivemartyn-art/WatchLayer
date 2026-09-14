@@ -45,3 +45,8 @@ Thumbs.db
 *.sqlite-*
 *.sqlite3
 *.sqlite3-*
+
+# Local M9 review working copies; durable review evidence lives under docs/Validation/milestone9/
+/clive-review-blind.csv
+/review-blind.csv
+/MILESTONE_9_HUMAN_REVIEW_GUIDE.md

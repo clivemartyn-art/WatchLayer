@@ -7,6 +7,6 @@ export interface AdjudicatedItem {
   context:EvidenceContext;state:AdjudicationState;reason:string;
 }
 export interface AdjudicationReport {
-  schemaVersion:1;policyVersion:'1.0';mode:'deterministic';items:AdjudicatedItem[];
+  schemaVersion:1;policyVersion:'1.0'|'1.1';mode:'deterministic';items:AdjudicatedItem[];
   counts:Record<AdjudicationState,number>;statement:string;
 }

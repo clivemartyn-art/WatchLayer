@@ -1,6 +1,7 @@
 import type { Fact,PageFacts,Service } from '../types.js';
 import type { AdjudicationState,EvidenceContext } from './types.js';
 import { serviceMatches } from '../detectors/services.js';
+import { explicitChargeVat,negatedChargingBasis,taxOnlyExpense } from './pricing-context.js';
 export function assessSupport(ruleId:string,fact:Fact,page:PageFacts,context:EvidenceContext,service?:Service):{state:AdjudicationState;reason:string}{
   const result=(state:AdjudicationState,reason:string)=>({state,reason});
   if(!context.matched||context.text.length<40)return result('INSUFFICIENT_CONTEXT','Exact evidence location or sufficient surrounding page text is unavailable.');
@@ -17,6 +18,9 @@ export function assessSupport(ruleId:string,fact:Fact,page:PageFacts,context:Evi
     if(local.some(s=>s!==scoped))return result('AMBIGUOUS','Surrounding evidence mentions a different service.');
     if(context.repeatedOnPages>1&&!local.includes(scoped))return result('AMBIGUOUS','Repeated boilerplate lacks local service context.');
     if(ruleId==='PRICE-001'&&/house prices?|property valu|mortgage value|average home/i.test(snippet)&&!/legal fee/i.test(snippet))return result('NOT_RELEVANT','The monetary reference describes property value rather than the firm fee.');
+    if(ruleId==='PRICE-002'&&negatedChargingBasis(text,snippet))return result('PARTIALLY_SUPPORTED','The located statement negates the named charging basis; it does not affirm that basis.');
+    if(ruleId==='PRICE-006'&&taxOnlyExpense(snippet))return result('NOT_RELEVANT','The statement describes tax treatment, not whether this expense is likely for the service.');
+    if(['PRICE-008','PRICE-009'].includes(ruleId)&&explicitChargeVat(snippet))return result('SUPPORTED','The located statement explicitly connects the firm charge to a VAT rate; extraction confidence is retained separately.');
     if(['PRICE-008','PRICE-009'].includes(ruleId)&&!/\b(?:our|legal|total|fixed|hourly|professional|average|estimated|typical) (?:fees?|charges?|costs?)\b|\bfees? (?:are|exclude|include|plus|subject)\b/i.test(snippet))return result('PARTIALLY_SUPPORTED','VAT is mentioned, but treatment of the firm legal fee is not explicit in the matched statement.');
     if(ruleId==='PRICE-013'&&!/(?:initial|first|then|next|finally|completion|submission)/i.test(snippet))return result('PARTIALLY_SUPPORTED','A process is mentioned without a sufficiently explicit stage sequence.');
     if(ruleId==='PRICE-014'&&/if.{0,40}not received|payment.{0,30}(?:days|weeks)|\bwithin 14 days\b/i.test(snippet))return result('PARTIALLY_SUPPORTED','A payment or response deadline may not describe the service duration.');

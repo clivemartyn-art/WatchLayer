@@ -29,7 +29,10 @@
     "evaluate:milestone7": "tsx scripts/evaluate-milestone7.ts",
     "validate:pdf": "tsx scripts/validate-milestone7.ts",
     "evaluate:milestone8": "tsx scripts/evaluate-milestone8.ts",
-    "review:milestone8": "tsx scripts/review-milestone8.ts"
+    "review:milestone8": "tsx scripts/review-milestone8.ts",
+    "prepare:milestone9-review": "tsx scripts/prepare-milestone9-review.ts",
+    "compare:milestone9-review": "tsx scripts/compare-milestone9-review.ts",
+    "evaluate:milestone9-live": "tsx scripts/evaluate-milestone9-live.ts"
   },
   "dependencies": {
     "cheerio": "^1.1.2",

@@ -1,8 +1,10 @@
-# WatchLayer — Milestone 8
+# WatchLayer — Milestone 9
 
 A local, industry-neutral TypeScript website-monitoring engine. It crawls public pages, extracts structured facts, stores immutable SQLite snapshots, compares repeat scans and runs versioned deterministic rules to produce findings. It makes no legal-compliance assessments.
 
 ## Requirements and installation
+
+M9 adds independent evidence review tooling and three reviewed context corrections. See the [human review guide](docs/MILESTONE_9_HUMAN_REVIEW_GUIDE.md) and [milestone report](docs/MILESTONE_9_INDEPENDENT_REVIEW.md). LawWatch pack 1.5 retains conservative service safeguards; historical report formats remain supported.
 
 Install Node.js 22.16 or newer, including npm (Node.js 24 LTS recommended), then run from this folder:
 

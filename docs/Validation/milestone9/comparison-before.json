@@ -1,0 +1,661 @@
+{
+  "schemaVersion": 1,
+  "sampleSize": 78,
+  "humanReviewed": 78,
+  "unreviewed": 0,
+  "exactAgreement": {
+    "count": 26,
+    "denominator": 66,
+    "rate": 0.3939393939393939
+  },
+  "supportedVsOtherAgreement": {
+    "count": 41,
+    "denominator": 66,
+    "rate": 0.6212121212121212
+  },
+  "falseSupportRate": {
+    "count": 2,
+    "denominator": 12,
+    "rate": 0.16666666666666666
+  },
+  "falseRejectionRate": {
+    "count": 23,
+    "denominator": 33,
+    "rate": 0.696969696969697
+  },
+  "ambiguousCaseAgreement": {
+    "count": 0,
+    "denominator": 0,
+    "rate": null
+  },
+  "byAutomatedLabel": {
+    "AMBIGUOUS": {
+      "reviewed": 18,
+      "scored": 18,
+      "disagreements": 18
+    },
+    "INSUFFICIENT_CONTEXT": {
+      "reviewed": 12,
+      "scored": 12,
+      "disagreements": 8
+    },
+    "NOT_ASSESSED": {
+      "reviewed": 12,
+      "scored": 0,
+      "disagreements": 0
+    },
+    "NOT_RELEVANT": {
+      "reviewed": 12,
+      "scored": 12,
+      "disagreements": 5
+    },
+    "PARTIALLY_SUPPORTED": {
+      "reviewed": 12,
+      "scored": 12,
+      "disagreements": 7
+    },
+    "SUPPORTED": {
+      "reviewed": 12,
+      "scored": 12,
+      "disagreements": 2
+    }
+  },
+  "byRule": {
+    "LAW-U001": {
+      "reviewed": 6,
+      "scored": 1,
+      "disagreements": 0
+    },
+    "LAW-U004": {
+      "reviewed": 4,
+      "scored": 4,
+      "disagreements": 4
+    },
+    "LAW-U005": {
+      "reviewed": 4,
+      "scored": 4,
+      "disagreements": 1
+    },
+    "LAW-U006": {
+      "reviewed": 6,
+      "scored": 6,
+      "disagreements": 2
+    },
+    "LAW-U007": {
+      "reviewed": 3,
+      "scored": 3,
+      "disagreements": 2
+    },
+    "LAW-U008": {
+      "reviewed": 6,
+      "scored": 4,
+      "disagreements": 1
+    },
+    "LAW-U009": {
+      "reviewed": 5,
+      "scored": 4,
+      "disagreements": 2
+    },
+    "PRICE-001": {
+      "reviewed": 2,
+      "scored": 2,
+      "disagreements": 2
+    },
+    "PRICE-002": {
+      "reviewed": 5,
+      "scored": 5,
+      "disagreements": 3
+    },
+    "PRICE-003": {
+      "reviewed": 1,
+      "scored": 1,
+      "disagreements": 0
+    },
+    "PRICE-004": {
+      "reviewed": 6,
+      "scored": 6,
+      "disagreements": 6
+    },
+    "PRICE-005": {
+      "reviewed": 2,
+      "scored": 2,
+      "disagreements": 2
+    },
+    "PRICE-006": {
+      "reviewed": 9,
+      "scored": 9,
+      "disagreements": 6
+    },
+    "PRICE-007": {
+      "reviewed": 3,
+      "scored": 2,
+      "disagreements": 0
+    },
+    "PRICE-008": {
+      "reviewed": 3,
+      "scored": 3,
+      "disagreements": 2
+    },
+    "PRICE-009": {
+      "reviewed": 2,
+      "scored": 2,
+      "disagreements": 1
+    },
+    "PRICE-010": {
+      "reviewed": 2,
+      "scored": 2,
+      "disagreements": 1
+    },
+    "PRICE-011": {
+      "reviewed": 1,
+      "scored": 1,
+      "disagreements": 1
+    },
+    "PRICE-013": {
+      "reviewed": 5,
+      "scored": 4,
+      "disagreements": 3
+    },
+    "PRICE-014": {
+      "reviewed": 3,
+      "scored": 1,
+      "disagreements": 1
+    }
+  },
+  "bySourceType": {
+    "HTML": {
+      "reviewed": 12,
+      "scored": 0,
+      "disagreements": 0
+    },
+    "PDF": {
+      "reviewed": 66,
+      "scored": 66,
+      "disagreements": 40
+    }
+  },
+  "byService": {
+    "FIRM_WIDE": {
+      "reviewed": 34,
+      "scored": 26,
+      "disagreements": 12
+    },
+    "UNRESOLVED": {
+      "reviewed": 31,
+      "scored": 31,
+      "disagreements": 23
+    },
+    "debt_recovery": {
+      "reviewed": 2,
+      "scored": 2,
+      "disagreements": 1
+    },
+    "immigration": {
+      "reviewed": 2,
+      "scored": 2,
+      "disagreements": 1
+    },
+    "probate": {
+      "reviewed": 7,
+      "scored": 5,
+      "disagreements": 3
+    },
+    "residential_conveyancing": {
+      "reviewed": 2,
+      "scored": 0,
+      "disagreements": 0
+    }
+  },
+  "confusion": {
+    "SUPPORTED": {
+      "SUPPORTS_RULE": 10,
+      "PARTIALLY_SUPPORTS": 1,
+      "AMBIGUOUS": 0,
+      "NOT_RELEVANT": 1,
+      "INSUFFICIENT_CONTEXT": 0
+    },
+    "PARTIALLY_SUPPORTED": {
+      "SUPPORTS_RULE": 5,
+      "PARTIALLY_SUPPORTS": 5,
+      "AMBIGUOUS": 0,
+      "NOT_RELEVANT": 2,
+      "INSUFFICIENT_CONTEXT": 0
+    },
+    "AMBIGUOUS": {
+      "SUPPORTS_RULE": 7,
+      "PARTIALLY_SUPPORTS": 3,
+      "AMBIGUOUS": 0,
+      "NOT_RELEVANT": 8,
+      "INSUFFICIENT_CONTEXT": 0
+    },
+    "NOT_RELEVANT": {
+      "SUPPORTS_RULE": 4,
+      "PARTIALLY_SUPPORTS": 1,
+      "AMBIGUOUS": 0,
+      "NOT_RELEVANT": 7,
+      "INSUFFICIENT_CONTEXT": 0
+    },
+    "INSUFFICIENT_CONTEXT": {
+      "SUPPORTS_RULE": 7,
+      "PARTIALLY_SUPPORTS": 1,
+      "AMBIGUOUS": 0,
+      "NOT_RELEVANT": 0,
+      "INSUFFICIENT_CONTEXT": 4
+    }
+  },
+  "patterns": {
+    "": 40
+  },
+  "disagreements": [
+    {
+      "itemId": "badfb9279638ca8bb14acea0992bcc1f571f3737f8babfd4fc57c92305163579",
+      "firm": "Tozers",
+      "rule": "PRICE-006",
+      "service": "UNRESOLVED",
+      "automated": "SUPPORTED",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "9057cc4a2342ccc7b534013f93eaacb885c1249813ee07a61e88a35723a19cb0",
+      "firm": "Shakespeare Martineau",
+      "rule": "PRICE-010",
+      "service": "probate",
+      "automated": "PARTIALLY_SUPPORTED",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "2a3a99c68953507d4deaa7a42b78a0792545b4180dd903c54bde52c72eaa1d75",
+      "firm": "Wolferstans",
+      "rule": "LAW-U007",
+      "service": "FIRM_WIDE",
+      "automated": "PARTIALLY_SUPPORTED",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "bc5769035c8b4a4b2ae817a22a1d7590aa56c312776dacf347dc80ec31baa0be",
+      "firm": "Stephensons Solicitors",
+      "rule": "PRICE-013",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "d3014ea2ea32d898b101c6bd9670b0fbf6c7df2fc4433c82f818655e03ad01bc",
+      "firm": "Kitson Boyce",
+      "rule": "PRICE-008",
+      "service": "UNRESOLVED",
+      "automated": "PARTIALLY_SUPPORTED",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "83720e016db40a58a2c5d6a26cc7ae1a25cc56eeb3c80a9d4481c0b075982b50",
+      "firm": "Ashtons Legal",
+      "rule": "PRICE-004",
+      "service": "probate",
+      "automated": "NOT_RELEVANT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "e184fbbdf23a0cb2b3dbd62f383c0e31572138cb4fedd6f7aea48ed61e9d2b06",
+      "firm": "Sintons",
+      "rule": "LAW-U006",
+      "service": "FIRM_WIDE",
+      "automated": "NOT_RELEVANT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "43e0209be112220ad829d7c6d81b96c97ee1e28f710c95c341803aecd2907758",
+      "firm": "Stephens Scown",
+      "rule": "PRICE-014",
+      "service": "immigration",
+      "automated": "PARTIALLY_SUPPORTED",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "2b0d1c6ab8ff38a6869f7882872e5c7076f401f5be71f2139923f2c6b2f98d2d",
+      "firm": "Tozers",
+      "rule": "PRICE-006",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "011dcf1242604539daa75528050dac1836d1211832202b392b4b3f84f2235e2f",
+      "firm": "Tozers",
+      "rule": "PRICE-006",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "15d6fa42d087a2fd00d6b16b2c18be5e1caa82ab2cee9025145aad789bf261d6",
+      "firm": "Ashtons Legal",
+      "rule": "PRICE-006",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "0672b573d1c55e1262d742d9dcb98069b42532c145f8e79503ed55b471451c9a",
+      "firm": "Rothera Bray",
+      "rule": "PRICE-013",
+      "service": "UNRESOLVED",
+      "automated": "NOT_RELEVANT",
+      "human": "PARTIALLY_SUPPORTS",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "eda2556d727287b100abac6a4b56f9b568e52cb5b089f89f98061e6c0d7ec0de",
+      "firm": "Higgs LLP",
+      "rule": "PRICE-002",
+      "service": "debt_recovery",
+      "automated": "PARTIALLY_SUPPORTED",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "fc7c0138e6566209b1df9b1c6893ff3538a5e589641c7749d0159e75db2496c2",
+      "firm": "Rachel Sebastian & Co",
+      "rule": "PRICE-006",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "32eabdedfa51aa305f876302c564e95ff7ad60847a92b647c4163e17deca78e9",
+      "firm": "Sydney Mitchell",
+      "rule": "PRICE-006",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "82816a834dbc6ed7a4aa6dc519bd0a58d812df887cdf280cc00dfb558c7ee548",
+      "firm": "Tozers",
+      "rule": "PRICE-011",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "781b550b4079e1b2164d429a9e0ef7888ac33788982ac07e943fed2b84839822",
+      "firm": "Shakespeare Martineau",
+      "rule": "PRICE-002",
+      "service": "probate",
+      "automated": "SUPPORTED",
+      "human": "PARTIALLY_SUPPORTS",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "2aea89c1d1aae470195fa311af3dd58d146b1c63c0c6e1e3d872c74f2b2a77e0",
+      "firm": "Sills & Betteridge",
+      "rule": "PRICE-001",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "0ebfb9ffe3ac1dff745cc79edfbadf7e0b8a3dc78e1da1edc5354c1c914d309e",
+      "firm": "Rothera Bray",
+      "rule": "PRICE-008",
+      "service": "UNRESOLVED",
+      "automated": "NOT_RELEVANT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "6f2701be8311bff0a16bfc01a958ec8d052a7492806afe71273df102ee147d16",
+      "firm": "MSB Solicitors",
+      "rule": "PRICE-009",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "c93ace1b1f7275564154bfa4a96afcb783eca1ffaa62ebe1a4ba8b54d7bdfd39",
+      "firm": "Nelsons",
+      "rule": "PRICE-001",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "PARTIALLY_SUPPORTS",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "d3266efa0d4e48149672144a4e8c75255720c4b7b0de00a03a2b171e8e19f08b",
+      "firm": "Slater Heelis",
+      "rule": "LAW-U009",
+      "service": "FIRM_WIDE",
+      "automated": "INSUFFICIENT_CONTEXT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "c139a733d6aef464b7f35f18b667df17264d2ed7632437883c90cf375afeabe0",
+      "firm": "Tilly Bailey & Irvine",
+      "rule": "PRICE-005",
+      "service": "UNRESOLVED",
+      "automated": "NOT_RELEVANT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "d323dca4d32b5f79fded3f3448942572087586a2a54b006245a94b14f5bafea3",
+      "firm": "Streathers Solicitors",
+      "rule": "PRICE-004",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "f8d441eec2269841658821c112874a58f128d4321579a692497f8848979e7713",
+      "firm": "GA Solicitors",
+      "rule": "LAW-U004",
+      "service": "FIRM_WIDE",
+      "automated": "INSUFFICIENT_CONTEXT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "104b365a0acbe919336963dafb1fb607d529c2868a8b1c2e8dfec1c4264004fa",
+      "firm": "Watkins & Gunn",
+      "rule": "PRICE-004",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "e9686a569a088fc0790759de557c90492d01bd51ad68eff68790ede2e2138a47",
+      "firm": "Redkite Solicitors",
+      "rule": "LAW-U006",
+      "service": "FIRM_WIDE",
+      "automated": "PARTIALLY_SUPPORTED",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "caf264b53007cd395e766cef6c924158b7b2f7cafa582436a1219bf201cf506f",
+      "firm": "Rachel Sebastian & Co",
+      "rule": "PRICE-002",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "PARTIALLY_SUPPORTS",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "bf9ea477ef69637a413e4b61604dc825e451cdffc421b54ddb88804fb4d6870d",
+      "firm": "Trethowans",
+      "rule": "LAW-U009",
+      "service": "FIRM_WIDE",
+      "automated": "INSUFFICIENT_CONTEXT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "f18f20da035438d9b6fe7c397806ef255b147423ff9aca98b27d78c6a822677f",
+      "firm": "Winston Solicitors",
+      "rule": "PRICE-004",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "c0b061ae1d8f98f6841e941bed863f2213ecb26592bc6d93a52c82ca1675a1cc",
+      "firm": "Trethowans",
+      "rule": "LAW-U008",
+      "service": "FIRM_WIDE",
+      "automated": "PARTIALLY_SUPPORTED",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "d4337331aa6c87b41b883ed65650c697a8ea84a34488773640f93c98ac92c49a",
+      "firm": "Tilly Bailey & Irvine",
+      "rule": "PRICE-004",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "7a901bf9ce3f714d50abc886c1ebafa0baac55794e6c87697334f87e877d8b52",
+      "firm": "Fieldings Porter",
+      "rule": "PRICE-004",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "PARTIALLY_SUPPORTS",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "01f3623a1231e07cb77f36f88b0b7cb281ae4475587fbc60e1519d9902f133b7",
+      "firm": "Wolferstans",
+      "rule": "LAW-U004",
+      "service": "FIRM_WIDE",
+      "automated": "INSUFFICIENT_CONTEXT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "a021359e65ca1be97891bae19b0fdcef3a32c626ff45fca3061189aaebac3f53",
+      "firm": "Birketts",
+      "rule": "LAW-U005",
+      "service": "FIRM_WIDE",
+      "automated": "INSUFFICIENT_CONTEXT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "89f15b8f02d48e1c860857132c5378e7795671c68f68478a448ba1844fd5a5eb",
+      "firm": "Birketts",
+      "rule": "LAW-U007",
+      "service": "FIRM_WIDE",
+      "automated": "INSUFFICIENT_CONTEXT",
+      "human": "PARTIALLY_SUPPORTS",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "88d65f4937558a4edbc51b49523f809c82251c72b507ef04451161b7c1db11d8",
+      "firm": "Ware & Kay",
+      "rule": "PRICE-013",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "ad18504dd4b6ad3b7a359ebd9dcc1bb30e76aa8f5bc9158d5a4ea9509d69a100",
+      "firm": "Private Client Solicitors",
+      "rule": "LAW-U004",
+      "service": "FIRM_WIDE",
+      "automated": "INSUFFICIENT_CONTEXT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "e319b60a5398da1ef803eebae72cde3ca89d38a0f9d16beb22b815244d7c0554",
+      "firm": "Sills & Betteridge",
+      "rule": "PRICE-005",
+      "service": "UNRESOLVED",
+      "automated": "AMBIGUOUS",
+      "human": "NOT_RELEVANT",
+      "note": "",
+      "pattern": ""
+    },
+    {
+      "itemId": "a82e830423d2c36672b2d4c2cb4126a6664851922f0b414376c8a30391fb5b41",
+      "firm": "Russell-Cooke",
+      "rule": "LAW-U004",
+      "service": "FIRM_WIDE",
+      "automated": "INSUFFICIENT_CONTEXT",
+      "human": "SUPPORTS_RULE",
+      "note": "",
+      "pattern": ""
+    }
+  ],
+  "mapping": "Binary support means SUPPORTED/SUPPORTS_RULE only. Every other label means support not established, not that information is false. HTML NOT_ASSESSED controls are reviewed but excluded from agreement. False-support denominator is automated SUPPORTED; false-rejection denominator is human SUPPORTS_RULE. Stratified sample rates are not population/live precision.",
+  "sourceManifest": {
+    "schemaVersion": 1,
+    "mode": "offline-preserved-M6-HTML-M7-PDF",
+    "source": "C:\\Users\\clive\\OneDrive\\Documents\\WatchLayer\\reports\\milestone7\\final",
+    "sourceSha256": "e504905513499465b8cc4cb35643410480bd28c5146457d6ebe9ff55feb387ed",
+    "corpusSourceSha256": "0229a36f5cb0f492374f7f17ea352adac39688cc367e720d8e135465ced35523",
+    "benchmarkSha256": "beafdde971fa122e4200a55863f7ff60ccd891640f81457dc1978eea27d7c4aa",
+    "independentHumanReviews": 0
+  }
+}
