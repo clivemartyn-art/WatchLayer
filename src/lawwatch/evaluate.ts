@@ -10,10 +10,11 @@ import { unknownReasons,UNKNOWN_EXPLANATIONS } from './uncertainty.js';
 import { staffLink } from './discovery.js';
 import type { Fact,LawContext,LawReport,LawResult,Service } from './types.js';
 import { adjudicatePdfEvidence } from './adjudication/index.js';
+import {attributionAllowsService,factAttribution} from './context/attribution.js';
 export function evaluateLawWatch(input:LawContext):LawReport {
   const {current:c}=input;
   let {previous:p,facts,previousFacts,previousInventory}=input;
-  if(facts?.scanId!==c.scanId||!['1.2','1.3'].includes(facts?.detectorVersion??'')||facts?.detectorVersion==='1.2'&&facts.pages.some(p=>p.sourceType==='PDF'))facts=undefined;
+  if(facts?.scanId!==c.scanId||!['1.2','1.3','1.4'].includes(facts?.detectorVersion??'')||facts?.detectorVersion==='1.2'&&facts.pages.some(p=>p.sourceType==='PDF'))facts=undefined;
   if(p&&(p.scanId===c.scanId||p.completedAt>c.completedAt||p.canonicalDomain!==c.canonicalDomain||p.schemaVersion!==c.schemaVersion||p.applicationVersion!==c.applicationVersion||p.crawlLimit!==c.crawlLimit)){p=undefined;previousFacts=undefined;previousInventory=undefined;}
   if(previousFacts?.scanId!==p?.scanId||previousFacts?.detectorVersion!==facts?.detectorVersion)previousFacts=undefined;
   if(p?.scanProfile!==c.scanProfile){p=undefined;previousFacts=undefined;previousInventory=undefined;}
@@ -40,13 +41,13 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     const candidatePages=pages.filter(p=>(p.sourceType==='PDF'||!pdfOnlyApplicability)&&(p.pricing||['PRICE-004','PRICE-005'].includes(rule.id)&&p.staffServices?.includes(serviceType))&&(!p.pricingServices||p.pricingServices.includes(serviceType))&&p.services.some(s=>s.service===serviceType&&s.state.startsWith('DETECTED')));
     // A multi-service page cannot lend one service's VAT/fees to another service.
     const html=candidatePages.filter(p=>p.reliable&&(p.services.filter(s=>s.state==='DETECTED_HIGH_CONFIDENCE').length===1&&p.services.some(s=>s.service===serviceType&&s.state==='DETECTED_HIGH_CONFIDENCE')||classification.state==='DETECTED_HIGH_CONFIDENCE'&&p.services.filter(s=>s.state.startsWith('DETECTED')).length===1));
-    const matches=candidatePages.filter(p=>p.reliable).flatMap(p=>(p.serviceSignals?.[serviceType]?.[rule.id]??(html.includes(p)?p.signals[rule.id]:[])??[]).map(f=>({url:p.url,fact:f})));
+    const matches=candidatePages.filter(p=>p.reliable).flatMap(p=>(p.serviceSignals?.[serviceType]?.[rule.id]??(html.includes(p)?p.signals[rule.id]:[])??[]).filter(f=>attributionAllowsService(factAttribution(p,rule.id,f),serviceType)).map(f=>({url:p.url,fact:f})));
     const staffLinks=html.flatMap(p=>p.links.filter(staffLink).map(link=>({source:p.url,link})));
     if(['PRICE-004','PRICE-005'].includes(rule.id))for(const relation of staffLinks){
       const profile=pages.find(p=>p.url===relation.link.url||c.pages.some(o=>o.finalUrl===p.url&&o.aliases.includes(relation.link.url)));
       if(!profile?.reliable)continue;
       if(rule.id==='PRICE-005'&&!/supervis/i.test(relation.link.label+' '+relation.link.nearbyContext))continue;
-      for(const qualification of profile.signals['PRICE-004']??[])if(qualification.confidence==='HIGH')matches.push({url:profile.url,fact:{...qualification,method:rule.id==='PRICE-005'?'linked-supervisor-qualification':'linked-staff-qualification',value:JSON.stringify({source:relation.source,link:relation.link.url,relation:relation.link.nearbyContext})}});
+      for(const qualification of profile.signals['PRICE-004']??[])if(qualification.confidence==='HIGH'&&attributionAllowsService(factAttribution(profile,'PRICE-004',qualification),serviceType))matches.push({url:profile.url,fact:{...qualification,method:rule.id==='PRICE-005'?'linked-supervisor-qualification':'linked-staff-qualification',value:JSON.stringify({source:relation.source,link:relation.link.url,relation:relation.link.nearbyContext})}});
     }
     const url=surfaces[0]?.url??classification.sourceUrls[0]??c.canonicalStartUrl;
     const observed={serviceType,matches,surfaces:surfaces.map(s=>({url:s.url,type:s.type})),quote_generator_detected:candidatePages.some(p=>p.quote_generator_detected)};
@@ -112,5 +113,5 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     }
     return result;
   });law.results=results;law.findings=projectFindings(results,law.runId,c.completedAt);
-  return {...(c.pdf?{pdf:c.pdf,adjudication:adjudication.report}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.5',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
+  return {...(c.pdf?{pdf:c.pdf,adjudication:adjudication.report}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.6',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
 }

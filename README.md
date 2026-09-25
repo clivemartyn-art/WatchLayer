@@ -1,10 +1,12 @@
-# WatchLayer — Milestone 9
+# WatchLayer — Milestone 10
 
 A local, industry-neutral TypeScript website-monitoring engine. It crawls public pages, extracts structured facts, stores immutable SQLite snapshots, compares repeat scans and runs versioned deterministic rules to produce findings. It makes no legal-compliance assessments.
 
 ## Requirements and installation
 
 M9 adds independent evidence review tooling and three reviewed context corrections. See the [human review guide](docs/MILESTONE_9_HUMAN_REVIEW_GUIDE.md) and [milestone report](docs/MILESTONE_9_INDEPENDENT_REVIEW.md). LawWatch pack 1.5 retains conservative service safeguards; historical report formats remain supported.
+
+M10 completes Clive's 80-item service-context review and targeted attribution corrections. LawWatch pack 1.6 preserves existing rule-support safeguards. Review agreement improved from 32.5% to 71.25%; these are sample-review results, not live accuracy. See the [review guide](docs/MILESTONE_10_HUMAN_REVIEW_GUIDE.md) and [milestone report](docs/MILESTONE_10_SERVICE_CONTEXT_REVIEW.md). M11 selective browser-rendered analysis remains a separate future milestone inside WatchLayer.
 
 Install Node.js 22.16 or newer, including npm (Node.js 24 LTS recommended), then run from this folder:
 

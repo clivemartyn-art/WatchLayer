@@ -12,6 +12,8 @@ export function extractAnalysisSource(source:AnalysisSource):PageFacts|undefined
   if(!facts)return;
   facts.sourceType=source.sourceType;
   if(source.sourceType==='PDF'){
+    // Synthetic HTML has no real PDF DOM headings. Adjudication supplies page-local context.
+    delete facts.serviceAttributions;
     facts.links=[];facts.quote_generator_detected=false;
     const provenance={sourceType:'PDF' as const,url:source.url,title:source.title,pageNumber:source.pageNumber!,documentId:source.documentId!,sha256:source.sha256!,referrers:source.referrers??[]};
     const cite=(fact:Fact):Fact=>({...fact,source:provenance});

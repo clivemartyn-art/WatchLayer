@@ -1,0 +1,459 @@
+{
+  "schemaVersion": 1,
+  "status": "AWAITING_SERVICE_CONTEXT_REVIEW",
+  "productionCorrections": 0,
+  "benchmarkSha256": "beafdde971fa122e4200a55863f7ff60ccd891640f81457dc1978eea27d7c4aa",
+  "preserved": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "seriousControlled": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "pdfAutomated": {
+    "items": 1994,
+    "counts": {
+      "SUPPORTED": 229,
+      "PARTIALLY_SUPPORTED": 314,
+      "AMBIGUOUS": 1241,
+      "NOT_RELEVANT": 156,
+      "INSUFFICIENT_CONTEXT": 54
+    },
+    "rejectedAmbiguousOrNotRelevant": 1397,
+    "independentHumanReviews": 0
+  },
+  "sample": {
+    "size": 80,
+    "firms": 30,
+    "coverage": {
+      "SERVICE_SPECIFIC": {
+        "available": 807,
+        "selected": 12
+      },
+      "MULTI_SERVICE": {
+        "available": 305,
+        "selected": 10
+      },
+      "FIRM_WIDE": {
+        "available": 579,
+        "selected": 15
+      },
+      "NO_SERVICE_CONTEXT": {
+        "available": 1565,
+        "selected": 33
+      },
+      "INSUFFICIENT_CONTEXT": {
+        "available": 59,
+        "selected": 10
+      },
+      "near_heading": {
+        "available": 152,
+        "selected": 3
+      },
+      "distant_heading": {
+        "available": 509,
+        "selected": 6
+      },
+      "mixed_pdf": {
+        "available": 793,
+        "selected": 27
+      },
+      "complaints": {
+        "available": 224,
+        "selected": 13
+      },
+      "regulatory_identifier": {
+        "available": 231,
+        "selected": 2
+      },
+      "pricing": {
+        "available": 2733,
+        "selected": 65
+      },
+      "vat": {
+        "available": 323,
+        "selected": 4
+      },
+      "charging_basis": {
+        "available": 381,
+        "selected": 13
+      },
+      "contents": {
+        "available": 18,
+        "selected": 2
+      },
+      "boilerplate": {
+        "available": 24,
+        "selected": 2
+      },
+      "repeated_services": {
+        "available": 514,
+        "selected": 18
+      },
+      "ambiguous_title": {
+        "available": 94,
+        "selected": 10
+      },
+      "general_terms": {
+        "available": 266,
+        "selected": 17
+      }
+    },
+    "excludedM9Keys": 75,
+    "sources": {
+      "PDF": 53,
+      "HTML": 27
+    }
+  },
+  "humanReview": {
+    "schemaVersion": 1,
+    "humanReviewed": 0,
+    "unreviewed": 80,
+    "exactAgreement": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "byExpectedAttribution": {
+      "SERVICE_SPECIFIC": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      },
+      "MULTI_SERVICE": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      },
+      "FIRM_WIDE": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      },
+      "NO_SERVICE_CONTEXT": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      },
+      "INSUFFICIENT_CONTEXT": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      }
+    },
+    "falseServiceAssignment": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "overConservativeNoContext": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "byRule": {},
+    "byService": {},
+    "bySource": {},
+    "byProximity": {},
+    "disagreements": [],
+    "limitation": "Stratified review sample, not population or live precision. Exact agreement includes the expected service set. False assignment counts any assigned service outside the human set; abstention rate is restricted to human service-specific/multi-service cases."
+  },
+  "fresh": {
+    "completed": 8,
+    "metrics": {
+      "eligibleChecks": 136,
+      "excludedNotApplicable": 0,
+      "humanCounts": {
+        "Pass": 70,
+        "Review": 66,
+        "Unknown": 0,
+        "Fail": 0
+      },
+      "machineCounts": {
+        "PASS": 34,
+        "WARNING": 3,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 99,
+        "NOT_APPLICABLE": 0
+      },
+      "exactAgreement": {
+        "count": 18,
+        "denominator": 70,
+        "rate": 0.2571428571428571
+      },
+      "acceptableAgreement": {
+        "count": 68,
+        "denominator": 136,
+        "rate": 0.5
+      },
+      "unknownCount": 99,
+      "unknownRate": 0.7279411764705882,
+      "passPredictions": 34,
+      "passPrecision": 0.5294117647058824,
+      "passRecall": 0.2571428571428571,
+      "warningPredictions": 3,
+      "warningPrecision": null,
+      "warningReviewCompatibility": 0.3333333333333333,
+      "potentialIssuePredictions": 0,
+      "potentialIssuePrecision": null,
+      "highSeverityPotentialIssuePrecision": null,
+      "falsePositiveCount": 0,
+      "highSeverityFalsePositiveCount": 0,
+      "falsePositiveRate": 0,
+      "highSeverityFalsePositiveRate": 0,
+      "confirmedFalsePositiveCount": 0,
+      "confirmedFalsePositiveRate": 0,
+      "confirmedHighSeverityFalsePositiveRate": 0,
+      "unsupportedPassCount": 16,
+      "releaseGate": "UNPROVEN",
+      "limitations": [
+        "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+        "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+        "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+      ]
+    },
+    "preservedSameFirms": {
+      "eligibleChecks": 136,
+      "excludedNotApplicable": 0,
+      "humanCounts": {
+        "Pass": 70,
+        "Review": 66,
+        "Unknown": 0,
+        "Fail": 0
+      },
+      "machineCounts": {
+        "PASS": 34,
+        "WARNING": 3,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 99,
+        "NOT_APPLICABLE": 0
+      },
+      "exactAgreement": {
+        "count": 18,
+        "denominator": 70,
+        "rate": 0.2571428571428571
+      },
+      "acceptableAgreement": {
+        "count": 68,
+        "denominator": 136,
+        "rate": 0.5
+      },
+      "unknownCount": 99,
+      "unknownRate": 0.7279411764705882,
+      "passPredictions": 34,
+      "passPrecision": 0.5294117647058824,
+      "passRecall": 0.2571428571428571,
+      "warningPredictions": 3,
+      "warningPrecision": null,
+      "warningReviewCompatibility": 0.3333333333333333,
+      "potentialIssuePredictions": 0,
+      "potentialIssuePrecision": null,
+      "highSeverityPotentialIssuePrecision": null,
+      "falsePositiveCount": 0,
+      "highSeverityFalsePositiveCount": 0,
+      "falsePositiveRate": 0,
+      "highSeverityFalsePositiveRate": 0,
+      "confirmedFalsePositiveCount": 0,
+      "confirmedFalsePositiveRate": 0,
+      "confirmedHighSeverityFalsePositiveRate": 0,
+      "unsupportedPassCount": 16,
+      "releaseGate": "UNPROVEN",
+      "limitations": [
+        "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+        "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+        "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+      ]
+    },
+    "sites": [
+      {
+        "firm": "Tozers",
+        "completedAt": "2026-09-14T15:23:16.318Z",
+        "durationMs": 88624,
+        "pagesScanned": 64,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 9,
+          "attempted": 9,
+          "extracted": 9,
+          "skipped": 0,
+          "bytesDownloaded": 8342934,
+          "failures": 0,
+          "noText": 0
+        }
+      },
+      {
+        "firm": "Ashtons Legal",
+        "completedAt": "2026-09-14T15:24:52.853Z",
+        "durationMs": 97600,
+        "pagesScanned": 64,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 8,
+          "attempted": 7,
+          "extracted": 3,
+          "skipped": 1,
+          "bytesDownloaded": 8834142,
+          "failures": 4,
+          "noText": 0
+        }
+      },
+      {
+        "firm": "Tilly Bailey & Irvine",
+        "completedAt": "2026-09-14T15:26:05.238Z",
+        "durationMs": 70576,
+        "pagesScanned": 60,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 8,
+          "attempted": 6,
+          "extracted": 6,
+          "skipped": 2,
+          "bytesDownloaded": 707332,
+          "failures": 0,
+          "noText": 0
+        }
+      },
+      {
+        "firm": "Rothera Bray",
+        "completedAt": "2026-09-14T15:30:55.997Z",
+        "durationMs": 293270,
+        "pagesScanned": 62,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 8,
+          "attempted": 8,
+          "extracted": 7,
+          "skipped": 0,
+          "bytesDownloaded": 3403566,
+          "failures": 1,
+          "noText": 0
+        }
+      },
+      {
+        "firm": "Rachel Sebastian & Co",
+        "completedAt": "2026-09-14T15:31:17.838Z",
+        "durationMs": 18547,
+        "pagesScanned": 12,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 2,
+          "attempted": 2,
+          "extracted": 2,
+          "skipped": 0,
+          "bytesDownloaded": 236870,
+          "failures": 0,
+          "noText": 0
+        }
+      },
+      {
+        "firm": "Shakespeare Martineau",
+        "completedAt": "2026-09-14T15:33:14.893Z",
+        "durationMs": 117666,
+        "pagesScanned": 49,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 9,
+          "attempted": 6,
+          "extracted": 6,
+          "skipped": 3,
+          "bytesDownloaded": 1512166,
+          "failures": 0,
+          "noText": 0
+        }
+      },
+      {
+        "firm": "Kitson Boyce",
+        "completedAt": "2026-09-14T15:35:01.155Z",
+        "durationMs": 105869,
+        "pagesScanned": 39,
+        "pagesFailed": 1,
+        "pdf": {
+          "discovered": 11,
+          "attempted": 11,
+          "extracted": 9,
+          "skipped": 0,
+          "bytesDownloaded": 3859535,
+          "failures": 0,
+          "noText": 2
+        }
+      },
+      {
+        "firm": "Stephens Scown",
+        "completedAt": "2026-09-14T15:36:46.610Z",
+        "durationMs": 105809,
+        "pagesScanned": 59,
+        "pagesFailed": 0,
+        "pdf": {
+          "discovered": 11,
+          "attempted": 8,
+          "extracted": 8,
+          "skipped": 3,
+          "bytesDownloaded": 12624589,
+          "failures": 0,
+          "noText": 0
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "No M10 human labels yet; agreement and correction rates unavailable.",
+    "Fresh validation is separate from preserved corpus replay.",
+    "Controlled serious-finding precision does not establish live precision.",
+    "Missing strata are reported, not filled with synthetic human benchmark items."
+  ]
+}

@@ -4,6 +4,7 @@ import type { PdfExtraction } from '../../documents/types.js';
 import { evidenceContext,prepareDocumentContext } from './context.js';
 import { assessSupport } from './policy.js';
 import { ADJUDICATION_STATES,type AdjudicationReport } from './types.js';
+import {attributeEvidence,attributionKey} from '../context/attribution.js';
 /** Raw extraction is immutable. Only this separate view is eligible for rule support. */
 export function adjudicatePdfEvidence(raw:FactSet|undefined,documents:PdfExtraction[]):{facts:FactSet|undefined;report:AdjudicationReport}{
   const report:AdjudicationReport={schemaVersion:1,policyVersion:'1.1',mode:'deterministic',items:[],counts:Object.fromEntries(ADJUDICATION_STATES.map(s=>[s,0])) as AdjudicationReport['counts'],statement:'Deterministic evidence assessment, not independent human adjudication or regulatory certification.'};
@@ -17,6 +18,7 @@ export function adjudicatePdfEvidence(raw:FactSet|undefined,documents:PdfExtract
       if(!fact.source)continue;
       const doc=documents.find(d=>d.documentId===fact.source!.documentId);
       const context=evidenceContext(fact,doc,doc?prepared.get(doc.documentId):undefined);
+      (page.serviceAttributions??={})[attributionKey(ruleId,fact.snippet)]=attributeEvidence({ruleId,url:page.url,title:page.title,snippet:fact.snippet,context:context.text,sourceType:'PDF'});
       const services:(Service|undefined)[]=ruleId.startsWith('PRICE')?(page.pricingServices?.length?page.pricingServices:[undefined]):[undefined];
       for(const serviceType of services){
         const assessment=assessSupport(ruleId,fact,page,context,serviceType);

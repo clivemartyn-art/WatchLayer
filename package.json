@@ -32,7 +32,13 @@
     "review:milestone8": "tsx scripts/review-milestone8.ts",
     "prepare:milestone9-review": "tsx scripts/prepare-milestone9-review.ts",
     "compare:milestone9-review": "tsx scripts/compare-milestone9-review.ts",
-    "evaluate:milestone9-live": "tsx scripts/evaluate-milestone9-live.ts"
+    "evaluate:milestone9-live": "tsx scripts/evaluate-milestone9-live.ts",
+    "prepare:milestone10-review": "tsx scripts/prepare-milestone10-review.ts",
+    "compare:milestone10-review": "tsx scripts/compare-milestone10-review.ts",
+    "evaluate:milestone10-live": "tsx scripts/evaluate-milestone10-live.ts",
+    "evaluate:milestone10-review": "tsx scripts/evaluate-milestone10-review.ts",
+    "replay:milestone10-live": "tsx scripts/replay-milestone10-live.ts",
+    "summarize:milestone10-final": "tsx scripts/summarize-milestone10-final.ts"
   },
   "dependencies": {
     "cheerio": "^1.1.2",

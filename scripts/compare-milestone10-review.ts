@@ -1,0 +1,12 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {compareServiceReviews,parseServiceCsv} from './milestone10-review.js';
+const [queuePath,reviewPath,output]=process.argv.slice(2);
+if(!queuePath||!reviewPath||!output)throw new Error('Usage: queue.json human-decisions.json-or-csv new-output.json');
+if([queuePath,reviewPath].some(p=>resolve(p)===resolve(output)))throw new Error('Output must be separate from inputs');
+const queue=JSON.parse(await readFile(queuePath,'utf8')),text=await readFile(reviewPath,'utf8');
+const decisions=reviewPath.toLowerCase().endsWith('.csv')?parseServiceCsv(text):JSON.parse(text);
+if(!Array.isArray(decisions))throw new Error('Expected a human decision array');
+const result=compareServiceReviews(queue.items,decisions);
+await writeFile(output,JSON.stringify(result,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({humanReviewed:result.humanReviewed,exactAgreement:result.exactAgreement,falseServiceAssignment:result.falseServiceAssignment},null,2));

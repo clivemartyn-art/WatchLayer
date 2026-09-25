@@ -1,0 +1,2 @@
+# Preserve the submitted human-review source byte-for-byte across checkouts.
+/docs/Validation/milestone10/clive-review-original.csv -text

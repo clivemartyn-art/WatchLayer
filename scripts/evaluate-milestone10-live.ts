@@ -1,0 +1,27 @@
+import {mkdir,readFile,writeFile,readdir} from 'node:fs/promises';
+import {join} from 'node:path';
+import {readBenchmark,evaluateBenchmark} from './lawwatch-benchmark.js';
+import {aggregate} from './milestone5-metrics.js';
+import {extractLawFacts} from '../src/lawwatch/extract.js';
+import {htmlBlocks,observeBlocks} from './milestone10-structure.js';
+import {SqliteRepository} from '../src/storage/sqlite.js';
+import {scanLawWatch} from '../src/lawwatch/service.js';
+import {lawWatchReport} from '../src/lawwatch/report.js';
+const args=process.argv.slice(2);if(args[0]!=='--run'||args.length>2)throw new Error('Use --run [new-output-directory] for the explicit eight-firm live subset.');
+const directory=args[1]??'reports/milestone10/live';await mkdir(directory,{recursive:false});
+const names=['Tozers','Ashtons Legal','Tilly Bailey & Irvine','Rothera Bray','Rachel Sebastian & Co','Shakespeare Martineau','Kitson Boyce','Stephens Scown'];
+const benchmark=readBenchmark();const files=await readdir('reports/milestone9/corrected');
+const repo=new SqliteRepository(join(directory,'watchlayer.db'));const rows=[];
+await writeFile(join(directory,'manifest.json'),JSON.stringify({schemaVersion:1,mode:'fresh-live-eight-firm-subset',firms:names,benchmarkSha256:benchmark.sha256,maxPages:20,evidenceBudget:40,staffBudget:5,delayMs:1000,recheckBudget:0,selection:'Static/PDF-heavy/multi-service, known complaints/pricing/identifiers and prior ambiguous PDF evidence'},null,2));
+try{for(const name of names){const firm=benchmark.firms.find(f=>f.firm===name)!;const beforeFile=files.find(f=>f.endsWith('.evaluation.json')&&f.includes(name.replace(/[^a-z0-9]+/gi,'-')))!;
+  const preserved=JSON.parse(await readFile(join('reports/milestone9/corrected',beforeFile),'utf8'));
+  console.log(`Fresh scan ${rows.length+1}/8: ${name}`);const started=Date.now();const structural:any[]=[];
+  const {snapshot,lawwatch}=await scanLawWatch(firm.url,repo,{maxPages:20,lawwatchEvidenceBudget:40,lawwatchStaffBudget:5,delayMs:1000,recheckBudget:0,onResponse:r=>{const facts=extractLawFacts(r);if(!facts)return;const blocks=htmlBlocks(r.body);for(const [ruleId,values] of Object.entries(facts.signals))for(const fact of values)structural.push({firm:name,url:facts.url,title:facts.title,ruleId,snippet:fact.snippet,services:facts.services.filter(s=>s.state.startsWith('DETECTED')).map(s=>s.service),assignedServices:facts.pricingServices??[],structure:observeBlocks(blocks,fact.snippet)});}});
+  if([...lawwatch.results,...lawwatch.universalResults].some(r=>r.status==='POTENTIAL_ISSUE'))throw new Error('Serious finding in fresh subset: stop for direct investigation before completion. Scan persisted.');
+  await writeFile(join(directory,name.replace(/[^a-z0-9]+/gi,'-')+'.structure.json'),JSON.stringify(structural.filter(s=>snapshot.pages.some(p=>p.finalUrl===s.url&&p.observationStatus==='observed')),null,2));
+  const evaluation=evaluateBenchmark(firm,lawwatch),slug=name.replace(/[^a-z0-9]+/gi,'-');
+  const row={firm:name,scanId:snapshot.scanId,completedAt:snapshot.completedAt,durationMs:Date.now()-started,coverage:snapshot.coverage,pdf:snapshot.pdf?.summary,evaluation,preserved};rows.push(row);
+  await writeFile(join(directory,slug+'.report.json'),JSON.stringify(lawwatch,null,2));await writeFile(join(directory,slug+'.report.txt'),lawWatchReport(lawwatch));await writeFile(join(directory,slug+'.evaluation.json'),JSON.stringify(row,null,2));
+  await writeFile(join(directory,'summary.json'),JSON.stringify({schemaVersion:1,mode:'fresh-live-not-pooled-with-preserved',completed:rows.length,rows,fresh:aggregate(rows.flatMap(r=>r.evaluation.checks)),preservedSameFirms:aggregate(rows.flatMap(r=>r.preserved.checks))},null,2));
+  console.log(`Completed ${name}: ${snapshot.coverage.pagesScanned} HTML pages, ${snapshot.pdf?.summary.extracted??0} extracted PDFs.`);
+}}finally{repo.close();}

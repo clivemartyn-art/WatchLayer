@@ -10,6 +10,8 @@ import { sectionSignals } from './association.js';
 import type { PageFacts } from './types.js';
 import { fact } from './detectors/common.js';
 import { complaintsProcedure } from './detectors/complaints.js';
+import {htmlBlocks,observeBlocks} from './context/structure.js';
+import {attributeEvidence,attributionKey,type AttributionDecision} from './context/attribution.js';
 export function extractLawFacts(response:Response):PageFacts|undefined {
   if(response.status<200||response.status>=300||!/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(response.contentType))return;
   const $=load(response.body);const title=$('title').first().text().trim().slice(0,240);
@@ -40,5 +42,13 @@ export function extractLawFacts(response:Response):PageFacts|undefined {
     signals['LAW-I001']=currentPricing.flatMap(s=>[...s.matchAll(/(?:reviewed|updated|revised)[^.!?\n]{0,55}\b(20\d{2})\b/gi)]).slice(0,3).map(m=>fact('explicit-review-year',m[0],'HIGH',m[1]));
     signals['LAW-I002']=currentPricing.flatMap(s=>[...s.matchAll(/(?:fees?|rates?|pric(?:es|ing))[^.!?\n]{0,60}\b(20\d{2})\b/gi)]).slice(0,3).map(m=>fact('pricing-year',m[0],'HIGH',m[1]));
   }
-  return {url:response.finalUrl,title,contentHash:hash(text),reliable:!(/enable javascript|javascript is required/i.test(full)||full.split(/\s+/).length<50&&$('script').length>0),services,signals,links,pricing,pricingServices,complaints,quote_generator_detected:quote,excludedContent,serviceSignals:pricing?sectionSignals(main):{}};
+  const serviceSignals=pricing?sectionSignals(main):{};
+  const blocks=htmlBlocks(response.body),serviceAttributions:Record<string,AttributionDecision>={};
+  const groups=[signals,...Object.values(serviceSignals)];
+  for(const group of groups)for(const [ruleId,values] of Object.entries(group))for(const f of values){
+    if(!ruleId.startsWith('PRICE'))continue;
+    const key=attributionKey(ruleId,f.snippet);if(serviceAttributions[key])continue;
+    serviceAttributions[key]=attributeEvidence({ruleId,url:response.finalUrl,title,snippet:f.snippet,sourceType:'HTML',...observeBlocks(blocks,f.snippet)});
+  }
+  return {url:response.finalUrl,title,contentHash:hash(text),reliable:!(/enable javascript|javascript is required/i.test(full)||full.split(/\s+/).length<50&&$('script').length>0),services,signals,links,pricing,pricingServices,complaints,quote_generator_detected:quote,excludedContent,serviceSignals,serviceAttributions};
 }

@@ -1,0 +1,462 @@
+{
+  "m10-7f8992d4b2c225af875ddda1a79b8e4aed71acc7b5aef260327ce86ae2e18e6a": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "debt_recovery"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-d588d94b61417d29184332e181d69549b5c79d19729693110a7fad8b229cf296": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "remortgage"
+    ],
+    "reason": "CORROBORATED_STATEMENT"
+  },
+  "m10-46c44ad656dac50454aa28692af3bbe66298673d461afdcd4e3b6d35d51b9871": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "CORROBORATED_STATEMENT"
+  },
+  "m10-e5d5cc43a624e2cd639111279a89df814cd918d08617628dc1f32d89c85998aa": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-3cf03e366e6108608a012cf2618da57cff153442f889acfcc6e851c0dfa8c4ef": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "EXPLICIT_LOCAL_SERVICE"
+  },
+  "m10-71850e05fb695fc8d326639383cf5e6a58bb8e1f76a5e679291dcb645c64b627": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-548d25782f5d7df8866c56f80e2773428ebc77ec5a6e0f8349f6ce2f1d42cc32": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-b752f973d5d402b715d99c820c14d2627fd1d1d930e909887c8877c07b5e334e": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-167df72c9beb38cdf8704eca73bf3c75650937316d2009ea1a2d186f02d87e74": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "EXPLICIT_LOCAL_SERVICE"
+  },
+  "m10-649261d5493192e1df473f88f53eedfe325fe93d9fd460ad6e3d1620a1562da5": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-40fa4051725a9027a6d23969a92e0d53220a81b7d783026b8f102f934037f33b": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "probate"
+    ],
+    "reason": "DIRECT_SECTION_HEADING"
+  },
+  "m10-014fb3b4001aefe1a6ae4fcdc0f748e2e738724ef0cbc39658612206a70245c4": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-1037a77707ca3c34d1fb003632a62efe3bd51fe3dfbca381952efa0141d94595": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-1d692ecade7c8afaf62bccdf0389f6bca4cc74f18e5c1d679aad4dee61ff8216": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "immigration"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-b764791549bfc709ef94d1967b628eb80962f8014377e924876890e27b9daad3": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "motoring"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-bc5ef32cc082882ba3dcafbe9589aad2b1e3703ebacdd30e216941e67263c206": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-0530aaa7368c1a507144a018401bba3e325877b44e92f9f660661e25d5c04063": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-4c2c3986b02284e79a99b1d228aadf87522d63467493b52524b771e156d66b04": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "employment_employer"
+    ],
+    "reason": "PAGE_TITLE_MATCH"
+  },
+  "m10-17ce6289c7e55af53889b985200d536aae7ff5b56682931dd5ac074ccbf367ea": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "employment_employee"
+    ],
+    "reason": "PAGE_TITLE_MATCH"
+  },
+  "m10-97a13a7acc93804fe8a11515de61ddac91dc5f12dbe9b19f90835d40aa813803": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "business_licensing"
+    ],
+    "reason": "PAGE_TITLE_MATCH"
+  },
+  "m10-9aaaa2c371d9f189f0fb0a9b90830d0601a0aa22c1ea943ccde947e332814b82": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "immigration"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-50e028be973558da844f67464fe72237f801bc187eab01dcc4790f90954c0101": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-3f45998ae8ba710c4d645ad2bc55bad8da77d56ad4b2ac21024313996f0e49e0": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-159a4df35b458e8b61301944d863aa09552e483c68fff7432f9d4171ffe41a5b": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-3d3e69886c13c78af49687cba48019fa584a2aff8c783934b859acda75c8980e": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "employment_employee"
+    ],
+    "reason": "PAGE_TITLE_MATCH"
+  },
+  "m10-a41140fa5bd8cc686e991c7c45e65cb12cb2a319f3d49829aeb8577085234690": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "employment_employer"
+    ],
+    "reason": "DIRECT_SECTION_HEADING"
+  },
+  "m10-8257026396590b7f26c2240131593bd95da13bc6431e7c9a3753a36ceffcdd67": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "business_licensing"
+    ],
+    "reason": "PAGE_TITLE_MATCH"
+  },
+  "m10-4d6edb9ef5c34b50fd7878e32c77fb4be997014b71a579de7f867b5c2f796b69": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-5a72afb4a1b425c37a998a96b5ee887878e9d5a5f4e024f498298b599285ab3e": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-96eccec29dc50927e3b0bf8988bf63b506dd016bff79e87ca00276de369cfaeb": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-c34fe6b50c532e3034f5ecc1430abb3bb6217bbea2d9d232cc4bc99f4ec016cc": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-e27d11018d69e8a6f8dd42914af1fec8cb313b8a9745530916d2fb5182394d76": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-3c310294768a22bba48d1c0eb65a8c0b7235df1bac285a98274ca93a58da797f": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-213f611f8e37d123663c6a16b17d99757b52cf7de26ff496cec80b1ce94210ff": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-254dcf521b265aa91c28bab9ab2153b2c776dbe79f9db167bc7e0b2742634356": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-eda3b18bf0e2213262a0b08fe509aabf7b1c6c4f2aabf7b4f4ce715c90f5d9f7": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "CONFLICTING_ANCHORS"
+  },
+  "m10-d20b0a2701ee0a196b7dfdd1c4da9ef92381e014281d013180c482f4de8b13ae": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "EMPLOYMENT_AUDIENCE_UNRESOLVED"
+  },
+  "m10-546234c8da8a3ccf8c50503cf64bab385cee4068c033e53bd46882d63f09d521": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "CORROBORATED_STATEMENT"
+  },
+  "m10-1e112b9ca99ca98e97e3f0f30199ecf26e5464837eef4efd998c7fad4a944999": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-250edf7d270d0553ec031359f4563fbadac100fe52544bfb6742553fc2e90c3c": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "employment_employer"
+    ],
+    "reason": "PAGE_TITLE_MATCH"
+  },
+  "m10-423f07835f79e0d4443d8d99fb8c0d440d0083ee511407c689229c8411ecbfe0": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-e25430b0958654e84e7a759213402f084071c365c9c1ea167cd0de1a6c025533": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-e9c1e351594578ce0673dd972d382deeba3db9484f53f5bc85b94b123bf60840": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "CORROBORATED_STATEMENT"
+  },
+  "m10-65152463620b7896459b6a8e254c0576df983c53172e9c024ddf893effcbe547": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-8afc68a35811e5273fb8c3a21bf8e1f2fbb11845f654c0b61919e6805d8b806f": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-0fa2ec614cebc9cbab5ebb86ef0a16eeb9664f416eb32044438f37a698760430": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-e2d65cdc65522d8090bd50f362beae3a58dadfab0db94556a43096ae472d73db": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-cac211785d813455dda91027e32f1b235ae7025f659dd27fae65f8ec1fa38c60": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-6c589f35e7378dde08996e454b884d91bb7f05dcd282e5dbf946ae26ede70219": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "debt_recovery"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-3670e5c1e5d4af2329c69c6f7f439fb3cae3fab28f21118e171c10accdb3cb31": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "EMPLOYMENT_AUDIENCE_UNRESOLVED"
+  },
+  "m10-1e0a53b69426c2608bb5340cd46e2aa992c0febbf0aecaaa70ca7cd63cb4a15b": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "probate"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-c5c013dade0270bc53b3a993dc3e0b280c71fc8ac3fde4042f6632bd71d1f2d4": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-c1f47f9930dc52e14027f8a3bb8155d3671de3ced3ea3681c15a72fa99a59a6d": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "debt_recovery"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-56b6ca5d13f218f080fad2358eb787bbbcc632885cde6c0b7ce1253861e5d774": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-8bbbe2f528570d77beb36b04bae20d4921b111541fc129e868928be86e2fffd8": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-aff22a82e05405449dd341cecd70fd527224ea2c32a17c319a3bee64e4d453f1": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "CORROBORATED_STATEMENT"
+  },
+  "m10-13e0b55383f5e81ec52b964e115235f369b2d183ec04bb9b2837227cccd0963d": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-d750cfc192266db5eb3f217af05f4606e8a227a69ed5fdfe720ce0f5fca2618c": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "EXPLICIT_LOCAL_SERVICE"
+  },
+  "m10-83cf9f2f3683700ddb5bc09cbac94dc8a3eae46b2a437dcf1e0d52ab23bc727b": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-375b391ba81956c2b4ca289e87d61e7d39390dcb26b23515bc68bc02e74b45a0": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-e8a9349879861ace3a377ee433230ce78f90de87b5965e175a7104353a6ebab8": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-c9f585132abd52ad318f8c9d46d1e9dd16ac044126688cfa488bede07fc37378": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "DOCUMENT_TITLE_MATCH"
+  },
+  "m10-b9d30ddca3ec20527f1760cb16e48300f8ccbe9dea76da0007cc957b42cd3e3d": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "CONTENTS_ONLY"
+  },
+  "m10-eaa9e6566d174abda94c083020aa7c3a9b91eb31d2222335a74b35d8b52bf2a1": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-98326d1fe53805195678ca3bb44d77a02513ecd1a7e6f2d8a4c4e36515c3a998": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-6ac83fe00f838b9a118d47515504b7f4177408ac17e168f2874f6aee5a63cd6a": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-2de6ab3ace6db08d1c20a82d5beeb1f557273d0767ee90af3a4ffb5537683944": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-f12be99e38220adcfd5c2029971e9de345d535be1d75efde84bde67a92911c8e": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "EXPLICIT_LOCAL_SERVICE"
+  },
+  "m10-80c9407c0c91fe251bda064e8fe7af77d85f29cbfe15ffc31825d43b33902bc6": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-eff4a5fe5257fde69758b8ca11ecf6aa236c8d8ba50ec9b1a8d0f9efdef7d385": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-ed39713075295a6e13f81e63c110034475bb27330d5e24e32966b7133a5f613a": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "FIRM_WIDE_CONTEXT"
+  },
+  "m10-af2d6cddbbfac4fcb0a548a22590007ded283619600bbd0a83f84292623f6e75": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-1db076cc45fae8bdb7f4ef5ca61b0bf47b2202fa3d5e2f97593441824aecb142": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-ffa465bdf724ce7614273227d975d811fb9a8a5f23575464842aeec84deb11b1": {
+    "state": "SERVICE_SPECIFIC",
+    "services": [
+      "residential_conveyancing"
+    ],
+    "reason": "CORROBORATED_STATEMENT"
+  },
+  "m10-b76230e7742a46b4be3ab10580176924b35bafef9f752eb7d2410cb60799827d": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-65f42f65758564084191b6569f379e8715c561a939c00f20f759db7461c96734": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "CONTENTS_ONLY"
+  },
+  "m10-f4858cfae1e14563fdb96fd0b8fbe594c9960a007230601f57af5e458db75cc4": {
+    "state": "NO_SERVICE_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-277b5604d17a3ddc244ef18f9b10f2849c673b395ba24d02e59ebff722c69790": {
+    "state": "FIRM_WIDE",
+    "services": [],
+    "reason": "REGULATORY_RULE_SCOPE"
+  },
+  "m10-4b5d844a1442d395877d7e1711103eec3a6f93df1a9ae6717828d3e7753c90a8": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  },
+  "m10-d02b797dbda6720757ba53ae1e67df06d3e56758de2098b4ec7277b84263d72c": {
+    "state": "INSUFFICIENT_CONTEXT",
+    "services": [],
+    "reason": "NO_ANCHOR"
+  }
+}

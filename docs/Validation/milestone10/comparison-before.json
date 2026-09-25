@@ -1,0 +1,846 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": 80,
+  "unreviewed": 0,
+  "exactAgreement": {
+    "count": 26,
+    "denominator": 80,
+    "rate": 0.325
+  },
+  "byExpectedAttribution": {
+    "SERVICE_SPECIFIC": {
+      "count": 11,
+      "denominator": 45,
+      "rate": 0.24444444444444444
+    },
+    "MULTI_SERVICE": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "FIRM_WIDE": {
+      "count": 15,
+      "denominator": 32,
+      "rate": 0.46875
+    },
+    "NO_SERVICE_CONTEXT": {
+      "count": 0,
+      "denominator": 3,
+      "rate": 0
+    },
+    "INSUFFICIENT_CONTEXT": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    }
+  },
+  "falseServiceAssignment": {
+    "count": 11,
+    "denominator": 22,
+    "rate": 0.5
+  },
+  "overConservativeNoContext": {
+    "count": 25,
+    "denominator": 45,
+    "rate": 0.5555555555555556
+  },
+  "byRule": {
+    "LAW-U001": {
+      "reviewed": 2,
+      "disagreements": 0
+    },
+    "LAW-U004": {
+      "reviewed": 1,
+      "disagreements": 0
+    },
+    "LAW-U005": {
+      "reviewed": 3,
+      "disagreements": 0
+    },
+    "LAW-U006": {
+      "reviewed": 3,
+      "disagreements": 0
+    },
+    "LAW-U007": {
+      "reviewed": 2,
+      "disagreements": 0
+    },
+    "LAW-U008": {
+      "reviewed": 4,
+      "disagreements": 0
+    },
+    "PRICE-001": {
+      "reviewed": 3,
+      "disagreements": 2
+    },
+    "PRICE-002": {
+      "reviewed": 13,
+      "disagreements": 11
+    },
+    "PRICE-004": {
+      "reviewed": 7,
+      "disagreements": 7
+    },
+    "PRICE-005": {
+      "reviewed": 2,
+      "disagreements": 2
+    },
+    "PRICE-006": {
+      "reviewed": 5,
+      "disagreements": 4
+    },
+    "PRICE-007": {
+      "reviewed": 2,
+      "disagreements": 2
+    },
+    "PRICE-008": {
+      "reviewed": 1,
+      "disagreements": 0
+    },
+    "PRICE-009": {
+      "reviewed": 2,
+      "disagreements": 2
+    },
+    "PRICE-010": {
+      "reviewed": 1,
+      "disagreements": 1
+    },
+    "PRICE-011": {
+      "reviewed": 1,
+      "disagreements": 0
+    },
+    "PRICE-012": {
+      "reviewed": 3,
+      "disagreements": 1
+    },
+    "PRICE-013": {
+      "reviewed": 18,
+      "disagreements": 17
+    },
+    "PRICE-014": {
+      "reviewed": 5,
+      "disagreements": 3
+    },
+    "PRICE-015": {
+      "reviewed": 2,
+      "disagreements": 2
+    }
+  },
+  "byService": {
+    "FIRM_WIDE": {
+      "reviewed": 32,
+      "disagreements": 17
+    },
+    "NO_SERVICE_CONTEXT": {
+      "reviewed": 3,
+      "disagreements": 3
+    },
+    "OTHER": {
+      "reviewed": 8,
+      "disagreements": 8
+    },
+    "business_licensing": {
+      "reviewed": 2,
+      "disagreements": 0
+    },
+    "debt_recovery": {
+      "reviewed": 3,
+      "disagreements": 0
+    },
+    "employment_employee": {
+      "reviewed": 2,
+      "disagreements": 2
+    },
+    "employment_employer": {
+      "reviewed": 6,
+      "disagreements": 6
+    },
+    "immigration": {
+      "reviewed": 2,
+      "disagreements": 0
+    },
+    "motoring": {
+      "reviewed": 1,
+      "disagreements": 0
+    },
+    "probate": {
+      "reviewed": 2,
+      "disagreements": 1
+    },
+    "remortgage": {
+      "reviewed": 2,
+      "disagreements": 2
+    },
+    "residential_conveyancing": {
+      "reviewed": 17,
+      "disagreements": 15
+    }
+  },
+  "bySource": {
+    "HTML": {
+      "reviewed": 27,
+      "disagreements": 21
+    },
+    "PDF": {
+      "reviewed": 53,
+      "disagreements": 33
+    }
+  },
+  "byProximity": {
+    "DISTANT": {
+      "reviewed": 6,
+      "disagreements": 4
+    },
+    "NEAR": {
+      "reviewed": 3,
+      "disagreements": 3
+    },
+    "UNAVAILABLE": {
+      "reviewed": 71,
+      "disagreements": 47
+    }
+  },
+  "disagreements": [
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "residential_conveyancing",
+        "remortgage"
+      ],
+      "itemId": "m10-d588d94b61417d29184332e181d69549b5c79d19729693110a7fad8b229cf296",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "remortgage"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The page and headings are specifically about mortgage/remortgage fees; the proposal is overbroad because it also includes residential_conveyancing."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-71850e05fb695fc8d326639383cf5e6a58bb8e1f76a5e679291dcb645c64b627",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "employment_employer"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The document concerns monitoring employees in the workplace and repeatedly addresses employer obligations; the blank proposal misses the employment_employer service."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-548d25782f5d7df8866c56f80e2773428ebc77ec5a6e0f8349f6ce2f1d42cc32",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The source is a Freehold Purchase pricing document and the context describes key stages of a residential property purchase; the blank proposal misses residential_conveyancing."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-167df72c9beb38cdf8704eca73bf3c75650937316d2009ea1a2d186f02d87e74",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The Leasehold Purchase document explicitly describes optional conveyancing services and Land Registry work; the blank proposal misses residential_conveyancing."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-649261d5493192e1df473f88f53eedfe325fe93d9fd460ad6e3d1620a1562da5",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The captured wording is from general Terms of Engagement covering third-party fees, expenses and cost arrangements across matters, not a specific legal service."
+    },
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "residential_conveyancing",
+        "probate"
+      ],
+      "itemId": "m10-40fa4051725a9027a6d23969a92e0d53220a81b7d783026b8f102f934037f33b",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "probate"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The evidence sits under a clear Probate heading and describes a full probate service; the proposed attribution is overbroad because residential conveyancing is not supported here."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-014fb3b4001aefe1a6ae4fcdc0f748e2e738724ef0cbc39658612206a70245c4",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "OTHER"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The source is explicitly a Commercial & Civil Mediation Pricing page; mediation is an identifiable service outside the supplied service list."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-1037a77707ca3c34d1fb003632a62efe3bd51fe3dfbca381952efa0141d94595",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The hourly-rate and VAT wording appears in general terms and conditions and is framed as applying across client matters, not one legal service."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-bc5ef32cc082882ba3dcafbe9589aad2b1e3703ebacdd30e216941e67263c206",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The termination and fee-payment wording is from general terms and applies across matters rather than to a particular legal service."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-0530aaa7368c1a507144a018401bba3e325877b44e92f9f660661e25d5c04063",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "OTHER"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The page concerns student-rights and campus complaints issues, an identifiable higher-education/legal context outside the supplied service list."
+    },
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "employment_employee",
+        "employment_employer"
+      ],
+      "itemId": "m10-4c2c3986b02284e79a99b1d228aadf87522d63467493b52524b771e156d66b04",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "employment_employer"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The page title is explicitly Employment - Employer, so the proposed employee-and-employer attribution is overbroad."
+    },
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "employment_employee",
+        "employment_employer"
+      ],
+      "itemId": "m10-17ce6289c7e55af53889b985200d536aae7ff5b56682931dd5ac074ccbf367ea",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "employment_employee"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The page is Employment Tribunal Representation for Individuals and the pricing context concerns employee unfair/wrongful dismissal cases; employer attribution is not supported."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-50e028be973558da844f67464fe72237f801bc187eab01dcc4790f90954c0101",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The document is a Conveyancing Additional Fees schedule and the surrounding examples concern property sale/purchase and Land Registry work; the blank proposal misses residential conveyancing."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-3f45998ae8ba710c4d645ad2bc55bad8da77d56ad4b2ac21024313996f0e49e0",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The Land Registry fee appears in the same Conveyancing Additional Fees schedule for residential property transactions; the blank proposal misses residential conveyancing."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-159a4df35b458e8b61301944d863aa09552e483c68fff7432f9d4171ffe41a5b",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "OTHER"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The evidence is from a Will Questionnaire dealing with testamentary capacity and will-making; this is an identifiable wills/private-client service outside the supplied list."
+    },
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "employment_employee",
+        "employment_employer"
+      ],
+      "itemId": "m10-3d3e69886c13c78af49687cba48019fa584a2aff8c783934b859acda75c8980e",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "employment_employee"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The page and nearest service heading explicitly say Employment Law Solicitors for Employees; the proposal incorrectly adds employer work."
+    },
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "employment_employee",
+        "employment_employer"
+      ],
+      "itemId": "m10-a41140fa5bd8cc686e991c7c45e65cb12cb2a319f3d49829aeb8577085234690",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "employment_employer"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The evidence is under the explicit heading Employment claims - Employer; the proposed employee-and-employer attribution is overbroad."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-4d6edb9ef5c34b50fd7878e32c77fb4be997014b71a579de7f867b5c2f796b69",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The timing statement is part of the firm's general complaints procedure and applies to complaints about the firm rather than one service."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-c34fe6b50c532e3034f5ecc1430abb3bb6217bbea2d9d232cc4bc99f4ec016cc",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The evidence is from an organisation-level anti-slavery and supply-chain statement, not a client legal service."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-e27d11018d69e8a6f8dd42914af1fec8cb313b8a9745530916d2fb5182394d76",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The context explicitly says the work was carried out by the Residential Conveyancing team; the blank proposal misses that service."
+    },
+    {
+      "automated": "SERVICE_SPECIFIC",
+      "assignedServices": [
+        "remortgage"
+      ],
+      "itemId": "m10-254dcf521b265aa91c28bab9ab2153b2c776dbe79f9db167bc7e0b2742634356",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The evidence lists key stages in a property purchase; the proposed remortgage attribution is not supported by this context."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-eda3b18bf0e2213262a0b08fe509aabf7b1c6c4f2aabf7b4f4ce715c90f5d9f7",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "remortgage"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The PDF section explicitly covers mortgaging or re-mortgaging residential property and the captured context is about a re-mortgage; the blank proposal misses remortgage."
+    },
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "employment_employee",
+        "employment_employer"
+      ],
+      "itemId": "m10-d20b0a2701ee0a196b7dfdd1c4da9ef92381e014281d013180c482f4de8b13ae",
+      "label": "NO_SERVICE_CONTEXT",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The text identifies an Employment Law team but does not establish employee-side versus employer-side scope, so neither service can be assigned reliably."
+    },
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "residential_conveyancing",
+        "remortgage"
+      ],
+      "itemId": "m10-546234c8da8a3ccf8c50503cf64bab385cee4068c033e53bd46882d63f09d521",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The wording concerns moving home and an instant conveyancing quote; it supports residential conveyancing but does not establish a remortgage service."
+    },
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "employment_employee",
+        "employment_employer"
+      ],
+      "itemId": "m10-250edf7d270d0553ec031359f4563fbadac100fe52544bfb6742553fc2e90c3c",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "employment_employer"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The source is explicitly Discrimination | Employment Law for Employers; the proposed employee-and-employer attribution is overbroad."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-423f07835f79e0d4443d8d99fb8c0d440d0083ee511407c689229c8411ecbfe0",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The ADR and SRA wording comes from the firm's complaints handling policy and applies organisation-wide."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-e9c1e351594578ce0673dd972d382deeba3db9484f53f5bc85b94b123bf60840",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The document is explicitly a Conveyancing Additional Fees schedule centred on property sale/purchase work; the blank proposal misses residential conveyancing."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-65152463620b7896459b6a8e254c0576df983c53172e9c024ddf893effcbe547",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The liability exclusion is from general Terms of Business and is framed as applying to the firm's engagement generally."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-8afc68a35811e5273fb8c3a21bf8e1f2fbb11845f654c0b61919e6805d8b806f",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "OTHER"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The evidence is from a parenting-through-separation guide and belongs to an identifiable family/separation context outside the supplied service list."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-0fa2ec614cebc9cbab5ebb86ef0a16eeb9664f416eb32044438f37a698760430",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The context concerns leasehold property, purchase work and mortgage-lender requirements within a conveyancing estimate; this is residential conveyancing."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-e2d65cdc65522d8090bd50f362beae3a58dadfab0db94556a43096ae472d73db",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The disbursement wording is in general Terms of Business and gives examples spanning many matter types, so it is organisation-wide rather than service-specific."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-cac211785d813455dda91027e32f1b235ae7025f659dd27fae65f8ec1fa38c60",
+      "label": "NO_SERVICE_CONTEXT",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The captured staff-biography sentence refers only to Volume and Consumer teams and generic legal-service delivery; no reliable service or firm-wide attribution can be made."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-3670e5c1e5d4af2329c69c6f7f439fb3cae3fab28f21118e171c10accdb3cb31",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "employment_employer"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The guide discusses Employment Rights Act changes, business obligations, HR policies and workplace practices; the blank proposal misses the employer-side employment context."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-c5c013dade0270bc53b3a993dc3e0b280c71fc8ac3fde4042f6632bd71d1f2d4",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The fee-reduction wording is one possible resolution in the firm's complaints procedure and applies across services."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-aff22a82e05405449dd341cecd70fd527224ea2c32a17c319a3bee64e4d453f1",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The recruitment document explicitly concerns a Conveyancing Assistant supporting residential sales and purchases; the blank proposal misses residential conveyancing."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-13e0b55383f5e81ec52b964e115235f369b2d183ec04bb9b2837227cccd0963d",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The ADR, SRA and complaint-cost wording is part of the firm's general complaints handling policy."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-d750cfc192266db5eb3f217af05f4606e8a227a69ed5fdfe720ce0f5fca2618c",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The context repeatedly identifies residential conveyancing and a specialist conveyancing department; the blank proposal misses that service."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-83cf9f2f3683700ddb5bc09cbac94dc8a3eae46b2a437dcf1e0d52ab23bc727b",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "OTHER"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The source is explicitly Transport Terms & Conditions, giving an identifiable transport-law/service context outside the supplied service list."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-375b391ba81956c2b4ca289e87d61e7d39390dcb26b23515bc68bc02e74b45a0",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The consent checkbox is generic site/contact-form wording about storing and processing information for future services and events, not a particular legal service."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-e8a9349879861ace3a377ee433230ce78f90de87b5965e175a7104353a6ebab8",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "OTHER"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The page is explicitly about no-win-no-fee injury and negligence claims, an identifiable service outside the supplied service list."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-c9f585132abd52ad318f8c9d46d1e9dd16ac044126688cfa488bede07fc37378",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The Conveyancing Association pledge concerns property title, Land Registry applications and conveyancing transactions; the blank proposal misses residential conveyancing."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-b9d30ddca3ec20527f1760cb16e48300f8ccbe9dea76da0007cc957b42cd3e3d",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The funding-options wording is in general terms and refers broadly to legal costs, insurance and conditional fee arrangements across matters."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-eaa9e6566d174abda94c083020aa7c3a9b91eb31d2222335a74b35d8b52bf2a1",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "employment_employer"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The document discusses workplace reforms, obligations for businesses and HR/employment policies; the blank proposal misses employer-side employment."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-98326d1fe53805195678ca3bb44d77a02513ecd1a7e6f2d8a4c4e36515c3a998",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The clause governs supplier processing of personal data and S&B's organisation-level data-protection obligations, not a client legal service."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-2de6ab3ace6db08d1c20a82d5beeb1f557273d0767ee90af3a4ffb5537683944",
+      "label": "NO_SERVICE_CONTEXT",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The staff-biography sentence refers generically to Volume and Consumer teams and delivering legal services; it does not identify a reliable service or firm-wide rule context."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-f12be99e38220adcfd5c2029971e9de345d535be1d75efde84bde67a92911c8e",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The surrounding text repeatedly describes the conveyancing process, estate agents, exchange/completion and a specialist conveyancing department; the blank proposal misses residential conveyancing."
+    },
+    {
+      "automated": "MULTI_SERVICE",
+      "assignedServices": [
+        "residential_conveyancing",
+        "probate"
+      ],
+      "itemId": "m10-80c9407c0c91fe251bda064e8fe7af77d85f29cbfe15ffc31825d43b33902bc6",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The wording is a general complaints-policy instruction about concerns and formal complaints; it applies to the firm rather than conveyancing or probate specifically."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-ed39713075295a6e13f81e63c110034475bb27330d5e24e32966b7133a5f613a",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The approved-experts and equality wording is part of an organisation-level equality and diversity policy, not a client legal service."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-ffa465bdf724ce7614273227d975d811fb9a8a5f23575464842aeec84deb11b1",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The pledge explicitly concerns the conveyancing process and transaction handling; the blank proposal misses residential conveyancing."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-b76230e7742a46b4be3ab10580176924b35bafef9f752eb7d2410cb60799827d",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The satisfaction statement appears on a general Solicitors Pricing Guide and is not tied to a single service."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-65f42f65758564084191b6569f379e8715c561a939c00f20f759db7461c96734",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "OTHER"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The guide concerns separation, divorce, parenting and co-parenting, an identifiable family-law context outside the supplied service list."
+    },
+    {
+      "automated": "NO_SERVICE_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-f4858cfae1e14563fdb96fd0b8fbe594c9960a007230601f57af5e458db75cc4",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "OTHER"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The Will Questionnaire concerns will-making, estate assets and testamentary issues; wills/private-client work is outside the supplied service list."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-4b5d844a1442d395877d7e1711103eec3a6f93df1a9ae6717828d3e7753c90a8",
+      "label": "FIRM_WIDE",
+      "expectedServices": [],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The satisfaction statement appears on the firm's general homepage and is not tied to a particular legal service."
+    },
+    {
+      "automated": "INSUFFICIENT_CONTEXT",
+      "assignedServices": [],
+      "itemId": "m10-d02b797dbda6720757ba53ae1e67df06d3e56758de2098b4ec7277b84263d72c",
+      "label": "SERVICE_SPECIFIC_WRONG",
+      "expectedServices": [
+        "residential_conveyancing"
+      ],
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-24",
+      "note": "The page is explicitly Sale of a Property (leasehold and freehold) and the additional-task fees belong to residential conveyancing."
+    }
+  ],
+  "limitation": "Stratified review sample, not population or live precision. Exact agreement includes the expected service set. False assignment counts any assigned service outside the human set; abstention rate is restricted to human service-specific/multi-service cases."
+}
