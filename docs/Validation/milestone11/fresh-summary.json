@@ -1,0 +1,655 @@
+{
+  "schemaVersion": 1,
+  "source": "reports/milestone11/live",
+  "rows": [
+    {
+      "firm": "Tozers",
+      "site": "https://www.tozers.co.uk/",
+      "capturedAt": "2026-09-26T18:07:24.009Z",
+      "scanId": "scan_fe81250a-27a8-49ed-b198-420048d2d93d",
+      "staticPages": 22,
+      "assistedPages": 22,
+      "failedPages": 0,
+      "staticMs": 44706,
+      "assistedMs": 41781,
+      "pdf": {
+        "discovered": 8,
+        "attempted": 8,
+        "extracted": 8,
+        "skipped": 0,
+        "bytesDownloaded": 7043659,
+        "failures": 0,
+        "noText": 0
+      },
+      "browser": {
+        "attempted": 0,
+        "rendered": 0,
+        "failed": 0,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 0,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [],
+      "httpFailures": []
+    },
+    {
+      "firm": "Ashtons Legal",
+      "site": "https://www.ashtonslegal.co.uk/",
+      "capturedAt": "2026-09-26T18:08:47.750Z",
+      "scanId": "scan_bc771df0-897c-4a32-b257-2578b3043959",
+      "staticPages": 22,
+      "assistedPages": 22,
+      "failedPages": 0,
+      "staticMs": 41120,
+      "assistedMs": 42797,
+      "pdf": {
+        "discovered": 5,
+        "attempted": 5,
+        "extracted": 3,
+        "skipped": 0,
+        "bytesDownloaded": 7481867,
+        "failures": 2,
+        "noText": 0
+      },
+      "browser": {
+        "attempted": 0,
+        "rendered": 0,
+        "failed": 0,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 0,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [],
+      "httpFailures": []
+    },
+    {
+      "firm": "Tilly Bailey & Irvine",
+      "site": "https://www.tbilaw.co.uk/",
+      "capturedAt": "2026-09-26T18:09:45.552Z",
+      "scanId": "scan_4de39e3a-3b43-4299-829e-8247653f1314",
+      "staticPages": 20,
+      "assistedPages": 20,
+      "failedPages": 0,
+      "staticMs": 28216,
+      "assistedMs": 28282,
+      "pdf": {
+        "discovered": 6,
+        "attempted": 6,
+        "extracted": 6,
+        "skipped": 0,
+        "bytesDownloaded": 707332,
+        "failures": 0,
+        "noText": 0
+      },
+      "browser": {
+        "attempted": 0,
+        "rendered": 0,
+        "failed": 0,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 0,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [],
+      "httpFailures": []
+    },
+    {
+      "firm": "Rothera Bray",
+      "site": "https://rotherabray.co.uk/",
+      "capturedAt": "2026-09-26T18:11:02.577Z",
+      "scanId": "scan_ee9dce0e-3be2-4dcd-b20d-2caa9256d896",
+      "staticPages": 22,
+      "assistedPages": 22,
+      "failedPages": 0,
+      "staticMs": 38425,
+      "assistedMs": 38543,
+      "pdf": {
+        "discovered": 2,
+        "attempted": 2,
+        "extracted": 2,
+        "skipped": 0,
+        "bytesDownloaded": 413781,
+        "failures": 0,
+        "noText": 0
+      },
+      "browser": {
+        "attempted": 0,
+        "rendered": 0,
+        "failed": 0,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 0,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [],
+      "httpFailures": []
+    },
+    {
+      "firm": "Rachel Sebastian & Co",
+      "site": "https://www.rslegal.co.uk/",
+      "capturedAt": "2026-09-26T18:11:31.127Z",
+      "scanId": "scan_56c05b03-d6fb-4be7-b93e-78b58af0e659",
+      "staticPages": 10,
+      "assistedPages": 10,
+      "failedPages": 0,
+      "staticMs": 13932,
+      "assistedMs": 14497,
+      "pdf": {
+        "discovered": 2,
+        "attempted": 2,
+        "extracted": 2,
+        "skipped": 0,
+        "bytesDownloaded": 236870,
+        "failures": 0,
+        "noText": 0
+      },
+      "browser": {
+        "attempted": 0,
+        "rendered": 0,
+        "failed": 0,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 0,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [],
+      "httpFailures": []
+    },
+    {
+      "firm": "Shakespeare Martineau",
+      "site": "https://www.shma.co.uk/",
+      "capturedAt": "2026-09-26T18:13:01.599Z",
+      "scanId": "scan_f2242112-96cf-4340-a8b1-060cd5166cbe",
+      "staticPages": 18,
+      "assistedPages": 18,
+      "failedPages": 0,
+      "staticMs": 46497,
+      "assistedMs": 44286,
+      "pdf": {
+        "discovered": 8,
+        "attempted": 5,
+        "extracted": 5,
+        "skipped": 3,
+        "bytesDownloaded": 1373720,
+        "failures": 0,
+        "noText": 0
+      },
+      "browser": {
+        "attempted": 0,
+        "rendered": 0,
+        "failed": 0,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 0,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [],
+      "httpFailures": []
+    },
+    {
+      "firm": "Kitson Boyce",
+      "site": "https://www.kitsonboyce.co.uk/",
+      "capturedAt": "2026-09-26T18:14:35.681Z",
+      "scanId": "scan_57df7f5b-6d87-4708-959e-611acffe337f",
+      "staticPages": 22,
+      "assistedPages": 22,
+      "failedPages": 0,
+      "staticMs": 48247,
+      "assistedMs": 47180,
+      "pdf": {
+        "discovered": 7,
+        "attempted": 7,
+        "extracted": 5,
+        "skipped": 0,
+        "bytesDownloaded": 2521346,
+        "failures": 0,
+        "noText": 2
+      },
+      "browser": {
+        "attempted": 0,
+        "rendered": 0,
+        "failed": 0,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 0,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [],
+      "httpFailures": []
+    },
+    {
+      "firm": "Stephens Scown",
+      "site": "https://www.stephens-scown.co.uk/",
+      "capturedAt": "2026-09-26T18:21:52.295Z",
+      "scanId": "scan_3f0f7ee4-e53d-4ee9-a1e5-d9aa9583a5e6",
+      "staticPages": 19,
+      "assistedPages": 19,
+      "failedPages": 0,
+      "staticMs": 372102,
+      "assistedMs": 63727,
+      "pdf": {
+        "discovered": 7,
+        "attempted": 7,
+        "extracted": 7,
+        "skipped": 0,
+        "bytesDownloaded": 12181360,
+        "failures": 0,
+        "noText": 0
+      },
+      "browser": {
+        "attempted": 1,
+        "rendered": 0,
+        "failed": 1,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 12814,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 4693,
+            "renderedTextSize": 0,
+            "staticLinks": 186,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 0,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "FAILED",
+            "url": "https://www.stephens-scown.co.uk/tag/customer-service/",
+            "status": "BROWSER_FAILED",
+            "reason": "RENDERED_LINK_DISCOVERY_REQUIRED",
+            "durationMs": 12814,
+            "newEvidence": [],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": false,
+            "serviceContextChanges": []
+          }
+        ],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [
+        {
+          "url": "https://www.stephens-scown.co.uk/tag/customer-service/",
+          "status": "BROWSER_FAILED",
+          "reason": "RENDERED_LINK_DISCOVERY_REQUIRED",
+          "error": "BROWSER_INCOMPLETE_EXECUTION",
+          "scriptErrors": [
+            "jQuery is not defined",
+            "jQuery is not defined",
+            "jQuery is not defined",
+            "jQuery is not defined",
+            "$ is not defined"
+          ],
+          "blockedRequests": 14,
+          "requests": 28,
+          "bytes": 632321
+        }
+      ],
+      "httpFailures": []
+    },
+    {
+      "firm": "Higgs LLP",
+      "site": "https://www.higgsllp.co.uk/",
+      "capturedAt": "2026-09-26T18:22:45.390Z",
+      "scanId": "scan_b9ba215d-aaa9-4b8f-b70f-971f8ca28a64",
+      "staticPages": 21,
+      "assistedPages": 21,
+      "failedPages": 0,
+      "staticMs": 25940,
+      "assistedMs": 25879,
+      "pdf": {
+        "discovered": 1,
+        "attempted": 1,
+        "extracted": 1,
+        "skipped": 0,
+        "bytesDownloaded": 1223228,
+        "failures": 0,
+        "noText": 0
+      },
+      "browser": {
+        "attempted": 0,
+        "rendered": 0,
+        "failed": 0,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 0,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [],
+      "httpFailures": [
+        {
+          "url": "https://www.higgsllp.co.uk/success-stories?expertise=3137",
+          "stage": "robots",
+          "message": "Skipped by robots.txt"
+        }
+      ]
+    },
+    {
+      "firm": "Russell-Cooke",
+      "site": "https://www.russell-cooke.co.uk/",
+      "capturedAt": "2026-09-26T18:25:28.235Z",
+      "scanId": "scan_419d51c7-512e-4f23-b9bf-c8d1d5e3b687",
+      "staticPages": 21,
+      "assistedPages": 21,
+      "failedPages": 1,
+      "staticMs": 115886,
+      "assistedMs": 47570,
+      "pdf": {
+        "discovered": 5,
+        "attempted": 5,
+        "extracted": 5,
+        "skipped": 0,
+        "bytesDownloaded": 7016135,
+        "failures": 0,
+        "noText": 0
+      },
+      "browser": {
+        "attempted": 0,
+        "rendered": 0,
+        "failed": 0,
+        "timedOut": 0,
+        "limitReached": 0,
+        "addedTimeMs": 0,
+        "statement": "Selected public pages were observed after loading. Interactive content may remain unobserved; failed observation does not establish absence."
+      },
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      },
+      "directRenderedAblation": [],
+      "failures": [],
+      "httpFailures": [
+        {
+          "url": "https://www.russell-cooke.co.uk/charging-information/+44%20(0)20%203826%207550",
+          "stage": "page",
+          "message": "HTTP 404",
+          "status": 404
+        }
+      ]
+    }
+  ],
+  "static": {
+    "eligibleChecks": 170,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 92,
+      "Review": 78,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 42,
+      "WARNING": 5,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 123,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 26,
+      "denominator": 92,
+      "rate": 0.2826086956521739
+    },
+    "acceptableAgreement": {
+      "count": 88,
+      "denominator": 170,
+      "rate": 0.5176470588235295
+    },
+    "unknownCount": 123,
+    "unknownRate": 0.7235294117647059,
+    "passPredictions": 42,
+    "passPrecision": 0.6190476190476191,
+    "passRecall": 0.2826086956521739,
+    "warningPredictions": 5,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.2,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 16,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "assisted": {
+    "eligibleChecks": 170,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 92,
+      "Review": 78,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 42,
+      "WARNING": 5,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 123,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 26,
+      "denominator": 92,
+      "rate": 0.2826086956521739
+    },
+    "acceptableAgreement": {
+      "count": 88,
+      "denominator": 170,
+      "rate": 0.5176470588235295
+    },
+    "unknownCount": 123,
+    "unknownRate": 0.7235294117647059,
+    "passPredictions": 42,
+    "passPrecision": 0.6190476190476191,
+    "passRecall": 0.2826086956521739,
+    "warningPredictions": 5,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.2,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 16,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "performance": {
+    "attempts": 1,
+    "rendered": 0,
+    "pagesScanned": 197,
+    "fallbackFraction": 0.005076142131979695,
+    "averageMs": 12814,
+    "p95Ms": null,
+    "totalAddedMs": 12814,
+    "failureRate": 1,
+    "timeoutRate": 0,
+    "materiallyNewFraction": null
+  },
+  "ruleResultChanges": 0,
+  "limitation": "Fresh observed outcomes, not independent live accuracy. Browser-assisted discovery can affect the shared HTTP capture. No consent, forms, tabs or account interactions.",
+  "postCorrectionRecheck": {
+    "capturedAt": "2026-09-26T18:47:25.268Z",
+    "url": "https://www.stephens-scown.co.uk/tag/customer-service/",
+    "summary": {
+      "pagesDiscovered": 6435,
+      "pagesScanned": 1,
+      "pagesFailed": 0,
+      "brokenInternalLinks": 0,
+      "documentsFound": 1,
+      "formsFound": 2,
+      "emailsFound": 0,
+      "phoneNumbersFound": 1,
+      "browserRenderRecommended": 0,
+      "crawlLimitReached": true
+    },
+    "browser": {
+      "schemaVersion": 1,
+      "policyVersion": "1.0",
+      "limits": {
+        "pages": 5,
+        "depth": 2,
+        "loadMs": 8000,
+        "totalMs": 20000,
+        "settleMs": 1500,
+        "launchMs": 5000,
+        "requests": 80,
+        "resourceBytes": 2000000,
+        "totalBytes": 10000000,
+        "domBytes": 200000,
+        "textCharacters": 50000,
+        "nodes": 10000,
+        "redirects": 5,
+        "retries": 0,
+        "concurrency": 1
+      },
+      "observations": [
+        {
+          "requestedUrl": "https://www.stephens-scown.co.uk/tag/customer-service/",
+          "staticUrl": "https://www.stephens-scown.co.uk/tag/customer-service/",
+          "staticStatus": 200,
+          "staticHash": "c7eb9150d1867d56d856cf5c0e0c68ea07f05159ed3ef9bbe38b2da3505b0921",
+          "reason": "BROWSER_NOT_REQUIRED",
+          "status": "BROWSER_NOT_REQUIRED",
+          "depth": 0,
+          "durationMs": 0,
+          "scriptErrors": [],
+          "requests": 0,
+          "bytes": 0,
+          "blockedRequests": 0,
+          "staticEvidenceAvailable": true,
+          "comparison": {
+            "staticTextSize": 4693,
+            "renderedTextSize": 0,
+            "staticLinks": 186,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 0,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NOT_ATTEMPTED"
+          }
+        }
+      ]
+    },
+    "errors": [],
+    "limitation": "One bounded post-correction observation; not an additional independent firm or an accuracy estimate."
+  }
+}

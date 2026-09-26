@@ -1,0 +1,1615 @@
+{
+  "schemaVersion": 1,
+  "mode": "controlled-virtual-public-URL-Chromium-fixtures",
+  "rows": [
+    {
+      "name": "static-sufficient",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "durationMs": 0,
+      "comparison": {
+        "pages": [],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      }
+    },
+    {
+      "name": "spa-shell",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 2786,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 61,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 2,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NEW_CONTENT",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 2786,
+            "newEvidence": [],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": false,
+            "serviceContextChanges": []
+          }
+        ],
+        "resultChanges": [],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      }
+    },
+    {
+      "name": "dynamic-navigation",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 3647,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 18,
+            "staticLinks": 0,
+            "renderedLinks": 2,
+            "newLinks": [
+              "https://example.com/services",
+              "https://example.com/complaints"
+            ],
+            "lostLinks": [],
+            "newTextBlocks": 1,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "BOILERPLATE_ONLY",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 3647,
+            "newEvidence": [],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [
+              "https://example.com/services",
+              "https://example.com/complaints"
+            ],
+            "materiallyNewEvidence": true,
+            "serviceContextChanges": []
+          }
+        ],
+        "resultChanges": [],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 1
+      }
+    },
+    {
+      "name": "pricing",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 2637,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 149,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 4,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NEW_CONTENT",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 2637,
+            "newEvidence": [
+              {
+                "ruleId": "PRICE-001",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-002",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-003",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-008",
+                "snippet": "Our legal fees exclude VAT at 20%.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-009",
+                "snippet": "Our legal fees exclude VAT at 20%.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-012",
+                "snippet": "Our legal fees exclude VAT at 20%.",
+                "confidence": "MEDIUM"
+              }
+            ],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": true,
+            "serviceContextChanges": [
+              {
+                "id": "20c9adb275d48f24e92cc0104af4a75194c3194965a136b5bf4b193560172679",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "residential_conveyancing"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "7e4e243abc976f9829a75016c897694e7566f01109eac804582f168088cf4b1f",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "residential_conveyancing"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "2a0af6ad8c07221c894b86cce38c5819455e52a33c0d8802a6faac2279db35e6",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "residential_conveyancing"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "2c12c1ad7c425af86d55a9ad953ec3e37e7f89f631eab1bcb37116fb9265ea83",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "residential_conveyancing"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "85c4821f006dad721e8a26a21c61e5c701ff5f13d2d4e2d09d5d0d0b30c2b5f5",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "residential_conveyancing"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "16e3c6772686cc58c4a6ddc4a14a2e95f0455d193a744bb7475b8cdc06219ff4",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "residential_conveyancing"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              }
+            ]
+          }
+        ],
+        "resultChanges": [
+          {
+            "ruleId": "PRICE-001",
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-002",
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-003",
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-008",
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-009",
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-012",
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "WARNING",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-017",
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": false
+          }
+        ],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "DETECTED_HIGH_CONFIDENCE"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 7,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 6,
+        "materiallyNewPages": 1
+      }
+    },
+    {
+      "name": "complaints",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 2750,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 201,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 3,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NEW_CONTENT",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 2750,
+            "newEvidence": [
+              {
+                "ruleId": "LAW-U005",
+                "snippet": "may complain to the Legal Ombudsman by email to enquiries@legalombudsman.org.uk.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "LAW-U006",
+                "snippet": "You may complain to the Legal Ombudsman by email to enquiries@legalombudsman.org.uk.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "LAW-U007",
+                "snippet": "You may complain to the Legal Ombudsman by email to enquiries@legalombudsman.org.uk.",
+                "confidence": "MEDIUM"
+              },
+              {
+                "ruleId": "LAW-U004",
+                "snippet": "To make a complaint contact our client care partner. We investigate your complaint and respond.",
+                "confidence": "HIGH"
+              }
+            ],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": true,
+            "serviceContextChanges": []
+          }
+        ],
+        "resultChanges": [
+          {
+            "ruleId": "LAW-U004",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "LAW-U005",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "LAW-U006",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "LAW-U007",
+            "before": "UNKNOWN",
+            "after": "WARNING",
+            "renderedEvidence": true
+          }
+        ],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 4,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 4,
+        "materiallyNewPages": 1
+      }
+    },
+    {
+      "name": "staff-service",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 2715,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 95,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 2,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NEW_CONTENT",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 2715,
+            "newEvidence": [
+              {
+                "ruleId": "PRICE-004",
+                "snippet": "Our solicitor Jane Smith has 20 years of experience in uncontested probate.",
+                "confidence": "HIGH"
+              }
+            ],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": true,
+            "serviceContextChanges": [
+              {
+                "id": "3089f624fcec0493d99a1ddcaef889509bf86c791627ac9e39750f69c6f61af3",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              }
+            ]
+          }
+        ],
+        "resultChanges": [],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "DETECTED_LOW_CONFIDENCE"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 1
+      }
+    },
+    {
+      "name": "pdf-link",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 2612,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 44,
+            "staticLinks": 0,
+            "renderedLinks": 1,
+            "newLinks": [
+              "https://example.com/fees.pdf"
+            ],
+            "lostLinks": [],
+            "newTextBlocks": 2,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NEW_CONTENT",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 2612,
+            "newEvidence": [
+              {
+                "ruleId": "PRICE-002",
+                "snippet": "Uncontested probate fees PDF",
+                "confidence": "MEDIUM"
+              }
+            ],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [
+              "https://example.com/fees.pdf"
+            ],
+            "materiallyNewEvidence": true,
+            "serviceContextChanges": [
+              {
+                "id": "defe17e99d21450900e30f695131e3bc0906040c1088fb038057c1c637c71c19",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "EXPLICIT_LOCAL_SERVICE"
+                }
+              }
+            ]
+          }
+        ],
+        "resultChanges": [
+          {
+            "ruleId": "LAW-U010",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": false
+          },
+          {
+            "ruleId": "PRICE-016",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": false
+          },
+          {
+            "ruleId": "PRICE-017",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": false
+          }
+        ],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "DETECTED_HIGH_CONFIDENCE"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 3,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 1
+      },
+      "documents": [
+        {
+          "url": "https://example.com/fees.pdf",
+          "referrers": [
+            {
+              "observationSource": "RENDERED_DOM",
+              "url": "https://example.com/",
+              "anchor": "Uncontested probate fees PDF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cookie-overlay",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 2620,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 63,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 2,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NEW_CONTENT",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 2620,
+            "newEvidence": [],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": false,
+            "serviceContextChanges": []
+          }
+        ],
+        "resultChanges": [],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      }
+    },
+    {
+      "name": "script-error",
+      "status": "BROWSER_FAILED",
+      "reason": "APP_SHELL_DETECTED",
+      "error": "BROWSER_INCOMPLETE_EXECUTION",
+      "durationMs": 2812,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 0,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 0,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "FAILED",
+            "url": "https://example.com/",
+            "status": "BROWSER_FAILED",
+            "reason": "APP_SHELL_DETECTED",
+            "error": "BROWSER_INCOMPLETE_EXECUTION",
+            "scriptErrors": [
+              "fixture script failure"
+            ],
+            "durationMs": 2812,
+            "newEvidence": [],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": false,
+            "serviceContextChanges": []
+          }
+        ],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      }
+    },
+    {
+      "name": "infinite-loading",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 3081,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 10,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 0,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NO_MATERIAL_CHANGE",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 3081,
+            "newEvidence": [],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": false,
+            "serviceContextChanges": []
+          }
+        ],
+        "resultChanges": [],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      }
+    },
+    {
+      "name": "infinite-script-timeout",
+      "status": "BROWSER_TIMED_OUT",
+      "reason": "APP_SHELL_DETECTED",
+      "error": "page.goto: Timeout 8000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://example.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+      "durationMs": 9861,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 0,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 0,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "FAILED",
+            "url": "https://example.com/",
+            "status": "BROWSER_TIMED_OUT",
+            "reason": "APP_SHELL_DETECTED",
+            "error": "page.goto: Timeout 8000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://example.com/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+            "scriptErrors": [],
+            "durationMs": 9861,
+            "newEvidence": [],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": false,
+            "serviceContextChanges": []
+          }
+        ],
+        "resultChanges": [],
+        "serviceChanges": [],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 0
+      }
+    },
+    {
+      "name": "client-redirect",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 3325,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 43,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 2,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NEW_CONTENT",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 3325,
+            "newEvidence": [
+              {
+                "ruleId": "PRICE-001",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-002",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-003",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              }
+            ],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": true,
+            "serviceContextChanges": [
+              {
+                "id": "20c9adb275d48f24e92cc0104af4a75194c3194965a136b5bf4b193560172679",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "7e4e243abc976f9829a75016c897694e7566f01109eac804582f168088cf4b1f",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "2a0af6ad8c07221c894b86cce38c5819455e52a33c0d8802a6faac2279db35e6",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              }
+            ]
+          }
+        ],
+        "resultChanges": [
+          {
+            "ruleId": "PRICE-001",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-002",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-003",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-017",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": false
+          }
+        ],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "DETECTED_HIGH_CONFIDENCE"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 4,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 3,
+        "materiallyNewPages": 1
+      }
+    },
+    {
+      "name": "mixed-service-tabs",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 3423,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 95,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 4,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NEW_CONTENT",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 3423,
+            "newEvidence": [
+              {
+                "ruleId": "PRICE-001",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-001",
+                "snippet": "ntested probate Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-002",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-002",
+                "snippet": "ntested probate Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-003",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-003",
+                "snippet": "ntested probate Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              }
+            ],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": true,
+            "serviceContextChanges": [
+              {
+                "id": "20c9adb275d48f24e92cc0104af4a75194c3194965a136b5bf4b193560172679",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "a60ffac3229dc0b938915d6760f8668608f7e6a8093c225b525f8dc2b4c267ae",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "7e4e243abc976f9829a75016c897694e7566f01109eac804582f168088cf4b1f",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "221e9114a6bbc787db817b18dc93f1834be5cdfcbfc9ea5d5644455e871b3445",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "2a0af6ad8c07221c894b86cce38c5819455e52a33c0d8802a6faac2279db35e6",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "97554b6c42b2573ecfe9fb1ea65f4051b4a3e478d5d18e2d89ffc36af4e78dac",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              }
+            ]
+          }
+        ],
+        "resultChanges": [
+          {
+            "ruleId": "PRICE-001",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-002",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-003",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": true
+          },
+          {
+            "ruleId": "PRICE-017",
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "PASS",
+            "renderedEvidence": false
+          }
+        ],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "DETECTED_HIGH_CONFIDENCE"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 4,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 3,
+        "materiallyNewPages": 1
+      }
+    },
+    {
+      "name": "delayed-content",
+      "status": "RENDERED",
+      "reason": "APP_SHELL_DETECTED",
+      "durationMs": 3191,
+      "comparison": {
+        "pages": [
+          {
+            "staticTextSize": 0,
+            "renderedTextSize": 39,
+            "staticLinks": 0,
+            "renderedLinks": 0,
+            "newLinks": [],
+            "lostLinks": [],
+            "newTextBlocks": 2,
+            "lostTextBlocks": 0,
+            "duplicateBlocks": 0,
+            "outcome": "NEW_CONTENT",
+            "url": "https://example.com/",
+            "status": "RENDERED",
+            "reason": "APP_SHELL_DETECTED",
+            "scriptErrors": [],
+            "durationMs": 3191,
+            "newEvidence": [
+              {
+                "ruleId": "PRICE-001",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-002",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              },
+              {
+                "ruleId": "PRICE-003",
+                "snippet": "Our fixed fee is Â£900.",
+                "confidence": "HIGH"
+              }
+            ],
+            "lostEvidence": [],
+            "duplicateEvidence": 0,
+            "newRelevantLinks": [],
+            "materiallyNewEvidence": true,
+            "serviceContextChanges": [
+              {
+                "id": "20c9adb275d48f24e92cc0104af4a75194c3194965a136b5bf4b193560172679",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "7e4e243abc976f9829a75016c897694e7566f01109eac804582f168088cf4b1f",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              },
+              {
+                "id": "2a0af6ad8c07221c894b86cce38c5819455e52a33c0d8802a6faac2279db35e6",
+                "decision": {
+                  "state": "SERVICE_SPECIFIC",
+                  "services": [
+                    "probate"
+                  ],
+                  "reason": "DIRECT_SECTION_HEADING"
+                }
+              }
+            ]
+          }
+        ],
+        "resultChanges": [],
+        "serviceChanges": [
+          {
+            "service": "residential_conveyancing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "remortgage",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "probate",
+            "before": "UNKNOWN",
+            "after": "DETECTED_LOW_CONFIDENCE"
+          },
+          {
+            "service": "immigration",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "motoring",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employee",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "employment_employer",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          },
+          {
+            "service": "business_licensing",
+            "before": "UNKNOWN",
+            "after": "NOT_DETECTED"
+          }
+        ],
+        "unknownToSupported": 0,
+        "supportedToUnknown": 0,
+        "renderedEvidenceResultChanges": 0,
+        "materiallyNewPages": 1
+      }
+    }
+  ],
+  "summary": {
+    "cases": 14,
+    "attempted": 13,
+    "rendered": 11,
+    "materiallyNew": 8,
+    "materiallyNewFraction": 0.7272727272727273,
+    "averageMs": 3496.923076923077,
+    "p95Ms": null,
+    "seriousFalsePositives": 0
+  },
+  "limitation": "Deterministic synthetic content, not live precision. Positive serious-finding controls are evaluated separately."
+}

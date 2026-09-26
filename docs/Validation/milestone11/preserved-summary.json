@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "source": "reports/milestone11/preserved-final",
+  "manifest": {
+    "schemaVersion": 1,
+    "mode": "offline-preserved-M6-HTML-M7-PDF",
+    "source": "C:\\Users\\clive\\OneDrive\\Documents\\WatchLayer\\reports\\milestone10\\release3",
+    "sourceSha256": "23cad013d9b8f4008b17b69a19f640abb03efd7f47b379def41e12a70d9f69a0",
+    "corpusSourceSha256": "5cf136ae1ef6c71757bcc7f30e5edb6fd1ba62c6d26f88e062c87232b53c55bb",
+    "benchmarkSha256": "beafdde971fa122e4200a55863f7ff60ccd891640f81457dc1978eea27d7c4aa",
+    "independentHumanReviews": 0
+  },
+  "before": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "after": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "deltas": [],
+  "unknownToSupported": 0,
+  "supportedToUnknown": 0,
+  "renderedEvidenceChanges": 0,
+  "browserFailures": 0,
+  "serviceClassificationChangedFirms": 0,
+  "pdfExtractionChangedFirms": 0,
+  "adjudication": {
+    "items": 1994,
+    "counts": {
+      "SUPPORTED": 229,
+      "PARTIALLY_SUPPORTED": 314,
+      "AMBIGUOUS": 1241,
+      "NOT_RELEVANT": 156,
+      "INSUFFICIENT_CONTEXT": 54
+    },
+    "rejectedAmbiguousOrNotRelevant": 1397,
+    "independentHumanReviews": 0
+  },
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "limitation": "Preserved M6 HTML/M7 PDF replay against M10 outputs, with no browser execution. Human Review compatibility is separate from exact agreement; these are not live precision estimates."
+}

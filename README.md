@@ -138,6 +138,19 @@ npm run evaluate:milestone7 -- --all --reuse-pdf reports/milestone7/paired --out
 
 The paired evaluator enriches frozen M6 HTML observations using only PDFs already discovered in those scans; `--reuse-pdf` performs an offline replay. It requires retained M6 evaluation files and does not overwrite the benchmark workbook. Fresh end-to-end subset scans use `evaluate-lawwatch`. The completed 50-firm paired evaluation and three fresh scans are documented in M7. Serious-finding precision remains demonstrated only on the narrow controlled removal suite; live launch precision remains unproven.
 
+## Milestone 11 selective browser analysis
+
+[Milestone 11](docs/MILESTONE_11_BROWSER_RENDERING.md) adds opt-in, bounded Chromium fallback inside WatchLayer. Static HTTP crawling remains the default. Eligible sparse application shells can contribute visible text, service context and navigation while retaining separate rendered provenance. Existing M10 attribution and conservative failure handling remain in force; no buttons, forms, consent or account areas are operated.
+
+```text
+npx playwright install chromium --only-shell
+npm run scan -- https://example.com --lawwatch --browser-fallback --max-pages 20
+npm run test:browser
+npm run validate:browser -- reports/milestone11/new-fixtures
+```
+
+At most five pages per scan render, with a 20-second execution deadline per attempt and existing public-network/domain safeguards. The preserved 50-firm benchmark is unchanged. The ten-firm fresh sample did not demonstrate successful live rendered evidence; controlled Chromium fixtures establish the implemented behavior, not live precision. See the milestone report for limits, failures and validation results.
+
 ## Milestone 8 evidence adjudication
 
 [Milestone 8](docs/MILESTONE_8_EVIDENCE_ADJUDICATION.md) adds **LawWatch England & Wales v1.4** with a separate deterministic PDF support assessment. M7 extraction facts stay at version 1.3. Raw candidates remain intact; only contextually supported PDF facts can contribute to rule results. Optional report data records SUPPORTED, PARTIALLY_SUPPORTED, AMBIGUOUS, NOT_RELEVANT and INSUFFICIENT_CONTEXT, including page provenance and up to 1,200 characters of surrounding text. Mixed-service, irrelevant, unscoped boilerplate and uncertain source relationships remain conservative.

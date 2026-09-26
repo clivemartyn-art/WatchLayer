@@ -1,0 +1,31 @@
+import {expect,it,vi} from 'vitest';
+import {browserEligibility} from '../src/browser/eligibility.js';
+import {browserAnalysis} from '../src/browser/analyze.js';
+import {browserRequestUrl,createBrowserRenderer} from '../src/browser/render.js';
+import {BROWSER_LIMITS} from '../src/browser/types.js';
+import {fixtureResponse} from './fixtures/milestone2.js';
+import {scan} from '../src/crawler/scan.js';
+const url='https://example.com/';
+const seed=(body='<div id="root"></div><script src="/app.js"></script>')=>fixtureResponse(url,body);
+it('rejects browser fallback for sufficient static content even with many scripts',()=>{expect(browserEligibility(seed('<main>'+('Useful visible content. '.repeat(90))+'</main><script src="/app.js"></script>')).reason).toBe('STATIC_CONTENT_SUFFICIENT');});
+it('does not treat JavaScript presence alone as eligibility',()=>{expect(browserEligibility(seed('<h1>Contact</h1><p>Email our team.</p><a href="/contact">Contact</a><script src="/app.js"></script>')).eligible).toBe(false);});
+it.each(['root','app','__next'])('identifies an empty %s app shell',id=>{expect(browserEligibility(seed('<div id="'+id+'"></div><script src="/app.js"></script>')).reason).toBe('APP_SHELL_DETECTED');});
+it('identifies sparse linkless executable content',()=>{expect(browserEligibility(seed('<p>Loading our services</p><script src="/app.js"></script>')).reason).toBe('RENDERED_LINK_DISCOVERY_REQUIRED');});
+it('ignores non-executable JSON script data',()=>{expect(browserEligibility(seed('<div id="root"></div><script type="application/ld+json">{}</script>')).eligible).toBe(false);});
+it('counts existing navigation links before removing navigation text from eligibility',()=>{expect(browserEligibility(seed('<nav><a href="/services">Services</a><a href="/complaints">Complaints</a></nav><main></main><script src="/app.js"></script>')).eligible).toBe(false);});
+it('distinguishes newly inserted boilerplate from meaningful body content',async()=>{const analysis=browserAnalysis(url,async()=>({status:'RENDERED',durationMs:1,finalUrl:url,representation:'<footer><p>All rights reserved by the website owner.</p></footer>',scriptErrors:[],requests:1,bytes:50,blockedRequests:0}));const r=await analysis.analyze(seed(),0,async()=>{});expect(r!.observation.comparison.outcome).toBe('BOILERPLATE_ONLY');});
+it.each([403,404,410,429,500])('does not use a browser to bypass HTTP %i',status=>{expect(browserEligibility({...seed(),status}).eligible).toBe(false);});
+it.each(['file:///C:/secret','ftp://example.com/','http://127.0.0.1/','http://10.0.0.1/','http://169.254.169.254/','http://[::1]/','https://localhost/','https://other.org/','https://example.com:8080/','https://user:password@example.com/'])('blocks browser network URL %s',value=>{expect(()=>browserRequestUrl(value,url)).toThrow();});
+it('allows only the existing registrable-domain scope',()=>{expect(browserRequestUrl('https://cdn.example.com/app.js',url)).toBe('https://cdn.example.com/app.js');});
+it.each(['login','account','dashboard','portal','wp-admin'])('does not render the public shell of an account route: %s',path=>{expect(browserEligibility({...seed(),finalUrl:url+path}).eligible).toBe(false);});
+it('bounds eligible render attempts and preserves static observations on renderer exceptions',async()=>{const renderer=vi.fn(async()=>{throw Error('crashed');}),analysis=browserAnalysis(url,renderer);for(let i=0;i<7;i++)await analysis.analyze(seed(),0,async()=>{});expect(renderer).toHaveBeenCalledTimes(BROWSER_LIMITS.pages);expect(analysis.report.observations.filter(o=>o.status==='BROWSER_LIMIT_REACHED')).toHaveLength(2);expect(analysis.report.observations[0].staticEvidenceAvailable).toBe(true);});
+it('does not render beyond the navigation depth bound',async()=>{const renderer=vi.fn(),analysis=browserAnalysis(url,renderer);await analysis.analyze(seed(),3,async()=>{});expect(renderer).not.toHaveBeenCalled();expect(analysis.report.observations[0].status).toBe('BROWSER_LIMIT_REACHED');});
+it('does not launch a browser in the default static crawl',async()=>{const renderer=vi.fn();await scan(url,{maxPages:1,browserRenderer:renderer,fetcher:async u=>u===url?seed():fixtureResponse(u,'',404)});expect(renderer).not.toHaveBeenCalled();});
+it('keeps original static hashes and body separate from rendered evidence',async()=>{const analysis=browserAnalysis(url,async()=>({status:'RENDERED',durationMs:1,finalUrl:url,representation:'<main><h1>Probate</h1><p>Our fees are £900.</p><a href="/fees">Pricing</a></main>',scriptErrors:[],requests:1,bytes:50,blockedRequests:0}));const original=seed(),copy=structuredClone(original);const result=await analysis.analyze(original,0,async()=>{});expect(original).toEqual(copy);expect(result!.observation.staticHash).not.toBe(result!.observation.domHash);expect(result!.observation.comparison.newLinks).toContain(url+'fees');});
+
+it('executes a real browser on deterministic public-URL fixtures without local-server exceptions',async()=>{
+  const script=`document.getElementById('root').innerHTML='<main><h1>Residential conveyancing</h1><p>Our legal fees are £900.</p><a href="/pricing">Pricing</a><a href="/complaints">Complaints</a><a href="/fees.pdf">Fees PDF</a><p style="display:none">Probate fees £500</p></main><div id="onetrust-banner-sdk">Accept marketing</div>';`;
+  const fetcher=vi.fn(async u=>fixtureResponse(u,script,200,'application/javascript'));
+  const rendered=await createBrowserRenderer({fetcher})(seed(),url,async()=>{});
+  expect(rendered.status,rendered.error).toBe('RENDERED');expect(rendered.representation).toContain('£900');expect(rendered.representation).not.toContain('£500');expect(rendered.representation).not.toContain('Accept marketing');expect(rendered.representation).toContain(url+'fees.pdf');expect(fetcher).toHaveBeenCalledTimes(1);
+},30000);

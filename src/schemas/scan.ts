@@ -6,6 +6,7 @@ export interface Document { url: string; filename: string; type: string; sourceP
 export interface Contact { value: string; sourcePages: string[] }
 export interface CrawlStageCoverage {name:string;budget:number;attempted:number;pagesScanned:number;skipped:number;budgetExhausted:boolean}
 export interface ScanResult {
+  browser?:import('../browser/types.js').BrowserReport;
   pdf?:import('../documents/types.js').PdfReport;
   crawlStages?:CrawlStageCoverage[];
   schemaVersion: 1;

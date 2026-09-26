@@ -20,6 +20,48 @@
     "statement"
   ],
   "properties": {
+    "browser": {
+      "type": "object",
+      "required": [
+        "attempted",
+        "rendered",
+        "failed",
+        "timedOut",
+        "limitReached",
+        "addedTimeMs",
+        "statement"
+      ],
+      "properties": {
+        "attempted": {
+          "type": "number",
+          "minimum": 0
+        },
+        "rendered": {
+          "type": "number",
+          "minimum": 0
+        },
+        "failed": {
+          "type": "number",
+          "minimum": 0
+        },
+        "timedOut": {
+          "type": "number",
+          "minimum": 0
+        },
+        "limitReached": {
+          "type": "number",
+          "minimum": 0
+        },
+        "addedTimeMs": {
+          "type": "number",
+          "minimum": 0
+        },
+        "statement": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "adjudication": {
       "type": "object",
       "additionalProperties": false,
@@ -156,6 +198,9 @@
                         "anchor"
                       ],
                       "properties": {
+                        "observationSource": {
+                          "const": "RENDERED_DOM"
+                        },
                         "url": {
                           "type": "string"
                         },
@@ -384,6 +429,9 @@
                     "anchor"
                   ],
                   "properties": {
+                    "observationSource": {
+                      "const": "RENDERED_DOM"
+                    },
                     "url": {
                       "type": "string"
                     },
@@ -474,7 +522,8 @@
         "1.3",
         "1.4",
         "1.5",
-        "1.6"
+        "1.6",
+        "1.7"
       ]
     },
     "universalResults": {
@@ -638,6 +687,43 @@
                 "confidence"
               ],
               "properties": {
+                "observation": {
+                  "type": "object",
+                  "required": [
+                    "sourceType",
+                    "url",
+                    "requestedUrl",
+                    "observedAt",
+                    "domHash",
+                    "staticHash",
+                    "strategy"
+                  ],
+                  "properties": {
+                    "sourceType": {
+                      "const": "RENDERED_DOM"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "requestedUrl": {
+                      "type": "string"
+                    },
+                    "observedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "domHash": {
+                      "type": "string"
+                    },
+                    "staticHash": {
+                      "type": "string"
+                    },
+                    "strategy": {
+                      "const": "initial-visible-dom-v1"
+                    }
+                  },
+                  "additionalProperties": false
+                },
                 "source": {
                   "type": "object",
                   "required": [
@@ -679,6 +765,9 @@
                           "anchor"
                         ],
                         "properties": {
+                          "observationSource": {
+                            "const": "RENDERED_DOM"
+                          },
                           "url": {
                             "type": "string"
                           },
@@ -792,6 +881,9 @@
                     "anchor"
                   ],
                   "properties": {
+                    "observationSource": {
+                      "const": "RENDERED_DOM"
+                    },
                     "url": {
                       "type": "string"
                     },
@@ -879,6 +971,43 @@
                       "confidence"
                     ],
                     "properties": {
+                      "observation": {
+                        "type": "object",
+                        "required": [
+                          "sourceType",
+                          "url",
+                          "requestedUrl",
+                          "observedAt",
+                          "domHash",
+                          "staticHash",
+                          "strategy"
+                        ],
+                        "properties": {
+                          "sourceType": {
+                            "const": "RENDERED_DOM"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "requestedUrl": {
+                            "type": "string"
+                          },
+                          "observedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "domHash": {
+                            "type": "string"
+                          },
+                          "staticHash": {
+                            "type": "string"
+                          },
+                          "strategy": {
+                            "const": "initial-visible-dom-v1"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
                       "source": {
                         "type": "object",
                         "required": [
@@ -920,6 +1049,9 @@
                                 "anchor"
                               ],
                               "properties": {
+                                "observationSource": {
+                                  "const": "RENDERED_DOM"
+                                },
                                 "url": {
                                   "type": "string"
                                 },

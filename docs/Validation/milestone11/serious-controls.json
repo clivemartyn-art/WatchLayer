@@ -1,0 +1,117 @@
+{
+  "scope": "Same M6 controlled cases; not live precision",
+  "metrics": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "cases": [
+    {
+      "id": "LAW-C001-404",
+      "ruleId": "LAW-C001",
+      "expectedIssue": true,
+      "kind": "removed",
+      "status": 404,
+      "emitted": true
+    },
+    {
+      "id": "LAW-C001-410",
+      "ruleId": "LAW-C001",
+      "expectedIssue": true,
+      "kind": "removed",
+      "status": 410,
+      "emitted": true
+    },
+    {
+      "id": "LAW-C001-replacement",
+      "ruleId": "LAW-C001",
+      "expectedIssue": false,
+      "kind": "replacement",
+      "emitted": false
+    },
+    {
+      "id": "LAW-C001-timeout",
+      "ruleId": "LAW-C001",
+      "expectedIssue": false,
+      "kind": "timeout",
+      "emitted": false
+    },
+    {
+      "id": "LAW-C001-server",
+      "ruleId": "LAW-C001",
+      "expectedIssue": false,
+      "kind": "server",
+      "emitted": false
+    },
+    {
+      "id": "LAW-C001-unobserved",
+      "ruleId": "LAW-C001",
+      "expectedIssue": false,
+      "kind": "unobserved",
+      "emitted": false
+    },
+    {
+      "id": "LAW-C001-healthy",
+      "ruleId": "LAW-C001",
+      "expectedIssue": false,
+      "kind": "healthy",
+      "emitted": false
+    },
+    {
+      "id": "LAW-C002-404",
+      "ruleId": "LAW-C002",
+      "expectedIssue": true,
+      "kind": "removed",
+      "status": 404,
+      "emitted": true
+    },
+    {
+      "id": "LAW-C002-410",
+      "ruleId": "LAW-C002",
+      "expectedIssue": true,
+      "kind": "removed",
+      "status": 410,
+      "emitted": true
+    },
+    {
+      "id": "LAW-C002-replacement",
+      "ruleId": "LAW-C002",
+      "expectedIssue": false,
+      "kind": "replacement",
+      "emitted": false
+    },
+    {
+      "id": "LAW-C002-timeout",
+      "ruleId": "LAW-C002",
+      "expectedIssue": false,
+      "kind": "timeout",
+      "emitted": false
+    },
+    {
+      "id": "LAW-C002-server",
+      "ruleId": "LAW-C002",
+      "expectedIssue": false,
+      "kind": "server",
+      "emitted": false
+    },
+    {
+      "id": "LAW-C002-unobserved",
+      "ruleId": "LAW-C002",
+      "expectedIssue": false,
+      "kind": "unobserved",
+      "emitted": false
+    },
+    {
+      "id": "LAW-C002-healthy",
+      "ruleId": "LAW-C002",
+      "expectedIssue": false,
+      "kind": "healthy",
+      "emitted": false
+    }
+  ]
+}

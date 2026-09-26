@@ -1,0 +1,36 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+import {join,dirname} from 'node:path';
+import {readBenchmark,evaluateBenchmark} from './lawwatch-benchmark.js';
+import {aggregate} from './milestone5-metrics.js';
+import {scanLawWatch} from '../src/lawwatch/service.js';
+import {evaluateLawWatch} from '../src/lawwatch/evaluate.js';
+import {lawWatchReport} from '../src/lawwatch/report.js';
+import {SqliteRepository} from '../src/storage/sqlite.js';
+import type {FactSet} from '../src/lawwatch/types.js';
+import {compareBrowserEvidence} from './milestone11-comparison.js';
+const [flag,output]=process.argv.slice(2);if(flag!=='--run'||!output)throw Error('Use --run new-output-directory for ten sequential public firms.');
+await mkdir(dirname(output),{recursive:true});await mkdir(output,{recursive:false});
+const names=['Tozers','Ashtons Legal','Tilly Bailey & Irvine','Rothera Bray','Rachel Sebastian & Co','Shakespeare Martineau','Kitson Boyce','Stephens Scown','Higgs LLP','Russell-Cooke'];
+const benchmark=readBenchmark(),repo=new SqliteRepository(join(output,'watchlayer.db'));
+const rows:any[]=[];
+const save=async(name:string,data:unknown)=>writeFile(join(output,name),JSON.stringify(data,null,2)+'\n');
+await save('manifest.json',{schemaVersion:1,mode:'fresh-paired-static-and-browser-assisted',firms:names,maxPages:10,evidenceBudget:10,staffBudget:2,delayMs:1000,benchmarkSha256:benchmark.sha256,selection:'Static/PDF controls, M10 service-context edge cases and modern script/form-heavy public sites. No login or account routes. Each firm has an independent bounded static run followed by an assisted run; same-capture ablation separates direct rendered support from discovery/temporal differences.'});
+try{for(const name of names){
+  const firm=benchmark.firms.find(f=>f.firm===name)!;const slug=name.replace(/[^a-z0-9]+/gi,'-');console.log(`Fresh M11 ${rows.length+1}/${names.length}: ${name}`);const started=Date.now();
+  const staticRun=await scanLawWatch(firm.url,repo,{maxPages:10,lawwatchEvidenceBudget:10,lawwatchStaffBudget:2,delayMs:1000,recheckBudget:0});
+  const staticMs=Date.now()-started,assistedStarted=Date.now();
+  const run=await scanLawWatch(firm.url,repo,{maxPages:10,lawwatchEvidenceBudget:10,lawwatchStaffBudget:2,delayMs:1000,recheckBudget:0,browserFallback:true});
+  const facts=repo.facts<FactSet>(run.snapshot.scanId,'lawwatch-england-wales')!;
+  const staticFacts={...facts,pages:facts.pages.filter(p=>!p.observation)};
+  const staticSnapshot={...run.snapshot,browser:undefined};
+  const ablated=evaluateLawWatch({current:staticSnapshot,facts:staticFacts});
+  const before=staticRun.lawwatch;
+  const after=run.lawwatch;
+  if([...before.results,...after.results,...after.universalResults].some(r=>r.status==='POTENTIAL_ISSUE'))throw Error('STOP: serious finding requires direct investigation');
+  const comparison=compareBrowserEvidence(run.snapshot.browser!,facts,before,after);
+  const row={firm:name,site:firm.url,capturedAt:run.snapshot.completedAt,scanId:run.snapshot.scanId,totalMs:Date.now()-started,staticMs,assistedMs:Date.now()-assistedStarted,staticPagesScanned:staticRun.snapshot.coverage.pagesScanned,pagesScanned:run.snapshot.coverage.pagesScanned,pagesFailed:run.snapshot.coverage.pagesFailed,pdf:run.snapshot.pdf?.summary,browser:after.browser,comparison,directRenderedAblation:compareBrowserEvidence(run.snapshot.browser!,facts,ablated,after).resultChanges,static:evaluateBenchmark(firm,before),assisted:evaluateBenchmark(firm,after)};rows.push(row);
+  await save(slug+'.static.report.json',before);await save(slug+'.report.json',after);await save(slug+'.comparison.json',row);await writeFile(join(output,slug+'.report.txt'),lawWatchReport(after));
+  const attempts=rows.flatMap(r=>r.comparison.pages),durations=attempts.map(p=>p.durationMs).sort((a,b)=>a-b),rendered=attempts.filter(p=>p.status==='RENDERED');
+  await save('summary.json',{schemaVersion:1,completed:rows.length,rows,static:aggregate(rows.flatMap(r=>r.static.checks)),assisted:aggregate(rows.flatMap(r=>r.assisted.checks)),performance:{attempts:attempts.length,rendered:rendered.length,pagesScanned:rows.reduce((n,r)=>n+r.pagesScanned,0),fallbackFraction:attempts.length/rows.reduce((n,r)=>n+r.pagesScanned,0),averageMs:durations.length?durations.reduce((a,b)=>a+b,0)/durations.length:null,p95Ms:durations.length>=20?durations[Math.ceil(durations.length*.95)-1]:null,totalAddedMs:durations.reduce((a,b)=>a+b,0),failureRate:attempts.length?attempts.filter(p=>p.status==='BROWSER_FAILED').length/attempts.length:null,timeoutRate:attempts.length?attempts.filter(p=>p.status==='BROWSER_TIMED_OUT').length/attempts.length:null,materiallyNewFraction:rendered.length?rendered.filter(p=>p.materiallyNewEvidence).length/rendered.length:null},limitation:'Fresh observed outcomes, not independent live accuracy. Browser-assisted discovery can affect the shared HTTP capture. No consent, forms, tabs or account interactions.'});
+  console.log(`Completed ${name}: ${row.pagesScanned} static pages; ${after.browser!.attempted} browser attempts, ${after.browser!.rendered} rendered.`);
+}}finally{repo.close();}

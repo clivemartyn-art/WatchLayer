@@ -11,10 +11,11 @@ import { staffLink } from './discovery.js';
 import type { Fact,LawContext,LawReport,LawResult,Service } from './types.js';
 import { adjudicatePdfEvidence } from './adjudication/index.js';
 import {attributionAllowsService,factAttribution} from './context/attribution.js';
+import {browserSummary} from '../browser/types.js';
 export function evaluateLawWatch(input:LawContext):LawReport {
   const {current:c}=input;
   let {previous:p,facts,previousFacts,previousInventory}=input;
-  if(facts?.scanId!==c.scanId||!['1.2','1.3','1.4'].includes(facts?.detectorVersion??'')||facts?.detectorVersion==='1.2'&&facts.pages.some(p=>p.sourceType==='PDF'))facts=undefined;
+  if(facts?.scanId!==c.scanId||!['1.2','1.3','1.4','1.5'].includes(facts?.detectorVersion??'')||facts?.detectorVersion==='1.2'&&facts.pages.some(p=>p.sourceType==='PDF'))facts=undefined;
   if(p&&(p.scanId===c.scanId||p.completedAt>c.completedAt||p.canonicalDomain!==c.canonicalDomain||p.schemaVersion!==c.schemaVersion||p.applicationVersion!==c.applicationVersion||p.crawlLimit!==c.crawlLimit)){p=undefined;previousFacts=undefined;previousInventory=undefined;}
   if(previousFacts?.scanId!==p?.scanId||previousFacts?.detectorVersion!==facts?.detectorVersion)previousFacts=undefined;
   if(p?.scanProfile!==c.scanProfile){p=undefined;previousFacts=undefined;previousInventory=undefined;}
@@ -90,7 +91,7 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     if(!p||!previousFacts){add(id,'UNKNOWN','Previous regulatory facts unavailable.',null);continue;}
     if(!old.length){add(id,'NOT_APPLICABLE','No previously detected matching signal.',null);continue;}
     for(const before of old){
-      const now=pages.find(x=>x.url===before.url);const retained=now?.signals[signal]??[];
+      const now=pages.find(x=>x.url===before.url&&!!x.observation===!!before.observation);const retained=now?.signals[signal]??[];
       const previousValues=before.signals[signal].map(f=>f.value??f.snippet);
       const unchanged=previousValues.every(v=>retained.some(f=>(f.value??f.snippet)===v));
       const reliable=now?.reliable&&comparison?.comparisonEligible&&c.pages.some(p=>(p.url===before.url||p.finalUrl===before.url)&&p.observationStatus==='observed'&&p.evidence==='html');
@@ -113,5 +114,5 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     }
     return result;
   });law.results=results;law.findings=projectFindings(results,law.runId,c.completedAt);
-  return {...(c.pdf?{pdf:c.pdf,adjudication:adjudication.report}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.6',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
+  return {...(c.browser?{browser:browserSummary(c.browser)}:{}),...(c.pdf?{pdf:c.pdf,adjudication:adjudication.report}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.7',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
 }

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-26",
+  "startingCommit": "ecd4eeae822ed7b4f39f1b15a9388915c4d3ba2f",
+  "tests": {"passed": 698, "files": 32, "existing": 642, "added": 56},
+  "typecheck": "PASS",
+  "build": "PASS",
+  "auditVulnerabilities": 0,
+  "generatedReportsWordingChecked": 70,
+  "seriousControls": {"cases": 14, "truePositives": 4, "falsePositives": 0, "falseNegatives": 0},
+  "benchmarkWorkbookSha256": "beafdde971fa122e4200a55863f7ff60ccd891640f81457dc1978eea27d7c4aa",
+  "originalM10ReviewSha256": "14909a94d69464d94c377cc74ed3620daf6c52673fad74869452fd8f6146fab7",
+  "limitation": "No independently established live precision. Fresh paired sample had no successful rendered pages; fixture results and historical review metrics remain separate."
+}

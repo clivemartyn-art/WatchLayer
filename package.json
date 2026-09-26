@@ -38,13 +38,17 @@
     "evaluate:milestone10-live": "tsx scripts/evaluate-milestone10-live.ts",
     "evaluate:milestone10-review": "tsx scripts/evaluate-milestone10-review.ts",
     "replay:milestone10-live": "tsx scripts/replay-milestone10-live.ts",
-    "summarize:milestone10-final": "tsx scripts/summarize-milestone10-final.ts"
+    "summarize:milestone10-final": "tsx scripts/summarize-milestone10-final.ts",
+    "test:browser": "vitest run tests/milestone11-browser.test.ts tests/milestone11-integration.test.ts tests/milestone11-safety.test.ts --maxWorkers=1",
+    "evaluate:milestone11-live": "tsx scripts/evaluate-milestone11-live.ts",
+    "validate:browser": "tsx scripts/validate-milestone11.ts"
   },
   "dependencies": {
     "cheerio": "^1.1.2",
     "fast-xml-parser": "^5.2.5",
     "ipaddr.js": "^2.2.0",
     "pdfjs-dist": "6.3.289",
+    "playwright": "1.63.0",
     "robots-parser": "^3.0.1",
     "tldts": "^7.0.14"
   },

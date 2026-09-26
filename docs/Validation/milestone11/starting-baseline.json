@@ -1,0 +1,14 @@
+{
+  "startingCommit": "ecd4eeae822ed7b4f39f1b15a9388915c4d3ba2f",
+  "branch": "main",
+  "originConfirmed": true,
+  "workingTreeInitiallyClean": true,
+  "tests": 642,
+  "auditVulnerabilities": 0,
+  "reviewExact": [26, 57, 80],
+  "firmWide": [15, 26, 32],
+  "falseAssignments": {"before": [11,22], "after": [0,30]},
+  "preserved": {"checks":850,"unknown":564,"exact":[132,437],"acceptable":[444,850],"humanConfirmedPass":[132,233]},
+  "serious": {"truePositives":4,"falsePositives":0,"falseNegatives":0},
+  "limitation":"Human review metrics describe the development sample, not live accuracy."
+}

@@ -20,15 +20,16 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
   try {
     const args=[...arguments_];
     if (!args.length||args.includes('--help')) {
-      console.log(`Usage: npm run ${command} -- <${command==='export-scan'?'scan-id':command==='rules'?'scan-id or URL':'URL'}> [--db path] [--json] [--output file]${command==='scan'?' [--compare] [--rules] [--lawwatch] [--lawwatch-evidence-budget 40] [--lawwatch-staff-budget 5] [--pack file.json] [--no-pdf-extraction] [--no-persist] [--max-pages 100] [--recheck-budget 20]':command==='rules'?' [--pack file.json]':''}`); return;
+      console.log(`Usage: npm run ${command} -- <${command==='export-scan'?'scan-id':command==='rules'?'scan-id or URL':'URL'}> [--db path] [--json] [--output file]${command==='scan'?' [--compare] [--rules] [--lawwatch] [--lawwatch-evidence-budget 40] [--lawwatch-staff-budget 5] [--pack file.json] [--no-pdf-extraction] [--browser-fallback] [--no-persist] [--max-pages 100] [--recheck-budget 20]':command==='rules'?' [--pack file.json]':''}`); return;
     }
     const input=args.shift()!;
     let db=DEFAULT_DATABASE; let json=false; let output: string|undefined; let compare=false; let persist=true; let maxPages=100; let recheckBudget=20;
-    let pdfExtraction=true; let law=false; let rules=false; const packFiles:string[]=[];let lawwatchEvidenceBudget:number|undefined,lawwatchStaffBudget:number|undefined;
+    let browserFallback=false;let pdfExtraction=true; let law=false; let rules=false; const packFiles:string[]=[];let lawwatchEvidenceBudget:number|undefined,lawwatchStaffBudget:number|undefined;
     while(args.length) {
       const flag=args.shift()!;
       const value=()=>{const next=args.shift();if(!next||next.startsWith('--'))throw new Error(`${flag} requires a value`);return next;};
       if(flag==='--json')json=true;
+      else if(command==='scan'&&flag==='--browser-fallback')browserFallback=true;
       else if(command==='scan'&&flag==='--no-pdf-extraction')pdfExtraction=false;
       else if(command==='scan'&&flag==='--lawwatch')law=true;
       else if(command==='scan'&&flag==='--lawwatch-evidence-budget')lawwatchEvidenceBudget=Number(value());
@@ -58,12 +59,12 @@ export async function runCli(command: Command, arguments_: string[]): Promise<vo
     };
     let data: unknown; let text: string;
     if(command==='scan'&&!persist) {
-      const result=await scan(input,{maxPages,pdfExtraction});data=result;text=terminalReport(result);
+      const result=await scan(input,{maxPages,pdfExtraction,browserFallback});data=result;text=terminalReport(result);
       if(!result.summary.pagesScanned)process.exitCode=1;
     } else {
       repository=new SqliteRepository(db);
       if(command==='scan') {
-        const run=law?await scanLawWatch(input,repository,{maxPages,recheckBudget,pdfExtraction,lawwatchEvidenceBudget,lawwatchStaffBudget}):await scanAndPersist(input,repository,{maxPages,recheckBudget,pdfExtraction});
+        const run=law?await scanLawWatch(input,repository,{maxPages,recheckBudget,pdfExtraction,browserFallback,lawwatchEvidenceBudget,lawwatchStaffBudget}):await scanAndPersist(input,repository,{maxPages,recheckBudget,pdfExtraction,browserFallback});
         data={...run.scan,snapshot:{scanId:run.snapshot.scanId,siteId:run.snapshot.siteId,status:run.snapshot.status,comparisonEligible:run.snapshot.comparisonEligible,comparisonWarnings:run.snapshot.comparisonWarnings,coverage:run.snapshot.coverage},...(compare?{comparison:run.comparison}:{})};
         text=terminalReport(run.scan)+`\n\nSaved scan: ${run.snapshot.scanId}\nDatabase: ${db}`;
         if(compare)text+='\n\n'+(run.comparison?changeReport(run.comparison):'No suitable previous scan. This scan has been saved; no changes inferred.');
