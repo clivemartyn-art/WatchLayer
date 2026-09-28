@@ -163,3 +163,9 @@ npm run review:milestone8 -- reports/milestone8/release/review-queue.json human-
 ```
 
 The evaluator uses the preserved M6/M7 corpus offline and creates a new output directory. The separate review tool accepts reviewer-attributed human decisions without changing raw evidence, machine reports or the benchmark workbook. Automated support assessments are explicitly **not independent human adjudication**. The completed replay assessed 1,994 PDF candidates; all 850 selected M7 benchmark outcomes are unchanged. No fresh M8 live validation or independent human review is claimed. No parser, network, database or SaaS redesign was added.
+
+## Regstead operational layer (M14)
+
+WatchLayer remains the evidence engine. The separate Regstead layer supports customer/site onboarding, version-pinned leased scan jobs, mandatory human review, immutable HTML reports, subscription reconciliation, founding reservations and a notification outbox. It does not change crawler or evidence policies.
+
+Use `npm run regstead -- --help`, `npm run test:commercial`, `npm run start:worker` and `npm run start:service`. Read [M14 architecture and limitations](docs/MILESTONE_14_PRODUCTION_COMMERCIAL_ENGINE.md) and the [operations runbook](docs/OPERATIONS_RUNBOOK.md) before configuring providers. The supplied email adapter is a local spool, not inbox delivery. No live deployment or provider resources are provisioned.

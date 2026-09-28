@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "startingSha": "1f45cc3f648bbd8d70e538f25ef29ba397e35dcf",
+  "validatedAt": "2026-09-28T23:20:21.049Z",
+  "tests": 837,
+  "newTests": 71,
+  "browserTests": 104,
+  "typecheck": "PASS",
+  "build": "PASS",
+  "auditVulnerabilities": 0,
+  "preserved": {
+    "firms": 50,
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ],
+    "ruleChanges": 0,
+    "classificationChanges": 0,
+    "pdfChanges": 0,
+    "adjudicationChanges": 0,
+    "inventoryChanges": 0
+  },
+  "m10": {
+    "exact": {
+      "count": 57,
+      "denominator": 80,
+      "rate": 0.7125
+    },
+    "firmWide": {
+      "count": 26,
+      "denominator": 32,
+      "rate": 0.8125
+    },
+    "falseServiceAssignments": {
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+    }
+  },
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "commercialFixture": "PASS: no live providers, real engine fixture + lifecycle tests",
+  "limitations": [
+    "PostgreSQL adapter contract tested; real PostgreSQL server unavailable",
+    "Container build not run: Docker unavailable",
+    "Email provider is a local durable spool; no inbox delivery",
+    "No live Stripe calls, charges, resources or deployments",
+    "M13 live render limitations unchanged; no live precision claim"
+  ],
+  "logs": "reports/milestone14/final",
+  "status": "COMPLETE_LOCAL_FOUNDING_BETA_IMPLEMENTATION",
+  "sourceHashes": {
+    "billing.ts": "c2d3a7b7c83eddb4d9ec18b07a81d53c64fa1b1c001ce8901f8344c51ed6fc07",
+    "cli.ts": "190e23501c1a6c482e86a53385c27096a49997e812b55161522e138de64ca245",
+    "config.ts": "f0174c02d036c9c85a6362f57b316fe0c625e739d6a883eb886b4df551af4e96",
+    "engine.ts": "16277c58b3309f5469d768b80349856a370dbac1097c36a80a54e80c2493cb64",
+    "http.ts": "5be3f545fcaf99d6bd7a9c515ad5c06b2df15401c710d533bb0eb2fe3bed643f",
+    "notifications.ts": "6b95f19af20c2425e6292af2c1cff663b603e0ccd1469d93efa9d17e6d3f35ac",
+    "operations.ts": "e89b743c6e516f0d28d3007efc742af0754928adb77890ba4bfec24e7574d201",
+    "reports.ts": "8586d29dad60eb03bb7486cbf2f7eceb5a6306a86a319c623071810f0c5a8a98",
+    "repository.ts": "7c53977418ed147fcacb1dd70acf2c9a44557ccccea73d4a7a88ece7ecdeddbf",
+    "types.ts": "49572551c66bc8263420af5cfe9bd5569eb23d7f8f799b735e910a77260ae391",
+    "worker.ts": "6ac66e9288fc2311601c360311d5c6f095a369e03ea4c4d372651b6c9d98fd49"
+  },
+  "testLog": "reports/milestone14/final/tests-complete.log"
+}

@@ -1,0 +1,16 @@
+import type {EmailProvider,Notification,Repository} from './types.js';
+import {FileArtifactStore} from './reports.js';
+import {audit,id} from './operations.js';
+export class SpoolEmailProvider implements EmailProvider {
+  private store:FileArtifactStore;
+  constructor(root:string){this.store=new FileArtifactStore(root);}
+  async send(key:string,message:{to:string;subject:string;text:string}){return this.store.put(`${key}.json`,Buffer.from(JSON.stringify(message)));}
+}
+export const templates={ONBOARDING:['Your Regstead scan request','Your scan request has been recorded. A person will review the report before delivery.'],BASELINE_READY:['Your Regstead baseline report is ready','Your reviewed baseline report is ready.'],MONITORING_READY:['Your Regstead monitoring report is ready','Your reviewed monitoring report is ready.'],MATERIAL_REVIEW:['Your reviewed website update','A reviewer has included an item for your attention in your released report.'],PAYMENT_FAILURE:['Regstead subscription payment needs attention','Please check your payment method in the secure Stripe customer portal. Historical reports remain available.'],CANCELLATION:['Regstead monitoring cancellation','Your monitoring subscription has ended. Historical reports are retained under the applicable retention policy.']} as const;
+export class Notifications {
+  constructor(private repository:Repository,private provider:EmailProvider,private now=Date.now){}
+  async once(){const item=await this.repository.transaction(d=>{for(const n of d.notifications)if(n.status==='SENDING'&&(n.leaseUntil??0)<=this.now())n.status=n.attempts<3?'QUEUED':'FAILED';const n=d.notifications.find(n=>n.status==='QUEUED'&&(!n.reportId||d.reports.some(r=>r.id===n.reportId&&r.status==='RELEASED')));if(!n)return undefined;n.status='SENDING';n.token=id();n.leaseUntil=this.now()+120000;n.attempts++;n.attemptedAt=this.now();return n;});if(!item)return false;
+    try{const d=await this.repository.read(),org=d.organisations.find(o=>o.id===item.organisationId)!;const template=templates[item.template];const reference=await this.provider.send(item.id,{to:org.contactEmail,subject:template[0],text:`${template[1]}${item.reportId?` Report reference: ${item.reportId}. Your operator will provide the reviewed artifact through the agreed private delivery channel.`:''}\nRegstead is operated by Foundry Vale Ltd. Public website signals only; no regulatory certification.`});await this.repository.transaction(d=>{const n=d.notifications.find(n=>n.id===item.id)!;if(n.token!==item.token)return;n.status='SENT';n.providerReference=reference;n.token=undefined;n.leaseUntil=undefined;audit(d,'email_sent',this.now(),{organisationId:n.organisationId,reportId:n.reportId});});}catch{await this.repository.transaction(d=>{const n=d.notifications.find(n=>n.id===item.id)!;if(n.token!==item.token)return;n.status='FAILED';n.failureCode='EMAIL_FAILURE';n.token=undefined;n.leaseUntil=undefined;audit(d,'email_failed',this.now(),{organisationId:n.organisationId,code:'EMAIL_FAILURE'});});}return true;
+  }
+  async retry(id:string){await this.repository.transaction(d=>{const n=d.notifications.find(n=>n.id===id);if(!n||n.status!=='FAILED')throw new Error('Not a failed notification');n.status='QUEUED';});}
+}

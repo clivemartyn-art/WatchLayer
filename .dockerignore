@@ -1,0 +1,10 @@
+.git
+node_modules
+.watchlayer
+reports
+.env
+.env.*
+*.db
+*.sqlite
+coverage
+dist
