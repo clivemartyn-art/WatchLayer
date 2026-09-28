@@ -2,7 +2,8 @@ import {chromium,type BrowserServer,type Browser} from 'playwright';
 import {createFetcher,USER_AGENT,type Response} from '../crawler/http.js';
 import {normalize,sameDomain,publicAddress} from '../utils/urls.js';
 import {isIP} from 'node:net';
-import {BROWSER_LIMITS as L,type BrowserRenderer,type RenderOptions} from './types.js';
+import {BROWSER_LIMITS as L,type BrowserRenderer,type RenderOptions,type BrowserResourceEvent} from './types.js';
+import {omittedResource,diagnosticUrl} from './resources.js';
 import {EXTRACT_VISIBLE_DOM} from './dom.js';
 export function browserRequestUrl(raw:string,target:string):string {
   const url=normalize(raw),host=new URL(url).hostname.replace(/^\[|\]$/g,'');
@@ -13,7 +14,7 @@ export function browserRequestUrl(raw:string,target:string):string {
 export function createBrowserRenderer(options:RenderOptions={}):BrowserRenderer {
   return async(seed,target,allowed)=>{
     const began=Date.now();let server:BrowserServer|undefined,browser:Browser|undefined,closed=false,timer:ReturnType<typeof setTimeout>|undefined;
-    const output:{requests:number;bytes:number;blockedRequests:number;scriptErrors:string[]}={requests:0,bytes:0,blockedRequests:0,scriptErrors:[]};
+    const output:{requests:number;bytes:number;blockedRequests:number;scriptErrors:string[];resourceEvents:BrowserResourceEvent[]}={requests:0,bytes:0,blockedRequests:0,scriptErrors:[],resourceEvents:[]};
     const fetch=options.fetcher??createFetcher(target,100,5000);let navigationCount=0,redirects=0,resourceFailure=false,resourceError='';
     const task=async()=>{
       await allowed(browserRequestUrl(seed.finalUrl,target));
@@ -31,13 +32,16 @@ export function createBrowserRenderer(options:RenderOptions={}):BrowserRenderer 
         // Cap requests before queuing work, including a burst issued by one script.
         if(closed||output.requests>=L.requests){resourceFailure=true;closed=true;void page.close().catch(()=>{});return route.abort().catch(()=>{});}
         output.requests++;
+        const request=route.request(),kind=request.resourceType();
+        const event:BrowserResourceEvent={url:diagnosticUrl(request.url()),resourceType:kind,action:'PENDING'};output.resourceEvents.push(event);
         const run=async()=>{
           try{
-            const request=route.request();
             if(closed||output.requests>L.requests)throw Error('REQUEST_LIMIT');
-            const url=browserRequestUrl(request.url(),target),kind=request.resourceType();
+            const omitted=omittedResource(request.url(),kind);
+            if(omitted){event.action='OMITTED';event.reason=omitted;output.blockedRequests++;await route.abort();return;}
+            const url=browserRequestUrl(request.url(),target);
             if(kind==='document'&&/\/(?:login|sign-in|account|dashboard|portal|checkout|wp-admin)(?:\/|$)/i.test(new URL(url).pathname))throw Error('ACCOUNT_ROUTE_EXCLUDED');
-            if(request.method()!=='GET'||['image','media','font','websocket','eventsource','manifest','other'].includes(kind)||request.frame()!==page.mainFrame()||/google-analytics|doubleclick|facebook\.com\/tr|\/analytics\b|\/tracking\b/i.test(url)){output.blockedRequests++;await route.abort();return;}
+            if(request.method()!=='GET'||request.frame()!==page.mainFrame()||/google-analytics|doubleclick|facebook\.com\/tr|\/analytics\b|\/tracking\b/i.test(url)){event.action='OMITTED';event.reason='METHOD_FRAME_OR_TRACKING_POLICY';output.blockedRequests++;await route.abort();return;}
             if(request.isNavigationRequest()&&++navigationCount>L.redirects+1)throw Error('REDIRECT_LIMIT');
             await allowed(url);
             let response:Response;
@@ -53,14 +57,19 @@ export function createBrowserRenderer(options:RenderOptions={}):BrowserRenderer 
             if(response.status>=400){resourceFailure=true;resourceError||='BROWSER_RESOURCE_HTTP_'+response.status;}
             const body=response.bytes?Buffer.from(response.bytes):Buffer.from(response.body);
             if(body.length>L.resourceBytes)throw Error('RESOURCE_BYTES_LIMIT');
+            event.action='FETCHED';event.status=response.status;event.bytes=body.length;
             // No response cookies, downloads, workers or framed content are enabled.
             await route.fulfill({status:response.status,body,contentType:response.contentType,headers:{'content-security-policy':"worker-src 'none'; object-src 'none'; frame-src 'none'",'x-content-type-options':'nosniff'}});
-          }catch(error){resourceFailure=true;resourceError||=error instanceof Error?error.message:'BROWSER_RESOURCE_FAILED';output.blockedRequests++;await route.abort().catch(()=>{});}
+          }catch(error){resourceFailure=true;const message=error instanceof Error?error.message:'BROWSER_RESOURCE_FAILED';resourceError||=message;event.action='FAILED';event.reason=message.split('\n')[0].replace(/https?:\/\/\S+/g,diagnosticUrl).slice(0,240);output.blockedRequests++;await route.abort().catch(()=>{});}
         };
         chain=chain.then(run,run);return chain;
       });
-      await page.goto(seed.finalUrl,{waitUntil:'domcontentloaded',timeout:L.loadMs});
+      // Bound the document response separately. Serialized same-site scripts may
+      // use the remaining attempt budget; the outer deadline is unchanged.
+      await page.goto(seed.finalUrl,{waitUntil:'commit',timeout:L.loadMs});
+      await page.waitForLoadState('domcontentloaded',{timeout:Math.max(1,L.totalMs-(Date.now()-began)-L.settleMs)});
       await page.waitForTimeout(L.settleMs);
+      await chain;
       const finalUrl=browserRequestUrl(page.url(),target);await allowed(finalUrl);
       if(resourceFailure||output.scriptErrors.length)throw Error(resourceError||'BROWSER_INCOMPLETE_EXECUTION');
       const representation=await page.evaluate<{html:string;duplicates:number}>(EXTRACT_VISIBLE_DOM+'('+JSON.stringify(L)+')');

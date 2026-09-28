@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "status": "INCOMPLETE_AWAITING_INDEPENDENT_REVIEW",
+  "recordedAt": "2026-09-27T12:27:14.5632936+01:00",
+  "startingCommit": "ea7efac581022ec0c803d711706243c6e5e4466a",
+  "productionPolicy": "1.2",
+  "newThirdPartyAccess": false,
+  "baselineSourceHash": "35c3c82ecff85fe9aa438517fbe83b20c2490ff0a5ce2acf3e0262fafb71512c",
+  "postFixSourceHash": "6106ef27ce55b780b8d3e3195f746dba80b253bf3c33bbdc92a241e14a5fd8d9",
+  "targetHash": "8f56c5fbcd1ac1726d7fa55ee1c7f9475c39cf956b724dc3f4218ca30c0e55f7",
+  "continuationBaseline": {
+    "confirmedTargets": 10,
+    "triggers": 10,
+    "attempts": 10,
+    "triggerRecall": 1,
+    "successfulRenders": 3,
+    "renderSuccess": 0.3,
+    "recovered": 1,
+    "evidenceRecovery": 0.3333333333333333,
+    "materiallyNew": 2,
+    "ruleChanges": 0,
+    "unknownToSupported": 0,
+    "supportedToUnknown": 0,
+    "classificationChanges": 30,
+    "serviceAttributionChanges": 0,
+    "medianMs": 5929.5,
+    "p95Ms": null,
+    "timeoutRate": 0.1,
+    "humanReviewed": 0,
+    "independentlyValidEvidence": null
+  },
+  "continuationPostFix": {
+    "confirmedTargets": 10,
+    "triggers": 10,
+    "attempts": 10,
+    "triggerRecall": 1,
+    "successfulRenders": 3,
+    "renderSuccess": 0.3,
+    "recovered": 1,
+    "evidenceRecovery": 0.3333333333333333,
+    "materiallyNew": 3,
+    "ruleChanges": 0,
+    "unknownToSupported": 0,
+    "supportedToUnknown": 0,
+    "classificationChanges": 30,
+    "serviceAttributionChanges": 0,
+    "medianMs": 6529,
+    "p95Ms": null,
+    "timeoutRate": 0,
+    "humanReviewed": 0,
+    "independentlyValidEvidence": null
+  },
+  "baselinePrimaryFailures": {
+    "DOM_READINESS_FAILURE": 1,
+    "THIRD_PARTY_LIBRARY_REQUIRED": 4,
+    "THIRD_PARTY_API_REQUIRED": 2
+  },
+  "postFixPrimaryFailures": {
+    "THIRD_PARTY_LIBRARY_REQUIRED": 4,
+    "THIRD_PARTY_API_REQUIRED": 3
+  },
+  "ordinaryControls": {
+    "staticMs": 408735.0,
+    "classificationChanges": 0,
+    "ruleChanges": 0,
+    "assistedMs": 386720.0,
+    "assistedPages": 197.0,
+    "directRenderedChanges": 0,
+    "attempts": 0.0,
+    "staticPages": 197.0,
+    "firms": 10
+  },
+  "controlRecoverySources": [
+    "reports/milestone12/continuation-ordinary-controls",
+    "reports/milestone12/continuation-control-recovery",
+    "reports/milestone12/continuation-control-rothera-recovery"
+  ],
+  "preservedBenchmark": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "preservedRuleChanges": 0,
+  "controlledSeriousFindings": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "humanReview": {
+    "schemaVersion": 1,
+    "items": 3,
+    "reviewed": 0,
+    "pending": 3,
+    "reviewComplete": false,
+    "independentlyValidEvidence": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "justifiedRuleSupport": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "wrongServiceCount": 0,
+    "labels": {
+      "VALID_RENDERED_EVIDENCE": 0,
+      "PARTIAL_OR_AMBIGUOUS": 0,
+      "NOT_RELEVANT": 0,
+      "WRONG_SERVICE": 0,
+      "INSUFFICIENT_CONTEXT": 0
+    },
+    "limitation": "Selected sample review only. No population-level or live serious-finding precision estimate. Empty queues are not completed reviews."
+  },
+  "wrongServiceRate": null,
+  "reviewAgreement": null,
+  "tests": 737,
+  "newContinuationTests": 11,
+  "newM12Tests": 39,
+  "browserTests": 76,
+  "typecheck": "PASS",
+  "build": "PASS",
+  "auditVulnerabilities": 0,
+  "protectedOriginalJsonArtifactsUnchanged": 8,
+  "limitations": [
+    "Original ten-page failure cohort remains unchanged.",
+    "Continuation uses three non-E&W organisations; not representative regulatory accuracy.",
+    "Expected content recovered on one page; three review candidates are not three independent pages.",
+    "Independent review pending; no live precision estimate.",
+    "Interrupted test/control runs preserved; recovery runs separately identified."
+  ]
+}

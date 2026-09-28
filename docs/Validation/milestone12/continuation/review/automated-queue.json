@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "source": "reports/milestone12/continuation-post-fix",
+  "items": [
+    {
+      "id": "c753c0ce597ed42b6e5b063ad854f62681966132010d7206b2348722addbb715",
+      "organisation": "AlRasheed & AlMusained Law Firm",
+      "url": "https://www.rmlfco.com/en",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "4b043bdff8adcad12af23eeda098488688aa536a4842d592c452e6cf2a148aee",
+      "evidenceText": "Legal Partners for a Secure Future",
+      "context": "Home About Team Services Awards & Honours Contact us Your Trusted Legal Partners for a Secure Future Headquartered in the Eastern Region, we proudly serve clients throughout all regions of the Kingdom. Request a Consultation We aim to elevate the legal profession in Saudi society by educating and empowering individuals and businesses to protect their rights and operate with legal confidence.",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "MATCH_NOT_PRESENT_IN_PAIRED_STATIC_FACTS",
+      "renderedEvidenceState": "CANDIDATE_EXTRACTED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "jurisdiction": "Saudi Arabia"
+    },
+    {
+      "id": "12d9d1fbf3a47f379f7963ba43587faf33924739a78a7493213d4f1334c16637",
+      "organisation": "AlRasheed & AlMusained Law Firm",
+      "url": "https://www.rmlfco.com/en",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "4b043bdff8adcad12af23eeda098488688aa536a4842d592c452e6cf2a148aee",
+      "evidenceText": "https://www.rmlfco.com/en/team",
+      "context": "Visible link label: Team; surrounding text: HomeAboutTeamServicesAwards & HonoursContact us",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "MATCH_NOT_PRESENT_IN_PAIRED_STATIC_FACTS",
+      "renderedEvidenceState": "CANDIDATE_EXTRACTED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "jurisdiction": "Saudi Arabia"
+    },
+    {
+      "id": "685dd604818a11770445c2c103bd0a22f78f365dcdad078f2471e95f34436d11",
+      "organisation": "AlRasheed & AlMusained Law Firm",
+      "url": "https://www.rmlfco.com/en",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "4b043bdff8adcad12af23eeda098488688aa536a4842d592c452e6cf2a148aee",
+      "evidenceText": "https://www.rmlfco.com/en/services",
+      "context": "Visible link label: Services; surrounding text: HomeAboutTeamServicesAwards & HonoursContact us",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "MATCH_NOT_PRESENT_IN_PAIRED_STATIC_FACTS",
+      "renderedEvidenceState": "CANDIDATE_EXTRACTED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "jurisdiction": "Saudi Arabia"
+    }
+  ],
+  "queueSha256": "33645ad5e63dcb7dc9efc421f08b87c1241fb75fb7b2255c2bc62d8bc1e00ae4",
+  "status": "AWAITING_INDEPENDENT_REVIEW"
+}

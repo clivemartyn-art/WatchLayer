@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto';
+import {BROWSER_POLICY_VERSION} from '../browser/types.js';
 import { scan, type ScanOptions } from '../crawler/scan.js';
 import { createFetcher, type Fetcher, type Response } from '../crawler/http.js';
 import type { CrawlObservation } from '../crawler/observations.js';
@@ -23,7 +24,7 @@ export async function scanAndPersist(input: string, repository: SnapshotReposito
   const now = options.now ?? (() => new Date()); const startedAt = now().toISOString();
   const scanId = `scan_${randomUUID()}`;
   const history = repository.history(canonicalDomain);
-  const scanProfile=options.browserFallback?(options.crawlPolicy?.profile??'static-v1')+'|browser-v1':options.crawlPolicy?.profile;
+  const scanProfile=options.browserFallback?(options.crawlPolicy?.profile??'static-v1')+'|browser-v'+BROWSER_POLICY_VERSION:options.crawlPolicy?.profile;
   const previous = selectBaseline(history,crawlLimit,scanProfile);
   const site = repository.findSite(canonicalDomain);
   const transport = options.fetcher ?? createFetcher(start,options.delayMs,options.timeoutMs);

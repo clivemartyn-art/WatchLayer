@@ -4,10 +4,10 @@ import {extractPage} from '../extractors/page.js';
 import {visibleText} from '../extractors/text.js';
 import type {Response} from '../crawler/http.js';
 import {browserEligibility} from './eligibility.js';
-import {BROWSER_LIMITS,type BrowserReport,type BrowserRenderer,type BrowserObservation} from './types.js';
+import {BROWSER_LIMITS,BROWSER_POLICY_VERSION,type BrowserReport,type BrowserRenderer,type BrowserObservation} from './types.js';
 export const browserHash=(text:string)=>createHash('sha256').update(text).digest('hex');
 export function browserAnalysis(target:string,renderer?:BrowserRenderer){
-  const report:BrowserReport={schemaVersion:1,policyVersion:'1.0',limits:BROWSER_LIMITS,observations:[]};let attempts=0;
+  const report:BrowserReport={schemaVersion:1,policyVersion:BROWSER_POLICY_VERSION,limits:BROWSER_LIMITS,observations:[]};let attempts=0;
   return {report,async analyze(response:Response,depth:number,allowed:(url:string)=>Promise<void>){
     const decision=browserEligibility(response),staticPage=extractPage(response);
     const observation:BrowserObservation={requestedUrl:response.requestedUrl,staticUrl:response.finalUrl,staticStatus:response.status,staticHash:browserHash(response.body),reason:decision.reason,status:'BROWSER_NOT_REQUIRED',depth,durationMs:0,scriptErrors:[],requests:0,bytes:0,blockedRequests:0,staticEvidenceAvailable:true,
@@ -21,9 +21,10 @@ export function browserAnalysis(target:string,renderer?:BrowserRenderer){
     catch(error){observation.durationMs=Date.now()-began;observation.status='BROWSER_FAILED';observation.error=error instanceof Error?error.message.slice(0,240):'Browser failed';observation.comparison.outcome='FAILED';return;}
     Object.assign(observation,result);observation.durationMs=Date.now()-began;
     if(result.status!=='RENDERED'||!result.representation||!result.finalUrl){observation.comparison.outcome='FAILED';return;}
-    observation.domHash=browserHash(result.representation);
     const rendered:Response={requestedUrl:response.requestedUrl,finalUrl:result.finalUrl,status:200,contentType:'text/html',body:result.representation,redirects:[],responseTimeMs:result.durationMs};
     const page=extractPage(rendered),before=new Set(staticPage.links.map(l=>l.url)),after=new Set(page.links.map(l=>l.url));
+    if(!page.text.trim()&&!page.links.length){observation.status='BROWSER_FAILED';observation.error='EMPTY_VISIBLE_DOM';observation.comparison.outcome='FAILED';return;}
+    observation.domHash=browserHash(result.representation);
     observation.forms=page.forms;
     const lines=(html:string)=>visibleText(html,true).split('\n').filter(t=>t.trim().length>10);
     const oldLines=new Set(lines(response.body)),newLines=lines(rendered.body),newSet=new Set(newLines);

@@ -1,0 +1,12 @@
+{
+  "schemaVersion":1,
+  "startingCommit":"ea7efac581022ec0c803d711706243c6e5e4466a",
+  "selectionDate":"2026-09-26",
+  "reason":"Three initial direct service routes returned HTTP 404 despite content in the separate browser; they are excluded rather than bypassed. These three replacement candidates were independently inspected before any baseline execution or production change.",
+  "humanReviewed":false,
+  "targets":[
+    {"id":"ZA04","organisation":"Zahoot","url":"https://app.zahoot.ai/contact","category":"HTML_TEXT","expectedText":"support@zahoot.ai","visibleContext":"The public contact page displays a support email, Birmingham address and working hours. Its message form was not used.","jurisdiction":"UK directory, not a law firm"},
+    {"id":"PA04","organisation":"Paraclearth","url":"https://paraclearth.com/service","category":"SERVICE_CONTEXT","expectedText":"Transactional, Investment & Corporate Advisory","expectedLink":"https://paraclearth.com/servicedetails?id=4","visibleContext":"After initial loading, the public service list describes transactional support, dispute resolution, international law and intellectual property. These are commercial services, not automatic consumer-service applicability.","jurisdiction":"Nigeria"},
+    {"id":"PA05","organisation":"Paraclearth","url":"https://paraclearth.com/teamdetails?id=2","category":"SERVICE_CONTEXT","expectedText":"Prof. Boniface Ewulum","visibleContext":"The public staff biography identifies a partner and his Nigerian legal practice, corporate advisory and academic qualifications after initial loading.","jurisdiction":"Nigeria"}
+  ]
+}

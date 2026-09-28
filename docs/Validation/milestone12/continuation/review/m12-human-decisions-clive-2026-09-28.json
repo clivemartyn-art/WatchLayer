@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "queueSha256": "33645ad5e63dcb7dc9efc421f08b87c1241fb75fb7b2255c2bc62d8bc1e00ae4",
+  "decisions": [
+    {
+      "itemId": "c753c0ce597ed42b6e5b063ad854f62681966132010d7206b2348722addbb715",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Provisional suggestion: meaningful firm-level public homepage text was recovered from rendered DOM. No specific service or regulatory rule is proposed, so service context and rule support are not applicable."
+    },
+    {
+      "itemId": "12d9d1fbf3a47f379f7963ba43587faf33924739a78a7493213d4f1334c16637",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Provisional suggestion: the rendered DOM exposed a visible Team navigation link that is useful public navigation evidence. The link label does not itself establish the destination's contents, and no service or rule is proposed."
+    },
+    {
+      "itemId": "685dd604818a11770445c2c103bd0a22f78f365dcdad078f2471e95f34436d11",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Provisional suggestion: the rendered DOM exposed a visible Services navigation link that is useful public navigation evidence. It does not by itself establish any specific service offering or rule support."
+    }
+  ]
+}

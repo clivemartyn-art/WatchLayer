@@ -151,6 +151,8 @@ npm run validate:browser -- reports/milestone11/new-fixtures
 
 At most five pages per scan render, with a 20-second execution deadline per attempt and existing public-network/domain safeguards. The preserved 50-firm benchmark is unchanged. The ten-firm fresh sample did not demonstrate successful live rendered evidence; controlled Chromium fixtures establish the implemented behavior, not live precision. See the milestone report for limits, failures and validation results.
 
+[Milestone 12 validation](docs/MILESTONE_12_HELD_OUT_BROWSER_VALIDATION.md) is complete following Clive’s confirmed review on 2026-09-28. The original ten failed targets remain preserved. A separate continuation recovered expected public text and links on one page within existing network boundaries; all three review items were accepted. These sample judgments do not establish live precision. M13 has not started.
+
 ## Milestone 8 evidence adjudication
 
 [Milestone 8](docs/MILESTONE_8_EVIDENCE_ADJUDICATION.md) adds **LawWatch England & Wales v1.4** with a separate deterministic PDF support assessment. M7 extraction facts stay at version 1.3. Raw candidates remain intact; only contextually supported PDF facts can contribute to rule results. Optional report data records SUPPORTED, PARTIALLY_SUPPORTED, AMBIGUOUS, NOT_RELEVANT and INSUFFICIENT_CONTEXT, including page provenance and up to 1,200 characters of surrounding text. Mixed-service, irrelevant, unscoped boilerplate and uncertain source relationships remain conservative.

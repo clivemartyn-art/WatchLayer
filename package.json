@@ -39,7 +39,10 @@
     "evaluate:milestone10-review": "tsx scripts/evaluate-milestone10-review.ts",
     "replay:milestone10-live": "tsx scripts/replay-milestone10-live.ts",
     "summarize:milestone10-final": "tsx scripts/summarize-milestone10-final.ts",
-    "test:browser": "vitest run tests/milestone11-browser.test.ts tests/milestone11-integration.test.ts tests/milestone11-safety.test.ts --maxWorkers=1",
+    "test:browser": "vitest run tests/milestone11-browser.test.ts tests/milestone11-integration.test.ts tests/milestone11-safety.test.ts tests/milestone12-browser.test.ts --maxWorkers=1",
+    "evaluate:milestone12-heldout": "tsx scripts/evaluate-milestone12-heldout.ts",
+    "prepare:milestone12-review": "tsx scripts/prepare-milestone12-review.ts",
+    "compare:milestone12-review": "tsx scripts/compare-milestone12-review.ts",
     "evaluate:milestone11-live": "tsx scripts/evaluate-milestone11-live.ts",
     "validate:browser": "tsx scripts/validate-milestone11.ts"
   },
