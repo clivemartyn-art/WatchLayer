@@ -1,0 +1,585 @@
+{
+  "schemaVersion": 1,
+  "status": "INCOMPLETE_COVERAGE_NOT_DEMONSTRATED",
+  "generatedAt": "2026-09-28T22:23:29.239Z",
+  "startingSha": "1ce044f0a55f39c88fc764967f92fc2fa6a11bad",
+  "sourceSha256": "21b5ca67da09903a30e753b4c019ce847f40190efff5e71b0e4cc017918e7f13",
+  "targetSha256": "f1268377a0995c127b0e6f3c36c207104d18ddd048748195d5653c980e60a243",
+  "productionChanges": 0,
+  "cohort": {
+    "pages": 16,
+    "organisations": 7,
+    "gapClassification": {
+      "CONFIRMED_RENDER_GAP": 7,
+      "STATIC_SUFFICIENT": 9
+    },
+    "confirmedGapOrganisations": 2,
+    "staticPages": 16,
+    "assistedHttpPages": 16,
+    "staticFailedPages": 0,
+    "assistedFailedPages": 0
+  },
+  "rendering": {
+    "attempts": 7,
+    "completed": 0,
+    "recovery": {
+      "FAILED_RENDER": 7
+    },
+    "reasons": {
+      "APP_SHELL_DETECTED": 3,
+      "RENDERED_LINK_DISCOVERY_REQUIRED": 4
+    },
+    "failures": {
+      "BROWSER_NETWORK_POLICY": 3,
+      "Excluded by robots.txt": 4
+    },
+    "timeouts": 0,
+    "unexpectedStaticControlAttempts": 0,
+    "newEvidenceCandidates": 0,
+    "newRelevantLinks": 0,
+    "renderedPdfLinks": 0,
+    "acceptedOrganisations": 0,
+    "requests": 59,
+    "bytes": 3399474,
+    "blockedRequests": 46,
+    "totalMs": 24542,
+    "meanMs": 3506,
+    "p95Ms": null,
+    "staticRunMs": 101779,
+    "assistedRunMs": 125097
+  },
+  "changes": {
+    "pairedRuleResults": 0,
+    "directRenderedRuleResults": 0,
+    "serviceClassifications": 0,
+    "unknownToSupported": 0,
+    "supportedToUnknown": 0,
+    "seriousFindings": 0
+  },
+  "pageResults": [
+    {
+      "id": "EW01",
+      "organisation": "TMC Solicitors (Immigration Solicitors 4Me)",
+      "url": "https://immigrationsolicitors4me.co.uk/Cost",
+      "label": "CONFIRMED_RENDER_GAP",
+      "status": "BROWSER_FAILED",
+      "reason": "APP_SHELL_DETECTED",
+      "error": "BROWSER_NETWORK_POLICY",
+      "recovery": "FAILED_RENDER",
+      "durationMs": 4860,
+      "requests": 13,
+      "bytes": 1133158,
+      "blockedRequests": 10,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW02",
+      "organisation": "TMC Solicitors (Immigration Solicitors 4Me)",
+      "url": "https://immigrationsolicitors4me.co.uk/Complaints",
+      "label": "CONFIRMED_RENDER_GAP",
+      "status": "BROWSER_FAILED",
+      "reason": "APP_SHELL_DETECTED",
+      "error": "BROWSER_NETWORK_POLICY",
+      "recovery": "FAILED_RENDER",
+      "durationMs": 3194,
+      "requests": 13,
+      "bytes": 1133158,
+      "blockedRequests": 10,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW03",
+      "organisation": "Michael Stevens Solicitors",
+      "url": "https://www.michaelstevenssolicitors.com/complaints-procedure/",
+      "label": "CONFIRMED_RENDER_GAP",
+      "status": "BROWSER_FAILED",
+      "reason": "RENDERED_LINK_DISCOVERY_REQUIRED",
+      "error": "Excluded by robots.txt",
+      "recovery": "FAILED_RENDER",
+      "durationMs": 6186,
+      "requests": 5,
+      "bytes": 0,
+      "blockedRequests": 4,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW04",
+      "organisation": "Michael Stevens Solicitors",
+      "url": "https://www.michaelstevenssolicitors.com/services/employment-law/",
+      "label": "CONFIRMED_RENDER_GAP",
+      "status": "BROWSER_FAILED",
+      "reason": "RENDERED_LINK_DISCOVERY_REQUIRED",
+      "error": "Excluded by robots.txt",
+      "recovery": "FAILED_RENDER",
+      "durationMs": 2549,
+      "requests": 5,
+      "bytes": 0,
+      "blockedRequests": 4,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW05",
+      "organisation": "Michael Stevens Solicitors",
+      "url": "https://www.michaelstevenssolicitors.com/about/",
+      "label": "CONFIRMED_RENDER_GAP",
+      "status": "BROWSER_FAILED",
+      "reason": "RENDERED_LINK_DISCOVERY_REQUIRED",
+      "error": "Excluded by robots.txt",
+      "recovery": "FAILED_RENDER",
+      "durationMs": 2229,
+      "requests": 5,
+      "bytes": 0,
+      "blockedRequests": 4,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW06",
+      "organisation": "Monaco Solicitors",
+      "url": "https://www.monacosolicitors.co.uk/fees",
+      "label": "STATIC_SUFFICIENT",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "error": null,
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW07",
+      "organisation": "Monaco Solicitors",
+      "url": "https://www.monacosolicitors.co.uk/complaints",
+      "label": "STATIC_SUFFICIENT",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "error": null,
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW08",
+      "organisation": "Maurice Andrews Solicitors",
+      "url": "https://www.mauriceandrewssolicitors.co.uk/complaints-policy",
+      "label": "STATIC_SUFFICIENT",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "error": null,
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW09",
+      "organisation": "Heppenstalls Solicitors",
+      "url": "https://heppenstalls.co.uk/fees/",
+      "label": "STATIC_SUFFICIENT",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "error": null,
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW10",
+      "organisation": "Heppenstalls Solicitors",
+      "url": "https://heppenstalls.co.uk/complaints-handling-procedure/",
+      "label": "STATIC_SUFFICIENT",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "error": null,
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW11",
+      "organisation": "T.G. Collins Solicitors",
+      "url": "https://tgcollins-solicitors.co.uk/price-list/",
+      "label": "STATIC_SUFFICIENT",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "error": null,
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW12",
+      "organisation": "T.G. Collins Solicitors",
+      "url": "https://tgcollins-solicitors.co.uk/our-people/conveyancing/",
+      "label": "STATIC_SUFFICIENT",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "error": null,
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW13",
+      "organisation": "Derrick Bridges & Co",
+      "url": "https://www.derrickbridges.co.uk/23/our-people",
+      "label": "STATIC_SUFFICIENT",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "error": null,
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW14",
+      "organisation": "Maurice Andrews Solicitors",
+      "url": "https://www.mauriceandrewssolicitors.co.uk/ourTeam",
+      "label": "STATIC_SUFFICIENT",
+      "status": "BROWSER_NOT_REQUIRED",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "error": null,
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW15",
+      "organisation": "Michael Stevens Solicitors",
+      "url": "https://www.michaelstevenssolicitors.com/",
+      "label": "CONFIRMED_RENDER_GAP",
+      "status": "BROWSER_FAILED",
+      "reason": "RENDERED_LINK_DISCOVERY_REQUIRED",
+      "error": "Excluded by robots.txt",
+      "recovery": "FAILED_RENDER",
+      "durationMs": 2380,
+      "requests": 5,
+      "bytes": 0,
+      "blockedRequests": 4,
+      "ruleChanges": [],
+      "serviceChanges": []
+    },
+    {
+      "id": "EW16",
+      "organisation": "TMC Solicitors (Immigration Solicitors 4Me)",
+      "url": "https://immigrationsolicitors4me.co.uk/",
+      "label": "CONFIRMED_RENDER_GAP",
+      "status": "BROWSER_FAILED",
+      "reason": "APP_SHELL_DETECTED",
+      "error": "BROWSER_NETWORK_POLICY",
+      "recovery": "FAILED_RENDER",
+      "durationMs": 3144,
+      "requests": 13,
+      "bytes": 1133158,
+      "blockedRequests": 10,
+      "ruleChanges": [],
+      "serviceChanges": []
+    }
+  ],
+  "failureSafety": [
+    {
+      "id": "EW01",
+      "allContentRulesUnknown": true,
+      "noDetectedAbsence": true,
+      "positiveLowConfidenceClassifications": []
+    },
+    {
+      "id": "EW02",
+      "allContentRulesUnknown": true,
+      "noDetectedAbsence": true,
+      "positiveLowConfidenceClassifications": []
+    },
+    {
+      "id": "EW03",
+      "allContentRulesUnknown": true,
+      "noDetectedAbsence": true,
+      "positiveLowConfidenceClassifications": []
+    },
+    {
+      "id": "EW04",
+      "allContentRulesUnknown": true,
+      "noDetectedAbsence": true,
+      "positiveLowConfidenceClassifications": []
+    },
+    {
+      "id": "EW05",
+      "allContentRulesUnknown": true,
+      "noDetectedAbsence": true,
+      "positiveLowConfidenceClassifications": []
+    },
+    {
+      "id": "EW15",
+      "allContentRulesUnknown": true,
+      "noDetectedAbsence": true,
+      "positiveLowConfidenceClassifications": []
+    },
+    {
+      "id": "EW16",
+      "allContentRulesUnknown": true,
+      "noDetectedAbsence": true,
+      "positiveLowConfidenceClassifications": []
+    }
+  ],
+  "coverage": [
+    {
+      "evidenceType": "pricing text",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW09"
+      ],
+      "note": "Heppenstalls public fee table; independently visible TMC prices were not retained by WatchLayer."
+    },
+    {
+      "evidenceType": "pricing basis",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW06",
+        "EW09"
+      ],
+      "note": "Static no-win-no-fee/hourly wording; no rendered recovery."
+    },
+    {
+      "evidenceType": "pricing process/stages",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW06"
+      ],
+      "note": "Static negotiation/review workflow wording; evidence presence is not legal adequacy."
+    },
+    {
+      "evidenceType": "timescale",
+      "state": "NOT_OBSERVED",
+      "targets": [],
+      "note": "No retained rendered pricing-duration evidence. Static complaints response times are not service-completion timescales."
+    },
+    {
+      "evidenceType": "complaints text",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW07",
+        "EW08",
+        "EW10"
+      ],
+      "note": "Independent complaints expectations on EW02/EW03 were blocked; static controls retained."
+    },
+    {
+      "evidenceType": "regulatory identifier",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW06",
+        "EW07"
+      ],
+      "note": "Monaco SRA identifier is present statically; no rendered identifier recovered."
+    },
+    {
+      "evidenceType": "staff/person evidence",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW12",
+        "EW13",
+        "EW14"
+      ],
+      "note": "Names and roles already available in static HTML."
+    },
+    {
+      "evidenceType": "service association",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW12",
+        "EW13"
+      ],
+      "note": "Local staff/service descriptions observed statically; no rendered attribution validated."
+    },
+    {
+      "evidenceType": "contact details",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW07",
+        "EW08",
+        "EW10",
+        "EW13"
+      ],
+      "note": "Static public contact information; no retained rendered contacts."
+    },
+    {
+      "evidenceType": "internal link discovery",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW06",
+        "EW07",
+        "EW12"
+      ],
+      "note": "Only static links retained; all frozen dynamic link expectations remain unconfirmed by WatchLayer."
+    },
+    {
+      "evidenceType": "document/PDF link discovery",
+      "state": "STATIC_ONLY",
+      "targets": [
+        "EW09",
+        "EW10"
+      ],
+      "note": "Heppenstalls Client Interest Policy link exists in static HTML, not new rendered discovery; not a pricing or complaints PDF."
+    }
+  ],
+  "review": {
+    "schemaVersion": 1,
+    "items": 0,
+    "reviewed": 0,
+    "pending": 0,
+    "reviewComplete": false,
+    "independentlyValidEvidence": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "justifiedRuleSupport": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "wrongServiceCount": 0,
+    "labels": {
+      "VALID_RENDERED_EVIDENCE": 0,
+      "PARTIAL_OR_AMBIGUOUS": 0,
+      "NOT_RELEVANT": 0,
+      "WRONG_SERVICE": 0,
+      "INSUFFICIENT_CONTEXT": 0
+    },
+    "limitation": "Selected sample review only. No population-level or live serious-finding precision estimate. Empty queues are not completed reviews.",
+    "organisationsRepresented": 0,
+    "acceptedOrganisations": 0,
+    "correctServiceCount": 0,
+    "firmWideCount": 0
+  },
+  "preserved": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ],
+    "changes": {
+      "reports": 50,
+      "classifications": 0,
+      "ruleResults": 0,
+      "pdf": 0,
+      "adjudication": 0,
+      "inventory": 0
+    }
+  },
+  "m10": {
+    "exact": {
+      "count": 57,
+      "denominator": 80,
+      "rate": 0.7125
+    },
+    "firmWide": {
+      "count": 26,
+      "denominator": 32,
+      "rate": 0.8125
+    },
+    "falseServiceAssignments": {
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+    }
+  },
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "limitations": [
+    "No WatchLayer rendered representation was retained from this cohort; independent browser visibility is not successful recovery.",
+    "Empty review queue is not completed human review; original 18 Scottish review judgments remain separate.",
+    "No population or live precision estimate. No new production fix or dependency exception justified by these failures.",
+    "Fresh ordinary controls recorded separately when complete."
+  ]
+}

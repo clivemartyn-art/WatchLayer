@@ -1,0 +1,879 @@
+{
+  "schemaVersion": 1,
+  "startingCommit": "1ce044f0a55f39c88fc764967f92fc2fa6a11bad",
+  "selectionDate": "2026-09-28",
+  "method": "New pages selected from public search and observed navigation before WatchLayer execution or production tuning. Browser confirmations are tool observations, not human adjudication.",
+  "targets": [
+    {
+      "id": "ML01",
+      "organisation": "Mathie Lennox & Co",
+      "jurisdiction": "Scotland",
+      "url": "https://mathielennox.co.uk/team",
+      "evidenceType": "staff",
+      "expectedTexts": [
+        "Lisa Quinn",
+        "Residential Conveyancing Paralegal"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "residential_conveyancing",
+      "test": "service-attribution",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.305Z",
+        "visibility": "VISIBLE",
+        "notes": "Multiple staff and services; assess each local statement, not the whole team."
+      },
+      "label": "CONFIRMED_RENDER_GAP",
+      "confirmedAt": "2026-09-28T20:52:40.419Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://mathielennox.co.uk/team",
+        "textCharacters": 0,
+        "htmlBytes": 8216,
+        "sha256": "8c2d903f50b2dc1ba2911d054e2cacfac50cd7784dbba60cb342207550fd02fa",
+        "expectedTextPresent": [
+          false,
+          false
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\ML01.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "ML02",
+      "organisation": "Mathie Lennox & Co",
+      "jurisdiction": "Scotland",
+      "url": "https://mathielennox.co.uk/services/conveyancing",
+      "evidenceType": "pricing",
+      "expectedTexts": [
+        "We carry out residential conveyancing transactions on a fixed fee basis",
+        "Purchase £600"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "residential_conveyancing",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Mixed residential/commercial price table and remortgage references; Scottish evidence is generic observability only."
+      },
+      "label": "CONFIRMED_RENDER_GAP",
+      "confirmedAt": "2026-09-28T20:52:41.729Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://mathielennox.co.uk/services/conveyancing",
+        "textCharacters": 0,
+        "htmlBytes": 8216,
+        "sha256": "8c2d903f50b2dc1ba2911d054e2cacfac50cd7784dbba60cb342207550fd02fa",
+        "expectedTextPresent": [
+          false,
+          false
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\ML02.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "ML03",
+      "organisation": "Mathie Lennox & Co",
+      "jurisdiction": "Scotland",
+      "url": "https://mathielennox.co.uk/contact",
+      "evidenceType": "contact",
+      "expectedTexts": [
+        "Market Chambers, Market Square, Kilsyth G65 0AZ",
+        "reception@mathielennox.co.uk"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Read-only contact information; no form submission."
+      },
+      "label": "CONFIRMED_RENDER_GAP",
+      "confirmedAt": "2026-09-28T20:52:43.104Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://mathielennox.co.uk/contact",
+        "textCharacters": 0,
+        "htmlBytes": 8216,
+        "sha256": "8c2d903f50b2dc1ba2911d054e2cacfac50cd7784dbba60cb342207550fd02fa",
+        "expectedTextPresent": [
+          false,
+          false
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\ML03.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "LC01",
+      "organisation": "Lyon Croft Law",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.lyoncroft.co.uk/pricing-and-fees",
+      "evidenceType": "mixed-pricing",
+      "expectedTexts": [
+        "We act for both employees and employers",
+        "Grant of Probate Only",
+        "8011215"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "test": "service-attribution",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Separate employment, debt and probate sections; no forced employment audience."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:44.613Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.lyoncroft.co.uk/pricing-and-fees",
+        "textCharacters": 7466,
+        "htmlBytes": 176733,
+        "sha256": "6dd1647829c22fd36ffd9a8028e78788b003e768876c3e348fd40d9a4a173225",
+        "expectedTextPresent": [
+          true,
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\LC01.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "LC02",
+      "organisation": "Lyon Croft Law",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.lyoncroft.co.uk/employment-law-contentious",
+      "evidenceType": "employment",
+      "expectedTexts": [
+        "guidance to both employees and employers",
+        "Employment Tribunal Claims"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "test": "service-attribution",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": ""
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:46.255Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.lyoncroft.co.uk/employment-law-contentious",
+        "textCharacters": 8283,
+        "htmlBytes": 316073,
+        "sha256": "cc96584e196d57bac043f94b4ea819c118ecc7cbbfad39495722abe3810f618b",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\LC02.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "LC03",
+      "organisation": "Lyon Croft Law",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.lyoncroft.co.uk/contact",
+      "evidenceType": "regulatory",
+      "expectedTexts": [
+        "First Central 200",
+        "8011215"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": ""
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:47.735Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.lyoncroft.co.uk/contact",
+        "textCharacters": 1860,
+        "htmlBytes": 224044,
+        "sha256": "989ee1d2ccb72385254f222b70ab3610d65205e243b4cb7e1baa26bc8cca31b4",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\LC03.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "WH01",
+      "organisation": "Waller and Hart",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.wallerandhart.com/pricing/",
+      "evidenceType": "mixed-pricing",
+      "expectedTexts": [
+        "Our Services and Pricing for the Administration of an Estate",
+        "On average however we find we can deal with estates within 2-9 months"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "test": "service-attribution",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Pricing and complaints share one page; preserve section scope."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:49.476Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.wallerandhart.com/pricing/",
+        "textCharacters": 24412,
+        "htmlBytes": 103495,
+        "sha256": "cf54d6e0251a07a206ee12016fcde990dc78146f1431ec36e5653d7b4be9b1e6",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\WH01.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "WH02",
+      "organisation": "Waller and Hart",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.wallerandhart.com/contact-information/",
+      "evidenceType": "contact",
+      "expectedTexts": [
+        "29 Basset Road",
+        "solicitors@wallerandhart.co.uk"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Public contact details only; form CAPTCHA not interacted with."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:51.196Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.wallerandhart.com/contact-information/",
+        "textCharacters": 1129,
+        "htmlBytes": 52093,
+        "sha256": "06ce11bba115233d0d45ae6934e7f2af98fffc6b5238dd1d7b2435fd092d61c8",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\WH02.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "HC01",
+      "organisation": "Hunt & Coombs",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.hcsolicitors.co.uk/pricing/",
+      "evidenceType": "regulatory",
+      "expectedTexts": [
+        "registration no. 443035",
+        "All prices that refer to VAT will be charged VAT at the current rate of 20%"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": ""
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:52.389Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.hcsolicitors.co.uk/pricing/",
+        "textCharacters": 3914,
+        "htmlBytes": 44377,
+        "sha256": "0cf9b5151a085f13973410fb5c10ee2ecf1f2c4732f6b0b41e5ce9d700509a2a",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\HC01.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "HC02",
+      "organisation": "Hunt & Coombs",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.hcsolicitors.co.uk/pricing/probate/",
+      "evidenceType": "probate-pricing",
+      "expectedTexts": [
+        "probate fees roughly equate to 1.5",
+        "Probate application fee"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "probate",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": ""
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:53.594Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.hcsolicitors.co.uk/pricing/probate/",
+        "textCharacters": 8079,
+        "htmlBytes": 49525,
+        "sha256": "2be3ebf35a0e3abdc6c4846133229c5acbdfb0371b4339e16ab35adcacbcf06e",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\HC02.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "HC03",
+      "organisation": "Hunt & Coombs",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.hcsolicitors.co.uk/about-us/complaints-procedure/",
+      "evidenceType": "complaints-document",
+      "expectedTexts": [
+        "The Legal Ombudsman can help you",
+        "Complaints Procedure (70kb)"
+      ],
+      "expectedLinks": [
+        "https://www.hcsolicitors.co.uk/wp-content/uploads/2025/04/Complaints-Procedure-A4.pdf"
+      ],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "PDF-discovery",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Link presence does not prove contents."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:54.778Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.hcsolicitors.co.uk/about-us/complaints-procedure/",
+        "textCharacters": 3840,
+        "htmlBytes": 46760,
+        "sha256": "c557e8b19385767c6a30f4b6adbf6b65de8046ebc8df2677de3af6ba42ee4537",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [
+          true
+        ],
+        "documents": [
+          {
+            "url": "https://www.hcsolicitors.co.uk/wp-content/uploads/2025/04/Complaints-Procedure-A4.pdf",
+            "label": "Complaints Procedure (70kb)"
+          }
+        ],
+        "capture": "reports\\milestone13\\confirmation\\HC03.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "LL01",
+      "organisation": "Leadenhall Law Group",
+      "jurisdiction": "England and Wales",
+      "url": "https://leadenhalllawgroup.co.uk/contact-us/",
+      "evidenceType": "multi-office-regulatory",
+      "expectedTexts": [
+        "SRA: 443007",
+        "SRA: 626822",
+        "SRA: 8009961"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Map requires marketing consent and is excluded; public office numbers visible without consent."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:56.243Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://leadenhalllawgroup.co.uk/contact-us/",
+        "textCharacters": 983,
+        "htmlBytes": 149513,
+        "sha256": "26e45a28828983fe060c5f0a87db0b6eb603719b138ce0d09669fcbc2cd98107",
+        "expectedTextPresent": [
+          true,
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\LL01.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "LL02",
+      "organisation": "Leadenhall Law Group",
+      "jurisdiction": "England and Wales",
+      "url": "https://leadenhalllawgroup.co.uk/residential-conveyancing/",
+      "evidenceType": "pricing-document",
+      "expectedTexts": [
+        "Leadenhall Law Group Pricing - Residential Conveyancing",
+        "Sale of Residential Property"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "residential_conveyancing",
+      "test": "PDF-discovery",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Document label observed; destination to be recorded from raw link markup."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:57.577Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://leadenhalllawgroup.co.uk/residential-conveyancing/",
+        "textCharacters": 7137,
+        "htmlBytes": 158270,
+        "sha256": "18c30eaa39200f68a052973a6ea6bd0ac528bb16b31319ef0846f14f4d0865a9",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\LL02.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "LL03",
+      "organisation": "Leadenhall Law Group",
+      "jurisdiction": "England and Wales",
+      "url": "https://leadenhalllawgroup.co.uk/help/complaints-procedure/",
+      "evidenceType": "complaints",
+      "expectedTexts": [
+        "We have eight weeks to consider your complaint",
+        "Legal Ombudsman PO BOX 6167"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": ""
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:52:58.895Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://leadenhalllawgroup.co.uk/help/complaints-procedure/",
+        "textCharacters": 4431,
+        "htmlBytes": 150828,
+        "sha256": "bcf1373e714ed430cdae20944285553b570fc87faff891ca29044ac2f51bd98c",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\LL03.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "CH01",
+      "organisation": "Cooper Hall Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://cooperhallsolicitors.co.uk/",
+      "evidenceType": "mixed-services",
+      "expectedTexts": [
+        "Clinical negligence and criminal defence solicitors in Bradford and Blackburn",
+        "Our Areas of Expertise"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "test": "service-attribution",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": ""
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:53:02.557Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://cooperhallsolicitors.co.uk/",
+        "textCharacters": 7436,
+        "htmlBytes": 372026,
+        "sha256": "eb958374fb9d95511b66270e79304977f042a3e3dc8e3114431860e92f26ddc1",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\CH01.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "CH02",
+      "organisation": "Cooper Hall Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://cooperhallsolicitors.co.uk/conveyancing-and-property-law/",
+      "evidenceType": "mixed-property",
+      "expectedTexts": [
+        "Property transactions and disputes can be complex",
+        "managing a commercial lease"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "test": "service-attribution",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Residential, remortgage and commercial contexts coexist."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:53:06.918Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://cooperhallsolicitors.co.uk/conveyancing-and-property-law/",
+        "textCharacters": 13178,
+        "htmlBytes": 354375,
+        "sha256": "518ccea27adb68373cbfbf6b1cd03b364f22f9e30cff6d64b8e4c2ff0782d637",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\CH02.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "CH03",
+      "organisation": "Cooper Hall Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://cooperhallsolicitors.co.uk/contact/",
+      "evidenceType": "regulatory",
+      "expectedTexts": [
+        "Solicitor Regulation Authority number is 639467",
+        "Our Locations"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": ""
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:53:10.065Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://cooperhallsolicitors.co.uk/contact/",
+        "textCharacters": 4767,
+        "htmlBytes": 324731,
+        "sha256": "6fbdba33b38180b1975e1edb1061c9dcba5eb5b22a63a3535b7d30c7fd909e45",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\CH03.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "JD01",
+      "organisation": "Jones and Duffin",
+      "jurisdiction": "England and Wales",
+      "url": "https://jonesduffin.co.uk/client-complaint-form/",
+      "evidenceType": "complaints",
+      "expectedTexts": [
+        "We have up to eight weeks to resolve a complaint",
+        "Legal Ombudsman"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Only public explanatory wording; no fields completed."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:53:12.100Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://jonesduffin.co.uk/client-complaint-form/",
+        "textCharacters": 4652,
+        "htmlBytes": 87036,
+        "sha256": "b7b53845590af93aaadf3c508d722fbd3fdeede991e93d3c1244ab317cd9dc75",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\JD01.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "JD02",
+      "organisation": "Jones and Duffin",
+      "jurisdiction": "England and Wales",
+      "url": "https://jonesduffin.co.uk/our-prices/",
+      "evidenceType": "conveyancing-pricing",
+      "expectedTexts": [
+        "WE DO NOT UNDERTAKE ANY MORTGAGE TRANSACTIONS",
+        "OUR CONVEYANCING CHARGES"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "residential_conveyancing",
+      "test": "service-attribution",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Explicit mortgage exclusion and separate family fees."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:53:14.060Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://jonesduffin.co.uk/our-prices/",
+        "textCharacters": 11833,
+        "htmlBytes": 78078,
+        "sha256": "0bdcf607764b586906854b763dc7ad6e735e3243e15693144ff42f5a64d95e86",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\JD02.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "JD03",
+      "organisation": "Jones and Duffin",
+      "jurisdiction": "England and Wales",
+      "url": "https://jonesduffin.co.uk/services/",
+      "evidenceType": "mixed-services",
+      "expectedTexts": [
+        "Wills and Probate",
+        "SRA number 667154"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": ""
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:53:15.996Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://jonesduffin.co.uk/services/",
+        "textCharacters": 981,
+        "htmlBytes": 64965,
+        "sha256": "c0ce28133ca28ac678295b43914c8c7a9c4df9ff8e99a8790b746649d4f99d6b",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\JD03.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "SF01",
+      "organisation": "Setfords",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.setfords.co.uk/our-people/",
+      "evidenceType": "staff-directory",
+      "expectedTexts": [
+        "Aasima Riaz-Foster",
+        "Abigail Dungate"
+      ],
+      "expectedLinks": [
+        "https://www.setfords.co.uk/our-people/profile/abigail_dungate/"
+      ],
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "test": "link-discovery",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Initial directory empty then populated without interaction; observed role labels and links; no search/filter/pagination used."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:53:17.610Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.setfords.co.uk/our-people/",
+        "textCharacters": 85384,
+        "htmlBytes": 558001,
+        "sha256": "ff01244db85f7bc6fcbedf955a3f0e5a14b784a382e01a0cfe3e8ff1cd93a435",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [
+          true
+        ],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\SF01.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "SF02",
+      "organisation": "Setfords",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.setfords.co.uk/what-you-might-expect-to-pay-at-setfords/",
+      "evidenceType": "pricing",
+      "expectedTexts": [
+        "Our model and pricing",
+        "Your case will be handled by an experienced Lawyer from start to finish"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "FIRM_WIDE",
+      "test": "HTML-text",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": "Introductory firm-wide pricing information; calculator interaction excluded."
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:53:19.332Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.setfords.co.uk/what-you-might-expect-to-pay-at-setfords/",
+        "textCharacters": 27880,
+        "htmlBytes": 340133,
+        "sha256": "c39377bdfd3c94fa1d4109e937a3e06f02359369e50ef830419762a6721d56ba",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\SF02.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    },
+    {
+      "id": "SF03",
+      "organisation": "Setfords",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.setfords.co.uk/our-people/profile/abigail_dungate/",
+      "evidenceType": "staff",
+      "expectedTexts": [
+        "Consultant Licensed Conveyancer",
+        "extensive experience in residential property law"
+      ],
+      "expectedLinks": [],
+      "expectedServiceContext": "residential_conveyancing",
+      "test": "service-attribution",
+      "independentBrowser": {
+        "method": "Separate in-app browser AX/visible DOM; no WatchLayer execution, consent, forms or buttons",
+        "observedAt": "2026-09-28T20:51:01.313Z",
+        "visibility": "VISIBLE",
+        "notes": ""
+      },
+      "label": "STATIC_SUFFICIENT",
+      "confirmedAt": "2026-09-28T20:53:20.940Z",
+      "static": {
+        "status": 200,
+        "finalUrl": "https://www.setfords.co.uk/our-people/profile/abigail_dungate/",
+        "textCharacters": 15516,
+        "htmlBytes": 304372,
+        "sha256": "cb65029feeaaf53eca9e1d33679eff55cf03e2bc529f5db99b18b8f11e7adac6",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "documents": [],
+        "capture": "reports\\milestone13\\confirmation\\SF03.static.json"
+      },
+      "limitation": "Raw HTML visibility cannot resolve external CSS; browser observation was separately recorded before execution."
+    }
+  ],
+  "candidateSha256": "6c6ff356875e9935710c0c5562cab5c24fb52e04d67936f00be2112fc022ee9e",
+  "frozenAt": "2026-09-28T20:53:20.942Z",
+  "productionEdits": false
+}

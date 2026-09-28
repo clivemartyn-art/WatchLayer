@@ -1,0 +1,598 @@
+{
+  "schemaVersion": 1,
+  "source": "reports/milestone13/cohort-replay-v2",
+  "queueSha256": "0e576965aeff75c5598805d06dfc1a2ad3e9de20f74a134d7462073be7a35066",
+  "items": [
+    {
+      "id": "33e289d509139d1ff450a0d691dd2422d8c45047eb36fc3ffd74b68b7da94b34",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/team",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "1840f26bcf95ab36270e253b8cb1bed4f7af0dd4f400442cdf4a42a1d57bacc5",
+      "evidenceText": "https://mathielennox.co.uk/services/conveyancing",
+      "context": "Visible link label: Services; surrounding text: Services",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "Lisa Quinn",
+        "Residential Conveyancing Paralegal"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "83a3df683a71c732adcd2809b2a9fdec4ab26cac8d139b38837fc52260dc5cb9",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/team",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "1840f26bcf95ab36270e253b8cb1bed4f7af0dd4f400442cdf4a42a1d57bacc5",
+      "evidenceText": "https://mathielennox.co.uk/team",
+      "context": "Visible link label: Our Team; surrounding text: HomeAboutServicesOur TeamCommunityInsightsContact",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "Lisa Quinn",
+        "Residential Conveyancing Paralegal"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "8dfc044fac3e6429a915d705daaccd60ad3d2437ccd97490c03f0454ebad3461",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/team",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "1840f26bcf95ab36270e253b8cb1bed4f7af0dd4f400442cdf4a42a1d57bacc5",
+      "evidenceText": "https://mathielennox.co.uk/services/wills",
+      "context": "Visible link label: Wills; surrounding text: Wills",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "Lisa Quinn",
+        "Residential Conveyancing Paralegal"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "6f0f877e2a60b36bb4452f78d6b75b0003ea05e51a92e87ca8ab24728134e29a",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/team",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "1840f26bcf95ab36270e253b8cb1bed4f7af0dd4f400442cdf4a42a1d57bacc5",
+      "evidenceText": "https://mathielennox.co.uk/services/executries",
+      "context": "Visible link label: Executries; surrounding text: Executries",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "Lisa Quinn",
+        "Residential Conveyancing Paralegal"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "5bbf5600a2ca358b7ac556113ddcefd219a23c76b6b44dde86eef489087a3fe6",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/team",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "1840f26bcf95ab36270e253b8cb1bed4f7af0dd4f400442cdf4a42a1d57bacc5",
+      "evidenceText": "https://mathielennox.co.uk/services/estate-planning",
+      "context": "Visible link label: Estate Planning; surrounding text: Estate Planning",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "Lisa Quinn",
+        "Residential Conveyancing Paralegal"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "55da4618680267859c0f5e45abd8239e076a7460e5bf5f4cbf5f3155250e33e4",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/team",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "1840f26bcf95ab36270e253b8cb1bed4f7af0dd4f400442cdf4a42a1d57bacc5",
+      "evidenceText": "https://mathielennox.co.uk/services/inheritance-tax",
+      "context": "Visible link label: Inheritance Tax; surrounding text: Inheritance Tax",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "Lisa Quinn",
+        "Residential Conveyancing Paralegal"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "3fe4fe1be54dc345a4f4b2f3746aa16dd9b7d4860d54ac78f9fcb299995fdb54",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/services/conveyancing",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "c42fa04d0d8207482eb26cb2f8e3b8add5d42cbe0b65406218c4f7bff869cfb3",
+      "evidenceText": "Our fixed fee structure applies regardless of the property location.",
+      "context": "rotected if things do not go ahead. Do I need to visit your office? While we are happy to meet you in person at our Kilsyth office, we can handle the entire process remotely via phone, email and secure document sharing if you prefer. Can you help with properties outside Kilsyth? Yes, we handle residential conveyancing transactions across Scotland. Our fixed fee structure applies regardless of the property location. Next Executry & Estate Administration Services Conveyancing Wills Executries Estate Planning Inheritance Tax Family Law General Legal Advice Company About Us Our Team Community Insights Contact Contact Market Chambers Market Square, Kilsyth Glasgow G65 0AZ 01236 823 139 reception@mathielennox.co.uk Office Hours Monday - Friday9 - 5 Saturday - Sund",
+      "targetRule": "PRICE-002",
+      "targetServices": [
+        "residential_conveyancing"
+      ],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [
+        {
+          "rule": "PRICE-002",
+          "service": "residential_conveyancing",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-002",
+          "service": "remortgage",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-002",
+          "service": "probate",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-002",
+          "service": "immigration",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-002",
+          "service": "immigration_appeals",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-002",
+          "service": "motoring",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-002",
+          "service": "employment_employee",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-002",
+          "service": "employment_employer",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-002",
+          "service": "debt_recovery",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-002",
+          "service": "business_licensing",
+          "status": "UNKNOWN"
+        }
+      ],
+      "serviceAttribution": {
+        "state": "SERVICE_SPECIFIC",
+        "services": [
+          "residential_conveyancing"
+        ],
+        "reason": "PAGE_TITLE_MATCH"
+      },
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "We carry out residential conveyancing transactions on a fixed fee basis",
+        "Purchase £600"
+      ],
+      "evidenceKind": "EXTRACTED_FACT"
+    },
+    {
+      "id": "b204bf0095349afa1ae4d0daf5a181bd62c351ef20f44dd4bdcd10480841ed50",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/services/conveyancing",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "c42fa04d0d8207482eb26cb2f8e3b8add5d42cbe0b65406218c4f7bff869cfb3",
+      "evidenceText": "through the entire process — from the initial examination of the title, drafting and signing the Contracts to the final stages of settlement and registration..",
+      "context": "g & property transfers Conveyancing The transfer of ownership in property from one person to another is a legal process and is defined as \"conveyancing\" and involves both parties instructing solicitors to act on their behalf. Whether you are buying or selling a property, remortgaging or handling a transfer of equity, our team ensure you are guided through the entire process — from the initial examination of the title, drafting and signing the Contracts to the final stages of settlement and registration.. Get in Touch Key Contacts Speak directly with our team Delanie Elder Managing Partner 01236 823 139delder@mathielennox.co.uk Lisa Quinn Senior Conveyancing Paralegal 01236 823 139lquinn@mathielennox.co.uk How long does conveyancing take? A typical residential transaction takes between 6-8 weeks on average from offer acceptance to completion, thoug",
+      "targetRule": "PRICE-013",
+      "targetServices": [
+        "residential_conveyancing"
+      ],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [
+        {
+          "rule": "PRICE-013",
+          "service": "residential_conveyancing",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-013",
+          "service": "remortgage",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-013",
+          "service": "probate",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-013",
+          "service": "immigration",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-013",
+          "service": "immigration_appeals",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-013",
+          "service": "motoring",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-013",
+          "service": "employment_employee",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-013",
+          "service": "employment_employer",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-013",
+          "service": "debt_recovery",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-013",
+          "service": "business_licensing",
+          "status": "UNKNOWN"
+        }
+      ],
+      "serviceAttribution": {
+        "state": "SERVICE_SPECIFIC",
+        "services": [
+          "residential_conveyancing"
+        ],
+        "reason": "DIRECT_SECTION_HEADING"
+      },
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "We carry out residential conveyancing transactions on a fixed fee basis",
+        "Purchase £600"
+      ],
+      "evidenceKind": "EXTRACTED_FACT"
+    },
+    {
+      "id": "c8b033d580033d843acbcb7e1b0533dabcf8c7866f6c1a295953faa8d4e8df21",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/services/conveyancing",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "c42fa04d0d8207482eb26cb2f8e3b8add5d42cbe0b65406218c4f7bff869cfb3",
+      "evidenceText": "A typical residential transaction takes between 6-8 weeks on average from offer acceptance to completion, though this can vary depending on the circumstances.",
+      "context": "amination of the title, drafting and signing the Contracts to the final stages of settlement and registration.. Get in Touch Key Contacts Speak directly with our team Delanie Elder Managing Partner 01236 823 139delder@mathielennox.co.uk Lisa Quinn Senior Conveyancing Paralegal 01236 823 139lquinn@mathielennox.co.uk How long does conveyancing take? A typical residential transaction takes between 6-8 weeks on average from offer acceptance to completion, though this can vary depending on the circumstances. We will provide you with an estimated timescale at the outset. What is your 'no completion, no fee' policy? If your transaction does not complete for any reason, you will not be charged our legal fee. This means you can proceed with confidence knowing you are protected if things do not go ahead. Do I need to visit your office? While we are happy t",
+      "targetRule": "PRICE-014",
+      "targetServices": [
+        "residential_conveyancing"
+      ],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [
+        {
+          "rule": "PRICE-014",
+          "service": "residential_conveyancing",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-014",
+          "service": "remortgage",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-014",
+          "service": "probate",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-014",
+          "service": "immigration",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-014",
+          "service": "immigration_appeals",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-014",
+          "service": "motoring",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-014",
+          "service": "employment_employee",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-014",
+          "service": "employment_employer",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-014",
+          "service": "debt_recovery",
+          "status": "UNKNOWN"
+        },
+        {
+          "rule": "PRICE-014",
+          "service": "business_licensing",
+          "status": "UNKNOWN"
+        }
+      ],
+      "serviceAttribution": {
+        "state": "SERVICE_SPECIFIC",
+        "services": [
+          "residential_conveyancing"
+        ],
+        "reason": "PAGE_TITLE_MATCH"
+      },
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "We carry out residential conveyancing transactions on a fixed fee basis",
+        "Purchase £600"
+      ],
+      "evidenceKind": "EXTRACTED_FACT"
+    },
+    {
+      "id": "4497d0536aa366cf3a2450e58fd037dd9a19f28472dd5613694f461eb9911a6d",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/services/conveyancing",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "c42fa04d0d8207482eb26cb2f8e3b8add5d42cbe0b65406218c4f7bff869cfb3",
+      "evidenceText": "https://mathielennox.co.uk/services/conveyancing",
+      "context": "Visible link label: Services; surrounding text: Services",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "We carry out residential conveyancing transactions on a fixed fee basis",
+        "Purchase £600"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "012c3b67b3ff7f142e3a38233c83bcf7e9d51431ebc5d4d85be1549b7a39833b",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/services/conveyancing",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "c42fa04d0d8207482eb26cb2f8e3b8add5d42cbe0b65406218c4f7bff869cfb3",
+      "evidenceText": "https://mathielennox.co.uk/team",
+      "context": "Visible link label: Our Team; surrounding text: HomeAboutServicesOur TeamCommunityInsightsContact",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "We carry out residential conveyancing transactions on a fixed fee basis",
+        "Purchase £600"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "b5cdffc55dda0fdabe1e9375e88f51f5ba17f25173e004085df39637dbdb632f",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/services/conveyancing",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "c42fa04d0d8207482eb26cb2f8e3b8add5d42cbe0b65406218c4f7bff869cfb3",
+      "evidenceText": "https://mathielennox.co.uk/contact?service=conveyancing",
+      "context": "Visible link label: Get in Touch; surrounding text: HomeBuying, selling & property transfersConveyancingThe transfer of ownership in property from one person to another is a legal process and is defined as \"conveyancing\" and involves both parties instructing solicitors to act on their behalf. Whether you are buying or selling a property, remortgaging or handling a transfer of equity, our team ensure you are guided through the entire process — from the initial examination of the title, drafting and signing the Contracts to the final stages of settlement and registration..Get in Touch",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "expectedTexts": [
+        "We carry out residential conveyancing transactions on a fixed fee basis",
+        "Purchase £600"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "64c57f8f7ed060116d7694916984bf5c358afcf0a06b755e5388c913cf1297ae",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/contact",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "f72bc53f5abdbdfd7145a66eec5e64e0b960904c00c847338bcf7039104d997a",
+      "evidenceText": "Market Chambers, Market Square, Kilsyth G65 0AZ",
+      "context": "HomeAbout Services Our TeamCommunityInsightsContact 01236 823 139Get in Touch Get in Touch Contact Us Tell us about your legal needs and we'll get back to you promptly with clear, honest advice. Visit Us Market Chambers, Market Square, Kilsyth G65 0AZ Call Us 01236 823 139 Email Us reception@mathielennox.co.uk Services Conveyancing Wills Executries Estate Planning Inheritance Tax Family Law General Legal Advice Company About Us Our Team Community Insights Contact Contact Market Chambers Market Square, Kilsyth Glasgow G65 0AZ 01236 823 139 reception@mathielennox.co.uk Office Hours Monday - Frida",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "COMPLETE_EXPECTED_RECOVERY",
+      "expectedTexts": [
+        "Market Chambers, Market Square, Kilsyth G65 0AZ",
+        "reception@mathielennox.co.uk"
+      ],
+      "evidenceKind": "EXPECTED_TEXT"
+    },
+    {
+      "id": "6bf56dfe93327f3ff37763ef0779a0697786694b2549e17eca0a1c5f49196451",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/contact",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "f72bc53f5abdbdfd7145a66eec5e64e0b960904c00c847338bcf7039104d997a",
+      "evidenceText": "reception@mathielennox.co.uk",
+      "context": "HomeAbout Services Our TeamCommunityInsightsContact 01236 823 139Get in Touch Get in Touch Contact Us Tell us about your legal needs and we'll get back to you promptly with clear, honest advice. Visit Us Market Chambers, Market Square, Kilsyth G65 0AZ Call Us 01236 823 139 Email Us reception@mathielennox.co.uk Services Conveyancing Wills Executries Estate Planning Inheritance Tax Family Law General Legal Advice Company About Us Our Team Community Insights Contact Contact Market Chambers Market Square, Kilsyth Glasgow G65 0AZ 01236 823 139 reception@mathielennox.co.uk Office Hours Monday - Friday9 - 5 Saturday - SundayClosed Law Society of Scotland Scott",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "COMPLETE_EXPECTED_RECOVERY",
+      "expectedTexts": [
+        "Market Chambers, Market Square, Kilsyth G65 0AZ",
+        "reception@mathielennox.co.uk"
+      ],
+      "evidenceKind": "EXPECTED_TEXT"
+    },
+    {
+      "id": "61abeb9b118f8387adbb9dace916e9281dea394360fd338f1162c83203985bea",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/contact",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "f72bc53f5abdbdfd7145a66eec5e64e0b960904c00c847338bcf7039104d997a",
+      "evidenceText": "https://mathielennox.co.uk/services/conveyancing",
+      "context": "Visible link label: Services; surrounding text: Services",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "COMPLETE_EXPECTED_RECOVERY",
+      "expectedTexts": [
+        "Market Chambers, Market Square, Kilsyth G65 0AZ",
+        "reception@mathielennox.co.uk"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "5fc16fa0ba0815494cb342754ade23fdeafc4443ec967930db158b8ed2af0f91",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/contact",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "f72bc53f5abdbdfd7145a66eec5e64e0b960904c00c847338bcf7039104d997a",
+      "evidenceText": "https://mathielennox.co.uk/team",
+      "context": "Visible link label: Our Team; surrounding text: HomeAboutServicesOur TeamCommunityInsightsContact",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "COMPLETE_EXPECTED_RECOVERY",
+      "expectedTexts": [
+        "Market Chambers, Market Square, Kilsyth G65 0AZ",
+        "reception@mathielennox.co.uk"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "2e097c7c26e3cbf051440659513dbc643217e04472196d73c459d4066a3d48fa",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/contact",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "f72bc53f5abdbdfd7145a66eec5e64e0b960904c00c847338bcf7039104d997a",
+      "evidenceText": "https://mathielennox.co.uk/services/wills",
+      "context": "Visible link label: Wills; surrounding text: Wills",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "COMPLETE_EXPECTED_RECOVERY",
+      "expectedTexts": [
+        "Market Chambers, Market Square, Kilsyth G65 0AZ",
+        "reception@mathielennox.co.uk"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    },
+    {
+      "id": "c5abd57e6752c41d854d2bab935f725023343851d4cbb521793ec4d569f44871",
+      "organisation": "Mathie Lennox & Co",
+      "url": "https://mathielennox.co.uk/contact",
+      "jurisdiction": "Scotland",
+      "sourceType": "RENDERED_DOM",
+      "sourceHash": "f72bc53f5abdbdfd7145a66eec5e64e0b960904c00c847338bcf7039104d997a",
+      "evidenceText": "https://mathielennox.co.uk/services/executries",
+      "context": "Visible link label: Executries; surrounding text: Executries",
+      "targetRule": null,
+      "targetServices": [],
+      "staticEvidenceState": "NOT_PRESENT_IN_PAIRED_STATIC_FACTS_OR_LINKS",
+      "renderedEvidenceState": "RECOVERED_CANDIDATE_NOT_HUMAN_VALIDATED",
+      "automatedAdjudication": [],
+      "serviceAttribution": null,
+      "ruleResultChanged": false,
+      "expectedContentClassification": "COMPLETE_EXPECTED_RECOVERY",
+      "expectedTexts": [
+        "Market Chambers, Market Square, Kilsyth G65 0AZ",
+        "reception@mathielennox.co.uk"
+      ],
+      "evidenceKind": "LINK_LOCATION_ONLY"
+    }
+  ]
+}

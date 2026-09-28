@@ -10,7 +10,8 @@ export function classifyServices(facts:FactSet|undefined,overrides:Partial<Recor
     const high=positives.filter(m=>m.s.state==='DETECTED_HIGH_CONFIDENCE'&&m.p.reliable);
     const excluded=matches.some(m=>m.s.excluded)&&!positives.length;
     const override=overrides[service];
-    return {service,state:override!==undefined?override?'DETECTED_HIGH_CONFIDENCE':'NOT_DETECTED':high.length?'DETECTED_HIGH_CONFIDENCE':positives.length?'DETECTED_LOW_CONFIDENCE':pages.some(p=>p.reliable)?'NOT_DETECTED':'UNKNOWN',excluded:override===false||excluded,sourceUrls:[...new Set(positives.map(m=>m.p.url))],evidence:positives.flatMap(m=>m.s.evidence).slice(0,6),origin:override!==undefined?'override':'detector',explanation:override!==undefined?'Explicit service applicability override.':excluded?'Explicit service exclusion observed.':'Classification describes observed advertising, not complete firm capabilities.'};
+    // Initial rendered DOM supports observed positives, never completeness or absence.
+    return {service,state:override!==undefined?override?'DETECTED_HIGH_CONFIDENCE':'NOT_DETECTED':high.length?'DETECTED_HIGH_CONFIDENCE':positives.length?'DETECTED_LOW_CONFIDENCE':pages.some(p=>p.reliable&&!p.observation)?'NOT_DETECTED':'UNKNOWN',excluded:override===false||excluded,sourceUrls:[...new Set(positives.map(m=>m.p.url))],evidence:positives.flatMap(m=>m.s.evidence).slice(0,6),origin:override!==undefined?'override':'detector',explanation:override!==undefined?'Explicit service applicability override.':excluded?'Explicit service exclusion observed.':'Classification describes observed advertising, not complete firm capabilities.'};
   });
 }
 export function surfaceInventory(current:Snapshot,facts:FactSet|undefined,previous:Surface[]=[]):Surface[] {

@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-28T22:31:48.535Z",
+  "firms": 10,
+  "rows": [
+    {
+      "firm": "Tozers",
+      "staticPages": 22,
+      "assistedPages": 22,
+      "staticFailed": 0,
+      "assistedFailed": 0,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 42128,
+      "assistedMs": 41093,
+      "failedUrls": [],
+      "documentLimits": []
+    },
+    {
+      "firm": "Ashtons Legal",
+      "staticPages": 22,
+      "assistedPages": 22,
+      "staticFailed": 0,
+      "assistedFailed": 0,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 41113,
+      "assistedMs": 43964,
+      "failedUrls": [],
+      "documentLimits": [
+        {
+          "url": "https://www.ashtonslegal.co.uk/wp-content/uploads/2026/09/Terms-of-Business-Issue-22-Single-Pages-September-2026.pdf",
+          "status": "ENCRYPTED"
+        },
+        {
+          "url": "https://www.ashtonslegal.co.uk/wp-content/uploads/2024/01/Complaints-Handling-Procedure.pdf",
+          "status": "ENCRYPTED"
+        }
+      ]
+    },
+    {
+      "firm": "Tilly Bailey & Irvine",
+      "staticPages": 20,
+      "assistedPages": 20,
+      "staticFailed": 0,
+      "assistedFailed": 0,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 28018,
+      "assistedMs": 28173,
+      "failedUrls": [],
+      "documentLimits": []
+    },
+    {
+      "firm": "Rothera Bray",
+      "staticPages": 22,
+      "assistedPages": 22,
+      "staticFailed": 0,
+      "assistedFailed": 0,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 38286,
+      "assistedMs": 38407,
+      "failedUrls": [],
+      "documentLimits": []
+    },
+    {
+      "firm": "Rachel Sebastian & Co",
+      "staticPages": 10,
+      "assistedPages": 10,
+      "staticFailed": 0,
+      "assistedFailed": 0,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 13831,
+      "assistedMs": 13869,
+      "failedUrls": [],
+      "documentLimits": []
+    },
+    {
+      "firm": "Shakespeare Martineau",
+      "staticPages": 18,
+      "assistedPages": 18,
+      "staticFailed": 0,
+      "assistedFailed": 0,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 43585,
+      "assistedMs": 44742,
+      "failedUrls": [],
+      "documentLimits": [
+        {
+          "url": "https://www.officeforstudents.org.uk/media/x1afzxve/free-speech-complaints-scheme-rules-2026.pdf",
+          "status": "BLOCKED_BY_POLICY"
+        },
+        {
+          "url": "https://www.officeforstudents.org.uk/media/ubxdnbju/regulatory-advice-24-freedom-of-speech-guidance-5-aug-2026.pdf",
+          "status": "BLOCKED_BY_POLICY"
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/media/698f4e3e7da91680ad7f4417/CMA209_Unfair_commercial_practices__price_transparency_13.2.26.pdf",
+          "status": "BLOCKED_BY_POLICY"
+        }
+      ]
+    },
+    {
+      "firm": "Kitson Boyce",
+      "staticPages": 22,
+      "assistedPages": 22,
+      "staticFailed": 0,
+      "assistedFailed": 0,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 47876,
+      "assistedMs": 49924,
+      "failedUrls": [],
+      "documentLimits": [
+        {
+          "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2026/06/20260618_114840.pdf",
+          "status": "NO_TEXT"
+        },
+        {
+          "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2019/04/Buying-a-Property.pdf",
+          "status": "NO_TEXT"
+        }
+      ]
+    },
+    {
+      "firm": "Stephens Scown",
+      "staticPages": 19,
+      "assistedPages": 19,
+      "staticFailed": 0,
+      "assistedFailed": 0,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 59228,
+      "assistedMs": 51361,
+      "failedUrls": [],
+      "documentLimits": []
+    },
+    {
+      "firm": "Higgs LLP",
+      "staticPages": 21,
+      "assistedPages": 21,
+      "staticFailed": 0,
+      "assistedFailed": 0,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 25779,
+      "assistedMs": 26087,
+      "failedUrls": [],
+      "documentLimits": []
+    },
+    {
+      "firm": "Russell-Cooke",
+      "staticPages": 21,
+      "assistedPages": 21,
+      "staticFailed": 1,
+      "assistedFailed": 1,
+      "browserAttempts": 0,
+      "ruleChanges": 0,
+      "classificationChanges": 0,
+      "attributionChanged": false,
+      "directRenderedChanges": 0,
+      "seriousFindings": 0,
+      "staticMs": 29922,
+      "assistedMs": 30837,
+      "failedUrls": [
+        {
+          "url": "https://www.russell-cooke.co.uk/charging-information/+44%20(0)20%203826%207550",
+          "status": "confirmed_missing"
+        }
+      ],
+      "documentLimits": []
+    }
+  ],
+  "totals": {
+    "staticPages": 197,
+    "assistedPages": 197,
+    "staticFailed": 1,
+    "assistedFailed": 1,
+    "browserAttempts": 0,
+    "ruleChanges": 0,
+    "classificationChanges": 0,
+    "attributionChanged": 0,
+    "directRenderedChanges": 0,
+    "seriousFindings": 0,
+    "staticMs": 369766,
+    "assistedMs": 368457
+  },
+  "performance": {
+    "attempts": 0,
+    "rendered": 0,
+    "pagesScanned": 197,
+    "fallbackFraction": 0,
+    "averageMs": null,
+    "p95Ms": null,
+    "totalAddedMs": 0,
+    "failureRate": null,
+    "timeoutRate": null,
+    "materiallyNewFraction": null
+  },
+  "limitation": "Fresh paired observations, not live accuracy. Direct rendered comparison reconstructed with eligible history; the legacy control script no-history ablation is not used as causal evidence."
+}

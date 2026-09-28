@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "queueSha256": "0e576965aeff75c5598805d06dfc1a2ad3e9de20f74a134d7462073be7a35066",
+  "decisions": [
+    {
+      "itemId": "33e289d509139d1ff450a0d691dd2422d8c45047eb36fc3ffd74b68b7da94b34",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible rendered link provides a useful public destination to the conveyancing page. It establishes the link location only, not the page contents."
+    },
+    {
+      "itemId": "83a3df683a71c732adcd2809b2a9fdec4ab26cac8d139b38837fc52260dc5cb9",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible Our Team navigation link is useful public navigation evidence. It establishes the destination only and does not prove any biography content."
+    },
+    {
+      "itemId": "8dfc044fac3e6429a915d705daaccd60ad3d2437ccd97490c03f0454ebad3461",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible Wills link is a meaningful public navigation location. No service attribution or rule support is proposed for this item."
+    },
+    {
+      "itemId": "6f0f877e2a60b36bb4452f78d6b75b0003ea05e51a92e87ca8ab24728134e29a",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible Executries link is a meaningful public navigation location. The link alone does not establish the destination contents."
+    },
+    {
+      "itemId": "5bbf5600a2ca358b7ac556113ddcefd219a23c76b6b44dde86eef489087a3fe6",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible Estate Planning link is useful public navigation evidence. No service or rule judgment is required for this link-location item."
+    },
+    {
+      "itemId": "55da4618680267859c0f5e45abd8239e076a7460e5bf5f4cbf5f3155250e33e4",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible Inheritance Tax link is useful public navigation evidence. It proves the public link location, not the content of the destination."
+    },
+    {
+      "itemId": "3fe4fe1be54dc345a4f4b2f3746aa16dd9b7d4860d54ac78f9fcb299995fdb54",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "CORRECT",
+      "ruleSupport": "JUSTIFIED",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "The local conveyancing context is clear and the statement expressly says the firm uses a fixed fee structure, which supports the basis-of-charging signal for residential conveyancing."
+    },
+    {
+      "itemId": "b204bf0095349afa1ae4d0daf5a181bd62c351ef20f44dd4bdcd10480841ed50",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "CORRECT",
+      "ruleSupport": "JUSTIFIED",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "The excerpt is explicitly about conveyancing and describes stages from title examination through contracts, settlement and registration, supporting the process/stages signal."
+    },
+    {
+      "itemId": "c8b033d580033d843acbcb7e1b0533dabcf8c7866f6c1a295953faa8d4e8df21",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "CORRECT",
+      "ruleSupport": "JUSTIFIED",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "The excerpt explicitly gives a typical residential conveyancing timescale of 6–8 weeks and notes it may vary, directly supporting the timescale signal."
+    },
+    {
+      "itemId": "4497d0536aa366cf3a2450e58fd037dd9a19f28472dd5613694f461eb9911a6d",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible rendered link provides a useful public destination to the conveyancing page. No rule or service association is proposed for this link item."
+    },
+    {
+      "itemId": "012c3b67b3ff7f142e3a38233c83bcf7e9d51431ebc5d4d85be1549b7a39833b",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible Our Team navigation link is useful public evidence of the destination location, but not of the team page's substantive contents."
+    },
+    {
+      "itemId": "b5cdffc55dda0fdabe1e9375e88f51f5ba17f25173e004085df39637dbdb632f",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "The rendered Get in Touch link is a useful public contact destination associated with the conveyancing page. No rule or target-service judgment is proposed."
+    },
+    {
+      "itemId": "64c57f8f7ed060116d7694916984bf5c358afcf0a06b755e5388c913cf1297ae",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "The rendered contact page clearly states the firm's public postal address, making this useful firm-level public evidence."
+    },
+    {
+      "itemId": "6bf56dfe93327f3ff37763ef0779a0697786694b2549e17eca0a1c5f49196451",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "The rendered contact page clearly states the firm's public reception email address, making this useful firm-level public evidence."
+    },
+    {
+      "itemId": "61abeb9b118f8387adbb9dace916e9281dea394360fd338f1162c83203985bea",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible rendered link provides a useful public destination to the conveyancing page. It establishes the link location only."
+    },
+    {
+      "itemId": "5fc16fa0ba0815494cb342754ade23fdeafc4443ec967930db158b8ed2af0f91",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible Our Team link is useful public navigation evidence. No rule or service attribution is proposed and the link does not prove destination contents."
+    },
+    {
+      "itemId": "2e097c7c26e3cbf051440659513dbc643217e04472196d73c459d4066a3d48fa",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible Wills link is a meaningful public navigation location. No rule or service attribution is proposed for the item."
+    },
+    {
+      "itemId": "c5abd57e6752c41d854d2bab935f725023343851d4cbb521793ec4d569f44871",
+      "label": "VALID_RENDERED_EVIDENCE",
+      "usefulPublicEvidence": "YES",
+      "serviceContext": "NOT_APPLICABLE",
+      "ruleSupport": "NOT_APPLICABLE",
+      "reviewer": "Clive",
+      "reviewedAt": "2026-09-28",
+      "notes": "Visible Executries link is a meaningful public navigation location. It establishes the destination link only, not the destination contents."
+    }
+  ]
+}

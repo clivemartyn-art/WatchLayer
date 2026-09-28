@@ -1,0 +1,101 @@
+[
+  {
+    "evidenceType": "pricing text",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW09"
+    ],
+    "note": "Heppenstalls public fee table; independently visible TMC prices were not retained by WatchLayer."
+  },
+  {
+    "evidenceType": "pricing basis",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW06",
+      "EW09"
+    ],
+    "note": "Static no-win-no-fee/hourly wording; no rendered recovery."
+  },
+  {
+    "evidenceType": "pricing process/stages",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW06"
+    ],
+    "note": "Static negotiation/review workflow wording; evidence presence is not legal adequacy."
+  },
+  {
+    "evidenceType": "timescale",
+    "state": "NOT_OBSERVED",
+    "targets": [],
+    "note": "No retained rendered pricing-duration evidence. Static complaints response times are not service-completion timescales."
+  },
+  {
+    "evidenceType": "complaints text",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW07",
+      "EW08",
+      "EW10"
+    ],
+    "note": "Independent complaints expectations on EW02/EW03 were blocked; static controls retained."
+  },
+  {
+    "evidenceType": "regulatory identifier",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW06",
+      "EW07"
+    ],
+    "note": "Monaco SRA identifier is present statically; no rendered identifier recovered."
+  },
+  {
+    "evidenceType": "staff/person evidence",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW12",
+      "EW13",
+      "EW14"
+    ],
+    "note": "Names and roles already available in static HTML."
+  },
+  {
+    "evidenceType": "service association",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW12",
+      "EW13"
+    ],
+    "note": "Local staff/service descriptions observed statically; no rendered attribution validated."
+  },
+  {
+    "evidenceType": "contact details",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW07",
+      "EW08",
+      "EW10",
+      "EW13"
+    ],
+    "note": "Static public contact information; no retained rendered contacts."
+  },
+  {
+    "evidenceType": "internal link discovery",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW06",
+      "EW07",
+      "EW12"
+    ],
+    "note": "Only static links retained; all frozen dynamic link expectations remain unconfirmed by WatchLayer."
+  },
+  {
+    "evidenceType": "document/PDF link discovery",
+    "state": "STATIC_ONLY",
+    "targets": [
+      "EW09",
+      "EW10"
+    ],
+    "note": "Heppenstalls Client Interest Policy link exists in static HTML, not new rendered discovery; not a pricing or complaints PDF."
+  }
+]

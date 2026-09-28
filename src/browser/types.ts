@@ -1,5 +1,5 @@
 import type {Response,Fetcher} from '../crawler/http.js';
-export const BROWSER_POLICY_VERSION='1.2' as const;
+export const BROWSER_POLICY_VERSION='1.3' as const;
 export interface BrowserResourceEvent {url:string;resourceType:string;action:'PENDING'|'OMITTED'|'FETCHED'|'FAILED';reason?:string;status?:number;bytes?:number}
 export const BROWSER_LIMITS={pages:5,depth:2,loadMs:8000,totalMs:20000,settleMs:1500,launchMs:5000,requests:80,resourceBytes:2000000,totalBytes:10000000,domBytes:200000,textCharacters:50000,nodes:10000,redirects:5,retries:0,concurrency:1} as const;
 export type BrowserReason='STATIC_CONTENT_SUFFICIENT'|'APP_SHELL_DETECTED'|'STATIC_BODY_TOO_SPARSE'|'RENDERED_LINK_DISCOVERY_REQUIRED'|'BROWSER_NOT_REQUIRED';
@@ -13,7 +13,7 @@ export interface BrowserObservation {
   requests:number;bytes:number;blockedRequests:number;staticEvidenceAvailable:true;
   comparison:{staticTextSize:number;renderedTextSize:number;staticLinks:number;renderedLinks:number;newLinks:string[];lostLinks:string[];newTextBlocks:number;lostTextBlocks:number;duplicateBlocks:number;outcome:'NOT_ATTEMPTED'|'NEW_CONTENT'|'BOILERPLATE_ONLY'|'NO_MATERIAL_CHANGE'|'FAILED'};
 }
-export interface BrowserReport {schemaVersion:1;policyVersion:'1.0'|'1.1'|'1.2';limits:typeof BROWSER_LIMITS;observations:BrowserObservation[]}
+export interface BrowserReport {schemaVersion:1;policyVersion:'1.0'|'1.1'|'1.2'|'1.3';limits:typeof BROWSER_LIMITS;observations:BrowserObservation[]}
 export interface BrowserSummary {attempted:number;rendered:number;failed:number;timedOut:number;limitReached:number;addedTimeMs:number;statement:string}
 export function browserSummary(report:BrowserReport):BrowserSummary {
   const observations=report.observations;

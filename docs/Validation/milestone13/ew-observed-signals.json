@@ -1,0 +1,1292 @@
+{
+  "schemaVersion": 1,
+  "mode": "preserved-live-static-evidence-reassessment",
+  "humanReviewed": 0,
+  "rows": [
+    {
+      "id": "LC01",
+      "organisation": "Lyon Croft Law",
+      "url": "https://www.lyoncroft.co.uk/pricing-and-fees",
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "expectedText": [
+        "We act for both employees and employers",
+        "Grant of Probate Only",
+        "8011215"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employee",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employer",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "debt_recovery",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "NO_SERVICE_CONTEXT": 21,
+        "INSUFFICIENT_CONTEXT": 7,
+        "SERVICE_SPECIFIC": 1
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://www.lyoncroft.co.uk/pricing-and-fees"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://www.lyoncroft.co.uk/pricing-and-fees"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://www.lyoncroft.co.uk/pricing-and-fees"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://www.lyoncroft.co.uk/pricing-and-fees"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 4,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 183,
+        "NOT_APPLICABLE": 0
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "LC02",
+      "organisation": "Lyon Croft Law",
+      "url": "https://www.lyoncroft.co.uk/employment-law-contentious",
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "expectedText": [
+        "guidance to both employees and employers",
+        "Employment Tribunal Claims"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "employment_employee",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employer",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "NO_SERVICE_CONTEXT": 3
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://www.lyoncroft.co.uk/employment-law-contentious"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://www.lyoncroft.co.uk/employment-law-contentious"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://www.lyoncroft.co.uk/employment-law-contentious"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://www.lyoncroft.co.uk/employment-law-contentious"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 3,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 185,
+        "NOT_APPLICABLE": 2
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "LC03",
+      "organisation": "Lyon Croft Law",
+      "url": "https://www.lyoncroft.co.uk/contact",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "First Central 200",
+        "8011215"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [],
+      "automatedAttributionCounts": {},
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://www.lyoncroft.co.uk/contact"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://www.lyoncroft.co.uk/contact"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://www.lyoncroft.co.uk/contact"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://www.lyoncroft.co.uk/contact"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 3,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 181,
+        "NOT_APPLICABLE": 3
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "WH01",
+      "organisation": "Waller and Hart",
+      "url": "https://www.wallerandhart.com/pricing/",
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "expectedText": [
+        "Our Services and Pricing for the Administration of an Estate",
+        "On average however we find we can deal with estates within 2-9 months"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_HIGH_CONFIDENCE"
+        },
+        {
+          "service": "remortgage",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employee",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employer",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "FIRM_WIDE": 24
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "UNKNOWN",
+          "url": "https://www.wallerandhart.com/pricing/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "PASS",
+          "url": "https://www.wallerandhart.com/pricing/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "PASS",
+          "url": "https://www.wallerandhart.com/pricing/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "WARNING",
+          "url": "https://www.wallerandhart.com/pricing/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 8,
+        "WARNING": 3,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 176,
+        "NOT_APPLICABLE": 0
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "WH02",
+      "organisation": "Waller and Hart",
+      "url": "https://www.wallerandhart.com/contact-information/",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "29 Basset Road",
+        "solicitors@wallerandhart.co.uk"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [],
+      "automatedAttributionCounts": {},
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "UNKNOWN",
+          "url": "https://www.wallerandhart.com/contact-information/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://www.wallerandhart.com/contact-information/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://www.wallerandhart.com/contact-information/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://www.wallerandhart.com/contact-information/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 2,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 184,
+        "NOT_APPLICABLE": 2
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "HC01",
+      "organisation": "Hunt & Coombs",
+      "url": "https://www.hcsolicitors.co.uk/pricing/",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "registration no. 443035",
+        "All prices that refer to VAT will be charged VAT at the current rate of 20%"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_HIGH_CONFIDENCE"
+        },
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "motoring",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employee",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employer",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "debt_recovery",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "NO_SERVICE_CONTEXT": 5
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "UNKNOWN",
+          "url": "https://www.hcsolicitors.co.uk/pricing/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://www.hcsolicitors.co.uk/pricing/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://www.hcsolicitors.co.uk/pricing/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "WARNING",
+          "url": "https://www.hcsolicitors.co.uk/pricing/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 5,
+        "WARNING": 3,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 179,
+        "NOT_APPLICABLE": 0
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "HC02",
+      "organisation": "Hunt & Coombs",
+      "url": "https://www.hcsolicitors.co.uk/pricing/probate/",
+      "expectedServiceContext": "probate",
+      "expectedText": [
+        "probate fees roughly equate to 1.5",
+        "Probate application fee"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "motoring",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employee",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employer",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "debt_recovery",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "SERVICE_SPECIFIC": 20
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "UNKNOWN",
+          "url": "https://www.hcsolicitors.co.uk/pricing/probate/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://www.hcsolicitors.co.uk/pricing/probate/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://www.hcsolicitors.co.uk/pricing/probate/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://www.hcsolicitors.co.uk/pricing/probate/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 3,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 186,
+        "NOT_APPLICABLE": 3
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "HC03",
+      "organisation": "Hunt & Coombs",
+      "url": "https://www.hcsolicitors.co.uk/about-us/complaints-procedure/",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "The Legal Ombudsman can help you",
+        "Complaints Procedure (70kb)"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "FIRM_WIDE": 3
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "UNKNOWN",
+          "url": "https://www.hcsolicitors.co.uk/about-us/complaints-procedure/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "PASS",
+          "url": "https://www.hcsolicitors.co.uk/wp-content/uploads/2025/04/Complaints-Procedure-A4.pdf"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "PASS",
+          "url": "https://www.hcsolicitors.co.uk/about-us/complaints-procedure/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "PASS",
+          "url": "https://www.hcsolicitors.co.uk/about-us/complaints-procedure/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 7,
+        "WARNING": 2,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 175,
+        "NOT_APPLICABLE": 3
+      },
+      "pdf": {
+        "discovered": 1,
+        "attempted": 1,
+        "extracted": 1,
+        "skipped": 0,
+        "bytesDownloaded": 246107,
+        "failures": 0,
+        "noText": 0
+      },
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "LL01",
+      "organisation": "Leadenhall Law Group",
+      "url": "https://leadenhalllawgroup.co.uk/contact-us/",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "SRA: 443007",
+        "SRA: 626822",
+        "SRA: 8009961"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [],
+      "automatedAttributionCounts": {},
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://leadenhalllawgroup.co.uk/contact-us/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://leadenhalllawgroup.co.uk/contact-us/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://leadenhalllawgroup.co.uk/contact-us/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://leadenhalllawgroup.co.uk/contact-us/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 3,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 184,
+        "NOT_APPLICABLE": 0
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "LL02",
+      "organisation": "Leadenhall Law Group",
+      "url": "https://leadenhalllawgroup.co.uk/residential-conveyancing/",
+      "expectedServiceContext": "residential_conveyancing",
+      "expectedText": [
+        "Leadenhall Law Group Pricing - Residential Conveyancing",
+        "Sale of Residential Property"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_HIGH_CONFIDENCE"
+        },
+        {
+          "service": "remortgage",
+          "state": "DETECTED_HIGH_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "SERVICE_SPECIFIC": 12
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://leadenhalllawgroup.co.uk/residential-conveyancing/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://leadenhalllawgroup.co.uk/residential-conveyancing/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://leadenhalllawgroup.co.uk/residential-conveyancing/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://leadenhalllawgroup.co.uk/residential-conveyancing/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 7,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 177,
+        "NOT_APPLICABLE": 3
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "LL03",
+      "organisation": "Leadenhall Law Group",
+      "url": "https://leadenhalllawgroup.co.uk/help/complaints-procedure/",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "We have eight weeks to consider your complaint",
+        "Legal Ombudsman PO BOX 6167"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [],
+      "automatedAttributionCounts": {
+        "FIRM_WIDE": 3
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://leadenhalllawgroup.co.uk/help/complaints-procedure/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "PASS",
+          "url": "https://leadenhalllawgroup.co.uk/help/complaints-procedure/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "PASS",
+          "url": "https://leadenhalllawgroup.co.uk/help/complaints-procedure/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "WARNING",
+          "url": "https://leadenhalllawgroup.co.uk/help/complaints-procedure/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 7,
+        "WARNING": 3,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 175,
+        "NOT_APPLICABLE": 2
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "CH01",
+      "organisation": "Cooper Hall Solicitors",
+      "url": "https://cooperhallsolicitors.co.uk/",
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "expectedText": [
+        "Clinical negligence and criminal defence solicitors in Bradford and Blackburn",
+        "Our Areas of Expertise"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "immigration",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "immigration_appeals",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "motoring",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "NO_SERVICE_CONTEXT": 1
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 2,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 185,
+        "NOT_APPLICABLE": 0
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "CH02",
+      "organisation": "Cooper Hall Solicitors",
+      "url": "https://cooperhallsolicitors.co.uk/conveyancing-and-property-law/",
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "expectedText": [
+        "Property transactions and disputes can be complex",
+        "managing a commercial lease"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "remortgage",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "immigration",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "motoring",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "SERVICE_SPECIFIC": 8
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/conveyancing-and-property-law/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/conveyancing-and-property-law/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/conveyancing-and-property-law/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/conveyancing-and-property-law/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 3,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 180,
+        "NOT_APPLICABLE": 4
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "CH03",
+      "organisation": "Cooper Hall Solicitors",
+      "url": "https://cooperhallsolicitors.co.uk/contact/",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "Solicitor Regulation Authority number is 639467",
+        "Our Locations"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [],
+      "automatedAttributionCounts": {
+        "NO_SERVICE_CONTEXT": 1
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/contact/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/contact/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/contact/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://cooperhallsolicitors.co.uk/contact/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 3,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 180,
+        "NOT_APPLICABLE": 4
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "JD01",
+      "organisation": "Jones and Duffin",
+      "url": "https://jonesduffin.co.uk/client-complaint-form/",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "We have up to eight weeks to resolve a complaint",
+        "Legal Ombudsman"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "NO_SERVICE_CONTEXT": 1
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://jonesduffin.co.uk/client-complaint-form/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "PASS",
+          "url": "https://jonesduffin.co.uk/client-complaint-form/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "PASS",
+          "url": "https://jonesduffin.co.uk/client-complaint-form/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "PASS",
+          "url": "https://jonesduffin.co.uk/client-complaint-form/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 9,
+        "WARNING": 1,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 177,
+        "NOT_APPLICABLE": 0
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "JD02",
+      "organisation": "Jones and Duffin",
+      "url": "https://jonesduffin.co.uk/our-prices/",
+      "expectedServiceContext": "residential_conveyancing",
+      "expectedText": [
+        "WE DO NOT UNDERTAKE ANY MORTGAGE TRANSACTIONS",
+        "OUR CONVEYANCING CHARGES"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "NO_SERVICE_CONTEXT": 23,
+        "SERVICE_SPECIFIC": 8
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://jonesduffin.co.uk/our-prices/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://jonesduffin.co.uk/our-prices/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://jonesduffin.co.uk/our-prices/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://jonesduffin.co.uk/our-prices/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 5,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 163,
+        "NOT_APPLICABLE": 19
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "JD03",
+      "organisation": "Jones and Duffin",
+      "url": "https://jonesduffin.co.uk/services/",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "Wills and Probate",
+        "SRA number 667154"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {},
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://jonesduffin.co.uk/services/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://jonesduffin.co.uk/services/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://jonesduffin.co.uk/services/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://jonesduffin.co.uk/services/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 3,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 183,
+        "NOT_APPLICABLE": 2
+      },
+      "pdf": null,
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "SF01",
+      "organisation": "Setfords",
+      "url": "https://www.setfords.co.uk/our-people/",
+      "expectedServiceContext": "NO_SERVICE_CONTEXT",
+      "expectedText": [
+        "Aasima Riaz-Foster",
+        "Abigail Dungate"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_HIGH_CONFIDENCE"
+        },
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "immigration",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "motoring",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employee",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employer",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "debt_recovery",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "business_licensing",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "NO_SERVICE_CONTEXT": 2
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://www.setfords.co.uk/our-people/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://www.setfords.co.uk/our-people/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://www.setfords.co.uk/our-people/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://www.setfords.co.uk/our-people/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 3,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 184,
+        "NOT_APPLICABLE": 0
+      },
+      "pdf": {
+        "discovered": 1,
+        "attempted": 1,
+        "extracted": 1,
+        "skipped": 0,
+        "bytesDownloaded": 7329044,
+        "failures": 0,
+        "noText": 0
+      },
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "SF02",
+      "organisation": "Setfords",
+      "url": "https://www.setfords.co.uk/what-you-might-expect-to-pay-at-setfords/",
+      "expectedServiceContext": "FIRM_WIDE",
+      "expectedText": [
+        "Our model and pricing",
+        "Your case will be handled by an experienced Lawyer from start to finish"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "motoring",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employee",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employer",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "debt_recovery",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "business_licensing",
+          "state": "DETECTED_HIGH_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "NO_SERVICE_CONTEXT": 13,
+        "SERVICE_SPECIFIC": 19
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://www.setfords.co.uk/what-you-might-expect-to-pay-at-setfords/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://www.setfords.co.uk/what-you-might-expect-to-pay-at-setfords/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://www.setfords.co.uk/what-you-might-expect-to-pay-at-setfords/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://www.setfords.co.uk/what-you-might-expect-to-pay-at-setfords/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 7,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 177,
+        "NOT_APPLICABLE": 3
+      },
+      "pdf": {
+        "discovered": 1,
+        "attempted": 1,
+        "extracted": 1,
+        "skipped": 0,
+        "bytesDownloaded": 7329044,
+        "failures": 0,
+        "noText": 0
+      },
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    },
+    {
+      "id": "SF03",
+      "organisation": "Setfords",
+      "url": "https://www.setfords.co.uk/our-people/profile/abigail_dungate/",
+      "expectedServiceContext": "residential_conveyancing",
+      "expectedText": [
+        "Consultant Licensed Conveyancer",
+        "extensive experience in residential property law"
+      ],
+      "staticExpectationMatches": [
+        true,
+        true
+      ],
+      "source": "STATIC_HTML_WITH_SEPARATE_PDF_WHERE_PRESENT",
+      "detectedServices": [
+        {
+          "service": "residential_conveyancing",
+          "state": "DETECTED_HIGH_CONFIDENCE"
+        },
+        {
+          "service": "remortgage",
+          "state": "DETECTED_HIGH_CONFIDENCE"
+        },
+        {
+          "service": "probate",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employee",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        },
+        {
+          "service": "employment_employer",
+          "state": "DETECTED_LOW_CONFIDENCE"
+        }
+      ],
+      "automatedAttributionCounts": {
+        "SERVICE_SPECIFIC": 3
+      },
+      "selectedRegulatorySignals": [
+        {
+          "rule": "LAW-U001",
+          "state": "PASS",
+          "url": "https://www.setfords.co.uk/our-people/profile/abigail_dungate/"
+        },
+        {
+          "rule": "LAW-U004",
+          "state": "UNKNOWN",
+          "url": "https://www.setfords.co.uk/our-people/profile/abigail_dungate/"
+        },
+        {
+          "rule": "LAW-U005",
+          "state": "UNKNOWN",
+          "url": "https://www.setfords.co.uk/our-people/profile/abigail_dungate/"
+        },
+        {
+          "rule": "LAW-U008",
+          "state": "UNKNOWN",
+          "url": "https://www.setfords.co.uk/our-people/profile/abigail_dungate/"
+        }
+      ],
+      "ruleCounts": {
+        "PASS": 3,
+        "WARNING": 0,
+        "POTENTIAL_ISSUE": 0,
+        "UNKNOWN": 188,
+        "NOT_APPLICABLE": 2
+      },
+      "pdf": {
+        "discovered": 1,
+        "attempted": 1,
+        "extracted": 1,
+        "skipped": 0,
+        "bytesDownloaded": 7329044,
+        "failures": 0,
+        "noText": 0
+      },
+      "limitation": "Automated factual signals only; these observations have not received independent M13 human rule-support or attribution review. Page-wide context is not authority for all excerpts."
+    }
+  ]
+}

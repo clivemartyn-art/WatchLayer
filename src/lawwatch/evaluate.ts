@@ -94,7 +94,8 @@ export function evaluateLawWatch(input:LawContext):LawReport {
       const now=pages.find(x=>x.url===before.url&&!!x.observation===!!before.observation);const retained=now?.signals[signal]??[];
       const previousValues=before.signals[signal].map(f=>f.value??f.snippet);
       const unchanged=previousValues.every(v=>retained.some(f=>(f.value??f.snippet)===v));
-      const reliable=now?.reliable&&comparison?.comparisonEligible&&c.pages.some(p=>(p.url===before.url||p.finalUrl===before.url)&&p.observationStatus==='observed'&&p.evidence==='html');
+      // A completed initial render can still omit content; no rendered disappearance claim.
+      const reliable=now?.reliable&&!now.observation&&comparison?.comparisonEligible&&c.pages.some(p=>(p.url===before.url||p.finalUrl===before.url)&&p.observationStatus==='observed'&&p.evidence==='html');
       add(id,unchanged?'PASS':id==='LAW-C003'&&reliable?'WARNING':'UNKNOWN',unchanged?'Previously recorded signal still detected.':id==='LAW-C003'&&reliable?'A previously detected number was not found on the reobserved surface. Review other office and regulatory surfaces.':'Static or coverage limitations prevent a disappearance conclusion.',{current:retained},before.url,{previous:before.signals[signal]});
     }
   }
@@ -114,5 +115,5 @@ export function evaluateLawWatch(input:LawContext):LawReport {
     }
     return result;
   });law.results=results;law.findings=projectFindings(results,law.runId,c.completedAt);
-  return {...(c.browser?{browser:browserSummary(c.browser)}:{}),...(c.pdf?{pdf:c.pdf,adjudication:adjudication.report}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.7',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
+  return {...(c.browser?{browser:browserSummary(c.browser)}:{}),...(c.pdf?{pdf:c.pdf,adjudication:adjudication.report}:{}),schemaVersion:1,site:c.canonicalDomain,scanId:c.scanId,packId:'lawwatch-england-wales',packVersion:'1.8',universalResults:runs[0].results,classifications,inventory,results,changes:results.filter(r=>r.ruleId.startsWith('LAW-C')),drift:results.filter(r=>r.ruleId.startsWith('LAW-I')),summary:Object.fromEntries(STATES.map(s=>[s,results.filter(r=>r.status===s).length])) as LawReport['summary'],runs,statement:REPORT_STATEMENT};
 }

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "items": 18,
+  "reviewed": 18,
+  "pending": 0,
+  "reviewComplete": true,
+  "independentlyValidEvidence": {
+    "count": 18,
+    "denominator": 18,
+    "rate": 1
+  },
+  "justifiedRuleSupport": {
+    "count": 3,
+    "denominator": 3,
+    "rate": 1
+  },
+  "wrongServiceCount": 0,
+  "labels": {
+    "VALID_RENDERED_EVIDENCE": 18,
+    "PARTIAL_OR_AMBIGUOUS": 0,
+    "NOT_RELEVANT": 0,
+    "WRONG_SERVICE": 0,
+    "INSUFFICIENT_CONTEXT": 0
+  },
+  "limitation": "Selected sample review only. No population-level or live serious-finding precision estimate. Empty queues are not completed reviews."
+}

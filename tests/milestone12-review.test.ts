@@ -15,7 +15,7 @@ it('separates useful public evidence from regulatory support',()=>{const r=compa
 it('counts unreviewed items without calling them invalid evidence',()=>{const r=compareRenderReviews([item],[]);expect(r.pending).toBe(1);expect(r.independentlyValidEvidence.rate).toBeNull();});
 it.each([{reviewer:''},{notes:''},{reviewedAt:'2026-02-30'},{label:''},{usefulPublicEvidence:'UNCERTAIN'},{serviceContext:'WRONG'},{ruleSupport:'UNJUSTIFIED'}])('rejects incomplete or contradictory decisions %j',change=>{expect(()=>compareRenderReviews([item],[{...decision,...change} as RenderDecision])).toThrow();});
 it('rejects unknown and duplicate decisions',()=>{expect(()=>compareRenderReviews([item],[decision,decision])).toThrow();expect(()=>compareRenderReviews([],[decision])).toThrow();});
-it.each(['1.0','1.1'] as const)('does not compare current browser policy against a historical policy %s scan',async policy=>{
+it.each(['1.0','1.1','1.2'] as const)('does not compare current browser policy against a historical policy %s scan',async policy=>{
   const source=new SqliteRepository(':memory:'),current=new SqliteRepository(':memory:');
   try{
     const before=await scanLawWatch(LAW_SITE,source,{fetcher:lawWebsite(),browserFallback:true});

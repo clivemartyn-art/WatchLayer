@@ -1,0 +1,19 @@
+# E&W continuation: selection and interpretation
+
+This is a new purposive 16-page, seven-organisation cohort, frozen before WatchLayer execution. It is separate from the original M13 23-page cohort and its 18 completed human judgments. Those judgments must not be applied to these pages.
+
+`confirmed-targets.json` is the immutable target specification; `cohort-sha256.txt` records its hash. Each target includes the raw/static visible text, capture hash/path, independent-browser timestamp, rendered text length, a bounded verbatim excerpt, frozen expected phrases/links, jurisdiction and service-context expectation. Independent browser observations are tool observations, not human adjudication. Excerpts intentionally avoid retaining another unrestricted website archive.
+
+Discovery used public firm pages and agency/developer portfolio clues. A technology claim was never itself a gap label. Bounded robots-aware HTTP screening used the existing HTTP transport and static text extractor, but no WatchLayer scan, browser eligibility or rule evaluation. Separately, the Codex in-app browser inspected visible text and link destinations without form submission, consent, login, tabs, or other interaction. Both confirmations preceded the evaluator. Raw captures are under ignored `reports/milestone13/ew-screen-01` through `ew-screen-04`.
+
+Seven pages across Michael Stevens Solicitors and TMC Solicitors have empty static text and useful independently visible content. Nine selected pages from the other five organisations already expose the selected content in static HTML. This classification concerns the frozen expected content, not completeness of every page. In particular, modern Next.js implementation, JavaScript enquiry forms and cookie banners do not count as render gaps.
+
+TMC's Immigration Solicitors 4Me brand is counted as TMC Solicitors once, not as an extra organisation. Its complaints page explicitly names the firm and Manchester postal address. Jurisdiction references for every organisation are recorded in the manifest. The cohort excludes the previous M11/M12/M13 organisations and the ten ordinary control firms.
+
+Screening exclusions are preserved separately: Regal Solicitors had an expired certificate, which was not bypassed; Tribunal Claim returned an apparently encoded/binary response despite an identity request, which is not established as a JavaScript gap. Neither contributes to the frozen cohort or coverage denominator. Other static home-page screening observations are not additional evaluation targets.
+
+Expectations are evidence-presence checks, not legal judgments. Complaints wording and regulatory identifiers are firm-wide unless local context establishes otherwise. Immigration application/appeal wording may be mixed; the review must not assume that all prices apply to every immigration service. A staffing or pricing link proves only its location. No third-party widget, testimonial, consent UI, or search/form value is selected as target regulatory evidence.
+
+The evaluator runs the current corrected M13 implementation with one-page static/assisted pairs, no extra regulatory/staff/recheck pages, one-second crawl pacing and unchanged PDF/browser bounds. `post-fix` is the shared tool's phase name; no production change is made by this continuation. The result directory preserves its source/lockfile hash and target hash.
+
+The separate browser is intentionally independent of WatchLayer's restricted transport. A successful independent observation establishes that content exists for a browser user; it does not establish that WatchLayer is allowed or able to fetch every dependency. WatchLayer still enforces robots.txt, same-site requests, SSRF checks and fail-closed resource execution. Expected content missing after a policy rejection remains unconfirmed, never an absence finding.

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "status": "CLOSED_WITH_DOCUMENTED_LIVE_RENDER_COVERAGE_LIMITATIONS",
+  "authorizedDecision": "User explicitly concluded the evidence-quality research phase and authorized M13 release; original coverage outcomes unchanged.",
+  "validatedAt": "2026-09-28T22:44:39.276Z",
+  "startingSha": "1ce044f0a55f39c88fc764967f92fc2fa6a11bad",
+  "tests": 766,
+  "browserTests": 104,
+  "typecheck": "PASS",
+  "build": "PASS",
+  "auditVulnerabilities": 0,
+  "preserved": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ]
+  },
+  "structuralChanges": [],
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "m10": {
+    "exact": {
+      "count": 57,
+      "denominator": 80,
+      "rate": 0.7125
+    },
+    "firmWide": {
+      "count": 26,
+      "denominator": 32,
+      "rate": 0.8125
+    },
+    "falseServiceAssignments": {
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+    }
+  },
+  "liveRenderLimitation": {
+    "ewPages": 16,
+    "ewOrganisations": 7,
+    "confirmedGaps": 7,
+    "gapOrganisations": 2,
+    "triggered": 7,
+    "recovered": 0,
+    "robotsBlocked": 4,
+    "networkPolicyBlocked": 3,
+    "securityRelaxation": false,
+    "livePrecisionClaim": false
+  },
+  "originalHumanReview": {
+    "reviewed": 18,
+    "accepted": 18,
+    "ruleServiceConfirmed": 3,
+    "wrongService": 0
+  },
+  "logs": "reports/milestone13/release-validation"
+}

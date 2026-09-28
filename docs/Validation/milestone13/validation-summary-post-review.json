@@ -1,0 +1,880 @@
+{
+  "schemaVersion": 1,
+  "status": "INCOMPLETE_INSUFFICIENT_RENDERED_COVERAGE",
+  "startingSha": "1ce044f0a55f39c88fc764967f92fc2fa6a11bad",
+  "cohort": {
+    "targets": 23,
+    "organisations": 8,
+    "jurisdictions": {
+      "Scotland": 3,
+      "England and Wales": 20
+    },
+    "gapClassification": {
+      "CONFIRMED_RENDER_GAP": 3,
+      "STATIC_SUFFICIENT": 20
+    },
+    "staticPages": 23,
+    "assistedHttpPages": 23,
+    "failedPages": 0
+  },
+  "rendering": {
+    "attempts": 3,
+    "completed": 3,
+    "recoveredOrganisations": 1,
+    "recovery": {
+      "USEFUL_BUT_DIFFERENT_RECOVERY": 2,
+      "COMPLETE_EXPECTED_RECOVERY": 1
+    },
+    "triggerReasons": {
+      "APP_SHELL_DETECTED": 3
+    },
+    "unnecessaryAttempts": 0,
+    "newCandidateFacts": 7,
+    "newRelevantLinkOccurrences": 25,
+    "uniqueRelevantLinks": 9,
+    "renderedPdfLinks": 0,
+    "medianMs": 4457,
+    "p95Ms": null,
+    "totalAddedMs": 14092,
+    "requests": 38,
+    "bytes": 3748181,
+    "blockedRequests": 25,
+    "failures": 0,
+    "timeouts": 0,
+    "staticRunMs": 227208,
+    "assistedRunMs": 229359
+  },
+  "pageResults": [
+    {
+      "id": "ML01",
+      "organisation": "Mathie Lennox & Co",
+      "jurisdiction": "Scotland",
+      "label": "CONFIRMED_RENDER_GAP",
+      "reason": "APP_SHELL_DETECTED",
+      "recovery": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "durationMs": 5466,
+      "requests": 17,
+      "bytes": 1249393,
+      "blockedRequests": 13
+    },
+    {
+      "id": "ML02",
+      "organisation": "Mathie Lennox & Co",
+      "jurisdiction": "Scotland",
+      "label": "CONFIRMED_RENDER_GAP",
+      "reason": "APP_SHELL_DETECTED",
+      "recovery": "USEFUL_BUT_DIFFERENT_RECOVERY",
+      "durationMs": 4457,
+      "requests": 12,
+      "bytes": 1249395,
+      "blockedRequests": 7
+    },
+    {
+      "id": "ML03",
+      "organisation": "Mathie Lennox & Co",
+      "jurisdiction": "Scotland",
+      "label": "CONFIRMED_RENDER_GAP",
+      "reason": "APP_SHELL_DETECTED",
+      "recovery": "COMPLETE_EXPECTED_RECOVERY",
+      "durationMs": 4169,
+      "requests": 9,
+      "bytes": 1249393,
+      "blockedRequests": 5
+    },
+    {
+      "id": "LC01",
+      "organisation": "Lyon Croft Law",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "LC02",
+      "organisation": "Lyon Croft Law",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "LC03",
+      "organisation": "Lyon Croft Law",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "WH01",
+      "organisation": "Waller and Hart",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "WH02",
+      "organisation": "Waller and Hart",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "HC01",
+      "organisation": "Hunt & Coombs",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "HC02",
+      "organisation": "Hunt & Coombs",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "HC03",
+      "organisation": "Hunt & Coombs",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "pdf": {
+        "discovered": 1,
+        "attempted": 1,
+        "extracted": 1,
+        "skipped": 0,
+        "bytesDownloaded": 246107,
+        "failures": 0,
+        "noText": 0
+      }
+    },
+    {
+      "id": "LL01",
+      "organisation": "Leadenhall Law Group",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "LL02",
+      "organisation": "Leadenhall Law Group",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "LL03",
+      "organisation": "Leadenhall Law Group",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "CH01",
+      "organisation": "Cooper Hall Solicitors",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "CH02",
+      "organisation": "Cooper Hall Solicitors",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "CH03",
+      "organisation": "Cooper Hall Solicitors",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "JD01",
+      "organisation": "Jones and Duffin",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "JD02",
+      "organisation": "Jones and Duffin",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "JD03",
+      "organisation": "Jones and Duffin",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "BROWSER_NOT_REQUIRED",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0
+    },
+    {
+      "id": "SF01",
+      "organisation": "Setfords",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "pdf": {
+        "discovered": 1,
+        "attempted": 1,
+        "extracted": 1,
+        "skipped": 0,
+        "bytesDownloaded": 7329044,
+        "failures": 0,
+        "noText": 0
+      }
+    },
+    {
+      "id": "SF02",
+      "organisation": "Setfords",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "pdf": {
+        "discovered": 1,
+        "attempted": 1,
+        "extracted": 1,
+        "skipped": 0,
+        "bytesDownloaded": 7329044,
+        "failures": 0,
+        "noText": 0
+      }
+    },
+    {
+      "id": "SF03",
+      "organisation": "Setfords",
+      "jurisdiction": "England and Wales",
+      "label": "STATIC_SUFFICIENT",
+      "reason": "STATIC_CONTENT_SUFFICIENT",
+      "recovery": null,
+      "durationMs": 0,
+      "requests": 0,
+      "bytes": 0,
+      "blockedRequests": 0,
+      "pdf": {
+        "discovered": 1,
+        "attempted": 1,
+        "extracted": 1,
+        "skipped": 0,
+        "bytesDownloaded": 7329044,
+        "failures": 0,
+        "noText": 0
+      }
+    }
+  ],
+  "correction": {
+    "mode": "OFFLINE_REPLAY_OF_PRESERVED_LIVE_CAPTURES",
+    "ruleChanges": 0,
+    "classificationChanges": 28,
+    "changes": [
+      {
+        "id": "ML01",
+        "ruleChanges": [],
+        "classifications": [
+          {
+            "service": "residential_conveyancing",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "remortgage",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "probate",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "immigration",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "motoring",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "employment_employee",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "employment_employer",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "business_licensing",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "id": "ML02",
+        "ruleChanges": [],
+        "classifications": [
+          {
+            "service": "remortgage",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "immigration",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "motoring",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "employment_employee",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "employment_employer",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "business_licensing",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "id": "ML03",
+        "ruleChanges": [],
+        "classifications": [
+          {
+            "service": "residential_conveyancing",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "remortgage",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "probate",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "immigration",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "immigration_appeals",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "motoring",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "employment_employee",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "employment_employer",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "debt_recovery",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          },
+          {
+            "service": "business_licensing",
+            "before": "NOT_DETECTED",
+            "after": "UNKNOWN"
+          }
+        ]
+      }
+    ],
+    "changedFactAttributions": 0,
+    "pairedStaticAssistedRuleChanges": 0,
+    "unknownToSupported": 0,
+    "supportedToUnknown": 0,
+    "positiveClassificationChanges": [
+      {
+        "service": "residential_conveyancing",
+        "before": "UNKNOWN",
+        "after": "DETECTED_HIGH_CONFIDENCE"
+      },
+      {
+        "service": "probate",
+        "before": "UNKNOWN",
+        "after": "DETECTED_LOW_CONFIDENCE"
+      }
+    ]
+  },
+  "review": {
+    "queueSha256": "0e576965aeff75c5598805d06dfc1a2ad3e9de20f74a134d7462073be7a35066",
+    "schemaVersion": 1,
+    "items": 18,
+    "reviewed": 18,
+    "pending": 0,
+    "reviewComplete": true,
+    "independentlyValidEvidence": {
+      "count": 18,
+      "denominator": 18,
+      "rate": 1
+    },
+    "justifiedRuleSupport": {
+      "count": 3,
+      "denominator": 3,
+      "rate": 1
+    },
+    "wrongServiceCount": 0,
+    "labels": {
+      "VALID_RENDERED_EVIDENCE": 18,
+      "PARTIAL_OR_AMBIGUOUS": 0,
+      "NOT_RELEVANT": 0,
+      "WRONG_SERVICE": 0,
+      "INSUFFICIENT_CONTEXT": 0
+    },
+    "limitation": "Selected sample review only. No population-level or live serious-finding precision estimate. Empty queues are not completed reviews.",
+    "reviewer": "Clive",
+    "reviewedAt": "2026-09-28",
+    "sourceFile": "docs/Validation/milestone13/review-v3/m13-human-decisions-clive-2026-09-28.json",
+    "sourceSha256": "ceab053fff7b1db1adc304c852614c628a666e59cf2ec24ce795eeb6563f59df",
+    "correctProposedServiceAssociations": 3,
+    "serviceAssociationDenominator": 3
+  },
+  "preserved": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ],
+    "resultChanges": 0,
+    "structuralChanges": {
+      "reports": 50,
+      "classifications": 0,
+      "pdf": 0,
+      "adjudication": 0,
+      "inventory": 0
+    }
+  },
+  "m10": {
+    "exact": {
+      "count": 57,
+      "denominator": 80,
+      "rate": 0.7125
+    },
+    "firmWide": {
+      "count": 26,
+      "denominator": 32,
+      "rate": 0.8125
+    },
+    "falseServiceAssignments": {
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+    }
+  },
+  "ordinaryControls": {
+    "firms": 10,
+    "staticPages": 197,
+    "assistedPages": 197,
+    "failedPages": 1,
+    "performance": {
+      "attempts": 0,
+      "rendered": 0,
+      "pagesScanned": 197,
+      "fallbackFraction": 0,
+      "averageMs": null,
+      "p95Ms": null,
+      "totalAddedMs": 0,
+      "failureRate": null,
+      "timeoutRate": null,
+      "materiallyNewFraction": null
+    },
+    "changes": {
+      "rules": 0,
+      "classifications": 0,
+      "attribution": 0
+    },
+    "documentLimitations": [
+      {
+        "firm": "Ashtons Legal",
+        "mode": "static",
+        "url": "https://www.ashtonslegal.co.uk/wp-content/uploads/2026/09/Terms-of-Business-Issue-22-Single-Pages-September-2026.pdf",
+        "status": "ENCRYPTED"
+      },
+      {
+        "firm": "Ashtons Legal",
+        "mode": "static",
+        "url": "https://www.ashtonslegal.co.uk/wp-content/uploads/2024/01/Complaints-Handling-Procedure.pdf",
+        "status": "ENCRYPTED"
+      },
+      {
+        "firm": "Ashtons Legal",
+        "mode": "assisted",
+        "url": "https://www.ashtonslegal.co.uk/wp-content/uploads/2026/09/Terms-of-Business-Issue-22-Single-Pages-September-2026.pdf",
+        "status": "ENCRYPTED"
+      },
+      {
+        "firm": "Ashtons Legal",
+        "mode": "assisted",
+        "url": "https://www.ashtonslegal.co.uk/wp-content/uploads/2024/01/Complaints-Handling-Procedure.pdf",
+        "status": "ENCRYPTED"
+      },
+      {
+        "firm": "Shakespeare Martineau",
+        "mode": "static",
+        "url": "https://www.officeforstudents.org.uk/media/x1afzxve/free-speech-complaints-scheme-rules-2026.pdf",
+        "status": "BLOCKED_BY_POLICY"
+      },
+      {
+        "firm": "Shakespeare Martineau",
+        "mode": "static",
+        "url": "https://www.officeforstudents.org.uk/media/ubxdnbju/regulatory-advice-24-freedom-of-speech-guidance-5-aug-2026.pdf",
+        "status": "BLOCKED_BY_POLICY"
+      },
+      {
+        "firm": "Shakespeare Martineau",
+        "mode": "static",
+        "url": "https://assets.publishing.service.gov.uk/media/698f4e3e7da91680ad7f4417/CMA209_Unfair_commercial_practices__price_transparency_13.2.26.pdf",
+        "status": "BLOCKED_BY_POLICY"
+      },
+      {
+        "firm": "Shakespeare Martineau",
+        "mode": "assisted",
+        "url": "https://www.officeforstudents.org.uk/media/x1afzxve/free-speech-complaints-scheme-rules-2026.pdf",
+        "status": "BLOCKED_BY_POLICY"
+      },
+      {
+        "firm": "Shakespeare Martineau",
+        "mode": "assisted",
+        "url": "https://www.officeforstudents.org.uk/media/ubxdnbju/regulatory-advice-24-freedom-of-speech-guidance-5-aug-2026.pdf",
+        "status": "BLOCKED_BY_POLICY"
+      },
+      {
+        "firm": "Shakespeare Martineau",
+        "mode": "assisted",
+        "url": "https://assets.publishing.service.gov.uk/media/698f4e3e7da91680ad7f4417/CMA209_Unfair_commercial_practices__price_transparency_13.2.26.pdf",
+        "status": "BLOCKED_BY_POLICY"
+      },
+      {
+        "firm": "Kitson Boyce",
+        "mode": "static",
+        "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2026/06/20260618_114840.pdf",
+        "status": "NO_TEXT"
+      },
+      {
+        "firm": "Kitson Boyce",
+        "mode": "static",
+        "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2019/04/Buying-a-Property.pdf",
+        "status": "NO_TEXT"
+      },
+      {
+        "firm": "Kitson Boyce",
+        "mode": "assisted",
+        "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2026/06/20260618_114840.pdf",
+        "status": "NO_TEXT"
+      },
+      {
+        "firm": "Kitson Boyce",
+        "mode": "assisted",
+        "url": "https://www.kitsonboyce.co.uk/wp-content/uploads/2019/04/Buying-a-Property.pdf",
+        "status": "NO_TEXT"
+      }
+    ],
+    "staticMs": 432725,
+    "assistedMs": 367941,
+    "rows": [
+      {
+        "firm": "Tozers",
+        "staticPages": 22,
+        "assistedPages": 22,
+        "failedPages": 0,
+        "browserAttempts": 0,
+        "staticMs": 44948,
+        "assistedMs": 40675
+      },
+      {
+        "firm": "Ashtons Legal",
+        "staticPages": 22,
+        "assistedPages": 22,
+        "failedPages": 0,
+        "browserAttempts": 0,
+        "staticMs": 43568,
+        "assistedMs": 43340
+      },
+      {
+        "firm": "Tilly Bailey & Irvine",
+        "staticPages": 20,
+        "assistedPages": 20,
+        "failedPages": 0,
+        "browserAttempts": 0,
+        "staticMs": 36430,
+        "assistedMs": 28257
+      },
+      {
+        "firm": "Rothera Bray",
+        "staticPages": 22,
+        "assistedPages": 22,
+        "failedPages": 0,
+        "browserAttempts": 0,
+        "staticMs": 77632,
+        "assistedMs": 43638
+      },
+      {
+        "firm": "Rachel Sebastian & Co",
+        "staticPages": 10,
+        "assistedPages": 10,
+        "failedPages": 0,
+        "browserAttempts": 0,
+        "staticMs": 14235,
+        "assistedMs": 14408
+      },
+      {
+        "firm": "Shakespeare Martineau",
+        "staticPages": 18,
+        "assistedPages": 18,
+        "failedPages": 0,
+        "browserAttempts": 0,
+        "staticMs": 50271,
+        "assistedMs": 44462
+      },
+      {
+        "firm": "Kitson Boyce",
+        "staticPages": 22,
+        "assistedPages": 22,
+        "failedPages": 0,
+        "browserAttempts": 0,
+        "staticMs": 55015,
+        "assistedMs": 44802
+      },
+      {
+        "firm": "Stephens Scown",
+        "staticPages": 19,
+        "assistedPages": 19,
+        "failedPages": 0,
+        "browserAttempts": 0,
+        "staticMs": 51331,
+        "assistedMs": 52213
+      },
+      {
+        "firm": "Higgs LLP",
+        "staticPages": 21,
+        "assistedPages": 21,
+        "failedPages": 0,
+        "browserAttempts": 0,
+        "staticMs": 25570,
+        "assistedMs": 25706
+      },
+      {
+        "firm": "Russell-Cooke",
+        "staticPages": 21,
+        "assistedPages": 21,
+        "failedPages": 1,
+        "browserAttempts": 0,
+        "staticMs": 33725,
+        "assistedMs": 30440
+      }
+    ]
+  },
+  "validation": {
+    "tests": 766,
+    "testFiles": 36,
+    "addedTests": 29,
+    "browserTests": 104,
+    "auditVulnerabilities": 0
+  },
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "limitations": [
+    "Sample observations only; no live precision claim.",
+    "Three rendered pages from one Scottish organisation; no rendered E&W or PDF recovery.",
+    "Offline corrected cohort replay is not a fresh browser capture.",
+    "Structural comparison counts changed reports, not item-level accuracy.",
+    "All 18 accepted items derive from three pages of one organisation; 13 are link-location observations, two are contact facts and three are rule-support candidates. This does not establish population-level accuracy or live serious-finding precision."
+  ],
+  "completionAssessment": "Human-review gate satisfied. Broader rendered coverage remains insufficient: one Scottish organisation, no live rendered E&W or document recovery. No production correction is justified by these accepted judgments."
+}

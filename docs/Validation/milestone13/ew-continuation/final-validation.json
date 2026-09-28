@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "status": "INCOMPLETE_COVERAGE_NOT_MET",
+  "checkedAt": "2026-09-28T22:30:47.905Z",
+  "head": "1ce044f0a55f39c88fc764967f92fc2fa6a11bad",
+  "branch": "main",
+  "workingTreeClean": false,
+  "commitPerformed": false,
+  "pushPerformed": false,
+  "productionChanges": 0,
+  "dependenciesChanged": 0,
+  "newContinuationTests": 0,
+  "tests": 766,
+  "browserTests": 104,
+  "typecheck": "PASS (installed TypeScript entry point; exit 0)",
+  "build": "PASS (installed TypeScript entry point; exit 0)",
+  "auditVulnerabilities": 0,
+  "preservation": {
+    "originalReportsChecked": 946,
+    "sourceFilesChecked": 82,
+    "originalValidationFilesChecked": 20,
+    "changes": 0
+  },
+  "controls": {
+    "staticPages": 197,
+    "assistedPages": 197,
+    "staticFailed": 1,
+    "assistedFailed": 1,
+    "browserAttempts": 0,
+    "ruleChanges": 0,
+    "classificationChanges": 0,
+    "attributionChanged": 0,
+    "directRenderedChanges": 0,
+    "seriousFindings": 0,
+    "staticMs": 369766,
+    "assistedMs": 368457
+  },
+  "preserved": {
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ],
+    "changes": {
+      "reports": 50,
+      "classifications": 0,
+      "ruleResults": 0,
+      "pdf": 0,
+      "adjudication": 0,
+      "inventory": 0
+    }
+  },
+  "m10": {
+    "exact": {
+      "count": 57,
+      "denominator": 80,
+      "rate": 0.7125
+    },
+    "firmWide": {
+      "count": 26,
+      "denominator": 32,
+      "rate": 0.8125
+    },
+    "falseServiceAssignments": {
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+    }
+  },
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "review": {
+    "schemaVersion": 1,
+    "items": 0,
+    "reviewed": 0,
+    "pending": 0,
+    "reviewComplete": false,
+    "independentlyValidEvidence": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "justifiedRuleSupport": {
+      "count": 0,
+      "denominator": 0,
+      "rate": null
+    },
+    "wrongServiceCount": 0,
+    "labels": {
+      "VALID_RENDERED_EVIDENCE": 0,
+      "PARTIAL_OR_AMBIGUOUS": 0,
+      "NOT_RELEVANT": 0,
+      "WRONG_SERVICE": 0,
+      "INSUFFICIENT_CONTEXT": 0
+    },
+    "limitation": "Selected sample review only. No population-level or live serious-finding precision estimate. Empty queues are not completed reviews.",
+    "organisationsRepresented": 0,
+    "acceptedOrganisations": 0,
+    "correctServiceCount": 0,
+    "firmWideCount": 0
+  },
+  "coverageGates": {
+    "independentlyFrozen": true,
+    "multipleConfirmedGapsTested": true,
+    "atLeastTwoOrganisationsWithRetainedEvidence": false,
+    "humanReviewedEWEvidence": false,
+    "ruleBearingRenderedReview": false,
+    "serviceRegression": false,
+    "seriousRegression": false,
+    "staticFirstSelective": true,
+    "preservedBenchmarkStable": true,
+    "m10Stable": true,
+    "technicalValidation": true
+  },
+  "nextStep": "Keep M13 incomplete. New review requires real retained evidence. No productionisation, commit or push."
+}

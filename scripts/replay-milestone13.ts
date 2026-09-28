@@ -1,0 +1,32 @@
+import {replayContext} from './milestone13-replay-context.js';
+import {readFile,writeFile,mkdir,readdir} from 'node:fs/promises';
+import {join} from 'node:path';
+import {createHash} from 'node:crypto';
+import {SqliteRepository} from '../src/storage/sqlite.js';
+import {evaluateLawWatch} from '../src/lawwatch/evaluate.js';
+import type {FactSet,LawReport} from '../src/lawwatch/types.js';
+import {compareBrowserEvidence} from './milestone11-comparison.js';
+const [source,output]=process.argv.slice(2);if(!source||!output||source===output)throw Error('Use preserved-live-directory new-replay-directory');
+const baseline=JSON.parse(await readFile(join(source,'summary.json'),'utf8'));if(baseline.completed!==baseline.manifest.targets)throw Error('Incomplete source cohort');
+await mkdir(output,{recursive:false});const save=(n:string,v:unknown)=>writeFile(join(output,n),JSON.stringify(v,null,2)+'\n');
+const hash=createHash('sha256');async function tree(p:string):Promise<void>{for(const e of(await readdir(p,{withFileTypes:true})).sort((a,b)=>a.name.localeCompare(b.name))){const f=join(p,e.name);if(e.isDirectory())await tree(f);else hash.update(f).update(await readFile(f));}}await tree('src');
+const manifest={...baseline.manifest,phase:'offline-post-correction-replay',source,sourceSha256:hash.digest('hex'),capturedSourceSha256:baseline.manifest.sourceSha256,evaluatedAt:new Date().toISOString(),networkRequests:0,limitation:'Reassesses preserved live observations only. Not a new live browser run. Capture provenance and policy versions remain unchanged; evaluated pack version is current.'};
+const repo=new SqliteRepository(join(source,'watchlayer.db')),rows=[],corrections=[];
+try{for(const sourceRow of baseline.rows){
+  const data=JSON.parse(await readFile(join(source,sourceRow.id+'.json'),'utf8'));
+  const prior:LawReport=JSON.parse(await readFile(join(source,sourceRow.id+'.report.json'),'utf8'));
+  const priorStatic:LawReport=JSON.parse(await readFile(join(source,sourceRow.id+'.static.report.json'),'utf8'));
+  const current=repo.get(data.scanId)!,staticSnapshot=repo.get(priorStatic.scanId)!;
+  const facts:FactSet=JSON.parse(await readFile(join(source,sourceRow.id+'.facts.json'),'utf8'));
+  const context=replayContext(current,repo);
+  const before=evaluateLawWatch(replayContext(staticSnapshot,repo)),after=evaluateLawWatch({...context,facts});
+  const changes=compareBrowserEvidence(current.browser!,facts,prior,after);
+  corrections.push({id:data.id,ruleChanges:changes.resultChanges,classifications:changes.serviceChanges});
+  const comparison=compareBrowserEvidence(current.browser!,facts,before,after);
+  const ablated=evaluateLawWatch({...context,current:{...current,browser:undefined},facts:{...facts,pages:facts.pages.filter(p=>!p.observation)}});
+  const row={...data,comparison,directRenderedChanges:compareBrowserEvidence(current.browser!,facts,ablated,after).resultChanges,reassessmentMode:'OFFLINE_PRESERVED_LIVE_OBSERVATION'};rows.push(row);
+  if([...before.results,...after.results,...after.universalResults].some(r=>r.status==='POTENTIAL_ISSUE'))throw Error('STOP: serious finding needs investigation');
+  await save(data.id+'.json',row);await save(data.id+'.facts.json',facts);await save(data.id+'.static.report.json',before);await save(data.id+'.report.json',after);
+}}finally{repo.close();}
+await save('manifest.json',manifest);await save('corrections.json',corrections);
+await save('summary.json',{manifest,completed:rows.length,rows:rows.map(r=>({...r,pdf:r.pdf?.summary,documents:undefined,observation:r.observation?{...r.observation,representation:undefined}:undefined})),humanReviewed:0});console.log('Replayed '+rows.length+' preserved live pairs, without network requests.');

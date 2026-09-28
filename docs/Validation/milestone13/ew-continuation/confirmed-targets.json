@@ -1,0 +1,691 @@
+{
+  "schemaVersion": 1,
+  "startingCommit": "1ce044f0a55f39c88fc764967f92fc2fa6a11bad",
+  "frozenAt": "2026-09-28T22:17:03.963Z",
+  "productionEdits": false,
+  "organisations": 7,
+  "selectionMethod": "Purposive discovery from public primary sites and development-portfolio clues, then bounded robots-aware raw HTML plus a separate browser inspection. Excludes original M11/M12/M13 targets. All expectations frozen before WatchLayer execution. No population accuracy inference.",
+  "jurisdictionBasis": {
+    "Michael Stevens Solicitors": "SRA register 625253; London office; https://www.sra.org.uk/consumers/register/organisation/?sraNumber=625253",
+    "TMC Solicitors (Immigration Solicitors 4Me)": "Complaints page explicitly identifies TMC Solicitors Ltd, Manchester M19 1SP. Parent public website has SRA 636580/654042; same organisation counted once.",
+    "Monaco Solicitors": "Primary site footer SRA 621671, London services.",
+    "Maurice Andrews Solicitors": "Primary complaints policy: Birmingham, England B19 1AG.",
+    "Heppenstalls Solicitors": "SRA register 559304; New Milton Hampshire.",
+    "T.G. Collins Solicitors": "Primary footer Chelmsford and Benfleet Essex; conveyancing team.",
+    "Derrick Bridges & Co": "SRA register 49842, Barnet England; primary website."
+  },
+  "screeningExclusions": [
+    {
+      "url": "https://www.regal-solicitors.co.uk/",
+      "reason": "Expired TLS certificate; no bypass."
+    },
+    {
+      "url": "https://www.tribunalclaimsolicitors.co.uk/",
+      "reason": "Raw response appears encoded/binary despite identity request. Not a confirmed JS gap; excluded, not counted as STATIC_SUFFICIENT."
+    }
+  ],
+  "targets": [
+    {
+      "id": "EW01",
+      "organisation": "TMC Solicitors (Immigration Solicitors 4Me)",
+      "jurisdiction": "England and Wales",
+      "url": "https://immigrationsolicitors4me.co.uk/Cost",
+      "evidenceType": "pricing",
+      "expectedServiceContext": "immigration",
+      "expectedTexts": [
+        "We offer fixed fee initial advice on Personal Immigration Matters",
+        "Our Immigration Law Services are billed based on an hourly rate.",
+        "All our legal fees are subject to Value Added Tax (VAT) at the current rate of 20%"
+      ],
+      "expectedLinks": [],
+      "test": "rule-related",
+      "label": "CONFIRMED_RENDER_GAP",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:13:46.848Z",
+        "textCharacters": 31951,
+        "visibleTextExcerpt": "Initial Advice – Fixed Fee\nWe offer fixed fee initial advice on Personal Immigration Matters, including eligibility assessments for immigration applications, Admin Reviews, Appeals, and Judicial Reviews.\nOur Initial Advice Fee:\nFee Range: £250 + VAT (if applicable) to £500 + VAT (if applicable).",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:13:23.315Z",
+        "status": 200,
+        "finalUrl": "https://immigrationsolicitors4me.co.uk/Cost",
+        "sha256": "22321524a40fd1e94227cc1a8bb5dcf7717fc31306c85cf5d1843f81dba76448",
+        "textCharacters": 0,
+        "visibleText": "",
+        "expectedTextPresent": [
+          false,
+          false,
+          false
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-04/0.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW02",
+      "organisation": "TMC Solicitors (Immigration Solicitors 4Me)",
+      "jurisdiction": "England and Wales",
+      "url": "https://immigrationsolicitors4me.co.uk/Complaints",
+      "evidenceType": "complaints",
+      "expectedServiceContext": null,
+      "expectedTexts": [
+        "TMC Solicitors Ltd – Complaint Procedure",
+        "If you are not satisfied with our final response, you may escalate your complaint to the Legal Ombudsman"
+      ],
+      "expectedLinks": [
+        "https://www.sra.org.uk/consumers/problems/report-solicitor/"
+      ],
+      "test": "rule-related",
+      "label": "CONFIRMED_RENDER_GAP",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:13:47.727Z",
+        "textCharacters": 8016,
+        "visibleTextExcerpt": "3. Escalation to the Legal Ombudsman\nIf you are not satisfied with our final response, you may escalate your complaint to the Legal Ombudsman, who will independently assess your case.\nTime Limits for Complaints to the Legal Ombudsman:\nWithin six months of receiving our final response.",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:13:24.476Z",
+        "status": 200,
+        "finalUrl": "https://immigrationsolicitors4me.co.uk/Complaints",
+        "sha256": "22321524a40fd1e94227cc1a8bb5dcf7717fc31306c85cf5d1843f81dba76448",
+        "textCharacters": 0,
+        "visibleText": "",
+        "expectedTextPresent": [
+          false,
+          false
+        ],
+        "expectedLinkPresent": [
+          false
+        ],
+        "capture": "reports/milestone13/ew-screen-04/1.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW03",
+      "organisation": "Michael Stevens Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.michaelstevenssolicitors.com/complaints-procedure/",
+      "evidenceType": "complaints",
+      "expectedServiceContext": null,
+      "expectedTexts": [
+        "If we have not resolved your complaint within 8 weeks, you may be able to complain to the Legal Ombudsman",
+        "The Legal Ombudsman service is free of charge."
+      ],
+      "expectedLinks": [],
+      "test": "rule-related",
+      "label": "CONFIRMED_RENDER_GAP",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:13:48.532Z",
+        "textCharacters": 5538,
+        "visibleTextExcerpt": "5.1. If we have not resolved your complaint within 8 weeks, you may be able to complain to the Legal Ombudsman. Normally, you will need to bring a complaint to the Legal Ombudsman within 6 months of receiving a final written response from us about your complaint or one year from when you reasonably should have known about a complaint or within 6 years of the act or omission you are complaining about.",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:11:56.732Z",
+        "status": 200,
+        "finalUrl": "https://www.michaelstevenssolicitors.com/complaints-procedure/",
+        "sha256": "f2779b90ec5f990920d9cf09b8e3b939fe9a2506f29a821d80f3fc02149b1cdd",
+        "textCharacters": 0,
+        "visibleText": "",
+        "expectedTextPresent": [
+          false,
+          false
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-02/4.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW04",
+      "organisation": "Michael Stevens Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.michaelstevenssolicitors.com/services/employment-law/",
+      "evidenceType": "service",
+      "expectedServiceContext": "employment_employee",
+      "expectedTexts": [
+        "Protecting your rights at work with timely, practical, and effective solutions.",
+        "Unfair Dismissal",
+        "ACAS Early Conciliation"
+      ],
+      "expectedLinks": [],
+      "test": "service-related",
+      "label": "CONFIRMED_RENDER_GAP",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:02.712Z",
+        "textCharacters": 1770,
+        "visibleTextExcerpt": "Employment Law\nProtecting your rights at work with timely, practical, and effective solutions.\nWe assist with\nBreach of Contract\nUnfair Dismissal\nDisciplinary and Grievance Investigations\nConstructive dismissal\nTUPE\nRedundancy\nNegotiating Severance Arrangements and Settlement Agreements\nACAS Early Conciliation",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:11:58.067Z",
+        "status": 200,
+        "finalUrl": "https://www.michaelstevenssolicitors.com/services/employment-law/",
+        "sha256": "58448943ab18f1d946bb1e3115e664fb4391f6b066a4e375837bf6f9fbe97d06",
+        "textCharacters": 0,
+        "visibleText": "",
+        "expectedTextPresent": [
+          false,
+          false,
+          false
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-02/5.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW05",
+      "organisation": "Michael Stevens Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.michaelstevenssolicitors.com/about/",
+      "evidenceType": "firm-wide",
+      "expectedServiceContext": null,
+      "expectedTexts": [
+        "Michael Stevens Solicitors is a client-focused, success-driven law firm based in London.",
+        "Our expert solicitors bring decades of combined experience"
+      ],
+      "expectedLinks": [],
+      "test": "firm-wide",
+      "label": "CONFIRMED_RENDER_GAP",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:03.246Z",
+        "textCharacters": 3789,
+        "visibleTextExcerpt": "Who We Are\nMichael Stevens Solicitors is a client-focused, success-driven law firm based in London. Our team of dedicated lawyers take a friendly, efficient, and solution-oriented approach to a wide range of legal matters, specialising in Employment, Family, Immigration, Housing, Civil Litigation, and Wills & Probate.",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:11:59.379Z",
+        "status": 200,
+        "finalUrl": "https://www.michaelstevenssolicitors.com/about/",
+        "sha256": "01c94dae90e5115ddb5c1a133566c75066ebaa821b449db9b779fd9043273a16",
+        "textCharacters": 0,
+        "visibleText": "",
+        "expectedTextPresent": [
+          false,
+          false
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-02/6.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW06",
+      "organisation": "Monaco Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.monacosolicitors.co.uk/fees",
+      "evidenceType": "pricing",
+      "expectedServiceContext": "employment_employee",
+      "expectedTexts": [
+        "How we calculate our fees",
+        "No Win No Fee representation"
+      ],
+      "expectedLinks": [],
+      "test": "rule-related",
+      "label": "STATIC_SUFFICIENT",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:08.757Z",
+        "textCharacters": 4179,
+        "visibleTextExcerpt": "How we calculate our fees\nConsultations\nWhere we need more information about your employment case, we may offer you a free telephone consultation. Such consultations are no obligation and last for up to 15 minutes. They are to help us assess what kind of employment case you may have and whether we could help you with it.",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:11:51.704Z",
+        "status": 200,
+        "finalUrl": "https://www.monacosolicitors.co.uk/fees",
+        "sha256": "65c07221d5a2c4a8bc154539c65bf8c8ee07bfd2962d21b267de44c6f4480e5a",
+        "textCharacters": 4354,
+        "visibleText": "Contact Us\nGuides\nCalculator\nServices\nSelf help\nAbout\nSearch\nContact us\nPrices\nWe have a passion for access to justice for all employees\nRated 4.8 Stars in Over 1,000 Reviews\nYou can rest assured that, because we represent individuals only, there is no conflict of interest\nOur many 5 star reviews are testament to our proven track record in negotiating high value settlements\nHow it works\nWhether you need a negotiated settlement or review of a settlement agreement\nNegotiate a settlement\nNegotiations on a No Win No Fee basis if possible\nReview & sign\nSettlement agreement signing is at no cost to you\nNegotiate a settlement\nNegotiations on a No Win No Fee basis if possible\nReview & sign\nSettlement agreement signing is at no cost to you\nWe will review and sign any settlement agreement - usually at no cost to you as your employer will cover this fee\n1 hour response time\nContact us and we will reply within 1 hour letting you know your options\nTell us about your case\nWe’ll be in touch within 1 working hour\nWe aim to offer No Win No Fee if possible\nIf No Win No Fee is possible, your lawyer will explain your journey\nOtherwise we will provide you with realistic alternatives\nTell us about your case and receive a clear and concise fee plan to fit your circumstances\nHow we calculate our fees\nConsultations\nWhere we need more information about your employment case, we may offer you a free telephone consultation.\nSuch consultations are no obligation and last for up to 15 minutes. They are to help us assess what kind of employment case you may have and whether we could help you with it.\nNo Win No Fee representation\nFor representation in negotiations, we aim to offer No Win No Fee terms wherever possible, so as to conclude negotiations successfully and at the highest value. For more detail about our No Win No Fee terms and whether you might be eligible, see here.\nAccess to Justice - A streamlined No Win No Fee service\nATJ is a streamlined, fully online No Win No Fee service delivered through our Monaco AI assistant, with lawyer input at key stages. There’s no upfront payment, and if we don’t secure a settlement, you won’t pay anything. For further information about the ATJ service see here.\nSettlement agreement signing\nIf you have a settlement agreement document we will review and sign it at no cost to you – employers usually pay for this service – we will also guarantee you a free settlement consultation.\nYour Details\nFull Name *\nLatest job title\nEmail *\nPhone\nYour Situation\nYears employed *\n- Select -Less than 2 years2 - 7 yearsMore than 7 years\nStill employed *\n- Select -Still employedResignedDismissed\nAnnual income *\n- Select -£0 - £30,000£30,000 - £50,000£50,000 - £100,000£100,000 +\nHas your employer offered you money to leave?\n- Select -YesNoNot sure\nWant to leave job?\n- Select -YesNoMaybeAlready left\nBrief description of case *\nSpeak instead of typing\nTap to talk\nI accept the terms & conditions*\nRequired fields are marked *\nSUBMIT\nCompletely confidential\nAward winning excellence\nYou can rest assured you’re in good hands – we won the 2021 Law Society Award for Excellence & the 2023 UK Legal Award for Leading Specialists in Employee Representation\nLaw Society Excellence in Law award for Innovation & Technology 2021\nLeading Specialists in Employee Representation\nLeading Specialists in Employee Representation\nLaw Society Excellence in Law award for Innovation & Technology 2021\nRegulated by The Solicitors Regulation Authority\nMonaco Solicitors is regulated by The Solicitors Regulation Authority. Click the link to get information on the protections that this provides.\nRated 4.8 Stars in Over 1000 Reviews\nWe have over 1,000 Outstanding Reviews on Google , Reviews.io & others. Over 94% of our reviews are 5 Stars!\nGUIDES\nGUIDES\nRESOURCES\nCalculator\nTemplates\nQ&As\nDo I Have A Case\nSitemap\nBlog\nCOMPANY\nAbout Us\nReviews\nPrivacy\nContact Us\nPrices\nLondon Employment Solicitors\nOur Team\nComplaints\nFOLLOW US\nMonaco Solicitors make every attempt to ensure the factual accuracy of website content at the time of publication. Any guidance or tips given is for information only. Nothing should be construed as being legal advice or relied upon as such or perceived as creating a lawyer-client relationship.\n© 2022 Monaco Solicitors Ltd, Registered company no. 08487857\nSolicitors Regulation Authority ID no: 621671",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-02/0.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW07",
+      "organisation": "Monaco Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.monacosolicitors.co.uk/complaints",
+      "evidenceType": "complaints",
+      "expectedServiceContext": null,
+      "expectedTexts": [
+        "The Legal Ombudsman can help you if we are unable to resolve your complaint ourselves."
+      ],
+      "expectedLinks": [],
+      "test": "rule-related",
+      "label": "STATIC_SUFFICIENT",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:09.923Z",
+        "textCharacters": 3694,
+        "visibleTextExcerpt": "What to do if we cannot resolve your complaint\nThe Legal Ombudsman can help you if we are unable to resolve your complaint ourselves. They will look at your complaint independently and it will not affect how we handle your case.",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:11:52.947Z",
+        "status": 200,
+        "finalUrl": "https://www.monacosolicitors.co.uk/complaints",
+        "sha256": "ab21a93b737ff35a81e8b30208d6d3db5e2bbc39eddeda189f255b0beeaab38f",
+        "textCharacters": 3896,
+        "visibleText": "Contact Us\nGuides\nCalculator\nServices\nSelf help\nAbout\nSearch\nContact us\nHome\nComplaints\nComplaints\nIn this guide\nV2. Updated 12/08/2026\nWe want to give you the best possible service. However, if at any point you become unhappy or concerned about the service we have provided, then you should inform us immediately, so that we can do our best to resolve the problem.\nIn the first instance it may be helpful to contact the person who is working on your case to discuss your concerns and we will do our best to resolve any issues. If you would like to make a formal complaint, then you can read our full complaints procedure here. Making a complaint will not affect how we handle your case and we will not charge you for it.\nWhat to do if we cannot resolve your complaint\nThe Legal Ombudsman can help you if we are unable to resolve your complaint ourselves. They will look at your complaint independently and it will not affect how we handle your case.\nThe Legal Ombudsman will normally expect you to have tried to resolve your complaint with us first. You can go to the Legal Ombudsman once we have given you our final response, or once eight weeks have passed since you complained to us without your complaint being resolved to your satisfaction.\nOrdinarily you must take your complaint to the Legal Ombudsman:\n– within one year of the act or omission you are complaining about; or\n– within one year of when you should reasonably have known there was cause for complaint,\nand, in any event, within six months of the date of our final written response. The Legal Ombudsman can accept a late complaint where it considers it fair and reasonable to do so.\nLegal Ombudsman contact details\nWebsite: www.legalombudsman.org.uk\nTelephone: 0300 555 0333\nEmail: [email protected]\nPost: Legal Ombudsman, PO Box 6167, Slough, SL1 0EH\nWhat to do if you are unhappy with our behaviour\nThe Solicitors Regulation Authority can help if you are concerned about our behaviour. This could be for things like dishonesty, taking or losing your money or treating you unfairly because of your age, a disability or other characteristic. It does not deal with complaints about the standard of service and cannot award you compensation.\nVisit their website to see how you can raise your concerns with the Solicitors Regulation Authority.\nCONTACT US\nDo I Have a Case?\nFree Instant Assessment\nGet Started\nContact us today\nWe'll let you know how we can help within 1 working hour\nFull Name *\nEmail *\nPhone\nBrief description of case*\nYour Situation\nLatest job title\nYears employed *\n- Select -Less than 2 years2 - 7 yearsMore than 7 years\nStill employed *\n- Select -Still employedResignedDismissed\nAnnual income *\n- Select -£0 - £30,000£30,000 - £50,000£50,000 - £100,000£100,000 +\nHas your employer offered you money to leave?\n- Select -YesNoNot sure\nWant to leave job?\n- Select -YesNoMaybeAlready left\nI accept the terms & conditions*\nRequired fields are marked *\nSUBMIT\nCompletely confidential\nRegulated by The Solicitors Regulation Authority\nMonaco Solicitors is regulated by The Solicitors Regulation Authority. Click the link to get information on the protections that this provides.\nRated 4.8 Stars in Over 1000 Reviews\nWe have over 1,000 Outstanding Reviews on Google , Reviews.io & others. Over 94% of our reviews are 5 Stars!\nGUIDES\nGUIDES\nRESOURCES\nCalculator\nTemplates\nQ&As\nDo I Have A Case\nSitemap\nBlog\nCOMPANY\nAbout Us\nReviews\nPrivacy\nContact Us\nPrices\nLondon Employment Solicitors\nOur Team\nComplaints\nFOLLOW US\nMonaco Solicitors make every attempt to ensure the factual accuracy of website content at the time of publication. Any guidance or tips given is for information only. Nothing should be construed as being legal advice or relied upon as such or perceived as creating a lawyer-client relationship.\n© 2022 Monaco Solicitors Ltd, Registered company no. 08487857\nSolicitors Regulation Authority ID no: 621671",
+        "expectedTextPresent": [
+          true
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-02/1.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW08",
+      "organisation": "Maurice Andrews Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.mauriceandrewssolicitors.co.uk/complaints-policy",
+      "evidenceType": "complaints",
+      "expectedServiceContext": null,
+      "expectedTexts": [
+        "Our service complaints procedure",
+        "please contact Mariam Khan"
+      ],
+      "expectedLinks": [],
+      "test": "rule-related",
+      "label": "STATIC_SUFFICIENT",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:24.047Z",
+        "textCharacters": 7056,
+        "visibleTextExcerpt": "Our service complaints procedure\nIf you have a concern or a complaint, please contact us as soon as you are aware of the problem so this can be addressed. If you feel concerned about the service you have received, then please contact Mariam Khan, Address: 182 Soho Hill, Birmingham, England, B19 1AG",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:11:55.394Z",
+        "status": 200,
+        "finalUrl": "https://www.mauriceandrewssolicitors.co.uk/complaints-policy",
+        "sha256": "ab82d2f685221be103f020a4343309fae31fe56bd66643ff3fe58e04c11d9538",
+        "textCharacters": 6898,
+        "visibleText": "Maurice Andrews\nSOLICITORS\nEMAIL USCALL US NOW\nMenu\nDRUGSFINANCIAL CRIMESMURDER DEFENCENATIONAL SECURITY CRIMESSEX & HUMAN RIGHTS CRIMESTRAFFIC OFFENCESVIOLENT CRIMES\nMaurice Andrews Service Complaints Policy\nWe want to give you the best possible service. However, if at any point you become unhappy or concerned about the service we have provided then you should inform us immediately so that we can do our best to resolve the problem.\nIn the first instance, it may be helpful to contact the person who is working on your case to discuss your concerns and we will do our best to resolve any issues at this stage. If you would like to make a formal complaint, then you can read our full complaints procedure below. Making a complaint will not affect how we handle your case and any investigation of a complaint is conducted free of charge.\nOur service complaints policy\nMaurice Andrews Solicitors is committed to providing a high-quality legal service to all our clients. When something goes wrong, we want you to tell us about it. This will help us to improve our standards.\nOur service complaints procedure\nIf you have a concern or a complaint, please contact us as soon as you are aware of the problem so this can be addressed. If you feel concerned about the service you have received, then please contact Mariam Khan, Address: 182 Soho Hill, Birmingham, England, B19 1AG\nWhat will happen next?\nWe will review your submission and respond to you with acknowledgement of receipt of your complaint within five working days of our having received it. If you have special requirements regarding the correspondence due to a disability, please let us know and we shall do our best to accommodate any alternative arrangements you may require.\nWe will then investigate your complaint. This will normally involve passing your complaint to our complaints handling officer, Mariam Khan, who will review your matter file and speak to the member of staff who acted for you.\nThe complaints handling officer will then respond to you in writing or call you to discuss and, it is hoped, resolve your complaint. She will do this within 14 working days of sending you the acknowledgement letter. Within 7 working days of the call, Mariam Khan will write to you to confirm what took place and any solutions she has agreed with you.\nMariam Khan will then send you a detailed written reply to your complaint, including her suggestions for resolving the matter, within 21 working days.\nAt this stage, if you are still not satisfied, you should contact us again to explain why you remain unhappy with our response and we will review your comments.\nWe will write to you within 14 working days of receiving your request for a review, confirming our final position on your complaint, and explaining our reasons.\nIf you are still not satisfied, you can then contact the Legal Ombudsman using the details that follow.\n(Our timescales are subject to be amended depending on the complexity of the matter and submission. If we must change any of the timescales above, we will let you know and explain why.)\nWhat do to if we cannot resolve your complaint?\nThe Legal Ombudsman can help you if we are unable to resolve your complaint ourselves. They will look at your complaint independently and it will not affect how we handle your case.\nBefore accepting a complaint for investigation, the Legal Ombudsman will check that you have tried to resolve your complaint with us first. If you have, then you must take your complaint to the Legal Ombudsman:\nWithin six months of receiving a final response to your complaint\nFrom the 1st of April 2023, the Legal Ombudsman expects complaints to be made to them within a year of the date of the act or omission about which you are concerned, or within a year of your realising there was a concern.\nContact details;\nVisit: www.legalombudsman.org.uk\nCall: 0300 555 0333 between 9am to 5pm.\nEmail: enquiries@legalombudsman.org.uk\nLegal Ombudsman PO Box 6167, Slough, SL1 0EH\nPlease Note before contacting the Legal Ombudsman:\nIf your complaint is specifically about our bill, you have the right to object to it and apply for an assessment of it under part III of the Solicitors Act 1974. If you should choose to exercise this right, and the court is assessing our bill, you may be unable to use the Legal Ombudsman service.\nIf you are complaining as a business client, unless you are a “micro business” (as defined by the European Union), you may not be able to use the Legal Ombudsman scheme and should check the guidance on Legal Ombudsman’s website.\nIf you refer your complaint to the Legal Ombudsman as a trustee/personal representative (executor/administrator) or beneficiary of the estate/trust of a person who, before they died, had not referred the complaint to the Legal Ombudsman the period runs from when the deceased should reasonably have known there was cause for complaint; and when the complainant (or the deceased) should reasonably have known there was a cause for complaint will be assessed on the basis of the complainant’s (or deceased’s) own knowledge, disregarding what the complainant (or the deceased) might have been told if he/she had sought advice.\nIf the Ombudsman considers there are exceptional circumstances (e.g. serious illness or you were still within the time limits when you made your initial complaint to them) then he/she may extend any of the above time limits to the extent that he/she considers fair.\nThe Solicitors Regulation Authority\nThe Solicitors Regulation Authority can help you if you are concerned about our behaviour. This could be for things like dishonesty, taking or losing your money or treating you unfairly because of your age, a disability or other characteristic.\nYou can raise your concerns with the Solicitors Regulation Authority.\nComplaints about Data Protection\nFor complaints relating to data protection or how we have handled your data please see our Data Protection Complaints Procedure.\nThis policy covers service complaints only (legal advice quality, fees, conduct). For data protection complaints, see the linked procedure.\nTHERE IS A DEFENCE FOR EVERY OFFENCE\nFIND US ON\nTHERE IS A DEFENCE\nFOR EVERY OFFENCE\nFIND US ON\nDEFENCE\nDRUGSFINANCIAL CRIMESMURDER DEFENCENATIONAL SECURITY CRIMESSEX & HUMAN RIGHTS CRIMESTRAFFIC OFFENCESVIOLENT CRIMES\nMORE LINKS\nALCOHOL AND YOUNG PEOPLE LAWCOURT CALENDARLEGISLATION UNDERSTANDINGSERVICE COMPLAINTS POLICYDATA PROTECTION COMPLAINTS PROCEDUREDATA PROTECTION COMPLAINT FORMPRIVACY NOTICECOOKIE\nABOUT US\nABOUT USCONTACT USOUR TEAMCAREERS\nOFFICE OPENING HOURS\nMon to Fri : 9.00am to 5:30 pm\nOUR OFFICES\nMain Office\n180-182 Soho Hill\nHandsworth\nBirmingham B19 1AG\n0121 554 4900\nGet directions →\nBranch Office\n3rd & 4th Floors\n84 Salop Street\nWolverhampton WV3 0SR\n01902 965560\nGet directions →\nMAURICE ANDREWS SOLICITORS | COPYRIGHT 2026 | ALL RIGHTS RESERVED\nWEB APP BY ❤ AQL DIGITAL",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-02/3.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW09",
+      "organisation": "Heppenstalls Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://heppenstalls.co.uk/fees/",
+      "evidenceType": "pricing",
+      "expectedServiceContext": "probate",
+      "expectedTexts": [
+        "Grant only with no IHT to pay",
+        "From £2,750"
+      ],
+      "expectedLinks": [
+        "http://heppenstalls.co.uk/wp-content/uploads/2026/01/Client-Interest-Policy-Statement-January-2026.pdf"
+      ],
+      "test": "rule-related",
+      "label": "STATIC_SUFFICIENT",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:30.663Z",
+        "textCharacters": 6282,
+        "visibleTextExcerpt": "Estates\nFees\nGrant only with no IHT to pay\nFrom £2,750\nIHT400 + Grant with no IHT to pay\nFrom £3,750\nIHT400 + Grant on a taxable Estate\nFrom £4,500",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:12:02.696Z",
+        "status": 200,
+        "finalUrl": "https://heppenstalls.co.uk/fees/",
+        "sha256": "8a85606351071d697ceff5e2c485b9069b6d0d65b1d87eaafd2a9d16772bb899",
+        "textCharacters": 6724,
+        "visibleText": "Skip to content\nHome\nAbout us\nOur Charities\nOur Services\nWills, Trusts & Estates\nMaking a Will\nEstate Planning\nTrusts and Advice\nEstates after death\nVarying an Estate After Death\nDisputes over Wills & Inheritance\nAdvice for Executors\nAdvice for Beneficiaries\nAlternative Dispute Resolution\nCourt of Protection\nPower of Attorney\nMental Capacity Issues\nManaging Affairs\nDeputyships\nCourt of Protection Applications\nResidential Property\nAuction Sale and Purchase\nBuy to Let\nBuying a New Build Property\nBuying or Selling a House\nTransfers of Equity\nGifting Property\nPost Death Transfers of Property\nRegistration of Land\nRemortgaging\nCommercial Property\nCommercial Leases\nCommercial Property Auctions\nSale & Purchases of Commercial Property\nPrivate and Secured Lending\nRegistration of Land\nMediation\nCommercial Mediation\nCivil Mediation\nNotary Services\nOur team\nNews\nCareers\nContact Us\nFees\nHeppenstalls Solicitors Fees\nPrivate Client Fees\nWills\nFees\nSingle/Mirror\nSimple Wills\n£350 / £625\nIPDI Wills\n£650 / £1125\nCodicils\n£275 / £475\nDiscretionary Trust Wills\nFrom £1,250/£1,995\nMutual Wills Contract\nSupplemental to\nWill Cost\n£500\nOther\nFees\nSeverence of joint tenancy\n£500 / 200 with wills\nDeed of variation\nFrom £650 with probate\nFrom £1,000 standalone\nChange of Name Deed\n£500\nDeed of Appointment\nof Assets and Trustee\nMinutes / Resolution\nFrom £1,000\nDeclaration of Trust\nFrom £850\nEstates\nFees\nGrant only with no IHT\nto pay\nFrom £2,750\nIHT400 + Grant with no\nIHT to pay\nFrom £3,750\nIHT400 + Grant on a\ntaxable Estate\nFrom £4,500\nTrust Registration\nFrom £650 (4 pax)\n+ £50pp\nComplex Estate\nRegistration\n£650\nTrust & Estate Tax\nReturns\nFrom £400\nCourt of Protection\nIndividual/Couple\nLPA for Property & Financial Affairs\n£525/£895\nLPA for Health & Welfare\n£525/£895\nBoth types of LPA\n£895/£1,595\nOPG LPA fee\n£92 per document\nGeneral Power of Attorney\n£500\nRegistration of EPA\nFrom £650\nCertification of LPAs\n£50\nDeputyship & COP\nOrders\nHourly rate\nAdvanced Directive\n£500\nAll fees are subject to VAT @ 20%\nHourly Rates\nMrs Alex Jennings\n£380\nMrs Jesamine Somerville\n£350\nMrs Roz Caldwell\n£255\nMrs Helen Corbin\n£255\nMr Zafeiris Tsiftzis\n£255\nTrainee Solicitors\n£215\nOther Support Staff\n£210\nAll fees are subject to VAT – currently 20%\nResidential Sales & Purchases\nTransaction Value\nSale\nPurchase\n£0 – £199,999\n£1,470 + VAT\n£1,575 + VAT\n£200,000 – £299,999\n£1,575 + VAT\n£1,785 + VAT\n£300,000 – £399,999\n£1,680 + VAT\n£1,995 + VAT\n£400,000 – £499,999\n£1,840 + VAT\n£2,100 + VAT\n£500,000 – £599,999\n£1,995 + VAT\n£2,110 + VAT\n£600,000 – £699,999\n£2,100 + VAT\n£2,415 + VAT\n£700,000 – £799,999\n£2,310 +VAT\n£2,625 + VAT\n£800,000 – £899,999\n£2,625 + VAT\n£2,625 + VAT\n£900,000 – £999,999\n£3,150 + VAT\n£3,465 + VAT\n£1million +\n£3,675 + VAT\n£4,090 + VAT\n£2million +\n£4,200 + VAT\n£4,515 + VAT\n£3million +\n£1% of value + VAT\n£1% of value + VAT\nAdditional Notes on Services\nLeasehold fee*\nFor properties smaller than 11m or 5 storeys.\nNot applicable to shared ownership properties.\nThis fee is only payable if the property you are purchasing is leasehold due to the large amount of additional work\nRegretfully we will not act on any flat in a building of more than 11m or 5 storeys or above.\nRegretfully we will not act on any property which is under a shared ownership scheme.\n£525 plus VAT\nFreehold Management Fee\nAn additional fee is payable if the property you are purchasing is a freehold property subject to a management company or estate rent charge arrangement, due to the additional work involved in reviewing and reporting on these obligations.\nPlease note that it is not always apparent from the outset whether a freehold property is subject to such arrangements. This often only becomes clear once we have received and reviewed the contract pack from the seller’s solicitors.\n£275 plus VAT\nNew Build fee*\nThis fee is only payable if the property you are purchasing is brand new due to the large amount of additional work.\n£525 plus VAT\nRetirement Property*\nThis fee is only payable if the property you are purchasing is a retirement property due to the large amount of additional work.\n£525 plus VAT\nAttorney or Executor Sale\nThis fee is only payable if you are buying or selling a property as an executor or an attorney due to the additional work required.\n£275 plus VAT\nUnregistered Land\nThis fee is only payable if you are buying or selling a property which is not yet registered at HM Land Registry.\n£525 plus VAT\nDeed Of Variation\nIf, upon review of the lease and contract documentation, we identify any anomalies, omissions, or provisions that do not meet current lender or legal requirements, it may be necessary for a Deed of Variation to be entered into. This is not always apparent at the outset and may only become clear during the course of the transaction. In such cases, we would need to request and review the Deed of Variation from the seller’s solicitors, which involves additional work and liaison. An additional fee would be payable for this service, and we will advise you if this becomes necessary.\n£275 plus VAT\nDeclaration of Trust\nThis fee is only payable where two or more persons are purchasing a property and they wish to record their ownership in some way other than as 50:50.\n£500 plus VAT\nDigital Signing of Documents\nThis fee is only payable where a document is signed digitally via Sign IT, DocuSign, or a similar platform, and must be completed in a manner compliant with HM Land Registry requirements.\n£4.80 plus VAT\nOther Fees\nCommercial Sales, Purchases, Leases – Price on request.\nAuction Sale – Price on request.\nAuction Purchase – Price on request.\nRemortgages – £790 + VAT\nFirst Registration – £1,050 + VAT\nTransfer of Equity – £1,000 + VAT\nDeclaration of Trust – £425 + VAT\nAssents – £800 + VAT\nDeeds of Severance – £800 + VAT\nVoluntary Lease Extension – £1,500 + VAT\nStatutory Lease Extension – £3,750 + VAT (assuming matters settle before tribunal)\nNote, matters we will not act on:-\nEquity Release and/or Lifetime Mortgages (Note, if it is porting on a sale and purchase, this is fine).\nAny property transaction where the Building Safety Act 2022 applies.\nHelp to Buy Schemes\nOption Agreements\nPromotion Agreements\nOverage Agreements\nSign up to our newsletter\nEmail\nSubmit\nAbout Us\nTeam\nCareers\nNews\nLegal Term Glossary\nFees\nComplaints Handling Procedure\nClient Interest Policy Statement\nServices\nWills, Trusts & Estates\nDisputes over Wills & Inheritance\nCourt of Protection\nResidential Property\nCommercial Property\nMediation\nNotary Services\nContact Us\n82 Station Rd, New Milton Hampshire, BH25 6LG\n01425 610078\nenquiries@heppenstalls.co.uk\nFacebook\nLinkedin\nInstagram\nCopyright © 2025 Heppenstalls | All Rights Reserved | Terms and Conditions | Privacy Policy | Made With ❤ By Atomic",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [
+          true
+        ],
+        "capture": "reports/milestone13/ew-screen-02/7.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW10",
+      "organisation": "Heppenstalls Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://heppenstalls.co.uk/complaints-handling-procedure/",
+      "evidenceType": "complaints",
+      "expectedServiceContext": null,
+      "expectedTexts": [
+        "Our Complaints Procedure",
+        "If you are not satisfied with our services, you are entitled to complain."
+      ],
+      "expectedLinks": [],
+      "test": "rule-related",
+      "label": "STATIC_SUFFICIENT",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:32.667Z",
+        "textCharacters": 2918,
+        "visibleTextExcerpt": "Our Complaints Procedure\nIf you are not satisfied with our services, you are entitled to complain. Please write to our Practice Manager, Tracey\nDobson at 82 Station Road, New Milton, Hampshire BH25 6LG, or email tracey.dobson@heppenstalls.co.uk with the\ndetails.",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:13:28.285Z",
+        "status": 200,
+        "finalUrl": "https://heppenstalls.co.uk/complaints-handling-procedure/",
+        "sha256": "1378bd8b406235b404b3f80e66ec727b99134f2f5003220c2999e2d4278e382e",
+        "textCharacters": 3706,
+        "visibleText": "Skip to content\nHome\nAbout us\nOur Charities\nOur Services\nWills, Trusts & Estates\nMaking a Will\nEstate Planning\nTrusts and Advice\nEstates after death\nVarying an Estate After Death\nDisputes over Wills & Inheritance\nAdvice for Executors\nAdvice for Beneficiaries\nAlternative Dispute Resolution\nCourt of Protection\nPower of Attorney\nMental Capacity Issues\nManaging Affairs\nDeputyships\nCourt of Protection Applications\nResidential Property\nAuction Sale and Purchase\nBuy to Let\nBuying a New Build Property\nBuying or Selling a House\nTransfers of Equity\nGifting Property\nPost Death Transfers of Property\nRegistration of Land\nRemortgaging\nCommercial Property\nCommercial Leases\nCommercial Property Auctions\nSale & Purchases of Commercial Property\nPrivate and Secured Lending\nRegistration of Land\nMediation\nCommercial Mediation\nCivil Mediation\nNotary Services\nOur team\nNews\nCareers\nContact Us\nComplaints Handling Procedure\nOur Complaints Policy\nWe are committed to providing a high-quality legal service to all our clients. When something goes wrong, we need\nyou to tell us about it. This will help us to improve our standards.\nOur Complaints Procedure\nIf you are not satisfied with our services, you are entitled to complain. Please write to our Practice Manager, Tracey\nDobson at 82 Station Road, New Milton, Hampshire BH25 6LG, or email tracey.dobson@heppenstalls.co.uk with the\ndetails.\nWhat will happen next?\nWe will send you a letter acknowledging receipt of your complaint within 5 working days of our receiving your\nletter.\nWe will then investigate your complaint. You will be advised who is investigating your complaint: generally,\nthis will be Mrs Dobson but, if that is not appropriate, it will be another Senior Manager in the firm.\nThe person investigating your complaint will normally ask the member of staff who acted for you to respond\nto her or him about your complaint, within a further 10 working days. He or she will examine the response\nand review your matter file. It may also be necessary to speak to that member of staff.\nWe shall either write to you with a formal response to your complaint or invite you to a meeting in order to\ndiscuss it. We shall do this within 5 working days of completing our investigation. If we have a meeting, we\nwill write to you to confirm what took place and any solutions that have been agreed.\nIf you are still not satisfied, you can write to us again. We will then arrange to review our decision: this will\nbe done by another Senior Manager and we shall write to you within 20 days of receiving your request for a\nreview, confirming our final position on your complaint and explaining our reasons.\nIf you are still not satisfied, you can contact the Legal Ombudsman at PO Box 15870, Birmingham, B30 9EB.\nThe Legal Ombudsman helpline is 0300 5550333 and their email address is: enquiries@legalombudsman.org.uk\nA 12 month time limit, from the date of our final response, normally applies to complaints to the Legal\nOmbudsman. Further information can be found on its website at www.legalombudsman.org.uk\nIf we have to change any of the above time scales we will let you know and explain why.\nUpdated 9th June 2025\nSign up to our newsletter\nEmail\nSubmit\nAbout Us\nTeam\nCareers\nNews\nLegal Term Glossary\nFees\nComplaints Handling Procedure\nClient Interest Policy Statement\nServices\nWills, Trusts & Estates\nDisputes over Wills & Inheritance\nCourt of Protection\nResidential Property\nCommercial Property\nMediation\nNotary Services\nContact Us\n82 Station Rd, New Milton Hampshire, BH25 6LG\n01425 610078\nenquiries@heppenstalls.co.uk\nFacebook\nLinkedin\nInstagram\nCopyright © 2025 Heppenstalls | All Rights Reserved | Terms and Conditions | Privacy Policy | Made With ❤ By Atomic",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-04/2.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW11",
+      "organisation": "T.G. Collins Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://tgcollins-solicitors.co.uk/price-list/",
+      "evidenceType": "pricing-discovery",
+      "expectedServiceContext": null,
+      "expectedTexts": [
+        "Conveyancing & Property",
+        "Probate"
+      ],
+      "expectedLinks": [],
+      "test": "service-related",
+      "label": "STATIC_SUFFICIENT",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:38.062Z",
+        "textCharacters": 3996,
+        "visibleTextExcerpt": "Sale\nConveyancing & Property\nView Price List\nPurchase\nConveyancing & Property\nView Price List\nEstates\nProbate\nView Price List",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:12:05.065Z",
+        "status": 200,
+        "finalUrl": "https://tgcollins-solicitors.co.uk/price-list/",
+        "sha256": "57e521d8ac3e444ec96f3a98bef6f41a3d177e4dcafbc80cc4ea7cc831ad65a6",
+        "textCharacters": 6159,
+        "visibleText": "[email protected]\nChelmsford: 01245 205800​ | Benfleet : 01268 649033​\nFacebook\nLinkedin-in\nInstagram\nTg Collins Solicitors Twitter Account\nSearch for:\nChelmsford Office: 01245 205800​\nBenfleet Office: 01268 649033​\nFacebook\nLinkedin-in\nInstagram\nTg Collins Solicitors Twitter Account\nBook Free Consultation\nHome\nAbout Us\nServices\nFamily\nDivorce Solicitors in Chelmsford\nDivorce Solicitors in Benfleet\nDivorce Solicitors in Ipswich\nChildren Matters\nDomestic Abuse Solicitors\nFinancial Settlement\nPre-Nuptial Agreement\nDeclaration of Trusts\nLiving Together Agreements\nImmigration\nIndefinite Leave to Remain (ILR)\nBritish Citizenship & Naturalisation\nUK Dependent Visa\nConveyancing\nResidential Property Solicitors\nFreehold/Leasehold\nSale\nPurchase\nTransfer\nDeed of Variation\nUnregistered Land\nLease\nLease Extension\nCommercial Property Solicitors\nPrivate Client\nExpert Wills Writing Services in Essex\nLasting Power of Attorney\nProbate\nDeputyship Order\nLetter of Administration\nOur People\nBy Department\nFamily\nConveyancing\nPrivate Client\nUK Immigration\nAdmin\nPrice List\nLegal Guide\nOffices\nChelmsford Office\nBenfleet Office\nHome\nAbout Us\nServices\nFamily\nDivorce Solicitors in Chelmsford\nDivorce Solicitors in Benfleet\nDivorce Solicitors in Ipswich\nChildren Matters\nDomestic Abuse Solicitors\nFinancial Settlement\nPre-Nuptial Agreement\nDeclaration of Trusts\nLiving Together Agreements\nImmigration\nIndefinite Leave to Remain (ILR)\nBritish Citizenship & Naturalisation\nUK Dependent Visa\nConveyancing\nResidential Property Solicitors\nFreehold/Leasehold\nSale\nPurchase\nTransfer\nDeed of Variation\nUnregistered Land\nLease\nLease Extension\nCommercial Property Solicitors\nPrivate Client\nExpert Wills Writing Services in Essex\nLasting Power of Attorney\nProbate\nDeputyship Order\nLetter of Administration\nOur People\nBy Department\nFamily\nConveyancing\nPrivate Client\nUK Immigration\nAdmin\nPrice List\nLegal Guide\nOffices\nChelmsford Office\nBenfleet Office\nBook Free Consultation\nBest Solicitors in Essex\nPrice List\nGet clear, transparent pricing for immigration services at T.G. Collins Solicitors. Expert legal support with no hidden fees.\nMatrimonial | Divorce & Dissolution\nFamily Law\nView Price List\nFinances | Financial Remedy Proceedings\nFamily Law\nView Price List\nChild | Children Care\nFamily Law\nView Price List\nSale\nConveyancing & Property\nView Price List\nPurchase\nConveyancing & Property\nView Price List\nEstates\nProbate\nView Price List\nWhat Our Client's\nSay And Think\nEXCELLENT\nBased on 274 reviews\nPosted on Google\nFREDERICK Moeller\nTrustindex verifies that the original source of the review is Google.\nThe staff at TG Collins especially Chloe and Calum were efficient and professional and helped me through every aspect of the conveyancing.\nI would highly recommend TG Collins\nPosted on Google\njason walmsley\nTrustindex verifies that the original source of the review is Google.\nThe quote for services was highly competitive and their work swift and very responsive - having used a traditional face to face solicitor for multiple properties over the years, and used an on line one to sell my fathers property this was an extremely positive experience and I wouldn’t hesitate\nTo use them again and highly recommend.\nPosted on Google\nCarol Friedrich\nTrustindex verifies that the original source of the review is Google.\nChloe was extremely proficient dealing with our sale all instructions were clear and each stage confirmed ,\nall went through in 2 months ! Many thanks\nPosted on Google\nFrank Landa\nTrustindex verifies that the original source of the review is Google.\nIn many ways this was a 'personal' service. I received guidance and support during the whole process. Chloe Golding was very efficient and reacted without hesitation to ensure my sale was Completed in a timely manner. As a professional service it doesn't get any better than this! Job well ✔️ done. I'm continuing with T G Collins to purchase my next property.\nPosted on Google\nAmanda Riley\nTrustindex verifies that the original source of the review is Google.\nMindi, Chloe and Callum at TG Collins handled my house sale and purchase simultaneously. The service was swift, reliable and affordable and I would definitely recommend their service, they were brilliant!\nPosted on Google\nAmin Dosani\nTrustindex verifies that the original source of the review is Google.\nEXCELLENT AND PROMPT SERVICE, VERY HELPFUL, VERY REASONABLE AND VERY IMPRESSIVE. HIGHLY RECOMENDED.BEST SOLICITORS IN MY EXPERIENCE OF LAST 40 YEARS\nPosted on Google\nJennifer Wilson\nTrustindex verifies that the original source of the review is Google.\nMy house sale was handled professionally and efficiently by Shathisa and Mindi, and also patiently, bearing in mind the buyer's solicitor was not as communicative as they could have been. Would certainly recommend and use again.\nPosted on Google\nGilbert Deacon\nTrustindex verifies that the original source of the review is Google.\nGreat smooth conveyancing service - Chloe and the team were brilliant kept me informed all the way through the process and compmeted on time on the date requested. - Great Service!!\nPosted on Google\nCarol Charlton\nTrustindex verifies that the original source of the review is Google.\nI was extremely happy with the way my affairs were handled in such a professional, efficient and pleasant manner. Thank you to all involved\nAccreditations\nContact Detail\nChelmsford: 01245 205800​\nBenfleet : 01268 649033​\n22 Duke Street Chelmsford, Essex CM1 1HL\n202 High Road, Benfleet, Essex, SS7 5LD\nPostal Address: 49-53 Fore Street Ipswich IP4 1JL\n[email protected]\nIpswich: 01379 644055\nFacebook\nLinkedin-in\nInstagram\nTg Collins Solicitors Twitter Account\nLinks\nHome\nFamily Services\nImmigration Services\nAbout Us\nPrice List\nContact Us\nLegal Guide\nAwards\nLegal Guide\nWhen Should I Get a Divorce? Signs It’s Time\nWhat Happens Financially When You Get Divorced?\nPower of Attorney Explained: Why You Need It and How Our Solicitors Can Help\nDivorce Solicitors Near Me: How to File for Divorce in the UK?\nFamily Solicitors in Benfleet and Chelmsford Essex\nAll Rights Reserved © 2026 | T.G. Collins Solicitors\nSRA Code of Conduct\nPrivacy Policy\nComplaints\nDesigned By Techson",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-02/8.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW12",
+      "organisation": "T.G. Collins Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://tgcollins-solicitors.co.uk/our-people/conveyancing/",
+      "evidenceType": "staff",
+      "expectedServiceContext": "residential_conveyancing",
+      "expectedTexts": [
+        "Our Conveyancing Team",
+        "Amrinder Singh (Mindi)",
+        "Thushara Collins"
+      ],
+      "expectedLinks": [],
+      "test": "service-related",
+      "label": "STATIC_SUFFICIENT",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:49.784Z",
+        "textCharacters": 4159,
+        "visibleTextExcerpt": "Our Conveyancing Team\nAmrinder Singh (Mindi)\nParalegal\nView Profile\nThushara Collins\nPrincipal Solicitor\nView Profile\nTanisha Brown\nProperty Consultant",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:13:30.305Z",
+        "status": 200,
+        "finalUrl": "https://tgcollins-solicitors.co.uk/our-people/conveyancing/",
+        "sha256": "fcbbdada91f17f28fcd8aca5d909a0d6ac4c8ea38e01d50877ad1f1a3ce4a4bc",
+        "textCharacters": 6317,
+        "visibleText": "[email protected]\nChelmsford: 01245 205800​ | Benfleet : 01268 649033​\nFacebook\nLinkedin-in\nInstagram\nTg Collins Solicitors Twitter Account\nSearch for:\nChelmsford Office: 01245 205800​\nBenfleet Office: 01268 649033​\nFacebook\nLinkedin-in\nInstagram\nTg Collins Solicitors Twitter Account\nBook Free Consultation\nHome\nAbout Us\nServices\nFamily\nDivorce Solicitors in Chelmsford\nDivorce Solicitors in Benfleet\nDivorce Solicitors in Ipswich\nChildren Matters\nDomestic Abuse Solicitors\nFinancial Settlement\nPre-Nuptial Agreement\nDeclaration of Trusts\nLiving Together Agreements\nImmigration\nIndefinite Leave to Remain (ILR)\nBritish Citizenship & Naturalisation\nUK Dependent Visa\nConveyancing\nResidential Property Solicitors\nFreehold/Leasehold\nSale\nPurchase\nTransfer\nDeed of Variation\nUnregistered Land\nLease\nLease Extension\nCommercial Property Solicitors\nPrivate Client\nExpert Wills Writing Services in Essex\nLasting Power of Attorney\nProbate\nDeputyship Order\nLetter of Administration\nOur People\nBy Department\nFamily\nConveyancing\nPrivate Client\nUK Immigration\nAdmin\nPrice List\nLegal Guide\nOffices\nChelmsford Office\nBenfleet Office\nHome\nAbout Us\nServices\nFamily\nDivorce Solicitors in Chelmsford\nDivorce Solicitors in Benfleet\nDivorce Solicitors in Ipswich\nChildren Matters\nDomestic Abuse Solicitors\nFinancial Settlement\nPre-Nuptial Agreement\nDeclaration of Trusts\nLiving Together Agreements\nImmigration\nIndefinite Leave to Remain (ILR)\nBritish Citizenship & Naturalisation\nUK Dependent Visa\nConveyancing\nResidential Property Solicitors\nFreehold/Leasehold\nSale\nPurchase\nTransfer\nDeed of Variation\nUnregistered Land\nLease\nLease Extension\nCommercial Property Solicitors\nPrivate Client\nExpert Wills Writing Services in Essex\nLasting Power of Attorney\nProbate\nDeputyship Order\nLetter of Administration\nOur People\nBy Department\nFamily\nConveyancing\nPrivate Client\nUK Immigration\nAdmin\nPrice List\nLegal Guide\nOffices\nChelmsford Office\nBenfleet Office\nBook Free Consultation\nConveyancing Solicitors\nOur Conveyancing Team\nAmrinder Singh (Mindi)\nParalegal\nView Profile\nThushara Collins\nPrincipal Solicitor\nView Profile\nTanisha Brown\nProperty Consultant\nView Profile\nCalum Costello\nLegal Assistant\nView Profile\nChloe Golding\nLegal Assistant\nView Profile\nMafruha Murphy\nProperty Paralegal\nView Profile\nConveyancing Services\nResidential Property\nExpert Residential Property Solicitors in Chelmsford and Benfleet. Smooth, reliable property transactions.\nView Details\nCommercial Property\nExpert Commercial Property Solicitors in Chelmsford and Benfleet. Smooth, reliable property transactions.\nView Details\nWhat Our Client's\nSay And Think\nEXCELLENT\nBased on 274 reviews\nPosted on Google\nFREDERICK Moeller\nTrustindex verifies that the original source of the review is Google.\nThe staff at TG Collins especially Chloe and Calum were efficient and professional and helped me through every aspect of the conveyancing.\nI would highly recommend TG Collins\nPosted on Google\njason walmsley\nTrustindex verifies that the original source of the review is Google.\nThe quote for services was highly competitive and their work swift and very responsive - having used a traditional face to face solicitor for multiple properties over the years, and used an on line one to sell my fathers property this was an extremely positive experience and I wouldn’t hesitate\nTo use them again and highly recommend.\nPosted on Google\nCarol Friedrich\nTrustindex verifies that the original source of the review is Google.\nChloe was extremely proficient dealing with our sale all instructions were clear and each stage confirmed ,\nall went through in 2 months ! Many thanks\nPosted on Google\nFrank Landa\nTrustindex verifies that the original source of the review is Google.\nIn many ways this was a 'personal' service. I received guidance and support during the whole process. Chloe Golding was very efficient and reacted without hesitation to ensure my sale was Completed in a timely manner. As a professional service it doesn't get any better than this! Job well ✔️ done. I'm continuing with T G Collins to purchase my next property.\nPosted on Google\nAmanda Riley\nTrustindex verifies that the original source of the review is Google.\nMindi, Chloe and Callum at TG Collins handled my house sale and purchase simultaneously. The service was swift, reliable and affordable and I would definitely recommend their service, they were brilliant!\nPosted on Google\nAmin Dosani\nTrustindex verifies that the original source of the review is Google.\nEXCELLENT AND PROMPT SERVICE, VERY HELPFUL, VERY REASONABLE AND VERY IMPRESSIVE. HIGHLY RECOMENDED.BEST SOLICITORS IN MY EXPERIENCE OF LAST 40 YEARS\nPosted on Google\nJennifer Wilson\nTrustindex verifies that the original source of the review is Google.\nMy house sale was handled professionally and efficiently by Shathisa and Mindi, and also patiently, bearing in mind the buyer's solicitor was not as communicative as they could have been. Would certainly recommend and use again.\nPosted on Google\nGilbert Deacon\nTrustindex verifies that the original source of the review is Google.\nGreat smooth conveyancing service - Chloe and the team were brilliant kept me informed all the way through the process and compmeted on time on the date requested. - Great Service!!\nPosted on Google\nCarol Charlton\nTrustindex verifies that the original source of the review is Google.\nI was extremely happy with the way my affairs were handled in such a professional, efficient and pleasant manner. Thank you to all involved\nAccreditations\nContact Detail\nChelmsford: 01245 205800​\nBenfleet : 01268 649033​\n22 Duke Street Chelmsford, Essex CM1 1HL\n202 High Road, Benfleet, Essex, SS7 5LD\nPostal Address: 49-53 Fore Street Ipswich IP4 1JL\n[email protected]\nIpswich: 01379 644055\nFacebook\nLinkedin-in\nInstagram\nTg Collins Solicitors Twitter Account\nLinks\nHome\nFamily Services\nImmigration Services\nAbout Us\nPrice List\nContact Us\nLegal Guide\nAwards\nLegal Guide\nWhen Should I Get a Divorce? Signs It’s Time\nWhat Happens Financially When You Get Divorced?\nPower of Attorney Explained: Why You Need It and How Our Solicitors Can Help\nDivorce Solicitors Near Me: How to File for Divorce in the UK?\nFamily Solicitors in Benfleet and Chelmsford Essex\nAll Rights Reserved © 2026 | T.G. Collins Solicitors\nSRA Code of Conduct\nPrivacy Policy\nComplaints\nDesigned By Techson",
+        "expectedTextPresent": [
+          true,
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-04/3.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW13",
+      "organisation": "Derrick Bridges & Co",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.derrickbridges.co.uk/23/our-people",
+      "evidenceType": "staff",
+      "expectedServiceContext": "residential_conveyancing",
+      "expectedTexts": [
+        "Perry Gear",
+        "Head of Residential Property"
+      ],
+      "expectedLinks": [],
+      "test": "service-related",
+      "label": "STATIC_SUFFICIENT",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:54.690Z",
+        "textCharacters": 2490,
+        "visibleTextExcerpt": "Perry Gear, ACILEx pgear@derrickbridges.co.uk\nHead of Residential Property\nAreas of Expertise:\nResidential Property * Commercial Property",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:12:06.332Z",
+        "status": 200,
+        "finalUrl": "https://www.derrickbridges.co.uk/23/our-people",
+        "sha256": "0bcc5636bc60c85f93e719ede281873653369f88012de60b9167e84c469a266e",
+        "textCharacters": 2385,
+        "visibleText": "Our People - Professional Legal Services - Derrick Bridges & Co\nHome\nAbout Us\nServices\nOur People\nContact Us\nVacancies\nNews\nAbout Us\nAbout Us\nCompany History\nOur People\nContact Us\nComplaints Policy\nHow can we help you?\nProperty & Conveyancing\nWills & IHT Planning\nProbate\nMatrimonial & Family\nDisputes & Litigation\nFixed Fee Appointments\nLPA & COFP\nCorporate & Commercial\nOur People\nStephen Ward, BA, Notary Public [email protected]\nPartner\nAreas of Expertise:\nNotary Public * Residential and Commercial Property * Wills, Probate and Power of Attorney\nSharon Fuller, LL.B, Mediator [email protected]\nPartner\nAreas of Expertise:\nFamily and Children * Advanced member of the Family Law Panel * Family Mediator\nRory Thorp, LL.B [email protected]\nPartner\nAreas of Expertise:\nWills * Probate * Powers of Attorney * Court of Protection * Trusts\nPerry Gear, ACILEx [email protected]\nHead of Residential Property\nAreas of Expertise:\nResidential Property * Commercial Property\nMatthew Timmis, BSc [email protected]\nSolicitor\nAreas of Expertise:\nDispute Resolution * Litigation * Commercial Litigation\nSelchouk Sami, LL.B [email protected]\nPartner\nAreas of Expertise:\nCommercial Property * Company and Commercial * Residential Property\nShamit Rooproy, LL.B [email protected]\nSolicitor\nAreas of Expertise:\nWills * Probate * Powers of Attorney * Court of Protection\nDebbie Singer, LL.B [email protected]\nSolicitor\nAreas of Expertise:\nWills * Probate * Powers of Attorney\nElena Theodosi, LL.B [email protected]\nSolicitor\nAreas of Expertise:\nResidential Property\nStephen Sloan, LL.B\nConsultant Solicitor (non-practising)\nAreas of Expertise:\nConsultant Solicitor\nNicholas Osborn, LL.B\nConsultant Solicitor (non-practising)\nAreas of Expertise:\nConsultant Solicitor\nMichael Crisp, BA\nConsultant Solicitor (non-practising)\nAreas of Expertise:\nConsultant Solicitor\nFor further information, help or advice, please fill in our contact form or call us on 0208 449 7326.\nEmail Me\nLegals\nPrivacy Policy\nSitemap\nCookie Policy & Terms of Use\nRight To Erasure\n© 2007 - 2026\n12 Wood Street - Barnet - Hertfordshire - EN5 4BQ\nTel: 020 8449 7326 Fax: 020 8449 8286 Email: [email protected]\nOur site uses cookies to provide you with the best possible user experience. For more information, please visit our cookie policy page.\nCookie Settings\nAnalytical\nActiveInactive\nNon-essential\nActiveInactive\nAccept and close\ni",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-02/9.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW14",
+      "organisation": "Maurice Andrews Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.mauriceandrewssolicitors.co.uk/ourTeam",
+      "evidenceType": "staff",
+      "expectedServiceContext": null,
+      "expectedTexts": [
+        "Akhmed Yakoob",
+        "DIRECTOR - SOLICITOR"
+      ],
+      "expectedLinks": [],
+      "test": "service-related",
+      "label": "STATIC_SUFFICIENT",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:55.479Z",
+        "textCharacters": 1291,
+        "visibleTextExcerpt": "THE TEAM BEHIND\nYOUR VICTORIES\nAkhmed Yakoob\nDIRECTOR - SOLICITOR\nMK\nMariam Khan\nMazar Iqbal\nSENIOR SOLICITOR & HIGH COURT ADVOCATE",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:11:54.162Z",
+        "status": 200,
+        "finalUrl": "https://www.mauriceandrewssolicitors.co.uk/ourTeam",
+        "sha256": "ec0a050425dfb22eb3af2e70e373b2250312712c2f6e705b381ae70ccf2ff661",
+        "textCharacters": 1149,
+        "visibleText": "Maurice Andrews\nSOLICITORS\nEMAIL USCALL US NOW\nMenu\nDRUGSFINANCIAL CRIMESMURDER DEFENCENATIONAL SECURITY CRIMESSEX & HUMAN RIGHTS CRIMESTRAFFIC OFFENCESVIOLENT CRIMES\nTHE TEAM BEHIND\nYOUR VICTORIES\nAkhmed Yakoob\nDIRECTOR - SOLICITOR\nMK\nMariam Khan\nMazar Iqbal\nSENIOR SOLICITOR & HIGH COURT ADVOCATE\nTabrace Hussain\nPARALEGAL - POLICE STATION ACCREDITED\nTHERE IS A DEFENCE FOR EVERY OFFENCE\nFIND US ON\nTHERE IS A DEFENCE\nFOR EVERY OFFENCE\nFIND US ON\nDEFENCE\nDRUGSFINANCIAL CRIMESMURDER DEFENCENATIONAL SECURITY CRIMESSEX & HUMAN RIGHTS CRIMESTRAFFIC OFFENCESVIOLENT CRIMES\nMORE LINKS\nALCOHOL AND YOUNG PEOPLE LAWCOURT CALENDARLEGISLATION UNDERSTANDINGSERVICE COMPLAINTS POLICYDATA PROTECTION COMPLAINTS PROCEDUREDATA PROTECTION COMPLAINT FORMPRIVACY NOTICECOOKIE\nABOUT US\nABOUT USCONTACT USOUR TEAMCAREERS\nOFFICE OPENING HOURS\nMon to Fri : 9.00am to 5:30 pm\nOUR OFFICES\nMain Office\n180-182 Soho Hill\nHandsworth\nBirmingham B19 1AG\n0121 554 4900\nGet directions →\nBranch Office\n3rd & 4th Floors\n84 Salop Street\nWolverhampton WV3 0SR\n01902 965560\nGet directions →\nMAURICE ANDREWS SOLICITORS | COPYRIGHT 2026 | ALL RIGHTS RESERVED\nWEB APP BY ❤ AQL DIGITAL",
+        "expectedTextPresent": [
+          true,
+          true
+        ],
+        "expectedLinkPresent": [],
+        "capture": "reports/milestone13/ew-screen-02/2.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW15",
+      "organisation": "Michael Stevens Solicitors",
+      "jurisdiction": "England and Wales",
+      "url": "https://www.michaelstevenssolicitors.com/",
+      "evidenceType": "service-discovery",
+      "expectedServiceContext": null,
+      "expectedTexts": [
+        "Michael Stevens Solicitors provides comprehensive legal solutions for businesses and individuals across London and beyond."
+      ],
+      "expectedLinks": [
+        "https://www.michaelstevenssolicitors.com/services/employment-law/",
+        "https://www.michaelstevenssolicitors.com/complaints-procedure/"
+      ],
+      "test": "service-related",
+      "label": "CONFIRMED_RENDER_GAP",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:56.453Z",
+        "textCharacters": 10120,
+        "visibleTextExcerpt": "It is a privilege to be of service\nMichael Stevens Solicitors provides comprehensive legal solutions for businesses and individuals across London and beyond.\nProviding exceptional legal services with integrity, expertise, and personal attention.",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:10:38.587Z",
+        "status": 200,
+        "finalUrl": "https://www.michaelstevenssolicitors.com/",
+        "sha256": "90071213bd98720b0653037e598a1271fd560c92b13286b6192aeda530c1cfec",
+        "textCharacters": 0,
+        "visibleText": "",
+        "expectedTextPresent": [
+          false
+        ],
+        "expectedLinkPresent": [
+          false,
+          false
+        ],
+        "capture": "reports/milestone13/ew-screen-01/2.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    },
+    {
+      "id": "EW16",
+      "organisation": "TMC Solicitors (Immigration Solicitors 4Me)",
+      "jurisdiction": "England and Wales",
+      "url": "https://immigrationsolicitors4me.co.uk/",
+      "evidenceType": "service-discovery",
+      "expectedServiceContext": "immigration",
+      "expectedTexts": [
+        "Our services cover all aspects of UK immigration, including visa applications, sponsorship licenses, and settlement cases.",
+        "Contact us at 0208 124 3222"
+      ],
+      "expectedLinks": [
+        "https://immigrationsolicitors4me.co.uk/Cost",
+        "https://immigrationsolicitors4me.co.uk/Complaints"
+      ],
+      "test": "service-related",
+      "label": "CONFIRMED_RENDER_GAP",
+      "independentBrowser": {
+        "method": "Separate Codex in-app browser; visible body innerText and anchor inspection; no WatchLayer renderer, interactions, consent or forms",
+        "observedAt": "2026-09-28T22:14:57.753Z",
+        "textCharacters": 14180,
+        "visibleTextExcerpt": "TRUSTED LEADERS IN UK IMMIGRATION LAW AND SERVICES\nRecognised by top legal directories, we are leading experts in UK immigration law, providing tailored solutions for individuals and businesses. Our services cover all aspects of UK immigration, including visa applications, sponsorship licenses, and settlement cases.",
+        "retention": "Selected verbatim bounded context retained from independent browser observation; not a full rendered archive. This is target confirmation, not human adjudication."
+      },
+      "static": {
+        "observedAt": "2026-09-28T22:12:47.275Z",
+        "status": 200,
+        "finalUrl": "https://immigrationsolicitors4me.co.uk/",
+        "sha256": "22321524a40fd1e94227cc1a8bb5dcf7717fc31306c85cf5d1843f81dba76448",
+        "textCharacters": 0,
+        "visibleText": "",
+        "expectedTextPresent": [
+          false,
+          false
+        ],
+        "expectedLinkPresent": [
+          false,
+          false
+        ],
+        "capture": "reports/milestone13/ew-screen-03/2.json"
+      },
+      "limitations": [
+        "Raw HTML cannot resolve external CSS. Classification concerns frozen expected items, not every item on the page.",
+        "A link establishes a location only; generic firm-wide experience is not service-specific qualification evidence."
+      ]
+    }
+  ]
+}
