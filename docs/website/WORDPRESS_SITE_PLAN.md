@@ -22,7 +22,7 @@ Its jobs are to:
 4. demonstrate Regstead for Law Firms;
 5. show a sample report;
 6. capture free-scan requests;
-7. support founding-customer sales;
+7. support Monitor subscriptions;
 8. host the required legal/privacy information.
 
 The monitoring application should eventually live separately, e.g.:
@@ -171,10 +171,9 @@ Explain the initial sector use case without claiming compliance certification.
 
 Show:
 - Free Scan — £0
-- Founding Monitor — £9.95/month, first 25 organisations
-- Standard Monitor — £19/month after founding release
+- Regstead Monitor — £16.99/month, one primary website
 
-Do not publish Plus until it is a real product.
+Only one paid Monitor product is offered.
 
 ### `/free-scan/`
 **Free Website Scan**
@@ -209,10 +208,10 @@ Terms of Service
 ### `/free-scan-terms/`
 Free Scan Terms
 
-### `/founding-beta-terms/`
-Founding Beta Terms
+### `/subscription-terms/`
+Subscription Terms
 
-Only expose Founding Beta Terms publicly if useful; alternatively link directly from onboarding/payment.
+Only expose Subscription Terms publicly if useful; alternatively link directly from onboarding/payment.
 
 ### `/cookie-policy/`
 Cookie policy generated/reviewed through the consent setup where required.
@@ -479,7 +478,7 @@ white
 Label examples:
 - Run a free scan
 - Request my baseline report
-- Join the founding programme
+- Start monitoring
 
 Hover:
 slightly lighter/darker Navy, not a dramatic animation.
@@ -620,7 +619,7 @@ Explain:
 
 ## Section 9 — Pricing teaser
 
-Show Founding Monitor.
+Show Regstead Monitor at £16.99/month for one primary website.
 
 Do not turn the homepage into a complex pricing grid.
 
@@ -695,7 +694,7 @@ Initial message:
 >
 > We’ll analyse the publicly accessible website information you submitted and prepare your baseline findings.
 >
-> During the founding beta, reports may be manually reviewed before they are sent.
+> Reports are reviewed before they are released to customers.
 
 Then provide:
 - expected communication route;
@@ -998,7 +997,7 @@ The product itself should become the strongest visual asset.
 24. Privacy.
 25. Terms.
 26. Free Scan Terms.
-27. Founding Beta Terms as appropriate.
+27. Subscription Terms as appropriate.
 28. cookie/consent setup.
 
 ## Stage 5 — SEO/security/performance
@@ -1150,7 +1149,7 @@ The WordPress site is ready for the first Regstead outreach when a prospect can:
 3. see that Regstead is designed for regulated organisations;
 4. understand that it monitors rather than certifies compliance;
 5. see a professional sample report;
-6. understand founding pricing;
+6. understand initial pricing;
 7. request a free scan;
 8. read the privacy/legal information;
 9. contact the business;
@@ -1169,3 +1168,7 @@ Future integration between WordPress and the Regstead application/free-scan API 
 ---
 
 **End of WORDPRESS_SITE_PLAN.md**
+
+## M14.1 pricing authority
+
+Regstead Scan remains £0 without a subscription. Monitor is £16.99/month; the 1699-pence amount precedes separately configured tax behaviour. Do not label it VAT-inclusive/exclusive before approval. Stripe Billing Portal handles billing; the Regstead Customer Portal is planned for M15. Follow [the website pricing manifest](../M14_1_WEBSITE_PRICING_CHANGES.md) before publishing. This file is a plan, not live WordPress source.

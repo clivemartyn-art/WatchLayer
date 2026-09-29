@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "startingSha": "fc3a4ebada8adab80b5fc3b81b9fe19aa40a905d",
+  "branch": "milestone-14-1-commercial-simplification",
+  "validatedAt": "2026-09-29T08:33:32.236Z",
+  "baseline": {
+    "tests": 837,
+    "browserTests": 104,
+    "typecheck": "PASS",
+    "build": "PASS",
+    "auditVulnerabilities": 0,
+    "preserved": "UNCHANGED",
+    "m10": "UNCHANGED",
+    "serious": {
+      "totalCases": 14,
+      "expectedIssues": 4,
+      "emittedIssues": 4,
+      "truePositives": 4,
+      "falsePositives": 0,
+      "falseNegatives": 0,
+      "precision": 1,
+      "recall": 1
+    }
+  },
+  "tests": 859,
+  "testsAdded": 24,
+  "obsoleteTestsRemoved": 2,
+  "commercialTests": 93,
+  "browserTests": 104,
+  "typecheck": "PASS",
+  "build": "PASS",
+  "auditVulnerabilities": 0,
+  "preserved": {
+    "firms": 50,
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ],
+    "ruleChanges": 0,
+    "classificationChanges": 0,
+    "pdfChanges": 0,
+    "adjudicationChanges": 0,
+    "inventoryChanges": 0
+  },
+  "m10": {
+    "exact": {
+      "count": 57,
+      "denominator": 80,
+      "rate": 0.7125
+    },
+    "firmWide": {
+      "count": 26,
+      "denominator": 32,
+      "rate": 0.8125
+    },
+    "falseServiceAssignments": {
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+    }
+  },
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "engineSourceChanges": 0,
+  "dependenciesChanged": 0,
+  "migration": "Revised pre-release commercial migration 1: monitor-v1 marker; fresh database required; old databases rejected without payload rewrite",
+  "commercialFixture": "PASS: standard subscription lifecycle, local SDK/provider fixtures and real engine fixture; no live Stripe calls",
+  "limitations": [
+    "PostgreSQL adapter contract tested; real PostgreSQL server unavailable",
+    "Container build not run: Docker unavailable",
+    "Email provider is a local durable spool; no inbox delivery",
+    "No live Stripe calls, charges, resources or deployments",
+    "M13 live render limitations unchanged; no live precision claim"
+  ],
+  "logs": "reports/milestone14-1/final",
+  "status": "COMPLETE_LOCAL_STANDARD_SUBSCRIPTION_IMPLEMENTATION",
+  "sourceHashes": {
+    "billing.ts": "b3731d396003a78db5d3819ddb81d21034e34aa58c0e7f3b91cd9921175c23b4",
+    "cli.ts": "debc03ef0018e62400d7a0f4953be50f914653bcd37bad08a7116ca3eeb79eae",
+    "config.ts": "0238e6174b23d215e7b6c1675f2d13b3883afcb25389da419f8acf700430ec36",
+    "engine.ts": "16277c58b3309f5469d768b80349856a370dbac1097c36a80a54e80c2493cb64",
+    "http.ts": "5be3f545fcaf99d6bd7a9c515ad5c06b2df15401c710d533bb0eb2fe3bed643f",
+    "notifications.ts": "4f253df40667a70f1c8e199a51064f84798b0564918a3ba6bc6b730db3411f10",
+    "operations.ts": "93c7e7ff650d8cabe707487b2ea29bf8f7a8957709ecb236280b0c81c0e702f6",
+    "reports.ts": "8586d29dad60eb03bb7486cbf2f7eceb5a6306a86a319c623071810f0c5a8a98",
+    "repository.ts": "ede5605894d51a55730221a2dc4d5ea59a67587550ddf08dc7b0c7605a79ab8a",
+    "types.ts": "1d38639ab548ff890612c306b0bffe5bb4fe028448b5fe0e076b5d27106e7deb",
+    "worker.ts": "6ac66e9288fc2311601c360311d5c6f095a369e03ea4c4d372651b6c9d98fd49"
+  }
+}

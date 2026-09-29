@@ -1,6 +1,10 @@
-# Regstead founding-beta operations runbook
+# Regstead standard-subscription beta operations runbook
 
 Regstead is operated by Foundry Vale Ltd. The engine remains WatchLayer. This runbook describes M14's internal CLI and local email spool. It does not authorize a live deployment, real charge, email send or destructive deletion.
+
+Regstead Scan is £0 without a subscription. Regstead Monitor is £16.99/month for one primary website, cancel anytime with paid-period entitlement respected. The amount is 1699 pence before separately configured Stripe tax behaviour; do not imply VAT inclusion/exclusion before approval. No automatic Stripe Tax setting is enabled.
+
+M14.1 revises commercial migration 1 for the clean `monitor-v1` launch schema. Use a fresh commercial database; old M14 development databases are rejected and left intact. Engine databases are unaffected.
 
 ## Prepare the environment
 
@@ -8,7 +12,7 @@ Regstead is operated by Foundry Vale Ltd. The engine remains WatchLayer. This ru
 2. Copy `config/regstead.env.example` to an untracked environment file outside the repository. Replace placeholders through a secret manager. Supply the actual deployed Git SHA as REGSTEAD_RELEASE, a long random REGSTEAD_ADMIN_TOKEN, the supplied REGSTEAD_OPERATOR_TOKEN and a named REGSTEAD_OPERATOR. Do not put tokens in CLI arguments or logs.
 3. Choose SQLite on a durable local disk for the initial single-host pilot or configure DATABASE_URL for PostgreSQL. Engine databases, reports and spool need durable private paths. Back up the commercial database and these directories consistently before upgrading. Test restore with disposable copies.
 4. Configure a cadence in milliseconds and decide/payment-test the grace policy. The example cadence is not a published promise. Keep worker concurrency at one initially.
-5. In a separate Stripe sandbox, manually establish the dedicated Regstead product and distinct monthly GBP prices (995 and 1900 pence), and configure the portal. Do not mix these with Path of the Nine. Use a restricted key with only necessary price-read, Checkout, portal and subscription-read permissions. Register the documented webhook events and signing secret. Verify the test/live-mode setting. Consider tax/VAT treatment and registration with the operator/accountant before launch; M14 does not turn on automatic tax or assume registration.
+5. In a separate Stripe sandbox, manually establish the dedicated Regstead Monitor product and its single monthly GBP Price (1699 pence), and configure the Stripe Billing Portal. Do not mix these with Path of the Nine. Use a restricted key with only necessary price-read, Checkout, portal and subscription-read permissions. Register the documented webhook events and signing secret. Verify the test/live-mode setting. Consider tax/VAT treatment and registration with the operator/accountant before launch; M14 does not turn on automatic tax or assume registration.
 6. Run `npm run regstead -- --help`. Commands below require the operator environment. `node --env-file=/private/regstead.env dist/regstead/cli.js ...` is the built equivalent.
 
 ## Onboard a free-scan lead
@@ -27,9 +31,9 @@ After the customer has actually accepted the current subscription terms, record 
 
 `npm run regstead -- checkout <organisation-id> beta-v1`
 
-The backend chooses/reserves the founding price if eligible and returns a Stripe-hosted URL. It verifies the price catalog before creating the session. Never substitute a client-requested price or manually set active status. Repeating the command reuses a pending checkout. The first 25 accepted founding checkout reservations consume the available slots; abandoned reservations are deliberately not automatically recycled. Inspect `list organisations` and `list checkouts` for reservation and accepted-terms records.
+The backend uses the configured Monitor price and returns a Stripe-hosted URL. It verifies the price catalog before creating the session. Never substitute a client-requested price or manually set active status. Repeating the command reuses a pending checkout. There is no slot reservation or allocation. Inspect `list checkouts` for accepted-terms and session records. The currently configured price is always used; pending checkouts whose recorded terms or price differ are refused for operator resolution.
 
-`npm run regstead -- portal <organisation-id>` opens a service-created portal session URL. Cancellation is performed there or by the authorized Stripe operator. Do not delete history. Confirm the verified subscription event is processed and future monitoring stops. Payment grace follows the configured deadline. A cancelled founding organisation does not automatically reacquire founding pricing.
+`npm run regstead -- billing-portal <organisation-id>` opens a Stripe Billing Portal session URL. Cancellation is performed through the Stripe Billing Portal or by the authorized Stripe operator. Do not delete history. Confirm the verified subscription event is processed and future monitoring stops. Payment grace follows the configured deadline. A cancelled customer can subscribe again at the currently configured Monitor price; the old reports and subscription audit history remain.
 
 Run the webhook service using `npm run start:service`, behind TLS, and the worker with `npm run start:worker`. Stripe verifies signatures on raw bodies at POST `/stripe/webhook`. GET `/health` reports liveness; GET `/ready` returns 503 if configuration/database/worker checks fail. No admin HTTP routes exist.
 
@@ -77,10 +81,10 @@ For an adapter failure: inspect `failures`, correct the cause, then `retry-email
 
 ## Monitoring and retention
 
-Monitor readiness, worker heartbeat, oldest queued/review job, failed webhooks/email, founding reservations, disk/database size and report delivery. Daily operator review is required during beta. No live precision claim is warranted by the preserved benchmark or the controlled safety tests.
+Monitor readiness, worker heartbeat, oldest queued/review job, failed webhooks/email, disk/database size and report delivery. Daily operator review is required during beta. No live precision claim is warranted by the preserved benchmark or the controlled safety tests.
 
 Cancellation normally preserves reports, engine artifacts and audit history. No automated retention period or destructive purge is configured. A deletion/anonymisation request needs a separately approved policy covering contact fields, notes, artifacts, engine history, Stripe references and backups. Document the decision and verify it across stores; do not improvise a legal retention period.
 
 ## Manual launch gate
 
-Before admitting paying customers: build/run the container in staging; test actual PostgreSQL if selected; verify persistent volumes, backups and restore; test Chromium permissions and network boundaries; register sandbox webhooks and exercise Checkout/payment failure/cancellation; approve terms/privacy/retention and VAT treatment; configure restricted credentials and TLS/rate limits; install and verify a real idempotent email provider or adopt an explicit manual delivery process; check every reviewed report before delivery. Begin with five closely supervised founding organisations, expand only after observing operations. Do not start M15 automatically.
+Before admitting paying customers: build/run the container in staging; test actual PostgreSQL if selected; verify persistent volumes, backups and restore; test Chromium permissions and network boundaries; register sandbox webhooks and exercise Checkout/payment failure/cancellation; approve terms/privacy/retention and VAT treatment; configure restricted credentials and TLS/rate limits; install and verify a real idempotent email provider or adopt an explicit manual delivery process; check every reviewed report before delivery. Begin with five closely supervised pilot organisations, expand only after observing operations. M15 is planned for the separate Regstead Customer Portal; do not start it automatically.

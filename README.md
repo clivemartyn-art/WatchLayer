@@ -166,6 +166,8 @@ The evaluator uses the preserved M6/M7 corpus offline and creates a new output d
 
 ## Regstead operational layer (M14)
 
-WatchLayer remains the evidence engine. The separate Regstead layer supports customer/site onboarding, version-pinned leased scan jobs, mandatory human review, immutable HTML reports, subscription reconciliation, founding reservations and a notification outbox. It does not change crawler or evidence policies.
+WatchLayer remains the evidence engine. The separate Regstead layer supports customer/site onboarding, version-pinned leased scan jobs, mandatory human review, immutable HTML reports, subscription reconciliation, a single £16.99/month Monitor subscription and a notification outbox. It does not change crawler or evidence policies.
 
 Use `npm run regstead -- --help`, `npm run test:commercial`, `npm run start:worker` and `npm run start:service`. Read [M14 architecture and limitations](docs/MILESTONE_14_PRODUCTION_COMMERCIAL_ENGINE.md) and the [operations runbook](docs/OPERATIONS_RUNBOOK.md) before configuring providers. The supplied email adapter is a local spool, not inbox delivery. No live deployment or provider resources are provisioned.
+
+M14.1 removes the former allocation model. Regstead Scan remains £0 without a subscription; Monitor covers one primary website. The CLI uses `billing-portal` for the Stripe Billing Portal. The Regstead Customer Portal is planned for M15 and is not implemented here. See [commercial simplification](docs/MILESTONE_14_1_COMMERCIAL_SIMPLIFICATION.md) and the [website pricing change manifest](docs/M14_1_WEBSITE_PRICING_CHANGES.md). The 1699-pence amount is before separately configured Stripe tax behaviour; VAT treatment requires approval before live charges.

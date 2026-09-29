@@ -1,8 +1,8 @@
 # REGSTEAD PRODUCT BRIEF
 
 **Document status:** Active product source of truth  
-**Version:** 1.0  
-**Last updated:** 12 September 2026  
+**Version:** 1.1
+**Last updated:** 29 September 2026
 **Public brand:** Regstead  
 **Internal engine / repository name:** WatchLayer  
 **Initial vertical:** UK law firms regulated by the Solicitors Regulation Authority (SRA)
@@ -168,7 +168,7 @@ Initial sales motion:
 - scan the firm's website;
 - identify a truthful useful observation or monitoring surface;
 - provide a baseline report;
-- invite the firm to become a founding customer.
+- invite the firm to subscribe to Regstead Monitor.
 
 Never manufacture a “problem” to make outreach more compelling.
 
@@ -620,65 +620,15 @@ Preserve its integrity/checksum where milestone instructions require it.
 
 ---
 
-# 19. Commercial model — current assumptions
+# 19. Commercial model — approved launch model
 
-These are launch hypotheses, not permanent pricing commitments.
+Regstead Scan is **£0**, one operator-created baseline without a paid subscription. WordPress/Gravity Forms remain the acquisition route.
 
-## Free
+Regstead Monitor is **£16.99/month**, one primary website, recurring monthly subscription. The server validates one configured monthly GBP Price of 1699 pence before separately configured Stripe tax behaviour. VAT treatment remains an explicit launch decision and must match public/invoice wording. Automatic tax is not enabled.
 
-**Regstead Scan**
+Cancellation can be requested anytime through the Stripe Billing Portal; paid-period entitlement is respected and historical reports remain. Customers may rejoin at the currently configured price. There is no customer-count allocation, coupon, price-lock or tier-selection model.
 
-Current concept:
-
-- one-off public website scan;
-- headline website health;
-- selected regulatory signals;
-- limited report;
-- email capture for fuller report.
-
-## Founding Monitor
-
-Current launch hypothesis:
-
-**£9.95/month**
-
-For the first 25 participating organisations.
-
-Current proposed inclusions:
-
-- one primary website/domain;
-- recurring monitoring;
-- baseline Regulatory Surface;
-- structured change detection;
-- page/document/form monitoring;
-- full reports;
-- change history;
-- alerts when enabled;
-- feedback participation during beta.
-
-Current beta assumption:
-
-- approximately weekly monitoring during founding release.
-
-Founding price is intended to remain locked while the customer's subscription remains continuously active, subject to final commercial/legal terms.
-
-## Standard Monitor
-
-Current hypothesis:
-
-**£19/month**
-
-Not yet final.
-
-## Future higher tier
-
-Possible:
-
-**£39/month**
-
-May later include more frequent monitoring, multiple domains, richer alerts, integrations or advanced reporting.
-
-Do not hard-code these future tiers into the product unless a milestone explicitly instructs it.
+Human review remains mandatory before report release. Cadence is configured, not inferred from pricing. M15 is planned to add the separate Regstead Customer Portal for reports; it is outside M14.1. See [commercial model](../../COMMERCIAL_MODEL.md).
 
 ---
 
@@ -823,7 +773,7 @@ Preferred sequence:
 4. contact the appropriate decision-maker;
 5. offer the baseline report;
 6. explain recurring monitoring;
-7. invite them to the founding programme.
+7. invite them to Regstead Monitor.
 
 If no issue is found, do not invent one.
 
@@ -945,7 +895,7 @@ Commercial validation target currently suggested:
 
 - approach 50 qualified firms;
 - aim for at least 10 meaningful conversations;
-- aim for at least 5 paying founding customers.
+- aim for at least 5 paying Monitor customers.
 
 If only 0–1 firms pay after 50 high-quality approaches, revisit the proposition before materially increasing build investment.
 

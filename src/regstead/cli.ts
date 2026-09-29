@@ -17,9 +17,9 @@ export const HELP=`Regstead operator CLI (REGSTEAD_OPERATOR_TOKEN + REGSTEAD_OPE
   release <report-id> | export <report-id> <output.html>
   retry <job-id> | retry-webhook <event-id> | retry-email <notification-id>
   pause <site-id> | resume <site-id> | schedule
-  checkout <organisation-id> <accepted-terms-version> | portal <organisation-id>
+  checkout <organisation-id> <accepted-terms-version> | billing-portal <organisation-id>
   health | ready | worker [--once] | serve
-Cancellation is performed through the Stripe portal; verified subscription webhooks stop monitoring.`;
+Cancellation is performed through the Stripe Billing Portal; verified subscription webhooks stop monitoring.`;
 export async function main(args:string[]){if(!args.length||args[0]==='--help'){console.log(HELP);return;}const config=configuration();const actor=authenticate(process.env.REGSTEAD_OPERATOR_TOKEN,config.adminToken,process.env.REGSTEAD_OPERATOR??'');const repository=await repositoryFor(config),ops=new Operations(repository,versions(config.release)),storage=new FileArtifactStore(config.storage);const billing=config.stripeKey&&config.webhookSecret?new Billing(repository,new StripeProvider(config.stripeKey,config.webhookSecret,config.billing),config.billing,versions(config.release)):undefined;const notifications=new Notifications(repository,new SpoolEmailProvider(config.emailSpool));const [command,a,b,c,d,e,f]=args;const output=(value:unknown)=>console.log(JSON.stringify(value,null,2));let keepOpen=false;
   try{switch(command){
     case 'onboard':output(await ops.onboard({...JSON.parse(await readFile(a,'utf8')),cadenceMs:config.cadenceMs},actor));break;
@@ -37,7 +37,7 @@ export async function main(args:string[]){if(!args.length||args[0]==='--help'){c
     case 'pause':case 'resume':await ops.pause(a,command==='pause',actor);break;
     case 'schedule':output({queued:await ops.schedule()});break;
     case 'checkout':if(!billing)throw new Error('Stripe not configured');output(await billing.checkout(a,b,actor));break;
-    case 'portal':if(!billing)throw new Error('Stripe not configured');output({url:await billing.portal(a)});break;
+    case 'billing-portal':if(!billing)throw new Error('Stripe not configured');output({url:await billing.billingPortal(a)});break;
     case 'health':output({alive:true});break;
     case 'ready':{const state=await readiness(repository,config);output(state);if(!state.ready)process.exitCode=1;break;}
     case 'serve':{if(!billing)throw new Error('Stripe not configured');const server=httpService(billing,()=>readiness(repository,config));server.requestTimeout=20000;server.headersTimeout=10000;server.listen(config.port);keepOpen=true;const shutdown=()=>server.close(()=>{void repository.close();});process.once('SIGTERM',shutdown);process.once('SIGINT',shutdown);break;}
