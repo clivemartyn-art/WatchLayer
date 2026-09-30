@@ -51,7 +51,9 @@
     "regstead": "tsx src/regstead/cli.ts",
     "start:worker": "node dist/regstead/cli.js worker",
     "start:service": "node dist/regstead/cli.js serve",
-    "test:commercial": "vitest run tests/milestone14-commercial.test.ts tests/milestone14-integration.test.ts tests/milestone14-1-commercial.test.ts --maxWorkers=1"
+    "test:commercial": "vitest run tests/milestone14-commercial.test.ts tests/milestone14-integration.test.ts tests/milestone14-1-commercial.test.ts --maxWorkers=1",
+    "test:portal": "vitest run tests/milestone15-portal.test.ts tests/milestone15-backup.test.ts --maxWorkers=1",
+    "backup:regstead": "node scripts/regstead-backup.mjs"
   },
   "dependencies": {
     "cheerio": "^1.1.2",

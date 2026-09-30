@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "status": "BLOCKED_HUMAN_JUDGMENT",
+  "reportId": "d6d3f5d5-2812-4578-bf29-6a88aa2411a6",
+  "jobId": "a9c7c738-5b54-459a-a0b3-22600a0966f7",
+  "scanRunId": "34d0b318-2bba-490e-9675-ec8c5c9d3567",
+  "reviewer": "Codex staging reviewer",
+  "reviewedAt": "2026-09-30T15:28:31.1496533Z",
+  "method": "Eight objective findings were reviewed individually from fresh evidence. The remaining findings were not changed because customer-report inclusion or suppression requires a genuine human editorial decision.",
+  "appliedCount": 8,
+  "pendingCount": 218,
+  "blocker": "Decide whether newly supported page, document and form continuity PASS results should be customer-visible, and whether raw LawWatch findings for the Regstead product website should be suppressed as out of customer context. No blanket suppression was applied.",
+  "decisions": [
+    {
+      "findingId": "finding-0",
+      "ruleId": "WEB-U001",
+      "serviceType": null,
+      "rawStatus": "PASS",
+      "severity": "CRITICAL",
+      "resource": "https://www.regstead.co.uk/",
+      "decision": "APPROVED",
+      "note": "Confirmed from fresh recorded evidence and consistent with the released baseline review.",
+      "title": null,
+      "explanation": null
+    },
+    {
+      "findingId": "finding-1",
+      "ruleId": "WEB-U002",
+      "serviceType": null,
+      "rawStatus": "PASS",
+      "severity": "CRITICAL",
+      "resource": "https://www.regstead.co.uk/",
+      "decision": "APPROVED",
+      "note": "Confirmed from fresh recorded evidence and consistent with the released baseline review.",
+      "title": null,
+      "explanation": null
+    },
+    {
+      "findingId": "finding-2",
+      "ruleId": "WEB-U003",
+      "serviceType": null,
+      "rawStatus": "PASS",
+      "severity": "HIGH",
+      "resource": "https://www.regstead.co.uk/",
+      "decision": "APPROVED",
+      "note": "Confirmed from fresh recorded evidence and consistent with the released baseline review.",
+      "title": null,
+      "explanation": null
+    },
+    {
+      "findingId": "finding-17",
+      "ruleId": "WEB-U006",
+      "serviceType": null,
+      "rawStatus": "PASS",
+      "severity": "MEDIUM",
+      "resource": "https://www.regstead.co.uk/sitemap.xml",
+      "decision": "APPROVED",
+      "note": "Confirmed from fresh recorded evidence and consistent with the released baseline review.",
+      "title": null,
+      "explanation": null
+    },
+    {
+      "findingId": "finding-18",
+      "ruleId": "WEB-U007",
+      "serviceType": null,
+      "rawStatus": "PASS",
+      "severity": "LOW",
+      "resource": "https://www.regstead.co.uk/robots.txt",
+      "decision": "APPROVED",
+      "note": "Confirmed from fresh recorded evidence and consistent with the released baseline review.",
+      "title": null,
+      "explanation": null
+    },
+    {
+      "findingId": "finding-19",
+      "ruleId": "WEB-U008",
+      "serviceType": null,
+      "rawStatus": "PASS",
+      "severity": "MEDIUM",
+      "resource": "https://www.regstead.co.uk/",
+      "decision": "APPROVED",
+      "note": "Confirmed from fresh recorded evidence and consistent with the released baseline review.",
+      "title": null,
+      "explanation": null
+    },
+    {
+      "findingId": "finding-22",
+      "ruleId": "WEB-U011",
+      "serviceType": null,
+      "rawStatus": "PASS",
+      "severity": "LOW",
+      "resource": "https://www.regstead.co.uk/",
+      "decision": "APPROVED",
+      "note": "Confirmed from fresh recorded evidence and consistent with the released baseline review.",
+      "title": null,
+      "explanation": null
+    },
+    {
+      "findingId": "finding-23",
+      "ruleId": "WEB-U012",
+      "serviceType": null,
+      "rawStatus": "UNKNOWN",
+      "severity": "MEDIUM",
+      "resource": "https://www.regstead.co.uk/",
+      "decision": "ANNOTATED",
+      "note": "The unchanged noindex/nofollow observation remains genuine and should be surfaced for launch review.",
+      "title": "Homepage indexing setting still needs review",
+      "explanation": "The homepage again returned robots metadata noindex,nofollow. If public search indexing is intended, review the WordPress search-engine visibility setting before launch."
+    }
+  ]
+}

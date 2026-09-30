@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "status": "HOSTED_STAGING_COMPLETE_FINAL_COMMIT_DEPLOYMENT_RECORDED_IN_HANDOFF",
+  "startingSha": "21f72ef45e78edf6775a469590c04b93247e2202",
+  "branch": "milestone-15-customer-portal-staging",
+  "validatedAt": "2026-09-30T21:30:00.000Z",
+  "tests": 914,
+  "testsAdded": 55,
+  "testsRemoved": 0,
+  "engineBrowserTests": 105,
+  "portalTests": 50,
+  "portalBrowserWidths": [
+    390,
+    1280
+  ],
+  "backupTests": 4,
+  "typecheck": "PASS",
+  "build": "PASS",
+  "auditVulnerabilities": 0,
+  "preserved": {
+    "firms": 50,
+    "eligibleChecks": 850,
+    "excludedNotApplicable": 0,
+    "humanCounts": {
+      "Pass": 437,
+      "Review": 413,
+      "Unknown": 0,
+      "Fail": 0
+    },
+    "machineCounts": {
+      "PASS": 233,
+      "WARNING": 53,
+      "POTENTIAL_ISSUE": 0,
+      "UNKNOWN": 564,
+      "NOT_APPLICABLE": 0
+    },
+    "exactAgreement": {
+      "count": 132,
+      "denominator": 437,
+      "rate": 0.30205949656750575
+    },
+    "acceptableAgreement": {
+      "count": 444,
+      "denominator": 850,
+      "rate": 0.5223529411764706
+    },
+    "unknownCount": 564,
+    "unknownRate": 0.6635294117647059,
+    "passPredictions": 233,
+    "passPrecision": 0.5665236051502146,
+    "passRecall": 0.30205949656750575,
+    "warningPredictions": 53,
+    "warningPrecision": null,
+    "warningReviewCompatibility": 0.660377358490566,
+    "potentialIssuePredictions": 0,
+    "potentialIssuePrecision": null,
+    "highSeverityPotentialIssuePrecision": null,
+    "falsePositiveCount": 0,
+    "highSeverityFalsePositiveCount": 0,
+    "falsePositiveRate": 0,
+    "highSeverityFalsePositiveRate": 0,
+    "confirmedFalsePositiveCount": 0,
+    "confirmedFalsePositiveRate": 0,
+    "confirmedHighSeverityFalsePositiveRate": 0,
+    "unsupportedPassCount": 101,
+    "releaseGate": "UNPROVEN",
+    "limitations": [
+      "Human Review has no exact machine-state mapping. WARNING precision is unavailable; review compatibility is separate.",
+      "PASS precision is the human-confirmed fraction; unconfirmed predictions are not proven errors.",
+      "No potential-issue predictions or no negative ground truth cannot demonstrate the release precision gate."
+    ],
+    "ruleChanges": 0,
+    "classificationChanges": 0,
+    "pdfChanges": 0,
+    "adjudicationChanges": 0,
+    "inventoryChanges": 0
+  },
+  "m10": {
+    "exact": {
+      "count": 57,
+      "denominator": 80,
+      "rate": 0.7125
+    },
+    "firmWide": {
+      "count": 26,
+      "denominator": 32,
+      "rate": 0.8125
+    },
+    "falseServiceAssignments": {
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+    }
+  },
+  "serious": {
+    "totalCases": 14,
+    "expectedIssues": 4,
+    "emittedIssues": 4,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0,
+    "precision": 1,
+    "recall": 1
+  },
+  "performance": {
+    "scope": "Local fixture only; 100 released reports; not staging load measurement",
+    "milliseconds": {
+      "dashboard": 6.04,
+      "history": 3.96,
+      "view": 26.05,
+      "download": 11.67,
+      "login": 19.8,
+      "sessionValidation": 2
+    }
+  },
+  "database": "Real local SQLite; no PostgreSQL server claim",
+  "backupRestore": "PASS locally with actual engine history and next-scan comparison",
+  "container": "PASS_HOSTED_UNPRIVILEGED_RESTART_PERSISTENCE_CHROMIUM",
+  "stripeSandbox": "PASS_PAYMENT_FAILURE_RECOVERY_PERIOD_END_CANCEL_FINAL_CANCEL_RESUBSCRIPTION_PRODUCT_ISOLATION",
+  "emailDelivery": "PASS_RESEND_PROVIDER_ACCEPTED_REAL_STAGING_MESSAGES; PROVIDER_ACCEPTANCE_NOT_INBOX_PROOF",
+  "hostedCustomerJourney": "PASS_BASELINE_SCHEDULED_MONITORING_REVIEW_RELEASE_PORTAL_BILLING_FAILURE_CANCEL_RESUBSCRIBE_HISTORY",
+  "hosted": {
+    "portalOrigin": "https://app.regstead.co.uk",
+    "readinessCheckedAt": "2026-09-30T21:26:57Z",
+    "readiness": {
+      "ready": true,
+      "database": true,
+      "worker": true,
+      "engine": true,
+      "configuration": true,
+      "email": true
+    },
+    "stripeAccount": "acct_1UL26YPCnjV4mCMK",
+    "stripeMode": "sandbox",
+    "product": "prod_VLjc4IRzFRB4yi",
+    "price": "price_1UL29OPCnjV4mCMKBbZIsCGW",
+    "monthlyAmountMinor": 1699,
+    "currency": "gbp",
+    "subscription": "sub_1UL2l7PCnjV4mCMKvho5a3g2",
+    "subscriptionStatus": "active",
+    "initialInvoiceStatus": "paid",
+    "taxTreatment": "UNAPPROVED; automatic tax disabled and price tax behavior unspecified",
+    "liveStripeChanged": false,
+    "originalSubscription": "sub_1UL2l7PCnjV4mCMKvho5a3g2",
+    "replacementSubscription": "sub_1ULUzZPCnjV4mCMKSY1PzYXm",
+    "replacementInvoice": "in_1ULUzZPCnjV4mCMKEDwZ6ywz",
+    "paymentFailure": {
+      "invoice": "in_1ULUtpPCnjV4mCMKb4Xd0qej",
+      "event": "evt_1ULUtsPCnjV4mCMKiEFK7tSL",
+      "applicationStatus": "past_due",
+      "graceMs": 0,
+      "notification": "d49ce0d9-e7e1-4d83-9bc8-b5cf5910c084",
+      "recoveryEvent": "evt_1ULUwAPCnjV4mCMKBT9r7jQY"
+    },
+    "cancellation": {
+      "periodEndEvent": "evt_1ULUwsPCnjV4mCMKlpRu7iOL",
+      "finalEvent": "evt_1ULUyZPCnjV4mCMKSoxYJ9sI",
+      "notification": "6cc60b9d-11c0-4bea-a04f-c5e941fb7b65",
+      "scheduleQueued": 0
+    },
+    "productIsolation": {
+      "product": "prod_VMDOeUsG6M9yzr",
+      "price": "price_1ULUxdPCnjV4mCMKesilEJKR",
+      "subscription": "sub_1ULUxdPCnjV4mCMKB56Qv9Hv",
+      "updatedEvent": "evt_1ULUxfPCnjV4mCMKTxTAf3tg",
+      "deletedEvent": "evt_1ULUxgPCnjV4mCMKGM1CMYwI",
+      "applicationStatus": "IGNORED",
+      "archived": true
+    },
+    "monitoring": {
+      "job": "a9c7c738-5b54-459a-a0b3-22600a0966f7",
+      "jobType": "MONITORING",
+      "run": "34d0b318-2bba-490e-9675-ec8c5c9d3567",
+      "scan": "scan_ab577814-a121-4e04-8659-80588bba3aeb",
+      "comparisonBaseline": "scan_de4fec50-8df6-4ec8-83f8-d45dcc518601",
+      "report": "d6d3f5d5-2812-4578-bf29-6a88aa2411a6",
+      "reportHash": "e6658c99eb63738403994ab99f9e2bdcb34ade069da53b93c16c5760ca7ec02d",
+      "releasedAt": 1790802777623,
+      "notification": "50a04fac-b719-4ef8-8b96-26a995f244da",
+      "providerReference": "resend:01a0f429-d9d6-71cf-9c35-432ffdab7b92"
+    },
+    "workerResilience": {
+      "gracefulIdleExitCode": 0,
+      "workerRestarted": true,
+      "isolatedLeaseRecovery": true,
+      "retryCount": 1,
+      "staleClaimRejected": true,
+      "idempotentRelease": true,
+      "limitations": "No genuine customer job was manufactured for an in-flight stop; active-work shutdown remains covered by the controlled suite."
+    },
+    "releasedReports": [
+      "dc5e8aae-4588-4ba1-8b88-6e0d63a29d15",
+      "d6d3f5d5-2812-4578-bf29-6a88aa2411a6"
+    ],
+    "portalAfterResubscription": {
+      "status": 200,
+      "subscription": "Active",
+      "monitoring": "Active",
+      "monthlyPriceMinor": 1699,
+      "reportCards": 2,
+      "baselineVisible": true,
+      "monitoringVisible": true
+    }
+  },
+  "commit": "RECORDED_IN_FINAL_HANDOFF_AFTER_IMMUTABLE_COMMIT",
+  "logs": "reports/milestone15/final"
+}

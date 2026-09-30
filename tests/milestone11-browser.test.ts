@@ -1,11 +1,12 @@
 import {expect,it,vi} from 'vitest';
 import {browserEligibility} from '../src/browser/eligibility.js';
 import {browserAnalysis} from '../src/browser/analyze.js';
-import {browserRequestUrl,createBrowserRenderer} from '../src/browser/render.js';
+import {browserRequestUrl,createBrowserRenderer,explicitChromiumSandbox} from '../src/browser/render.js';
 import {BROWSER_LIMITS} from '../src/browser/types.js';
 import {fixtureResponse} from './fixtures/milestone2.js';
 import {scan} from '../src/crawler/scan.js';
 const url='https://example.com/';
+it('enables Playwright explicit Chromium sandboxing only on Linux',()=>{expect(explicitChromiumSandbox('linux')).toBe(true);expect(explicitChromiumSandbox('win32')).toBe(false);expect(explicitChromiumSandbox('darwin')).toBe(false);});
 const seed=(body='<div id="root"></div><script src="/app.js"></script>')=>fixtureResponse(url,body);
 it('rejects browser fallback for sufficient static content even with many scripts',()=>{expect(browserEligibility(seed('<main>'+('Useful visible content. '.repeat(90))+'</main><script src="/app.js"></script>')).reason).toBe('STATIC_CONTENT_SUFFICIENT');});
 it('does not treat JavaScript presence alone as eligibility',()=>{expect(browserEligibility(seed('<h1>Contact</h1><p>Email our team.</p><a href="/contact">Contact</a><script src="/app.js"></script>')).eligible).toBe(false);});

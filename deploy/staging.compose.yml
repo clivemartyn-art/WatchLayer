@@ -1,0 +1,51 @@
+# Provide the external env file explicitly: docker compose --env-file /private/staging.env -f deploy/staging.compose.yml up --build -d
+name: regstead-staging
+services:
+  ingress:
+    image: caddy:2
+    environment:
+      REGSTEAD_PORTAL_HOST: ${REGSTEAD_PORTAL_HOST:?Set the staging HTTPS hostname}
+    ports:
+      - '443:443'
+      - '80:80'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - tls:/data
+      - caddy-config:/config
+    networks:
+      staging:
+        ipv4_address: 172.30.15.254
+  service:
+    build:
+      context: ..
+    image: regstead:m15-staging
+    command: ['node', 'dist/regstead/cli.js', 'serve']
+    env_file: ${REGSTEAD_STAGING_ENV_FILE:?Set absolute external staging env-file path}
+    environment:
+      REGSTEAD_TRUSTED_PROXY_ADDRESS: '::ffff:172.30.15.254'
+      WORKER_CONCURRENCY: '1'
+    volumes:
+      - app-data:/data
+    networks: [staging]
+    stop_grace_period: 60s
+  worker:
+    image: regstead:m15-staging
+    build:
+      context: ..
+    command: ['node', 'dist/regstead/cli.js', 'worker']
+    env_file: ${REGSTEAD_STAGING_ENV_FILE:?Set absolute external staging env-file path}
+    environment:
+      WORKER_CONCURRENCY: '1'
+    volumes:
+      - app-data:/data
+    networks: [staging]
+    stop_grace_period: 180s
+volumes:
+  app-data:
+  tls:
+  caddy-config:
+networks:
+  staging:
+    ipam:
+      config:
+        - subnet: 172.30.15.0/24

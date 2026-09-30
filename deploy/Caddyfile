@@ -1,0 +1,7 @@
+{$REGSTEAD_PORTAL_HOST} {
+  # Do not enable access logs containing magic-link query strings.
+  reverse_proxy service:8080 {
+    header_up Host {host}
+    header_up X-Forwarded-Proto https
+  }
+}

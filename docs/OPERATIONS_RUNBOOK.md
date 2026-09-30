@@ -1,6 +1,6 @@
 # Regstead standard-subscription beta operations runbook
 
-Regstead is operated by Foundry Vale Ltd. The engine remains WatchLayer. This runbook describes M14's internal CLI and local email spool. It does not authorize a live deployment, real charge, email send or destructive deletion.
+Regstead is operated by Foundry Vale Ltd. The engine remains WatchLayer. This runbook covers the M14 commercial controls and M15 customer portal, provider-backed email and single-host staging operation. Live deployment, charging and destructive deletion still require their own authorization.
 
 Regstead Scan is £0 without a subscription. Regstead Monitor is £16.99/month for one primary website, cancel anytime with paid-period entitlement respected. The amount is 1699 pence before separately configured Stripe tax behaviour; do not imply VAT inclusion/exclusion before approval. No automatic Stripe Tax setting is enabled.
 
@@ -59,13 +59,13 @@ Use the actual named reviewer in REGSTEAD_OPERATOR. Do not approve merely to cle
 
 `npm run regstead -- export <report-id> /private/customer-report.html`
 
-The export refuses to overwrite a file. Check the rendered HTML and citations before private delivery to the intended customer. There is no public report-download endpoint or customer dashboard. Use the agreed secure manual delivery channel.
+The export refuses to overwrite a file. Check the rendered HTML and citations before private delivery to the intended customer. There is no unauthenticated report-download endpoint. The M15 portal requires a preauthorised contact and completed staging gates. Use the agreed secure manual delivery channel.
 
 ## Email operations
 
-M14's configured adapter is `spool`. It writes private JSON delivery items to REGSTEAD_EMAIL_SPOOL. A SENT row means accepted by the local spool, not delivered to an inbox. `list notifications` shows state and provider reference. No real delivery occurs automatically.
+The default `spool` adapter writes private JSON delivery items to REGSTEAD_EMAIL_SPOOL. A SENT row from that adapter means accepted by the local spool, not delivered to an inbox. M15 also provides the `resend` adapter for provider-backed staging or production delivery. Configure a verified sender and inject RESEND_API_KEY outside version control before selecting it. `list notifications` shows state and provider reference.
 
-Before enabling real email, implement/configure an EmailProvider that guarantees durable idempotency for each notification ID, verify sender/DKIM/SPF and sandbox delivery, and test acknowledgement-loss recovery. Never resend with a new key to work around an ambiguous provider response. Finding notices must refer only to released reports.
+Provider acknowledgement records acceptance, not inbox placement. Retain the notification ID as the idempotency identity, verify sender/DKIM/SPF and test acknowledgement-loss recovery before live use. Never resend with a new key to work around an ambiguous provider response. Finding notices must refer only to released reports.
 
 For an adapter failure: inspect `failures`, correct the cause, then `retry-email <notification-id>`. It reuses the original notification identity. Do not manually insert duplicate outbox rows.
 
@@ -87,4 +87,29 @@ Cancellation normally preserves reports, engine artifacts and audit history. No 
 
 ## Manual launch gate
 
-Before admitting paying customers: build/run the container in staging; test actual PostgreSQL if selected; verify persistent volumes, backups and restore; test Chromium permissions and network boundaries; register sandbox webhooks and exercise Checkout/payment failure/cancellation; approve terms/privacy/retention and VAT treatment; configure restricted credentials and TLS/rate limits; install and verify a real idempotent email provider or adopt an explicit manual delivery process; check every reviewed report before delivery. Begin with five closely supervised pilot organisations, expand only after observing operations. M15 is planned for the separate Regstead Customer Portal; do not start it automatically.
+M15's genuine scheduled monitoring, second reviewed release, sandbox payment failure/recovery, period-end and final cancellation, stopped scheduling, retained history, re-subscription, unrelated-product isolation, container, SQLite restart, Chromium, TLS, Resend, worker restart/lease fencing and deployed backup/restore gates have passed. Before admitting paying customers, approve terms/privacy/retention and VAT treatment, apply the marketing-site handoff, remove the public site's `noindex,nofollow` only through an authorised WordPress change, and check every reviewed report before delivery. Begin with five closely supervised pilot organisations, expanding only after observing operations.
+
+## M15 Customer Portal
+
+Read `docs/MILESTONE_15_CUSTOMER_PORTAL_STAGING.md` before deployment. The portal is running at `https://app.regstead.co.uk`; the M15 hosted lifecycle is complete. Historic all-zero/pre-release markers identify the source actually used by those jobs and must remain unchanged. Set the final committed SHA only for future jobs.
+
+Set REGSTEAD_PORTAL_ORIGIN to the exact HTTPS origin and REGSTEAD_TRUSTED_PROXY_ADDRESS only to the actual ingress peer. The supplied Compose topology uses one durable SQLite volume and worker concurrency 1. Use an external secret env file; never commit it or print `docker compose config` with credentials. Caddy access logs must not record magic-link query strings. HTTPS is mandatory; HTTP development requests are not a customer access path.
+
+Select EMAIL_PROVIDER=resend and inject a send-only restricted RESEND_API_KEY plus EMAIL_FROM. Verify the sender domain administratively before deployment; the runtime deliberately does not call the Resend Domains API. Spool cannot deliver authentication emails. `/ready` requires real-provider configuration as well as the existing heartbeat/database/billing checks; configuration readiness is not proof of inbox delivery. Provider acknowledgement is not inbox delivery. Reconcile ambiguous attempts older than 23 hours rather than replaying after the provider's idempotency window.
+
+Create a private portal-user JSON containing organisationId, email and displayName. An existing paid entitlement is required unless the operator explicitly supplies approvedPilot:true. This approval does not create a paid entitlement.
+
+```
+npm run regstead -- portal-user-create /private/portal-user.json
+npm run regstead -- portal-user-list
+npm run regstead -- portal-invite <user-id>
+npm run regstead -- portal-user-disable <user-id>
+```
+
+Verify the recipient and staging/production environment before `portal-invite`; it requests a real email when a provider is configured. Do not paste the raw sign-in URL into logs or tickets. Login requests have generic responses, so inspect provider/audit state privately when troubleshooting. Failed or uncertain authentication delivery requires a fresh login request, which invalidates the old link. Disabling a user revokes outstanding sessions/links. Re-authorisation is an operator decision; there is no public registration.
+
+Only newly released customer-safe artifacts appear in the portal. Historical M14 artifacts with internal reviewer notes remain operator-only; do not add a customer marker by hand. Release a new genuinely reviewed report instead. View/download checks immutable hashes and ownership. Cancellation preserves access to released history for still-authorised contacts.
+
+For backup: stop service and worker, verify no active engine locks, then use `npm run backup:regstead -- backup <commercial.db> <engine-root> <reports-root> <new-backup-directory> --services-stopped`. The flag is an operator assertion, not a shutdown command. Restore only into a new disposable directory with `npm run backup:regstead -- restore <backup-directory> <new-restore-directory>`. Sessions/links are revoked during restore; users request fresh links. Engine references are relocated in the restored database. Use matching release/configuration metadata and verify a new monitoring comparison before considering recovery demonstrated.
+
+Run `node scripts/validate-milestone15-container.mjs <external-compose-env-file> <new-output-json>` only on the approved staging host after configuring its hostname, external runtime env-file path and secret values. It builds/starts containers and retains volumes/services. Record its image ID, then complete every provider/customer-journey step in the M15 report. No M16 work or live launch follows automatically.

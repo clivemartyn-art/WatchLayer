@@ -5,6 +5,8 @@ import {isIP} from 'node:net';
 import {BROWSER_LIMITS as L,type BrowserRenderer,type RenderOptions,type BrowserResourceEvent} from './types.js';
 import {omittedResource,diagnosticUrl} from './resources.js';
 import {EXTRACT_VISIBLE_DOM} from './dom.js';
+/** Playwright's explicit Chromium sandbox switch is Linux-only. Windows and macOS retain their native browser sandbox. */
+export const explicitChromiumSandbox=(platform:NodeJS.Platform=process.platform)=>platform==='linux';
 export function browserRequestUrl(raw:string,target:string):string {
   const url=normalize(raw),host=new URL(url).hostname.replace(/^\[|\]$/g,'');
   if(!sameDomain(url,target)||isIP(host)&&!publicAddress(host)||/^(?:localhost)$|\.(?:local|internal|lan|home|test|invalid)$/i.test(host))throw Error('BROWSER_NETWORK_POLICY');
@@ -18,7 +20,7 @@ export function createBrowserRenderer(options:RenderOptions={}):BrowserRenderer 
     const fetch=options.fetcher??createFetcher(target,100,5000);let navigationCount=0,redirects=0,resourceFailure=false,resourceError='';
     const task=async()=>{
       await allowed(browserRequestUrl(seed.finalUrl,target));
-      server=await chromium.launchServer({host:'127.0.0.1',headless:true,chromiumSandbox:true,timeout:L.launchMs,proxy:{server:'http://127.0.0.1:9'},args:['--proxy-bypass-list=<-loopback>','--disable-background-networking','--disable-quic','--force-webrtc-ip-handling-policy=disable_non_proxied_udp']});
+      server=await chromium.launchServer({host:'127.0.0.1',headless:true,chromiumSandbox:explicitChromiumSandbox(),timeout:L.launchMs,proxy:{server:'http://127.0.0.1:9'},args:['--proxy-bypass-list=<-loopback>','--disable-background-networking','--disable-quic','--force-webrtc-ip-handling-policy=disable_non_proxied_udp']});
       if(closed){await server.kill();throw Error('BROWSER_TIMED_OUT');}
       browser=await chromium.connect(server.wsEndpoint(),{timeout:L.launchMs});
       const context=await browser.newContext({serviceWorkers:'block',acceptDownloads:false,userAgent:USER_AGENT,viewport:{width:1280,height:900},locale:'en-GB',timezoneId:'Europe/London',permissions:[]});
@@ -79,6 +81,6 @@ export function createBrowserRenderer(options:RenderOptions={}):BrowserRenderer 
       const result=await Promise.race([task(),new Promise<never>((_,reject)=>{timer=setTimeout(()=>{closed=true;reject(Error('BROWSER_TIMED_OUT'));},L.totalMs);})]);
       return {...output,...result,status:'RENDERED',durationMs:Date.now()-began};
     }catch(error){const message=error instanceof Error?error.message:String(error);return {...output,status:/timeout|timed.out/i.test(message)?'BROWSER_TIMED_OUT':'BROWSER_FAILED',error:message.slice(0,240),durationMs:Date.now()-began};}
-    finally{closed=true;clearTimeout(timer);if(server)await server.kill().catch(()=>{});}
+    finally{closed=true;clearTimeout(timer);if(browser)await Promise.race([browser.close().catch(()=>{}),new Promise(resolve=>setTimeout(resolve,1000))]);if(server&&server.process().exitCode===null)await Promise.race([server.kill().catch(()=>{}),new Promise(resolve=>setTimeout(resolve,1000))]);}
   };
 }
