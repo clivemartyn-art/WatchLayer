@@ -1,0 +1,50 @@
+{
+  "milestone": 16,
+  "startingSha": "ac384864426c1e30b201275d21c8f30330322348",
+  "branch": "milestone-16-pilot-operations",
+  "validationDate": "2026-09-30",
+  "tests": {
+    "totalPassing": 937,
+    "filesPassing": 42,
+    "m16FocusedPassing": 23,
+    "browserPassing": 105
+  },
+  "typecheck": "PASS",
+  "build": "PASS",
+  "dependencyAudit": {
+    "status": "PASS",
+    "knownVulnerabilities": 0
+  },
+  "preservedBenchmark": {
+    "mode": "offline-preserved-M6-HTML-M7-PDF",
+    "firms": 50,
+    "checks": 850,
+    "pass": 233,
+    "warning": 53,
+    "potentialIssue": 0,
+    "unknown": 564,
+    "notApplicable": 0,
+    "exactAgreement": "132/437",
+    "acceptableAgreement": "444/850",
+    "sourceSha256": "b04b354dd82cd72066007ee63e94610cde9efcb0606dd6a23a99ae736d7bf3ec"
+  },
+  "m10ServiceReview": {
+    "exactAgreement": "57/80 (71.25%)",
+    "firmWideAgreement": "26/32 (81.25%)",
+    "falseAssignments": "0/30"
+  },
+  "seriousControls": {
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0
+  },
+  "screenshots": [
+    "reports/milestone16/admin-390.png",
+    "reports/milestone16/admin-1280.png"
+  ],
+  "limitations": [
+    "Preserved-corpus results are regression evidence, not live pilot accuracy estimates.",
+    "Screenshots are generated local validation artifacts and remain ignored by Git.",
+    "No production environment or live Stripe resource was changed."
+  ]
+}

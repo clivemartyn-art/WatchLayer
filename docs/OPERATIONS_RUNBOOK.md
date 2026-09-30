@@ -113,3 +113,16 @@ Only newly released customer-safe artifacts appear in the portal. Historical M14
 For backup: stop service and worker, verify no active engine locks, then use `npm run backup:regstead -- backup <commercial.db> <engine-root> <reports-root> <new-backup-directory> --services-stopped`. The flag is an operator assertion, not a shutdown command. Restore only into a new disposable directory with `npm run backup:regstead -- restore <backup-directory> <new-restore-directory>`. Sessions/links are revoked during restore; users request fresh links. Engine references are relocated in the restored database. Use matching release/configuration metadata and verify a new monitoring comparison before considering recovery demonstrated.
 
 Run `node scripts/validate-milestone15-container.mjs <external-compose-env-file> <new-output-json>` only on the approved staging host after configuring its hostname, external runtime env-file path and secret values. It builds/starts containers and retains volumes/services. Record its image ID, then complete every provider/customer-journey step in the M15 report. No M16 work or live launch follows automatically.
+
+## M16 private operator console
+
+The operator console is served at `/admin` by the existing HTTP service. Create and invite its allowlisted identities only through an authenticated CLI session:
+
+```
+npm run regstead -- operator-user-create /private/operator.json
+npm run regstead -- operator-user-list
+npm run regstead -- operator-invite <operator-user-id>
+npm run regstead -- operator-user-disable <operator-user-id>
+```
+
+The JSON contains `email` and `displayName`. No browser registration exists. Operator sessions are separate from customer sessions. Review, release, pause/resume, retry and Billing Portal actions call the existing operational services and remain audited. New onboarding requires explicit LawWatch pack confirmation and an `ESTABLISHED` or `NOT_ESTABLISHED` applicability record. Follow [the pilot runbook](M16_PILOT_RUNBOOK.md). The [production plan](M16_PRODUCTION_DEPLOYMENT_PLAN.md) is preparation only and requires separate approval before any live action.

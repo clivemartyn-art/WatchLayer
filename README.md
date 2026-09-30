@@ -175,3 +175,7 @@ M14.1 removes the former allocation model. Regstead Scan remains £0 without a s
 ## Regstead Customer Portal (M15)
 
 The existing HTTP service includes an invitation-only server-rendered portal with passwordless sign-in, organisation-scoped released-report history/downloads and Stripe Billing Portal handoff. Run `npm run test:portal` for local security, browser and backup fixtures. See the [M15 architecture and hosted-staging validation record](docs/MILESTONE_15_CUSTOMER_PORTAL_STAGING.md) and [website handoff](docs/M15_WEBSITE_HANDOFF.md). The staging validation covers real provider acceptance, the complete Stripe sandbox subscription lifecycle, scheduled monitoring, human review and release, persistence, backup/restore, container operation and portal access. It does not authorize live charging or settle the listed legal, VAT, retention and customer-wording approvals.
+
+## Regstead pilot operations (M16)
+
+The same HTTP service includes a private, allowlisted `/admin` operator console for readiness, organisations, explicitly guarded pack assignment, individual finding review, confirmed release, immutable reports, monitoring controls, durable retries and server-resolved Billing Portal handoff. It reuses the commercial operation methods used by the CLI. Run `npm run test:admin` and read the [M16 architecture](docs/MILESTONE_16_PILOT_OPERATIONS.md), [pilot runbook](docs/M16_PILOT_RUNBOOK.md) and [approval-gated production plan](docs/M16_PRODUCTION_DEPLOYMENT_PLAN.md).
