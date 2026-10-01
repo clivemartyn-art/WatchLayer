@@ -20,6 +20,7 @@ PAYMENT_GRACE_MS=0
 WORKER_CONCURRENCY=1
 PORT=8080
 EMAIL_PROVIDER=resend
-EMAIL_FROM=replace-with-approved-production-regstead-sender
+EMAIL_FROM=Regstead <reports@mail.regstead.co.uk>
+EMAIL_REPLY_TO=support@regstead.co.uk
 RESEND_API_KEY=replace-with-production-email-key
 # Stripe Tax is deliberately not enabled. The Compose file supplies the trusted proxy address.

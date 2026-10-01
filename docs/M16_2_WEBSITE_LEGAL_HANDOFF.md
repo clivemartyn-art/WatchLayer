@@ -11,7 +11,7 @@ Trading as **Regstead**
 Company number **17465033**  
 Registered office **23 Berrow Park Road, Plymouth, Devon, PL3 5PZ**
 
-Do not publish a VAT number, ICO registration number, telephone number, regulatory status or certification unless separately evidenced and approved. Replace `[APPROVED LEGAL/PRIVACY EMAIL]` below with a monitored address before publication.
+Do not publish a VAT number, ICO registration number, telephone number, regulatory status or certification unless separately evidenced and approved. The approved contact is **privacy@regstead.co.uk**; it must be a monitored mailbox or alias before publication.
 
 ## Subscription Terms replacement text
 
@@ -137,7 +137,7 @@ These Terms and any non-contractual obligations arising from them are governed b
 
 ### 23. Contact and notices
 
-Questions and legal notices should be sent to `[APPROVED LEGAL/PRIVACY EMAIL]` or Foundry Vale Ltd, 23 Berrow Park Road, Plymouth, Devon, PL3 5PZ.
+Questions and legal notices should be sent to `privacy@regstead.co.uk` or Foundry Vale Ltd, 23 Berrow Park Road, Plymouth, Devon, PL3 5PZ.
 
 ## Privacy Policy replacement text
 
@@ -145,7 +145,7 @@ Questions and legal notices should be sent to `[APPROVED LEGAL/PRIVACY EMAIL]` o
 
 **Effective date:** `[PUBLICATION DATE]`
 
-Foundry Vale Ltd, trading as Regstead, company number 17465033, registered at 23 Berrow Park Road, Plymouth, Devon, PL3 5PZ, is the controller of the personal information described in this Policy except where a separate agreement states that it acts as a processor. Privacy contact: `[APPROVED LEGAL/PRIVACY EMAIL]`.
+Foundry Vale Ltd, trading as Regstead, company number 17465033, registered at 23 Berrow Park Road, Plymouth, Devon, PL3 5PZ, is the controller of the personal information described in this Policy except where a separate agreement states that it acts as a processor. Privacy contact: `privacy@regstead.co.uk`.
 
 ### 1. Information Regstead collects
 
@@ -237,7 +237,7 @@ Regstead uses technical and organisational controls appropriate to the service, 
 
 Depending on the circumstances, UK data-protection law may provide rights of access, rectification, erasure, restriction, objection, data portability and rights relating to certain automated decisions. Where processing is based on consent, consent may be withdrawn without affecting earlier lawful processing. An individual has an absolute right to object to use of personal information for direct marketing.
 
-Requests should be sent to `[APPROVED LEGAL/PRIVACY EMAIL]`. Regstead may need to verify identity and authority before acting.
+Requests should be sent to `privacy@regstead.co.uk`. Regstead may need to verify identity and authority before acting.
 
 ### 15. Automated classifications
 
@@ -245,7 +245,7 @@ Regstead automatically classifies observable website material and produces findi
 
 ### 16. Complaints
 
-Please contact Regstead first at `[APPROVED LEGAL/PRIVACY EMAIL]` with a privacy concern. An individual may also complain to the Information Commissioner’s Office. Current ICO contact details are available at `ico.org.uk`.
+Please contact Regstead first at `privacy@regstead.co.uk` with a privacy concern. An individual may also complain to the Information Commissioner’s Office. Current ICO contact details are available at `ico.org.uk`.
 
 ### 17. Changes to this Policy
 
@@ -276,7 +276,9 @@ No marketing or behavioural-advertising cookie is introduced by M16.2. Add analy
 ## Customer email principles
 
 - Sender display name: **Regstead**.
-- Use only a verified, monitored Regstead production address approved before DNS/provider changes.
+- From: **Regstead <reports@mail.regstead.co.uk>** on a verified production sending domain.
+- Reply-To/customer support: **support@regstead.co.uk**, configured as a monitored mailbox or alias.
+- Free Scan operations remain **scans@regstead.co.uk**; subscription administration remains **billing@regstead.co.uk**.
 - Core messages are magic-link sign-in, baseline report ready, monitoring report ready, payment issue, cancellation scheduled and subscription ended.
 - Keep messages concise, factual and specific to the requested service.
 - Do not include raw findings, internal review material, authentication tokens in logs, unrelated marketing or unverified legal claims.
@@ -284,7 +286,7 @@ No marketing or behavioural-advertising cookie is introduced by M16.2. Add analy
 
 ## Publication checklist
 
-1. Supply and approve the legal/privacy contact email.
+1. Confirm `privacy@regstead.co.uk` and `support@regstead.co.uk` are active monitored mailboxes or aliases.
 2. Set the publication/effective date.
 3. Replace the existing Subscription Terms and Privacy Policy with the text above without dropping preserved clauses.
 4. Update the legal footer with the approved Foundry Vale Ltd identity.

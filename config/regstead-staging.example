@@ -21,5 +21,6 @@ WORKER_CONCURRENCY=1
 PORT=8080
 EMAIL_PROVIDER=resend
 EMAIL_FROM=replace-with-approved-staging-sender
+EMAIL_REPLY_TO=support@regstead.co.uk
 RESEND_API_KEY=replace-with-staging-email-key
 # The Compose file supplies the exact trusted proxy address.

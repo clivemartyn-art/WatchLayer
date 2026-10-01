@@ -11,7 +11,7 @@ Regstead Monitor is £16.99 per month for one primary website, billed monthly in
 
 Foundry Vale Ltd is not VAT registered and currently charges no VAT. The public price is simply **£16.99/month**. Stripe Tax remains disabled. The internal intention to absorb VAT within the advertised total if registration changes is not a contractual lifetime promise.
 
-The exact website-ready Subscription Terms, Privacy Policy, cookie wording, cancellation/refund summary, operator identity and service-email principles are in [M16.2 website legal handoff](M16_2_WEBSITE_LEGAL_HANDOFF.md). Publication remains blocked until a monitored legal/privacy email address is approved and the website owner applies the reviewed text.
+The exact website-ready Subscription Terms, Privacy Policy, cookie wording, cancellation/refund summary, operator identity and service-email principles are in [M16.2 website legal handoff](M16_2_WEBSITE_LEGAL_HANDOFF.md). `privacy@regstead.co.uk` and `support@regstead.co.uk` are approved and must be confirmed as monitored mailboxes or aliases before publication.
 
 ## Environment architecture
 
@@ -76,7 +76,7 @@ Before saving IDs, verify account/mode, product, price, currency, amount, interv
 
 Use a separate production Resend credential and a verified Regstead domain/subdomain. Display name is **Regstead**; the mailbox must be monitored. Required templates are magic-link sign-in, baseline ready, monitoring report ready, payment issue, cancellation scheduled and subscription ended. Links use `https://app.regstead.co.uk`. Messages contain service information only.
 
-The approved production sender address/domain has not been supplied. After it is selected, Resend's exact domain-verification screen must be captured and its provider-generated SPF/DKIM records presented for explicit approval. Do not guess DNS record names or values. Provider acceptance is recorded but is not described as inbox delivery.
+The approved From identity is **Regstead <reports@mail.regstead.co.uk>** with **support@regstead.co.uk** as Reply-To. Free Scan operations remain at **scans@regstead.co.uk** and business/subscription administration at **billing@regstead.co.uk**. Resend's exact provider-generated SPF/DKIM records must be presented for explicit approval before any email DNS change. Provider acceptance is recorded but is not described as inbox delivery.
 
 ## Secret and configuration inventory
 
@@ -118,11 +118,11 @@ Prepared locally: legal handoff, environment configuration, static separation va
 
 Still blocked on explicit approval and external execution:
 
-1. approved monitored legal/privacy contact email and website publication;
+1. confirmation that the approved privacy/support mailboxes or aliases are active, plus website publication;
 2. the `staging-app` DNS A record and staging hostname migration;
 3. the first clean production deployment and `app` gateway cutover;
 4. creation/configuration of the listed live Stripe resources;
-5. approved production sender/domain and its exact Resend DNS records;
+5. the exact Resend SPF/DKIM DNS records for `mail.regstead.co.uk`;
 6. hosted backup/restore and final production acceptance.
 
 M16.2 cannot be marked complete until those actions and hosted checks pass. No M17 work is included.
