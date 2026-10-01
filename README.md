@@ -170,7 +170,7 @@ WatchLayer remains the evidence engine. The separate Regstead layer supports cus
 
 Use `npm run regstead -- --help`, `npm run test:commercial`, `npm run start:worker` and `npm run start:service`. Read [M14 architecture and limitations](docs/MILESTONE_14_PRODUCTION_COMMERCIAL_ENGINE.md) and the [operations runbook](docs/OPERATIONS_RUNBOOK.md) before configuring providers. The default email adapter is a local spool; M15 also provides a Resend adapter for configured staging or production delivery.
 
-M14.1 removes the former allocation model. Regstead Scan remains £0 without a subscription; Monitor covers one primary website. The CLI uses `billing-portal` for the Stripe Billing Portal. See [commercial simplification](docs/MILESTONE_14_1_COMMERCIAL_SIMPLIFICATION.md) and the [website pricing change manifest](docs/M14_1_WEBSITE_PRICING_CHANGES.md). The 1699-pence amount is before separately configured Stripe tax behaviour; VAT treatment requires approval before live charges.
+M14.1 removes the former allocation model. Regstead Scan remains £0 without a subscription; Monitor covers one primary website. The CLI uses `billing-portal` for the Stripe Billing Portal. See [commercial simplification](docs/MILESTONE_14_1_COMMERCIAL_SIMPLIFICATION.md) and the [website pricing change manifest](docs/M14_1_WEBSITE_PRICING_CHANGES.md). Foundry Vale Ltd is not currently VAT registered, so no VAT is currently charged and the advertised total is £16.99/month; Stripe Tax remains disabled.
 
 ## Regstead Customer Portal (M15)
 
@@ -183,3 +183,7 @@ The same HTTP service includes a private, allowlisted `/admin` operator console 
 ## Regstead customer experience (M16.1)
 
 The customer portal presents monitoring state, the latest released review, accumulated report history and secondary account/billing details using the Regstead evidence-dossier design. Newly released customer reports use versioned template 2 with prioritised findings, explicit status mapping, progressive evidence and A4 print treatment. Existing immutable artifacts remain byte-for-byte unchanged. Run `npm run test:customer-experience` and read [the M16.1 design and validation record](docs/MILESTONE_16_1_CUSTOMER_EXPERIENCE.md).
+
+## Regstead production launch preparation (M16.2)
+
+M16.2 locks the £16.99/month commercial terms, current no-VAT position, cancellation and 24-month retention wording. It defines isolated staging and production Compose topologies, a dual-host Caddy gateway, production configuration checks and the supervised first-customer procedure. Run `npm run validate:production-config` and read the [launch plan](docs/MILESTONE_16_2_PRODUCTION_LAUNCH.md), [website legal handoff](docs/M16_2_WEBSITE_LEGAL_HANDOFF.md) and [pilot runbook](docs/M16_2_PILOT_RUNBOOK.md). DNS, live Stripe, production email DNS, first production deployment and hostname cutover remain explicit approval gates.

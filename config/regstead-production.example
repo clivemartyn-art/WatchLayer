@@ -1,0 +1,25 @@
+# Non-secret production configuration template. Store the populated file outside Git.
+DATABASE_URL=sqlite:/data/regstead.db
+REGSTEAD_BASE_URL=https://app.regstead.co.uk
+REGSTEAD_PORTAL_ORIGIN=https://app.regstead.co.uk
+REGSTEAD_ENGINE_STORAGE=/data/engine
+REGSTEAD_REPORT_STORAGE=/data/reports
+REGSTEAD_EMAIL_SPOOL=/data/mail
+REGSTEAD_ADMIN_TOKEN=replace-with-a-production-only-random-secret
+REGSTEAD_OPERATOR_TOKEN=replace-with-the-production-operator-secret
+REGSTEAD_OPERATOR=production-operator
+REGSTEAD_RELEASE=0000000000000000000000000000000000000000
+REGSTEAD_STRIPE_PRODUCT_ID=prod_regstead_live_placeholder
+REGSTEAD_STRIPE_MONITOR_PRICE_ID=price_regstead_live_placeholder
+STRIPE_SECRET_KEY=replace-with-restricted-live-key
+STRIPE_WEBHOOK_SECRET=replace-with-production-signing-secret
+STRIPE_LIVE_MODE=true
+REGSTEAD_TERMS_VERSION=monitor-2026-10-01
+MONITORING_DEFAULT_CADENCE=86400000
+PAYMENT_GRACE_MS=0
+WORKER_CONCURRENCY=1
+PORT=8080
+EMAIL_PROVIDER=resend
+EMAIL_FROM=replace-with-approved-production-regstead-sender
+RESEND_API_KEY=replace-with-production-email-key
+# Stripe Tax is deliberately not enabled. The Compose file supplies the trusted proxy address.

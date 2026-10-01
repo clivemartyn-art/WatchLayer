@@ -1,0 +1,15 @@
+{$REGSTEAD_STAGING_HOST} {
+  # Access logging remains disabled so magic-link query strings are not recorded.
+  reverse_proxy 172.30.15.10:8080 {
+    header_up Host {host}
+    header_up X-Forwarded-Proto https
+  }
+}
+
+{$REGSTEAD_PRODUCTION_HOST} {
+  # Access logging remains disabled so magic-link query strings are not recorded.
+  reverse_proxy 172.30.16.10:8080 {
+    header_up Host {host}
+    header_up X-Forwarded-Proto https
+  }
+}

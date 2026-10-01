@@ -1,5 +1,7 @@
 # Regstead Production Deployment Plan — Approval Required
 
+> Superseded for launch execution by [M16.2 production launch](MILESTONE_16_2_PRODUCTION_LAUNCH.md). This document remains as the M16 planning record.
+
 This is a preparation document. It does not authorize or perform production deployment, DNS, live Stripe, live charging, Resend sender or WordPress changes.
 
 ## Proposed topology

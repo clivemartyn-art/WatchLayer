@@ -55,6 +55,7 @@
     "test:portal": "vitest run tests/milestone15-portal.test.ts tests/milestone15-backup.test.ts --maxWorkers=1",
     "test:admin": "vitest run tests/milestone16-admin.test.ts --maxWorkers=1",
     "test:customer-experience": "vitest run tests/milestone15-portal.test.ts tests/milestone16-1-customer-experience.test.ts --maxWorkers=1",
+    "validate:production-config": "node scripts/validate-milestone16-2-config.mjs",
     "backup:regstead": "node scripts/regstead-backup.mjs"
   },
   "dependencies": {

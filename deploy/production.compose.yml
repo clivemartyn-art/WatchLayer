@@ -1,0 +1,40 @@
+name: regstead-production
+services:
+  service:
+    build:
+      context: ..
+    image: regstead:${REGSTEAD_IMAGE_TAG:?Set the immutable production image tag}
+    command: ['node', 'dist/regstead/cli.js', 'serve']
+    env_file: ${REGSTEAD_PRODUCTION_ENV_FILE:?Set the absolute production env-file path}
+    environment:
+      REGSTEAD_TRUSTED_PROXY_ADDRESS: '::ffff:172.30.16.254'
+      WORKER_CONCURRENCY: '1'
+    volumes:
+      - app-data:/data
+    networks:
+      production-edge:
+        ipv4_address: 172.30.16.10
+    stop_grace_period: 60s
+    restart: unless-stopped
+  worker:
+    image: regstead:${REGSTEAD_IMAGE_TAG:?Set the immutable production image tag}
+    build:
+      context: ..
+    command: ['node', 'dist/regstead/cli.js', 'worker']
+    env_file: ${REGSTEAD_PRODUCTION_ENV_FILE:?Set the absolute production env-file path}
+    environment:
+      WORKER_CONCURRENCY: '1'
+    volumes:
+      - app-data:/data
+    networks: [production-edge]
+    stop_grace_period: 180s
+    restart: unless-stopped
+volumes:
+  app-data:
+    name: regstead-production_app-data
+networks:
+  production-edge:
+    name: regstead-production-edge
+    ipam:
+      config:
+        - subnet: 172.30.16.0/24

@@ -1,0 +1,41 @@
+name: regstead-staging
+services:
+  service:
+    build:
+      context: ..
+    image: regstead:${REGSTEAD_IMAGE_TAG:?Set the immutable staging image tag}
+    command: ['node', 'dist/regstead/cli.js', 'serve']
+    env_file: ${REGSTEAD_STAGING_ENV_FILE:?Set the absolute staging env-file path}
+    environment:
+      REGSTEAD_TRUSTED_PROXY_ADDRESS: '::ffff:172.30.15.254'
+      WORKER_CONCURRENCY: '1'
+    volumes:
+      - app-data:/data
+    networks:
+      staging-edge:
+        ipv4_address: 172.30.15.10
+    stop_grace_period: 60s
+    restart: unless-stopped
+  worker:
+    image: regstead:${REGSTEAD_IMAGE_TAG:?Set the immutable staging image tag}
+    build:
+      context: ..
+    command: ['node', 'dist/regstead/cli.js', 'worker']
+    env_file: ${REGSTEAD_STAGING_ENV_FILE:?Set the absolute staging env-file path}
+    environment:
+      WORKER_CONCURRENCY: '1'
+    volumes:
+      - app-data:/data
+    networks: [staging-edge]
+    stop_grace_period: 180s
+    restart: unless-stopped
+volumes:
+  app-data:
+    name: regstead-staging_app-data
+    external: true
+networks:
+  staging-edge:
+    name: regstead-staging-edge
+    ipam:
+      config:
+        - subnet: 172.30.15.0/24

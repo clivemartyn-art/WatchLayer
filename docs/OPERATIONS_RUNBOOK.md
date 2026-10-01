@@ -1,8 +1,8 @@
 # Regstead standard-subscription beta operations runbook
 
-Regstead is operated by Foundry Vale Ltd. The engine remains WatchLayer. This runbook covers the M14 commercial controls and M15 customer portal, provider-backed email and single-host staging operation. Live deployment, charging and destructive deletion still require their own authorization.
+Regstead is operated by Foundry Vale Ltd. The engine remains WatchLayer. This runbook covers the commercial controls, customer/operator portals, provider-backed email and isolated staging/production operation. Live provider changes, charging and destructive deletion require their documented authorization.
 
-Regstead Scan is £0 without a subscription. Regstead Monitor is £16.99/month for one primary website, cancel anytime with paid-period entitlement respected. The amount is 1699 pence before separately configured Stripe tax behaviour; do not imply VAT inclusion/exclusion before approval. No automatic Stripe Tax setting is enabled.
+Regstead Scan is £0 without a subscription. Regstead Monitor is £16.99/month for one primary website, cancel anytime with paid-period entitlement respected. Foundry Vale Ltd is not currently VAT registered, no VAT is currently charged, and the advertised total is £16.99/month. Do not enable automatic Stripe Tax without a later approved pricing/tax change.
 
 M14.1 revises commercial migration 1 for the clean `monitor-v1` launch schema. Use a fresh commercial database; old M14 development databases are rejected and left intact. Engine databases are unaffected.
 
@@ -12,7 +12,7 @@ M14.1 revises commercial migration 1 for the clean `monitor-v1` launch schema. U
 2. Copy `config/regstead.env.example` to an untracked environment file outside the repository. Replace placeholders through a secret manager. Supply the actual deployed Git SHA as REGSTEAD_RELEASE, a long random REGSTEAD_ADMIN_TOKEN, the supplied REGSTEAD_OPERATOR_TOKEN and a named REGSTEAD_OPERATOR. Do not put tokens in CLI arguments or logs.
 3. Choose SQLite on a durable local disk for the initial single-host pilot or configure DATABASE_URL for PostgreSQL. Engine databases, reports and spool need durable private paths. Back up the commercial database and these directories consistently before upgrading. Test restore with disposable copies.
 4. Configure a cadence in milliseconds and decide/payment-test the grace policy. The example cadence is not a published promise. Keep worker concurrency at one initially.
-5. In a separate Stripe sandbox, manually establish the dedicated Regstead Monitor product and its single monthly GBP Price (1699 pence), and configure the Stripe Billing Portal. Do not mix these with Path of the Nine. Use a restricted key with only necessary price-read, Checkout, portal and subscription-read permissions. Register the documented webhook events and signing secret. Verify the test/live-mode setting. Consider tax/VAT treatment and registration with the operator/accountant before launch; M14 does not turn on automatic tax or assume registration.
+5. In the correct environment, establish only the dedicated Regstead Monitor product and its single monthly GBP Price (1699 pence), then configure the Stripe Billing Portal. Do not mix these with Path of the Nine. Use a restricted key with only necessary catalog-read, Checkout, portal and subscription-read permissions. Register the documented webhook events and signing secret. Verify test/live mode. Automatic Stripe Tax remains off; no VAT is currently charged because Foundry Vale Ltd is not VAT registered.
 6. Run `npm run regstead -- --help`. Commands below require the operator environment. `node --env-file=/private/regstead.env dist/regstead/cli.js ...` is the built equivalent.
 
 ## Onboard a free-scan lead
@@ -125,4 +125,14 @@ npm run regstead -- operator-invite <operator-user-id>
 npm run regstead -- operator-user-disable <operator-user-id>
 ```
 
-The JSON contains `email` and `displayName`. No browser registration exists. Operator sessions are separate from customer sessions. Review, release, pause/resume, retry and Billing Portal actions call the existing operational services and remain audited. New onboarding requires explicit LawWatch pack confirmation and an `ESTABLISHED` or `NOT_ESTABLISHED` applicability record. Follow [the pilot runbook](M16_PILOT_RUNBOOK.md). The [production plan](M16_PRODUCTION_DEPLOYMENT_PLAN.md) is preparation only and requires separate approval before any live action.
+The JSON contains `email` and `displayName`. No browser registration exists. Operator sessions are separate from customer sessions. Review, release, pause/resume, retry and Billing Portal actions call the existing operational services and remain audited. New onboarding requires explicit LawWatch pack confirmation and an `ESTABLISHED` or `NOT_ESTABLISHED` applicability record. Follow [the pilot runbook](M16_PILOT_RUNBOOK.md). The original [M16 production plan](M16_PRODUCTION_DEPLOYMENT_PLAN.md) is superseded for execution by the [M16.2 production launch plan](MILESTONE_16_2_PRODUCTION_LAUNCH.md).
+
+## M16.2 staging and production operations
+
+Staging uses `https://staging-app.regstead.co.uk`, the existing external `regstead-staging_app-data` volume, sandbox Stripe and staging email credentials. Production uses `https://app.regstead.co.uk`, a clean `regstead-production_app-data` volume, separate live Stripe resources and separate production email credentials. Never share writable data, database files, engine histories, report artifacts, provider secrets, sessions, outbox or release markers.
+
+The dual-host gateway is defined in `deploy/gateway.compose.yml`; application definitions are `deploy/staging-isolated.compose.yml` and `deploy/production.compose.yml`. Populate the corresponding example configuration into private environment files outside Git. Run `npm run validate:production-config` before deployment. Do not print rendered Compose configuration containing secrets.
+
+Before an environment change, record its deployed SHA/image, health/readiness, worker state, data counts and immutable hashes, then take a consistent backup. Drain jobs before release changes. Production must start with an empty commercial database and no copied staging customers. Set `REGSTEAD_RELEASE` only for future work; never rewrite historical version records.
+
+Follow the exact DNS, Stripe, Resend, deployment, acceptance and rollback sequence in the M16.2 plan. Follow [the supervised pilot runbook](M16_2_PILOT_RUNBOOK.md) for the first real customer. DNS, live Stripe changes, Resend DNS, first production deployment, public hostname cutover, destructive restore and main-branch merge remain explicit approval gates.

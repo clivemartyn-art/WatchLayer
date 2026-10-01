@@ -1,0 +1,70 @@
+{
+  "milestone": "16.2-safe-preparation",
+  "startingSha": "3909c5e2e9f51faadd4a9fc6ec6f50e2b3ff9ef7",
+  "branch": "milestone-16-2-production-launch-pilot",
+  "validationDate": "2026-10-01",
+  "scope": "Local legal/commercial and deployment preparation before external approval gates",
+  "tests": {
+    "totalPassing": 956,
+    "filesPassing": 44,
+    "newM162Tests": 3,
+    "portalAndBackupPassing": 60,
+    "browserRegressionPassing": 105
+  },
+  "typecheck": "PASS",
+  "build": "PASS",
+  "dependencyAudit": {
+    "status": "PASS",
+    "knownVulnerabilities": 0,
+    "method": "npm audit --json inside the accepted M16.1 staging image; package and lockfile dependencies are unchanged by M16.2"
+  },
+  "productionConfiguration": {
+    "staticValidator": "PASS",
+    "stagingHost": "staging-app.regstead.co.uk",
+    "productionHost": "app.regstead.co.uk",
+    "separateNetworks": true,
+    "separateWritableVolumes": true,
+    "stagingVolumePreserved": "regstead-staging_app-data",
+    "productionVolume": "regstead-production_app-data",
+    "stripeTaxEnabled": false,
+    "dockerComposeRuntimeValidation": "PENDING APPROVED HOSTED DEPLOYMENT; Docker CLI unavailable locally"
+  },
+  "preservedBenchmark": {
+    "mode": "offline preserved M6 HTML/M7 PDF corpus",
+    "firms": 50,
+    "checks": 850,
+    "pass": 233,
+    "warning": 53,
+    "potentialIssue": 0,
+    "unknown": 564,
+    "notApplicable": 0,
+    "exactAgreement": "132/437",
+    "acceptableAgreement": "444/850",
+    "benchmarkSha256": "beafdde971fa122e4200a55863f7ff60ccd891640f81457dc1978eea27d7c4aa"
+  },
+  "m10ServiceReview": {
+    "reviewed": 80,
+    "exactAgreement": "57/80 (71.25%)",
+    "firmWideAgreement": "26/32 (81.25%)",
+    "falseAssignments": "0/30"
+  },
+  "seriousControls": {
+    "cases": 14,
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0
+  },
+  "quality": {
+    "secretScan": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "externalActions": {
+    "dnsChanged": false,
+    "liveStripeChanged": false,
+    "liveChargeCreated": false,
+    "resendDnsChanged": false,
+    "productionDeployed": false,
+    "stagingHistoryChanged": false,
+    "wordpressChanged": false
+  }
+}
