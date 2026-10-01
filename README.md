@@ -179,3 +179,7 @@ The existing HTTP service includes an invitation-only server-rendered portal wit
 ## Regstead pilot operations (M16)
 
 The same HTTP service includes a private, allowlisted `/admin` operator console for readiness, organisations, explicitly guarded pack assignment, individual finding review, confirmed release, immutable reports, monitoring controls, durable retries and server-resolved Billing Portal handoff. It reuses the commercial operation methods used by the CLI. Run `npm run test:admin` and read the [M16 architecture](docs/MILESTONE_16_PILOT_OPERATIONS.md), [pilot runbook](docs/M16_PILOT_RUNBOOK.md) and [approval-gated production plan](docs/M16_PRODUCTION_DEPLOYMENT_PLAN.md).
+
+## Regstead customer experience (M16.1)
+
+The customer portal presents monitoring state, the latest released review, accumulated report history and secondary account/billing details using the Regstead evidence-dossier design. Newly released customer reports use versioned template 2 with prioritised findings, explicit status mapping, progressive evidence and A4 print treatment. Existing immutable artifacts remain byte-for-byte unchanged. Run `npm run test:customer-experience` and read [the M16.1 design and validation record](docs/MILESTONE_16_1_CUSTOMER_EXPERIENCE.md).

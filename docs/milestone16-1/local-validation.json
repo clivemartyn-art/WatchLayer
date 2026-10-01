@@ -1,0 +1,52 @@
+{
+  "milestone": "16.1",
+  "startingSha": "a805e780a9985f3c1982accaf91138291bc2b738",
+  "branch": "milestone-16-1-customer-experience-report-design",
+  "validationDate": "2026-10-01",
+  "tests": {
+    "totalPassing": 953,
+    "filesPassing": 43,
+    "newM161Tests": 16,
+    "portalAndBackupPassing": 60,
+    "customerExperienceSelectionPassing": 66,
+    "browserRegressionPassing": 105
+  },
+  "typecheck": "PASS",
+  "build": "PASS",
+  "dependencyAudit": {
+    "status": "PASS",
+    "knownVulnerabilities": 0
+  },
+  "preservedBenchmark": {
+    "firms": 50,
+    "checks": 850,
+    "pass": 233,
+    "warning": 53,
+    "potentialIssue": 0,
+    "unknown": 564,
+    "notApplicable": 0,
+    "exactAgreement": "132/437",
+    "acceptableAgreement": "444/850",
+    "corpusSha256": "0229a36f5cb0f492374f7f17ea352adac39688cc367e720d8e135465ced35523",
+    "benchmarkSha256": "beafdde971fa122e4200a55863f7ff60ccd891640f81457dc1978eea27d7c4aa"
+  },
+  "m10ServiceReview": {
+    "exactAgreement": "57/80 (71.25%)",
+    "firmWideAgreement": "26/32 (81.25%)",
+    "falseAssignments": "0/30"
+  },
+  "seriousControls": {
+    "truePositives": 4,
+    "falsePositives": 0,
+    "falseNegatives": 0
+  },
+  "visualEvidence": {
+    "directory": "reports/milestone16-1",
+    "screenshots": 31,
+    "widths": [390, 768, 1280],
+    "printRepresentative": "report-print-rendering-1280.png",
+    "tracked": false
+  },
+  "immutableArtifactGate": "PASS: version-1 artifacts remain eligible and unchanged; version-2 applies only to new releases",
+  "deployment": "NOT PERFORMED"
+}

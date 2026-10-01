@@ -32,7 +32,7 @@ it('the real authenticated CLI inspects, reviews and exports a released fixture 
   const listed=await cli('list','jobs');expect(JSON.parse(listed.stdout)[0].status).toBe('AWAITING_REVIEW');
   await cli('review',report.id,report.findings[0].id,'APPROVED','CLI review checked in context');
   for(const finding of report.findings.slice(1))await ops.review(report.id,finding.id,'APPROVED','Remaining fixture evidence checked','Clive');
-  const released=JSON.parse((await cli('release',report.id)).stdout);expect(released.status).toBe('RELEASED');const output=join(root,'customer.html');await cli('export',report.id,output);expect(await readFile(output,'utf8')).toContain('Regstead website monitoring report');
+  const released=JSON.parse((await cli('release',report.id)).stdout);expect(released.status).toBe('RELEASED');const output=join(root,'customer.html');await cli('export',report.id,output);expect(await readFile(output,'utf8')).toContain('Website Monitoring Report');
   await writeFile(join(root,'reports',released.artifact),'corrupted fixture artifact');await expect(cli('export',report.id,join(root,'corrupted-export.html'))).rejects.toThrow();
   await expect(exec(process.execPath,['node_modules/tsx/dist/cli.mjs','src/regstead/cli.ts','list','jobs'],{env:{...env,REGSTEAD_OPERATOR_TOKEN:'bad'}})).rejects.toThrow();
 },60000);
