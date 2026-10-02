@@ -66,6 +66,7 @@ No live resource has been created or changed. Immediately before execution, appr
 - Product: **Regstead Monitor**, active, owned by Regstead/Foundry Vale, metadata identifying `product=regstead` and one-primary-website scope.
 - Price: GBP 1699, recurring monthly, quantity one, no tiers, no trial, no discount, no Stripe Tax or automatic tax.
 - Billing Portal: update payment method, invoices where supported, and cancel at period end; no customer price/product switching.
+- Billing Portal configuration ID is injected as `REGSTEAD_STRIPE_PORTAL_CONFIG_ID`; production sessions explicitly select it so the shared Stripe account's default portal cannot leak another product's branding or controls.
 - Webhook endpoint: `https://app.regstead.co.uk/stripe/webhook`, with a production-only signing secret.
 - Events: `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `invoice.paid`, `invoice.payment_failed`, `customer.subscription.updated`, `customer.subscription.deleted`.
 - Restricted production API credential containing only the operations required for catalog read, Checkout, subscription truth and Billing Portal sessions.

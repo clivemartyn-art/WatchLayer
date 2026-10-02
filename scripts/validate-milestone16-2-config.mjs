@@ -25,6 +25,7 @@ requireText(stagingEnv,'https://staging-app.regstead.co.uk','staging env');
 requireText(stagingEnv,'STRIPE_LIVE_MODE=false','staging env');
 requireText(productionEnv,'https://app.regstead.co.uk','production env');
 requireText(productionEnv,'STRIPE_LIVE_MODE=true','production env');
+requireText(productionEnv,'REGSTEAD_STRIPE_PORTAL_CONFIG_ID=','production env');
 requireText(productionEnv,'EMAIL_PROVIDER=resend','production env');
 requireText(productionEnv,'REGSTEAD_TERMS_VERSION=monitor-2026-10-01','production env');
 if(/STRIPE_TAX|automatic_tax/i.test(productionEnv))throw new Error('production env: Stripe Tax must remain disabled');
